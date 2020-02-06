@@ -1,0 +1,108 @@
+\documentclass{article}
+
+\usepackage[a4paper,margin=2cm,bottom=2cm,top=2cm]{geometry}
+\usepackage[ngerman]{babel}
+\usepackage{lmodern} % soll besser aussehen (gedruckt)
+\usepackage[T1]{fontenc}       
+\usepackage[utf8]{inputenc}    
+
+
+% \usepackage{setspace}	% Zeilenabstand
+
+
+\usepackage{hyperref} % PDF-Metadaten
+
+% math packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+% \usepackage{titlesec} %Spacing bei \subsection, ..
+
+% Images
+\usepackage{graphicx}							
+
+% \titlespacing*{\section}{0pt}{0pt}{0pt}
+% \titlespacing*{\subsection}{0pt}{0pt}{0pt}
+% \titlespacing*{\subsubsection}{0pt}{0pt}{0pt}
+
+
+\setlength\parindent{0pt}
+\setlength\parskip{\baselineskip}
+% \pagestyle{headings}
+
+
+% code listings
+\usepackage{listings}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+
+\lstset{
+	basicstyle=\footnotesize\tt,
+	breakatwhitespace=false,		% Whether to only break lines at whitespace.
+	breaklines=false,						% Automatic line breaking.
+	commentstyle=\color{OliveGreen},
+	keywordstyle=\color{blue},
+	stringstyle=\color{red},
+	rulecolor=\color{black},		% Might change strangely, if unset.
+	frame=single,
+	keepspaces=true,
+	language=[11]c++,
+	morekeywords={},						% Coloured words.
+	showstringspaces=true,
+	showtabs=false,							% Only within strings.
+	tabsize=2,
+	%title=\lstname
+	%caption=\lstname
+	extendedchars=true,
+	breaklines=true,
+	prebreak=\mbox{\textcolor{red}{\textbackslash}},
+	postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space}
+}
+
+
+% header
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\setlength{\headheight}{1.2cm}
+\setlength{\headsep}{0.5cm}
+
+\lhead{\textit{Christian-Albrechts-Universität Kiel}}
+\chead{}
+\rhead{\thepage}
+
+\rfoot[]{}
+\lfoot[]{}
+\cfoot[]{}
+
+
+% multi column layout
+\usepackage{multicol}
+
+\usepackage{blindtext}
+
+\begin{document}
+\begin{titlepage}
+	\centering
+	\large
+	\vspace*{\fill}
+	\vspace{0.5\baselineskip}
+	Team reference document\\
+	\vspace{2.5\baselineskip}
+	Christian-Albrechts-Universität Kiel \\
+	\vspace{2\baselineskip}
+	\today \\
+	\vspace*{\fill}
+\end{titlepage}
+      
+\begin{multicols*}{2}
+  \lstset{language=[11]c++}
+  \lstinputlisting[title=Floyd Warshall]{graphs/FloydWarshall.cc}
+
+  \blindtext[3]
+\end{multicols*}
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
