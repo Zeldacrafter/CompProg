@@ -1,21 +1,20 @@
-#include <queue>
-#include <vector>
-using namespace std;
-typedef vector<int> vi;
 int V;
-vector<vi> adj_list(V);
+vvi adj(V);
 vi visited(V, 0), p(V, -1);
 void bfs(int start) {
-    queue<int> q;
-    q.push(start);
-    while (!q.empty()) {
-        int v = q.front();
-        q.pop();
-        for (int u : adj_list[v])
-            if (!visited[u]) q.push(u), visited[u] = 1, p[u] = v;
-    }
+  queue<int> q;
+  q.push(start);
+  visited[start] = 1;
+  while (!q.empty()) {
+    int curr = q.front();
+    q.pop();
+    for (int v : adj[curr])
+      if (!visited[v])
+        q.push(v), visited[v] = 1,
+                   p[v] = curr;
+  }
 }
 int main() {
-    for (int v = 0; v < V; ++v)
-        if (!visited[v]) bfs(v);
+  for (int v = 0; v < V; ++v)
+    if (!visited[v]) bfs(v);
 }

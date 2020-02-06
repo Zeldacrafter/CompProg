@@ -17,14 +17,16 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 
-% \usepackage{titlesec} %Spacing bei \subsection, ..
+\usepackage{titlesec} %Spacing bei \subsection, ..
+\titlespacing*{\section}{0pt}{0pt}{0pt}
+\titlespacing*{\subsection}{0pt}{0pt}{0pt}
+\titlespacing*{\subsubsection}{0pt}{0pt}{0pt}
+
+
 
 % Images
 \usepackage{graphicx}							
 
-% \titlespacing*{\section}{0pt}{0pt}{0pt}
-% \titlespacing*{\subsection}{0pt}{0pt}{0pt}
-% \titlespacing*{\subsubsection}{0pt}{0pt}{0pt}
 
 
 \setlength\parindent{0pt}
@@ -37,26 +39,24 @@
 \usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
 
 \lstset{
-	basicstyle=\footnotesize\tt,
-	breakatwhitespace=false,		% Whether to only break lines at whitespace.
-	breaklines=false,						% Automatic line breaking.
-	commentstyle=\color{OliveGreen},
-	keywordstyle=\color{blue},
-	stringstyle=\color{red},
-	rulecolor=\color{black},		% Might change strangely, if unset.
-	frame=single,
-	keepspaces=true,
-	language=[11]c++,
-	morekeywords={},						% Coloured words.
-	showstringspaces=true,
-	showtabs=false,							% Only within strings.
-	tabsize=2,
-	%title=\lstname
-	%caption=\lstname
-	extendedchars=true,
-	breaklines=true,
-	prebreak=\mbox{\textcolor{red}{\textbackslash}},
-	postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space}
+  basicstyle=\footnotesize\tt,
+  breakatwhitespace=false,
+  breaklines=false,
+  commentstyle=\color{OliveGreen},
+  keywordstyle=\color{blue},
+  stringstyle=\color{red},
+  rulecolor=\color{black},
+  frame=single,
+  keepspaces=true,
+  language=[11]c++,
+  morekeywords={},
+  showstringspaces=true,
+  showtabs=false,	
+  tabsize=2,
+  extendedchars=true,
+  breaklines=true,
+  prebreak=\mbox{\textcolor{red}{\textbackslash}},
+  postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space}
 }
 
 
@@ -79,27 +79,24 @@
 % multi column layout
 \usepackage{multicol}
 
-\usepackage{blindtext}
-
 \begin{document}
 \begin{titlepage}
-	\centering
-	\large
-	\vspace*{\fill}
-	\vspace{0.5\baselineskip}
-	Team reference document\\
-	\vspace{2.5\baselineskip}
-	Christian-Albrechts-Universität Kiel \\
-	\vspace{2\baselineskip}
-	\today \\
-	\vspace*{\fill}
+  \centering
+  \large
+  \vspace*{\fill}
+  \vspace{0.5\baselineskip}
+  Team reference document\\
+  \vspace{2.5\baselineskip}
+  Christian-Albrechts-Universität Kiel \\
+  \vspace{2\baselineskip}
+  \today \\
+  \vspace*{\fill}
 \end{titlepage}
       
 \begin{multicols*}{2}
-  \lstset{language=[11]c++}
-  \lstinputlisting[title=Floyd Warshall]{graphs/FloydWarshall.cc}
-
-  \blindtext[3]
+  \lstinputlisting[title=template]{template.cc}
+  \input{graphs/graphs}
+  
 \end{multicols*}
 \end{document}
 %%% Local Variables:
