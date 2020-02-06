@@ -1,25 +1,20 @@
-__int128 a;
-unsigned __int128 b;
-void print_it(
-    unsigned __int128
-        n) {  // 128 bit ints dont have a
-              // default print routine
+__uint128_t a; __int128_t b;
+void print_it(__int128_t n) {  
   if (n < 0) {
     cout << '-';
     n *= -1;
   }
   ll mod = 1000000000000000000;
-  string str;
+  string s;
   do {
     unsigned ll digits = n % mod;
-    string digitStr = to_string(digits);
-    string leading0s =
-        (digits != n)
-            ? string(18 - digitStr.length(),
-                     '0')
-            : "";
-    str = leading0s + digitStr + str;
+    string dStr = to_string(digits);
+    if(digits != n)
+        s = string(18 - dStr.length(), '0')
+            + dStr + s;
+    else
+        s = dStr + s;
     n = (n - digits) / mod;
   } while (n);
-  cout << str;
+  cout << s;
 }
