@@ -1,17 +1,26 @@
 \section{graphs}
 \subsection{traversal}
 
+\underline{Runtime:}\\
+With adjacency list: $\mathcal{O}(\lvert V \rvert + \lvert E \rvert)$ \\
+With adjacency matrix: $\mathcal{O}(\lvert V \rvert^2)$
 \lstinputlisting[title=DFS]{graphs/DFS.cc}
+\underline{Runtime:}\\
+With adjacency list: $\mathcal{O}(\lvert V \rvert + \lvert E \rvert)$ \\
+With adjacency matrix: $\mathcal{O}(\lvert V \rvert^2)$
 \lstinputlisting[title=BFS]{graphs/BFS.cc}
 
 \subsection{topological sort}
 
+\underline{Runtime:} $\mathcal{O}(\lvert V \rvert + \lvert E \rvert)$
 \lstinputlisting[title=DFS]{graphs/topoSortDFS.cc}
+\underline{Runtime:} $\mathcal{O}(\lvert V \rvert + \lvert E \rvert)$
 \lstinputlisting[title=Kahn]{graphs/topoSortKahn.cc}
 
 \subsection{connected components}
 
 \subsubsection{strongly connected components}
+\underline{Runtime:} $\mathcal{O}(\lvert V \rvert + \lvert E \rvert)$
 \lstinputlisting[title=SCC tarjan]{graphs/scc.cc}
 
 
@@ -22,7 +31,7 @@
 
 
 \subsubsection{all pairs shortest paths}
-
+\underline{Runtime:} $\mathcal{O}(\lvert V \rvert^3)$
 \lstinputlisting[title=Floyd Warshall]{graphs/FloydWarshall.cc}
 
 
