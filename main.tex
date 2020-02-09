@@ -1,37 +1,37 @@
 \documentclass{article}
 
+
 \usepackage[a4paper,margin=2cm,bottom=2cm,top=2cm]{geometry}
 \usepackage[ngerman]{babel}
-\usepackage{lmodern} % soll besser aussehen (gedruckt)
+\usepackage{lmodern}
 \usepackage[T1]{fontenc}       
 \usepackage[utf8]{inputenc}    
 
 
-% \usepackage{setspace}	% Zeilenabstand
+% font for more readable code
+\usepackage{dejavu}
 
-
-\usepackage{hyperref} % PDF-Metadaten
 
 % math packages
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
 
-\usepackage{titlesec} %Spacing bei \subsection, ..
+
+% spacing for section headings
+\usepackage{titlesec} 
 \titlespacing*{\section}{0pt}{0pt}{0pt}
 \titlespacing*{\subsection}{0pt}{0pt}{0pt}
 \titlespacing*{\subsubsection}{0pt}{0pt}{0pt}
 
 
-
-% Images
-\usepackage{graphicx}							
-
+% images
+\usepackage{graphicx}
 
 
+% more spacing related settings
 \setlength\parindent{0pt}
 \setlength\parskip{\baselineskip}
-% \pagestyle{headings}
 
 
 % code listings
@@ -39,7 +39,7 @@
 \usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
 
 \lstset{
-  basicstyle=\footnotesize\tt,
+  basicstyle=\footnotesize\ttfamily,
   breakatwhitespace=false,
   breaklines=false,
   commentstyle=\color{OliveGreen},
@@ -100,7 +100,7 @@
   
 \end{multicols*}
 
-\subsection{Max. Annehmbare Laufzeiten}
+\section{acceptable runtimes}
 \begin{table*}[h]
 	\centering
 	\begin{tabular}[t]{c c c}
