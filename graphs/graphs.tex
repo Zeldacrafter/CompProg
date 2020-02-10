@@ -36,9 +36,23 @@ With adjacency matrix: $\mathcal{O}(\lvert V \rvert^2)$
 
 \subsection{Maximum flow}
 
-\underline{Runtime:} $\mathcal{O}(\lvert V \rvert^5)$ can be
-$\mathcal{O}(\lvert V \rvert \lvert E \rvert^2)$ w/ adjacency lists
-\lstinputlisting[title=Edmonds Karp]{graphs/EdmondsKarp.cc}
+\textbf{Max-flow min-cut theorem.} The maximum value of an $s$-$t$ flow is
+equal to the minimum capacity over all $s$-$t$ cuts
+
+\underline{Runtime:} $\mathcal{O}(\lvert V \rvert^5)$
+\lstinputlisting[title=Edmonds Karp w/ adjacency matrix]{graphs/EdmondsKarpMatrix.cc}
+
+\underline{Runtime:} $\mathcal{O}(\lvert V \rvert \lvert E \rvert^2)$
+\lstinputlisting[title=Edmonds Karp w/ adjacency
+lists]{graphs/EdmondsKarpLists.cc}
+
+\subsubsection{Minimum s-t cut}
+
+To find a minimal $s$-$t$ cut find all nodes that are reachable in the
+residual network for a network w/ maximum flow from $s$ and $t$
+respectively.
+
+\lstinputlisting{graphs/s-t.cc}
 
 %%% Local Variables:
 %%% mode: latex
