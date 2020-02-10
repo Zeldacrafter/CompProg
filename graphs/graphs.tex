@@ -1,5 +1,5 @@
-\section{graphs}
-\subsection{traversal}
+\section{Graphs}
+\subsection{Traversal}
 
 \underline{Runtime:}\\
 With adjacency list: $\mathcal{O}(\lvert V \rvert + \lvert E \rvert)$ \\
@@ -10,30 +10,35 @@ With adjacency list: $\mathcal{O}(\lvert V \rvert + \lvert E \rvert)$ \\
 With adjacency matrix: $\mathcal{O}(\lvert V \rvert^2)$
 \lstinputlisting[title=BFS]{graphs/BFS.cc}
 
-\subsection{topological sort}
+\subsection{Topological sort}
 
 \underline{Runtime:} $\mathcal{O}(\lvert V \rvert + \lvert E \rvert)$
 \lstinputlisting[title=DFS]{graphs/topoSortDFS.cc}
 \underline{Runtime:} $\mathcal{O}(\lvert V \rvert + \lvert E \rvert)$
 \lstinputlisting[title=Kahn]{graphs/topoSortKahn.cc}
 
-\subsection{connected components}
+\subsection{Connected components}
 
-\subsubsection{strongly connected components}
+\subsubsection{Strongly connected components}
 \underline{Runtime:} $\mathcal{O}(\lvert V \rvert + \lvert E \rvert)$
 \lstinputlisting[title=SCC Tarjan]{graphs/scc.cc}
 
 
-\subsection{shortest paths}
+\subsection{Shortest paths}
 
-\subsubsection{single source shortest path}
+\subsubsection{Single source shortest path}
 
 
 
-\subsubsection{all pairs shortest paths}
+\subsubsection{All pairs shortest paths}
 \underline{Runtime:} $\mathcal{O}(\lvert V \rvert^3)$
 \lstinputlisting[title=Floyd Warshall]{graphs/FloydWarshall.cc}
 
+\subsection{Maximum flow}
+
+\underline{Runtime:} $\mathcal{O}(\lvert V \rvert^5)$ can be
+$\mathcal{O}(\lvert V \rvert \lvert E \rvert^2)$ w/ adjacency lists
+\lstinputlisting[title=Edmonds Karp]{graphs/EdmondsKarp.cc}
 
 %%% Local Variables:
 %%% mode: latex
