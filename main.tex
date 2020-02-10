@@ -29,6 +29,11 @@
 \usepackage{graphicx}
 
 
+% spacing for itemize/enumerate
+\usepackage{enumitem}
+\setlist{nosep}
+
+
 % more spacing related settings
 \setlength\parindent{0pt}
 \setlength\parskip{\baselineskip}
@@ -96,8 +101,9 @@
 \begin{multicols*}{2}
   \lstinputlisting[title=template]{template.cc}
   \input{graphs/graphs}
+  \input{dataStructures/dataStructures}
   \input{utils/utils}
-  \input{numberTheory/numberTheory.tex}
+  \input{numberTheory/numberTheory}
   \input{math}  
 \end{multicols*}
 
