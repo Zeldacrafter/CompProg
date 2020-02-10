@@ -1,3 +1,4 @@
 BasedOnStyle: Google
 IndentWidth: 2
 ColumnLimit: 45
+ForEachMacros: ['FOR', 'F0R', 'ROF', 'R0F', 'FORI', 'ROFI']
