@@ -1,6 +1,3 @@
-#define EPS 1e-9
-typedef complex<double> ci;
-
 struct Line {
   double a, b, c;
 };  // ax + by + c = 0
@@ -84,7 +81,6 @@ double distToLineSegment(ci p, ci a, ci b) {
 double angle(ci a, ci b, ci o) {
   ci ao = a - o;
   ci bo = b - o;
-  // TODO: Do this with arg(ci) ?
   double angle = atan2(imag(bo), real(bo)) -
                  atan2(imag(ao), real(ao));
   if (angle < 0) angle += 2 * M_PI;

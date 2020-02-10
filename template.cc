@@ -7,6 +7,8 @@ typedef vector<int> vi;
 typedef vector<ii> vii;
 typedef vector<vi> vvi;
 typedef vector<vii> vvii;
+typedef complex<int> ci;
+typedef complex<double> cd;
 #define fi first
 #define se second
 #define ALL(x) (x).begin(), (x).end()

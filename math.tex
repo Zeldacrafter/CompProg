@@ -10,14 +10,6 @@ For $\lvert q \rvert < 1$ the corresponding infinite sum converges:
 \sum_{i = 1}^{\infty} q^k = \frac{1}{1 - q}
 \]
 
-\subsection{Derangements}
-Amount of permutations of a set with $n$ elements such that no element is at its starting position.
-\begin{lstlisting} 
-der(0) = 1
-der(1) = 0
-der(n) = (n-1)*(der(n-1)+der(n-2))
-\end{lstlisting}
-
 \subsection{Picks Theorem}
 For every polygon with integer-only coordinates with following holds for the area $A$, amount of interior integer points $i$ and amount of boundary points $b$:
 \[
@@ -32,3 +24,32 @@ For every planar graph $G$ the following holds:
 \[
 V - E + F = 2
 \]
+
+\subsection{Combinatorics}
+%TODO(Alex): Basic combinatorics
+\subsubsection{Derangements}
+Amount of permutations of a set with $n$ elements such that no element is at its starting position.
+\begin{lstlisting} 
+der(0) = 1
+der(1) = 0
+der(n) = (n-1)*(der(n-1)+der(n-2))
+\end{lstlisting}
+\subsubsection{Hypergeometric distribution}
+Set with $N$ elements of which $K$ have a wanted property. The probability of $k$ elements having property $K$ when choosing $n$ is
+\[
+H = \frac{
+	\left(\begin{array}{c}K\\k\end{array}\right)
+	\cdot 
+	\left(\begin{array}{c}N-K\\n-k\end{array}\right)
+}
+{
+	\left(\begin{array}{c}N\\n\end{array}\right)
+}
+\]
+\subsection{Newton Method}
+%TODO(Alex): More information when to use.
+The intersections of a function $f$ with the x-axis can be approximated iteratively:
+\[
+x_{n + 1} = x_n - \frac{f(x_n)}{f'(x_n)} 
+\]
+The method converges towards the solution quadratically therefore doubleing the amount of correct decimal places every iteration.
