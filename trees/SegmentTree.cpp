@@ -1,7 +1,4 @@
-#include <limits>
-#include <vector>
-using namespace std;
-typedef vector<int> vi;
+//TODO(Alex): Lazy updates, example for complex queries?
 vi A;                // the array on which the range queries are performed;
 class SegmentTree {  // segment tree for range maximum queries
    private:

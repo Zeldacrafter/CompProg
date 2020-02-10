@@ -1,0 +1,34 @@
+\section{Math}
+
+\subsection{Geometric Series}
+Geometric series for $q \neq 1$:
+\[
+\sum\limits_{k=1}^n q^k = \frac{1-q^{n+1}}{1-q}
+\]
+For $\lvert q \rvert < 1$ the corresponding infinite sum converges:
+\[
+\sum_{i = 1}^{\infty} q^k = \frac{1}{1 - q}
+\]
+
+\subsection{Derangements}
+Amount of permutations of a set with $n$ elements such that no element is at its starting position.
+\begin{lstlisting} 
+der(0) = 1
+der(1) = 0
+der(n) = (n-1)*(der(n-1)+der(n-2))
+\end{lstlisting}
+
+\subsection{Picks Theorem}
+For every polygon with integer-only coordinates with following holds for the area $A$, amount of interior integer points $i$ and amount of boundary points $b$:
+\[
+A = i + \frac{b}{2} - 1
+\]
+Calculation of border points:
+\lstinputlisting{geometry/picksTheorem.cc}
+For polygon area see the geometry section.
+
+\subsection{Eulers Formular for Planar Graphs}
+For every planar graph $G$ the following holds:
+\[
+V - E + F = 2
+\]

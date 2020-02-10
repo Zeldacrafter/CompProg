@@ -8,7 +8,7 @@ int tsp(int pos, int mask) {
   if (A[pos][mask] != -1)
     return A[pos][mask];
   int minV = 100000000;
-  for (int i = 0; i < N; ++i) {
+  F0R(i, N) {
     if (i != pos && !(mask & (1 << i)))
       minV = min(
           minV, dist[pos][i] +

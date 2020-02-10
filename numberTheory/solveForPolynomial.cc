@@ -5,10 +5,10 @@ void SolveForCoefficients(const vi& x,
   // Applicable for any field. Not just
   // int/reals.
   int n = x.size();
-  for (int i = 0; i < n - 1; i = i + 1)
-    for (int j = i + 1; j < n; j = j + 1)
+  F0R(i, n - 1)
+    FOR(j, i + 1, n)
       y[j] = (y[j] - y[i]) / (x[j] - x[i]);
-  for (int i = n - 2; i >= 0; i = i - 1)
-    for (int j = i; j < n - 1; j = j + 1)
+  R0F(i, n - 2)
+    FOR(j, i, n - 1)
       y[j] = y[j] - (x[i] * y[j + 1]);
 }

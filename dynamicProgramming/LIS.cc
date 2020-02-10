@@ -17,7 +17,7 @@ int main() {
   // in the actual array
   vi prev(N, -1);
   int list = 0;
-  for (int i = 0; i < A.size(); ++i) {
+  F0R(i, A.size()) {
     // the position in the sub sequence where
     // the next element would fit in so that
     // the previous element is strictly

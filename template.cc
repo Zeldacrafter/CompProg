@@ -32,6 +32,8 @@ typedef vector<vii> vvii;
 #define ROFI(a, b)             \
   for (auto(a) = (b).rbegin(); \
        (a) != (b).rend(); ++(a))
+#define CEIL(a, b)             \
+  ((a) + (b) - 1) / (b)
 const int xd[4] = {0, 1, 0, -1},
           yd[4] = {1, 0, -1, 0};
 template <typename t>
