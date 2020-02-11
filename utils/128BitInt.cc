@@ -4,7 +4,7 @@ void print_it(__int128_t n) {
     cout << '-';
     n *= -1;
   }
-  ll mod = 1000000000000000000;
+  ll mod = 1e18;
   string s;
   do {
     unsigned ll digits = n % mod;

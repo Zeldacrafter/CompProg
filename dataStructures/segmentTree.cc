@@ -34,10 +34,10 @@ class SegmentTree {
   }
 
  public:
-  SegmentTree() : value(A.size() * 4) {
-    build(1, 0, A.size() - 1);
+  SegmentTree() : value(SZ(A) * 4) {
+    build(1, 0, SZ(A) - 1);
   }
   int rmq(int i, int j) {
-    return rmq(1, 0, A.size() - 1, i, j);
+    return rmq(1, 0, SZ(A) - 1, i, j);
   }
 };

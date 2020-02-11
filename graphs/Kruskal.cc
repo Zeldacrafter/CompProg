@@ -10,7 +10,7 @@ int main() {
   unionFind uf(V);
   double weigth = 0;
   vi mst;
-  for (int i = 0; uf.size() != 1; ++i) {
+  for (int i = 0; SZ(uf) != 1; ++i) {
     int a = uf.find(get<0>(edges[i]));
     int b = uf.find(get<1>(edges[i]));
     if (a != b) {
