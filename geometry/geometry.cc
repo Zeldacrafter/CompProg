@@ -93,7 +93,9 @@ double cross(ci a, ci b) {
 }
 
 double dir(ci p, ci q, ci r) {
-  return cross(p - q, p - r);
+  return real(p) * (imag(q) - imag(r)) +
+         real(q) * (imag(r) - imag(p)) +
+         real(r) * (imag(p) - imag(q));
 }
 
 bool ccw(ci p, ci q, ci r) {

@@ -104,6 +104,7 @@
   \input{dataStructures/dataStructures}
   \input{utils/utils}
   \input{numberTheory/numberTheory}
+  \input{geometry/geometry}
   \input{math}  
 \end{multicols*}
 
@@ -115,19 +116,19 @@
 		$n$ & Worst AC Algorithm & Comment\\ [0.5ex]
 		\hline
 		\hline
-		$\leq 10$ & $O(n!), O(n^6)$ & e.g. Enumerating a Permutation\\
+		$\leq 10$ & $\mathcal{O}(n!), \mathcal{O}(n^6)$ & e.g. Enumerating a Permutation\\
 		\hline
-		$\leq 20$ & $O(2^n), O(n^5)$ & e.g. DP + Bitmask Technique\\
+		$\leq 20$ & $\mathcal{O}(2^n), \mathcal{O}(n^5)$ & e.g. DP + Bitmask Technique\\
 		\hline
-		$\leq 50$ & $O(n^4)$ & e.g. DP with $3$ dimensions $+O(n)$ loop, choosing $_nC_k=4$\\
+		$\leq 50$ & $\mathcal{O}(n^4)$ & e.g. DP with $3$ dimensions $+\mathcal{O}(n)$ loop, choosing $_nC_k=4$\\
 		\hline
-		$\leq 10^2$ & $O(n^3)$ & e.g. Floyd Warshall’s\\
+		$\leq 10^2$ & $\mathcal{O}(n^3)$ & e.g. Floyd Warshall’s\\
 		\hline
-		$\leq 10^3$ & $O(n^2)$ & e.g. Bubble/Selection/Insertion Sort\\
+		$\leq 10^3$ & $\mathcal{O}(n^2)$ & e.g. Bubble/Selection/Insertion Sort\\
 		\hline
-		$\leq 10^5$ & $O(n log_2 n)$ & e.g. Merge Sort, building Segment Tree\\
+		$\leq 10^5$ & $\mathcal{O}(n log_2 n)$ & e.g. Merge Sort, building Segment Tree\\
 		\hline
-		$\leq 10^6$ & $O(n),O(log_2n),O(1)$ & usually, contest problem has $n\leq 10^6$(e.g. to read input)\\
+		$\leq 10^6$ & $\mathcal{O}(n),\mathcal{O}(log_2n),\mathcal{O}(1)$ & usually, contest problem has $n\leq 10^6$(e.g. to read input)\\
 		\hline
 	\end{tabular}
 \end{table*}
