@@ -19,6 +19,7 @@ typedef complex<double> cd;
 #define pb push_back
 #define mp make_pair
 #define mt make_tuple
+#define ge(a, b) get<(b)>((a))
 #define SZ(x) (x).size()
 #define ft front
 #define bk back

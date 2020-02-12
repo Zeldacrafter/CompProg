@@ -32,9 +32,13 @@ With adjacency matrix: $\mathcal{O}(\lvert V \rvert^2)$
 \subsection{Shortest paths}
 
 \subsubsection{Single source shortest path}
+\underline{Runtime:}
+$\mathcal{O}((\lvert E \rvert + \lvert V \rvert )\log \lvert V
+\rvert)$
 \lst{Djikstra}{graphs/Djikstra.cc}
 
-
+\underline{Runtime:} $\mathcal{O}(\lvert E \rvert \lvert V \rvert)$
+\lst{Bellman Ford}{graphs/BellmanFord.cc}
 \subsubsection{All pairs shortest paths}
 \underline{Runtime:} $\mathcal{O}(\lvert V \rvert^3)$
 \lst{Floyd Warshall}{graphs/FloydWarshall.cc}
