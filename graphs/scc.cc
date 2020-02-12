@@ -1,3 +1,4 @@
+#include "../template.cc"
 const int UNVISITED = -1;
 int N;
 vvi adj(N);

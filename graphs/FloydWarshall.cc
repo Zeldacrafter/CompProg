@@ -1,3 +1,4 @@
+#include "../template.cc"
 void floydWarshall() {
   F0R(k, V)
     F0R(i, V)

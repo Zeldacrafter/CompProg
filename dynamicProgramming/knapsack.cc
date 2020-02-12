@@ -1,3 +1,4 @@
+#include "../template.cc"
 vector<vi> A(1000, vi(31000, NINF));
 vii I(1000);  // {weight, profit}
 int N;

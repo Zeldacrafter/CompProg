@@ -1,3 +1,4 @@
+#include "../template.cc"
 ll onEdge(vii pts) {
   // Assume pts[0] = pts[SZ(pts) - 1]
   ll res = SZ(pts);

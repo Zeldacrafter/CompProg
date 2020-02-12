@@ -1,3 +1,4 @@
+#include "../template.cc"
 void LIS(const vi& A) {
   int len = 0, lis_end = 0, n = SZ(A);
   vi p(n, -1);

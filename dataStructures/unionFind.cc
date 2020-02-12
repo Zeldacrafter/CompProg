@@ -1,3 +1,4 @@
+#include "../template.cc"
 class unionFind {
  public:
   unionFind(int size)

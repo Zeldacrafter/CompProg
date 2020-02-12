@@ -4,40 +4,40 @@
 \underline{Runtime:}\\
 With adjacency list: $\mathcal{O}(\lvert V \rvert + \lvert E \rvert)$ \\
 With adjacency matrix: $\mathcal{O}(\lvert V \rvert^2)$
-\lstinputlisting[title=DFS]{graphs/DFS.cc}
+\lst{DFS}{graphs/DFS.cc}
 \underline{Runtime:}\\
 With adjacency list: $\mathcal{O}(\lvert V \rvert + \lvert E \rvert)$ \\
 With adjacency matrix: $\mathcal{O}(\lvert V \rvert^2)$
-\lstinputlisting[title=BFS]{graphs/BFS.cc}
+\lst{BFS}{graphs/BFS.cc}
 
 \subsection{Topological sort}
 
 \underline{Runtime:} $\mathcal{O}(\lvert V \rvert + \lvert E \rvert)$
-\lstinputlisting[title=DFS]{graphs/topoSortDFS.cc}
+\lst{DFS}{graphs/topoSortDFS.cc}
 \underline{Runtime:} $\mathcal{O}(\lvert V \rvert + \lvert E \rvert)$
-\lstinputlisting[title=Kahn]{graphs/topoSortKahn.cc}
+\lst{Kahn}{graphs/topoSortKahn.cc}
 
 \subsection{Connected components}
 
 \subsubsection{Strongly connected components}
 \underline{Runtime:} $\mathcal{O}(\lvert V \rvert + \lvert E \rvert)$
-\lstinputlisting[title=SCC Tarjan]{graphs/scc.cc}
+\lst{SCC Tarjan}{graphs/scc.cc}
 
 
 \subsection{Minimal spanning tree}
 \underline{Runtime:} $\mathcal{O}(\lvert E \rvert \log \lvert V
 \rvert) = \mathcal{O}(\lvert E \rvert \log \lvert E \rvert)$
-\lstinputlisting[title=Kruskal]{graphs/Kruskal.cc}
+\lst{Kruskal}{graphs/Kruskal.cc}
 
 \subsection{Shortest paths}
 
 \subsubsection{Single source shortest path}
-
+\lst{Djikstra}{graphs/Djikstra.cc}
 
 
 \subsubsection{All pairs shortest paths}
 \underline{Runtime:} $\mathcal{O}(\lvert V \rvert^3)$
-\lstinputlisting[title=Floyd Warshall]{graphs/FloydWarshall.cc}
+\lst{Floyd Warshall}{graphs/FloydWarshall.cc}
 
 \subsection{Maximum flow}
 
@@ -45,11 +45,10 @@ With adjacency matrix: $\mathcal{O}(\lvert V \rvert^2)$
 equal to the minimum capacity over all $s$-$t$ cuts
 
 \underline{Runtime:} $\mathcal{O}(\lvert V \rvert^5)$
-\lstinputlisting[title=Edmonds Karp w/ adjacency matrix]{graphs/EdmondsKarpMatrix.cc}
+\lst{Edmonds Karp w/ adjacency matrix}{graphs/EdmondsKarpMatrix.cc}
 
 \underline{Runtime:} $\mathcal{O}(\lvert V \rvert \lvert E \rvert^2)$
-\lstinputlisting[title=Edmonds Karp w/ adjacency
-lists]{graphs/EdmondsKarpLists.cc}
+\lst{Edmonds Karp w/ adjacency lists}{graphs/EdmondsKarpLists.cc}
 
 \subsubsection{Minimum s-t cut}
 
@@ -57,7 +56,7 @@ To find a minimal $s$-$t$ cut find all nodes that are reachable in the
 residual network for a network w/ maximum flow from $s$ and $t$
 respectively.
 
-\lstinputlisting{graphs/s-t.cc}
+\lstwot{graphs/s-t.cc}
 
 %%% Local Variables:
 %%% mode: latex

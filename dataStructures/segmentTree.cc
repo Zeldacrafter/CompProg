@@ -1,3 +1,4 @@
+#include "../template.cc"
 // TODO(Alex): Lazy updates, example for
 // complex queries?
 vi A;  // the array on which the range

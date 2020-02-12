@@ -1,3 +1,4 @@
+#include "../template.cc"
 const ll inf = 10e12;
 // initialize non existing edges w/ 0
 // initialize residual edges w/ maxf =

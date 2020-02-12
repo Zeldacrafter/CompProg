@@ -1,20 +1,23 @@
 \section{Number Theory}
 \subsection{GCD and LCM}
-\lstinputlisting{numberTheory/gcd_lcm.cc}
+\lstwot{numberTheory/gcd_lcm.cc}
 
 \subsection{Coefficients of a Polynomial}
 \underline{Runtime:} $\mathcal{O}(n^2)$ \\
 For any polynomial with $p(x_i) = y_i$ where all $x_i$ are distinct
 coefficients can be calculated the following way:
-\lstinputlisting{numberTheory/getCoefficiants.cc}
+\lstwot{numberTheory/getCoefficiants.cc}
 This works for any field. Not just $ints$/$reals$.
-
 \subsection{Modular Exponentiation}
 \underline{Runtime:} $\mathcal{O}(\log n)$
-\lstinputlisting{numberTheory/modpow.cc}
+\lstwot{numberTheory/modpow.cc}
 
 \subsection{Probabilistic Prime Number Test}
 \underline{Runtime:} $\mathcal{O}(iter \cdot \log^3 n)$
-\lstinputlisting[title=MillerRabin]{numberTheory/millerRabin.cc}
+\lst{MillerRabin}{numberTheory/millerRabin.cc}
 $4^{-iter}$ chance for false positive ($1 - 4^{-10} \approx 99.999905\%$). If MillerRabin returns false the number is guaranteed composite.
 %TODO(Alex): Deterministic version for 64 bit integers.
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:

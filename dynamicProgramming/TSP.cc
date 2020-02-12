@@ -1,3 +1,4 @@
+#include "../template.cc"
 vector<vi> A(12, vi(2048, -1));
 vector<vi> dist(11, vi(11));  // adj matrix
 int N;

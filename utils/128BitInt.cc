@@ -1,3 +1,4 @@
+#include "../template.cc"
 __uint128_t a; __int128_t b;
 void print_it(__int128_t n) {  
   if (n < 0) {

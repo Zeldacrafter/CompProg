@@ -1,3 +1,4 @@
+#include "../template.cc"
 // node a, node b, distance from a to b
 typedef tuple<int, int, double> iid;
 class unionFind;

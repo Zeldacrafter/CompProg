@@ -1,3 +1,4 @@
+#include "../template.cc"
 const ll inf = 10e12;
 struct edge {
   edge(int from, int to, ll maxf)

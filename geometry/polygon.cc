@@ -1,3 +1,4 @@
+#include "../template.cc"
 bool inPolygon(vector<ci> pts, ci p) {
   // Assume that pts[0] = pts[SZ(pts) - 1]
   if (!SZ(pts)) return false;

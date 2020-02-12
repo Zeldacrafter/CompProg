@@ -1,3 +1,4 @@
+#include "../template.cc"
 struct Line {
   double a, b, c;
 };  // ax + by + c = 0

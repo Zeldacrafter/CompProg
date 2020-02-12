@@ -1,5 +1,6 @@
+#include "../template.cc"
 bool checkComp(ll n, ll a, ll d, int s) {
-  ll x = binpower(a, d, n);
+  ll x = modpow(a, d, n);
   if (x == 1 || x == n - 1) return false;
   FOR (r, 1, s) {
     x = (__int128)x * x % n;

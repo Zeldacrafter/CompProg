@@ -1,3 +1,4 @@
+#include "../template.cc"
 // edge implementation is the same as in
 // Edmonds Karp w/ adjacency lists
 vector<edge> edges;

@@ -1,3 +1,4 @@
+#include "../template.cc"
 int N;
 vvi adj(N);
 vi visited(N, 0);

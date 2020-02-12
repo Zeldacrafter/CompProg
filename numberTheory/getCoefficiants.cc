@@ -1,3 +1,4 @@
+#include "../template.cc"
 void getCoefficients(const vector<double>& x,
                      vector<double>& y) {
   F0R (i, SZ(x) - 1)

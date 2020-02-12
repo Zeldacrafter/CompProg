@@ -1,3 +1,4 @@
+#include "../template.cc"
 int gcd(int a, int b) {
   return !b ? a : gcd(a, a % b);
 }

@@ -1,3 +1,4 @@
+#include "../template.cc"
 int V;
 vii adj(V);
 vi visited(V, 0), p(V, -1);

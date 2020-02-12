@@ -61,9 +61,11 @@
   extendedchars=true,
   breaklines=true,
   prebreak=\mbox{\textcolor{red}{\textbackslash}},
-  postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space}
+  postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
 }
 
+\newcommand{\lst}[2]{\lstinputlisting[title=#1, firstline=2]{#2}}
+\newcommand{\lstwot}[1]{\lstinputlisting[firstline=2]{#1}}
 
 % header
 \usepackage{fancyhdr}
@@ -99,7 +101,7 @@
 \end{titlepage}
       
 \begin{multicols*}{2}
-  \lstinputlisting[title=template]{template.cc}
+  \lst{template}{template.cc}
   \input{graphs/graphs}
   \input{dataStructures/dataStructures}
   \input{utils/utils}
