@@ -23,6 +23,7 @@ typedef complex<double> cd;
 #define ft front
 #define bk back
 #define ins insert
+#define endl '\n';
 #define FOR(a, b, c) \
   for (auto(a) = (b); (a) < (c); ++(a))
 #define ROF(a, b, c) \
