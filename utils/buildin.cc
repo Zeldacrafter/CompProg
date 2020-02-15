@@ -1,4 +1,4 @@
-#include "template.cc"
+#include "../template.cc"
 // Returns one plus the index of the least
 // significant 1-bit of x, or if x is zero,
 // returns zero.

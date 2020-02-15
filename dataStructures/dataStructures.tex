@@ -24,6 +24,16 @@
 For a set with $n$ elements $m \geq n$ mixed union and find operations need a maximum of $\mathcal{O}(m \cdot \alpha(m, n)) \approx \mathcal{O}(n)$ time.
 \lstwot{dataStructures/unionFind.cc}
 
+\subsection{Sparse Table}
+Range queries for any function $f$ where reapplication does not change the result (min, max, gcd, lcm). Dynamic updates are not possible.
+%TODO(Alex): Other functions (sum..)
+\underline{Runtime:}
+\begin{itemize}
+	\item Build: $\mathcal{O}(n \log n)$
+	\item Query: $\mathcal{O}(1)$
+\end{itemize}
+\lst{Sparse Table}{dataStructures/sparseTable.cc}
+
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "../main"
