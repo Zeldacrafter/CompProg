@@ -29,11 +29,17 @@ Range queries for any function $f$ where reapplication does not change the resul
 %TODO(Alex): Other functions (sum..)
 \underline{Runtime:}
 \begin{itemize}
-	\item Build: $\mathcal{O}(n \log n)$
-	\item Query: $\mathcal{O}(1)$
+\item Build: $\mathcal{O}(n \log n)$
+\item Query: $\mathcal{O}(1)$
 \end{itemize}
-\lst{Sparse Table}{dataStructures/sparseTable.cc}
-
+\lst{1D Sparse Table}{dataStructures/sparseTable.cc}
+\underline{Runtime:}
+\begin{itemize}
+\item Build: $\mathcal{O}(n\cdot m \cdot \log n \cdot \log m)$
+\item Query: $\mathcal{O}(1)$
+\end{itemize}
+%TODO(Alex): Formatting in code
+\lst{2D Sparse Table}{dataStructures/sparseTable2D.cc}
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "../main"
