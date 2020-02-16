@@ -1,4 +1,5 @@
 #include "../template.cc"
+const int inf = 1e9;
 // vertex a, vertex b, distance
 typedef tuple<int, int, int> iii;
 void bellmanFord(vector<iii>& edges,

@@ -21,10 +21,10 @@ typedef complex<double> cd;
 #define mt make_tuple
 #define ge(a, b) get<(b)>((a))
 #define SZ(x) (x).size()
-#define ft front
-#define bk back
+#define ft front()
+#define bk back()
 #define ins insert
-#define endl '\n';
+#define endl '\n'
 #define FOR(a, b, c) \
   for (auto(a) = (b); (a) < (c); ++(a))
 #define ROF(a, b, c) \
