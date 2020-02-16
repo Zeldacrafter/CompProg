@@ -19,6 +19,22 @@ With adjacency matrix: $\mathcal{O}(\lvert V \rvert^2)$
 
 \subsection{Connected components}
 
+\subsubsection{Bridges}
+
+Bridges are edges that increase the number of connected components if
+removed.
+
+\underline{Runtime:} $\mathcal{O}(\lvert V \rvert + \lvert E \rvert)$
+\lstwot{graphs/bridges.cc}
+
+\subsubsection{Articulation Points}
+
+Articulation Points are vertices that increase the number of connected
+components if removed.
+
+\underline{Runtime:} $\mathcal{O}(\lvert V \rvert + \lvert E \rvert)$
+\lstwot{graphs/articulationPoints.cc}
+
 \subsubsection{Strongly connected components}
 \underline{Runtime:} $\mathcal{O}(\lvert V \rvert + \lvert E \rvert)$
 \lst{SCC Tarjan}{graphs/scc.cc}
