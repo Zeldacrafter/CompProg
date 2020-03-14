@@ -38,6 +38,7 @@ typedef complex<double> cd;
   for (auto(a) = (b).rbegin(); \
        (a) != (b).rend(); ++(a))
 #define CEIL(a, b) ((a) + (b)-1) / (b)
+#define SET(a, b) memset((a), (b), sizeof(a))
 const int xd[4] = {0, 1, 0, -1},
           yd[4] = {1, 0, -1, 0};
 template <typename t>

@@ -6,7 +6,7 @@ class FenwickTree {
   int inline LSOne(int i) {
     return i & (-i);
   }
-  int querry(int i) {
+  int query(int i) {
     int sum = 0;
     for (; i; i -= LSOne(i)) sum += A[i];
     return sum;
@@ -18,7 +18,7 @@ class FenwickTree {
     for (; i <= n; i += LSOne(i))
       A[i] += adjustBy;
   }
-  int querry(int i, int j) {
-    return querry(j) - querry(i - 1);
+  int query(int i, int j) {
+    return query(j) - query(i - 1);
   }
 };
