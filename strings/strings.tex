@@ -1,0 +1,12 @@
+\section{Strings}
+\subsection{Manachers}
+% source: https://www.hackerrank.com/topics/manachers-algorithm
+Returns array where $P[i]$ contains the length of the palindrome with mid-point $i$.\\
+There are extra entries for where the mid-point is inbetween letters.\\
+Example for $abbaac$:
+\begin{lstlisting}
+| a | b | b | a | a | a | c |
+0 1 0 1 4 1 0 1 2 3 2 1 0 1 0
+\end{lstlisting}
+\underline{Runtime:} $\mathcal{O}(n)$
+\lst{Manachers}{strings/manachers.cc}
