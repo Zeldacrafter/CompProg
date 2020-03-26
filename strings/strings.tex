@@ -14,8 +14,17 @@ Example for $abbaac$:
 \end{lstlisting}
 \underline{Runtime:} $\mathcal{O}(n)$
 \lst{Manachers}{strings/manachers.cc}
-
-
+\subsection{Aho-Corasick Automaton}
+% See for detailed explaination:
+% http://web.stanford.edu/class/archive/cs/cs166/cs166.1166/lectures/02/Small02.pdf
+% TODO(Alex): Test query() call extensively. Build + insert are okay for sure.
+Data structure to search how often $n$ fixed strings $t_1, \dots, t_n$ are contained in a variable string $S$. Strings $t_j$ may each have values.\\
+\underline{Runtime:}
+\begin{itemize}
+	\item Build: $\mathcal{O}(\sum \lvert t_j \rvert)$
+	\item Query: $\mathcal{O}(\lvert S \rvert)$
+\end{itemize}
+\lst{Aho-Corasick Automaton}{strings/aho_corasick.cc}
 
 %%% Local Variables:
 %%% mode: latex
