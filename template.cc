@@ -2,14 +2,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
-typedef long double ld;
 typedef pair<int, int> ii;
 typedef vector<int> vi;
 typedef vector<ii> vii;
 typedef vector<vi> vvi;
 typedef vector<vii> vvii;
-typedef complex<int> ci;
-typedef complex<double> cd;
 #define fi first
 #define se second
 #define ALL(x) (x).begin(), (x).end()
@@ -23,7 +20,6 @@ typedef complex<double> cd;
 #define SZ(x) (x).size()
 #define ft front()
 #define bk back()
-#define ins insert
 #define endl '\n'
 #define FOR(a, b, c) \
   for (auto(a) = (b); (a) < (c); ++(a))
@@ -31,14 +27,13 @@ typedef complex<double> cd;
   for (auto(a) = (b); (a) > (c); --(a))
 #define F0R(a, b) FOR ((a), 0, (b))
 #define R0F(a, b) ROF ((a), (b), -1)
-#define FORI(a, b)            \
-  for (auto(a) = (b).begin(); \
-       (a) != (b).end(); ++(a))
-#define ROFI(a, b)             \
-  for (auto(a) = (b).rbegin(); \
-       (a) != (b).rend(); ++(a))
 #define CEIL(a, b) ((a) + (b)-1) / (b)
 #define SET(a, b) memset((a), (b), sizeof(a))
+#ifndef DEBUG
+#define DEBUG 0
+#endif
+#define dout \
+  if (DEBUG) std::cerr
 const int xd[4] = {0, 1, 0, -1},
           yd[4] = {1, 0, -1, 0};
 template <typename t>
