@@ -25,6 +25,7 @@ class unionFind {
     _size--;
   }
   int size() { return _size; }
+  int size(int a) { return -data[a]; }
 
  private:
   vi data;
