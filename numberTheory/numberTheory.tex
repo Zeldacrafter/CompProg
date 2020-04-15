@@ -12,12 +12,10 @@ This works for any field. Not just $ints$/$reals$.
 \underline{Runtime:} $\mathcal{O}(\log n)$
 \lstwot{numberTheory/modpow.cc}
 
-\subsection{Probabilistic Prime Number Test}
-\underline{Runtime:} $\mathcal{O}(iter \cdot \log^3 n)$
+\subsection{Miller Rabin Prime Test}
+Works for all numbers up to $2^64$.\\
+\underline{Runtime:} $7\cdot$ complexity of calculating $a^b \; \% \; c$
 \lst{MillerRabin}{numberTheory/millerRabin.cc}
-$4^{-iter}$ chance for false positive ($1 - 4^{-10} \approx 99.999905\%$). If MillerRabin returns false the number is guaranteed composite. \\
-There are no numbers that will always produce a false positive.
-%TODO(Alex): Deterministic version for 64 bit integers.
 
 \subsection{Eulers Totoid Function}
 %TODO(Alex): Improve this -> better(more) details/ what is important, applications
