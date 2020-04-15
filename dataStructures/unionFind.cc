@@ -14,7 +14,10 @@ class unionFind {
     }
     return root;
   }
-  void join(int a, int b) {
+  bool join(int a, int b) {
+    a = find(a);
+    b = find(b);
+    if (a == b) return false;
     if (data[a] < data[b]) {
       data[a] += data[b];
       data[b] = a;
@@ -23,9 +26,10 @@ class unionFind {
       data[a] = b;
     }
     _size--;
+    return true;
   }
   int size() { return _size; }
-  int size(int a) { return -data[a]; }
+  int size(int a) { return -data[find(a)]; }
 
  private:
   vi data;

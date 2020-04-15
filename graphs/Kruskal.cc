@@ -16,12 +16,10 @@ double kruskal(vector<iid>& edges, int V,
   unionFind uf(V);
   double weigth = 0;
   for (int i = 0; SZ(uf) > 1; ++i) {
-    int a = uf.find(ge(edges[i], 0));
-    int b = uf.find(ge(edges[i], 1));
-    if (a != b) {
-      uf.join(a, b);
+    if (uf.join(ge(edges[i], 0),
+                ge(edges[i], 1))) {
       mst.pb(i);
-      weigth += ge(edges[i], 2);
+      weight += ge(edges[i], 2);
     }
   }
   return weigth;
