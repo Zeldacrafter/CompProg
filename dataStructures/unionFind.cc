@@ -3,29 +3,13 @@ class unionFind {
  public:
   unionFind(int size)
       : _size(size), data(size, -1) {}
-  int find(int toFind) {
-    int root = toFind;
-    while (data[root] >= 0)
-      root = data[root];
-    while (toFind != root) {
-      int tmp = data[toFind];
-      data[toFind] = root;
-      toFind = tmp;
-    }
-    return root;
-  }
+  bool sameSet(int a, int b) { return find(a) == find(b); }
+  int find(int x) { return data[x] < 0 ? x : data[x] = find(data[x]); }
   bool join(int a, int b) {
-    a = find(a);
-    b = find(b);
+    a = find(a), b = find(b);
     if (a == b) return false;
-    if (data[a] < data[b]) {
-      data[a] += data[b];
-      data[b] = a;
-    } else {
-      data[b] += data[a];
-      data[a] = b;
-    }
-    _size--;
+    if (data[a] > data[b]) swap(a, b);
+    data[a] += data[b], data[b] = a;
     return true;
   }
   int size() { return _size; }

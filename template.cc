@@ -34,8 +34,6 @@ typedef vector<vii> vvii;
 #endif
 #define dout \
   if (DEBUG) std::cerr
-const int xd[4] = {0, 1, 0, -1},
-          yd[4] = {1, 0, -1, 0};
 template <typename t>
 bool ckmin(t& a, const t& b) {
   return a > b ? a = b, true : false;
