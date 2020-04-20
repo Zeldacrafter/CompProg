@@ -10,9 +10,8 @@ void dfs(int v) {
   ts.push_back(v);
 }
 int main() {
-  F0R(v, N)
-    if (!visited[v])
-        dfs(v);
-  ROFI(it, ts)
-      cout << *it << '\n';
+  F0R (v, N)
+    if (!visited[v]) dfs(v);
+  ROFI (it, ts)
+    cout << *it << '\n';
 }

@@ -1,7 +1,6 @@
 #include "../template.cc"
 const int inf = 1e9;
-bool bellmanFordQueue(vvii& adj, vi& dist,
-                      int start) {
+bool bellmanFordQueue(vvii& adj, vi& dist, int start) {
   const int n = SZ(adj);
   dist.assign(n, inf);
   queue<int> q;
@@ -17,8 +16,7 @@ bool bellmanFordQueue(vvii& adj, vi& dist,
     q.pop();
     inQ[v] = false;
     for (ii i : adj[v]) {
-      if (ckmin(dist[i.fi],
-                dist[v] + i.se)) {
+      if (ckmin(dist[i.fi], dist[v] + i.se)) {
         if (++cnt[i.fi] > n) return false;
         if (!inQ[i.fi]) {
           q.push(i.fi);

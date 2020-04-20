@@ -1,8 +1,7 @@
 #include "../template.cc"
 class unionFind {
  public:
-  unionFind(int size)
-      : _size(size), data(size, -1) {}
+  unionFind(int size) : _size(size), data(size, -1) {}
   bool sameSet(int a, int b) { return find(a) == find(b); }
   int find(int x) { return data[x] < 0 ? x : data[x] = find(data[x]); }
   bool join(int a, int b) {

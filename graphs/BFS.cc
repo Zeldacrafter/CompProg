@@ -10,14 +10,10 @@ void bfs(int start) {
     int curr = q.front();
     q.pop();
     for (int v : adj[curr])
-      if (!visited[v]) {
-        q.push(v),
-        visited[v] = true,
-        p[v] = curr;
+      if (!visited[v])
+        q.push(v), visited[v] = true, p[v] = curr;
   }
-}
-int main() {
-  F0R(v, V)
-    if (!visited[v])
-        bfs(v);
-}
+  int main() {
+    F0R (v, V)
+      if (!visited[v]) bfs(v);
+  }

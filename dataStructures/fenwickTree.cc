@@ -3,9 +3,7 @@ class FenwickTree {
  private:
   vi A;
   int n;
-  int inline LSOne(int i) {
-    return i & (-i);
-  }
+  int inline LSOne(int i) { return i & (-i); }
   int query(int i) {
     int sum = 0;
     for (; i; i -= LSOne(i)) sum += A[i];
@@ -15,10 +13,7 @@ class FenwickTree {
  public:
   FenwickTree(int n) : A(n + 1, 0), n(n) {}
   void adjust(int i, int adjustBy) {
-    for (; i <= n; i += LSOne(i))
-      A[i] += adjustBy;
+    for (; i <= n; i += LSOne(i)) A[i] += adjustBy;
   }
-  int query(int i, int j) {
-    return query(j) - query(i - 1);
-  }
+  int query(int i, int j) { return query(j) - query(i - 1); }
 };

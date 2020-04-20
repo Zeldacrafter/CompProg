@@ -16,8 +16,7 @@ ll augment(const ll s, const ll t) {
     if (v == t) break;
     q.pop();
     F0R (u, t + 1) {
-      if (p[u] == -1 &&
-          currentf[v][u] < maxf[v][u]) {
+      if (p[u] == -1 && currentf[v][u] < maxf[v][u]) {
         p[u] = v;
         q.push(u);
       }
@@ -26,15 +25,12 @@ ll augment(const ll s, const ll t) {
   if (p[t] == -1) return 0;
   ll mf = inf;
   for (ll c = t; c != s; c = p[c])
-    ckmin(mf,
-          maxf[p[c]][c] - currentf[p[c]][c]);
+    ckmin(mf, maxf[p[c]][c] - currentf[p[c]][c]);
   for (ll c = t; c != s; c = p[c])
-    currentf[p[c]][c] += mf,
-        currentf[c][p[c]] -= mf;
+    currentf[p[c]][c] += mf, currentf[c][p[c]] -= mf;
   return mf;
 }
 int main() {
   ll maxflow = 0;
-  while (ll plus = augment(s, t))
-    maxflow += plus;
+  while (ll plus = augment(s, t)) maxflow += plus;
 }

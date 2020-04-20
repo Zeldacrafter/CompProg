@@ -1,8 +1,7 @@
 #include "../template.cc"
 vi dfsNum, low;
 int dfsCounter = 0;
-int artiDfs(int v, vvi& adj, vi& a,
-            int p = -1) {
+int artiDfs(int v, vvi& adj, vi& a, int p = -1) {
   dfsNum[v] = low[v] = dfsCounter++;
   int children = 0;
   bool aP = false;
@@ -10,8 +9,7 @@ int artiDfs(int v, vvi& adj, vi& a,
     if (u == p) continue;
     if (dfsNum[u] == -1) {
       ckmin(low[v], artiDfs(u, adj, a, v));
-      if (low[u] >= dfsNum[v] && p != -1 &&
-          !aP) {
+      if (low[u] >= dfsNum[v] && p != -1 && !aP) {
         a.pb(v);
         aP = true;
       }
@@ -26,6 +24,5 @@ void findArtiPoints(vvi& adj, vi& artiP) {
   dfsNum.assign(SZ(adj), -1);
   low.assign(SZ(adj), -1);
   F0R (v, SZ(adj))
-    if (dfsNum[v] == -1)
-      artiDfs(v, adj, artiP);
+    if (dfsNum[v] == -1) artiDfs(v, adj, artiP);
 }

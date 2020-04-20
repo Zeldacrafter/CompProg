@@ -15,6 +15,5 @@ void build(int A[], int n) {
 
 int rmq(int l, int r) {
   int k = msbIndex(r - l + 1);
-  return min(spT[l][k],
-             spT[r - (1 << k) + 1][k]);
+  return min(spT[l][k], spT[r - (1 << k) + 1][k]);
 }

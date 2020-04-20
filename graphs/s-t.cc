@@ -11,8 +11,7 @@ void dfs(int v) {
   visited[v] = 1;
   found.pb(v);
   for (int i : adj[v]) {
-    if (!visited[edges[i].to(v)] &&
-        edges[i].curf(v) < edges[i].mf(v))
+    if (!visited[edges[i].to(v)] && edges[i].curf(v) < edges[i].mf(v))
       dfs(edges[i].to(v));
   }
 }

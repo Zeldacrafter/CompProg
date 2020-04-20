@@ -2,21 +2,13 @@
 const ll inf = 10e12;
 struct edge {
   edge(int from, int to, ll maxf)
-      : from(from),
-        too(to),
-        maxf(maxf),
-        currentf(0) {}
+      : from(from), too(to), maxf(maxf), currentf(0) {}
   int from, too;
   ll maxf;
   ll currentf;
-  int to(int v) {
-    return v == from ? too : from;
-  }
+  int to(int v) { return v == from ? too : from; }
   ll mf(int v = 0) { return maxf; }
-  ll curf(int v) {
-    return v == from ? currentf
-                     : maxf - currentf;
-  }
+  ll curf(int v) { return v == from ? currentf : maxf - currentf; }
   ll flow(int v) { return mf(v) - curf(v); }
   void adjust(int v, ll amount) {
     if (v == from)
@@ -38,8 +30,7 @@ ll augment(const ll s, const ll t) {
     q.pop();
     for (int i : adj[v]) {
       if (p[edges[i].to(v)] == mp(-1, -1) &&
-          edges[i].curf(v) <
-              edges[i].mf(v)) {
+          edges[i].curf(v) < edges[i].mf(v)) {
         p[edges[i].to(v)] = mp(v, i);
         q.push(edges[i].to(v));
       }
@@ -58,6 +49,5 @@ ll augment(const ll s, const ll t) {
 }
 int main() {
   ll maxflow = 0;
-  while (ll plus = augment(s, t))
-    maxflow += plus;
+  while (ll plus = augment(s, t)) maxflow += plus;
 }

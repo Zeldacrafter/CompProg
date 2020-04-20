@@ -4,7 +4,7 @@ vvi adj(N);
 vi in(N);  // in degree for every node
 int main() {
   queue<int> q;
-  F0R(i, N)
+  F0R (i, N)
     if (in[i] == 0) q.push(i);
   while (!q.empty()) {
     int curr = q.front();
