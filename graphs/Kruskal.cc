@@ -4,22 +4,18 @@ typedef tuple<int, int, double> iid;
 class unionFind {
  public:
   unionFind(int);
-  void join(int, int);
+  bool join(int, int);
   int find(int);
 };
-double kruskal(vector<iid>& edges, int V,
-               vi& mst) {
+double kruskal(vector<iid>& edges, int V, vi& mst) {
   sort(ALL(edges),
-       [](iid& a, iid& b) -> bool {
-         return ge(a, 2) < ge(b, 2);
-       });
+       [](iid& a, iid& b) -> bool { return get<2>(a) < get<2>(b); });
   unionFind uf(V);
   double weigth = 0;
   for (int i = 0; SZ(uf) > 1; ++i) {
-    if (uf.join(ge(edges[i], 0),
-                ge(edges[i], 1))) {
+    if (uf.join(get<0>(edges[i]), get<1>(edges[i]))) {
       mst.pb(i);
-      weight += ge(edges[i], 2);
+      weigth += get<2>(edges[i]);
     }
   }
   return weigth;
