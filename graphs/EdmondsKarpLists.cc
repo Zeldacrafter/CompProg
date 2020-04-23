@@ -20,10 +20,10 @@ struct edge {
 vector<edge> edges;
 vvi adj(600);
 ll augment(const ll s, const ll t) {
-  vii p(t + 1, mp(-1, -1));
+  vii p(SZ(adj), mp(-1, -1));
   queue<ll> q;
   p[s] = mp(-2, 0);
-  q.push(0);
+  q.push(s);
   while (!q.empty()) {
     ll v = q.front();
     if (v == t) break;
@@ -38,16 +38,14 @@ ll augment(const ll s, const ll t) {
   }
   if (p[t] == mp(-1, -1)) return 0;
   ll mf = inf;
-
   for (ii c = p[t]; c.fi != -2; c = p[c.fi])
     ckmin(mf, edges[c.se].flow(c.fi));
-
   for (ii c = p[t]; c.fi != -2; c = p[c.fi])
     edges[c.se].adjust(c.fi, mf);
-
   return mf;
 }
-int main() {
+ll maxflow(int s, int t) {
   ll maxflow = 0;
   while (ll plus = augment(s, t)) maxflow += plus;
+  return maxflow;
 }
