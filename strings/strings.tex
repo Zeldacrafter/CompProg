@@ -3,6 +3,15 @@
 \underline{Runtime:} $\mathcal{O}(n)$ for insertion and getting, where
 $n$ is the length of the key.
 \lst{Trie}{strings/trie.cc}
+
+\subsection{KMP}
+Returns a list with all the starting indeces where the pattern matches
+the text.
+
+\underline{Runtime:} $\mathcal{O}(\left| \text{text} \right| + \left|
+  \text{pattern} \right|)$
+\lst{KMP}{strings/kmp.cc}
+
 \subsection{Manachers}
 % source: https://www.hackerrank.com/topics/manachers-algorithm
 Returns array where $P[i]$ contains the length of the palindrome with mid-point $i$.\\
