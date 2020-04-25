@@ -1,17 +1,20 @@
-#include "../template.cc"
-// edge implementation is the same as in
-// Edmonds Karp w/ adjacency lists
+#include "flowedge.cc"
 vector<edge> edges;
-vvi adj(V);
-vi visited(V, 0);
-vi found;
-// start w/ source for the s-part of the cut
-// start w/ sink for the t-part of the cut
-void dfs(int v) {
+vvi adj;
+vi visited;
+void dfs(int v, vi& found) {
   visited[v] = 1;
   found.pb(v);
   for (int i : adj[v]) {
-    if (!visited[edges[i].to(v)] && edges[i].curf(v) < edges[i].mf(v))
-      dfs(edges[i].to(v));
+    if (!visited[edges[i].other(v)] &&
+        edges[i].flow(v) < edges[i].capacity(v))
+      dfs(edges[i].other(v), found);
   }
+}
+pair<vi, vi> findcut(int s, int t) {
+  vi scut, tcut;
+  visited.assign(SZ(adj), 0);
+  dfs(s, scut);
+  dfs(t, tcut);
+  return mp(scut, tcut);
 }

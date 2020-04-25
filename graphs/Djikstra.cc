@@ -1,4 +1,5 @@
 #include "../template.cc"
+const int inf = 1e9;
 void djikstra(vvii& adj, vi& dist, int start) {
   dist.assign(SZ(adj), inf);
   auto cmp = [](ii& a, ii& b) -> bool { return a.se > b.se; };

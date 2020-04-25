@@ -1,4 +1,5 @@
 #include "../template.cc"
+typedef complex<int> ci;
 struct Line {
   double a, b, c;
 };  // ax + by + c = 0

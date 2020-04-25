@@ -22,8 +22,8 @@ typedef vector<vii> vvii;
 #define endl '\n'
 #define FOR(a, b, c) for (auto a = (b); (a) < (c); ++(a))
 #define ROF(a, b, c) for (auto a = (b); (a) > (c); --(a))
-#define F0R(a, b) FOR ((a), 0, (b))
-#define R0F(a, b) ROF ((a), (b), -1)
+#define F0R(a, b) FOR (a, 0, (b))
+#define R0F(a, b) ROF (a, (b), -1)
 #define CEIL(a, b) ((a) + (b)-1) / (b)
 #define SET(a, b) memset((a), (b), sizeof(a))
 template <class t>

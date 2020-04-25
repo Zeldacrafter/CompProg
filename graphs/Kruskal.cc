@@ -1,12 +1,6 @@
-#include "../template.cc"
+#include "../dataStructures/unionFind.cc"
 // node a, node b, distance from a to b
 typedef tuple<int, int, double> iid;
-class unionFind {
- public:
-  unionFind(int);
-  bool join(int, int);
-  int find(int);
-};
 double kruskal(vector<iid>& edges, int V, vi& mst) {
   sort(ALL(edges),
        [](iid& a, iid& b) -> bool { return get<2>(a) < get<2>(b); });

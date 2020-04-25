@@ -1,13 +1,14 @@
 #include "../template.cc"
-int V;
-vii adj(V);
-vi visited(V, 0), p(V, -1);
+vvi adj;
+vi visited, p;
 void dfs(int curr) {
   visited[curr] = 1;
   for (int v : adj[curr])
     if (!visited[v]) p[v] = curr, dfs(v);
 }
 int main() {
-  for (int v = 0; v < V; ++v)
+  visited.assign(SZ(adj), 0);
+  p.assign(SZ(adj), -1);
+  for (int v = 0; v < SZ(adj); ++v)
     if (!visited[v]) dfs(v);
 }

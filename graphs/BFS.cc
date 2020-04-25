@@ -1,7 +1,6 @@
 #include "../template.cc"
-int V;
-vvi adj(V);
-vi visited(V, 0), p(V, -1);
+vvi adj;
+vi visited, p;
 void bfs(int start) {
   queue<int> q;
   q.push(start);
@@ -10,10 +9,12 @@ void bfs(int start) {
     int curr = q.front();
     q.pop();
     for (int v : adj[curr])
-      if (!visited[v])
-        q.push(v), visited[v] = true, p[v] = curr;
+      if (!visited[v]) q.push(v), visited[v] = true, p[v] = curr;
   }
-  int main() {
-    F0R (v, V)
-      if (!visited[v]) bfs(v);
-  }
+}
+int main() {
+  visited.assign(SZ(adj), 0);
+  p.assign(SZ(adj), -1);
+  F0R (v, SZ(adj))
+    if (!visited[v]) bfs(v);
+}

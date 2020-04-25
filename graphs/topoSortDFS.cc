@@ -12,6 +12,4 @@ void dfs(int v) {
 int main() {
   F0R (v, N)
     if (!visited[v]) dfs(v);
-  ROFI (it, ts)
-    cout << *it << '\n';
 }
