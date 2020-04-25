@@ -13,7 +13,7 @@ This works for any field. Not just $ints$/$reals$.
 \lstwot{numberTheory/modpow.cc}
 
 \subsection{Miller Rabin Prime Test}
-Works for all numbers up to $2^64$.\\
+Works for all numbers up to $2^{64}$.\\
 \underline{Runtime:} $7\cdot$ complexity of calculating $a^b \; \% \; c$
 \lst{MillerRabin}{numberTheory/millerRabin.cc}
 
@@ -26,3 +26,9 @@ $a, b \in \mathbb{N} \Rightarrow \phi(a \cdot b) = \phi(a) \cdot \phi(b) \cdot \
 $P \text{ prime factors of } n \Rightarrow \phi(n) = n \cdot \prod_{p \in P} (1 - \frac{1}{p})$
 \underline{Runtime:} $\mathcal{O}(\sqrt{n})$
 \lstwot{numberTheory/totoid.cc}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:

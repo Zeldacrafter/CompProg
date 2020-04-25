@@ -72,11 +72,12 @@ V\rvert)$ query: $\mathcal{O}(1)$
 \textbf{Max-flow min-cut theorem.} The maximum value of an $s$-$t$ flow is
 equal to the minimum capacity over all $s$-$t$ cuts
 
-\underline{Runtime:} $\mathcal{O}(\lvert V \rvert^5)$
-\lst{Edmonds Karp w/ adjacency matrix}{graphs/EdmondsKarpMatrix.cc}
-
+\lst{Edges for flow algorithms}{graphs/flowedge.cc}
 \underline{Runtime:} $\mathcal{O}(\lvert V \rvert \lvert E \rvert^2)$
-\lst{Edmonds Karp w/ adjacency lists}{graphs/EdmondsKarpLists.cc}
+\lst{Edmonds Karp}{graphs/EdmondsKarp.cc}
+
+\underline{Runtime:} $\mathcal{O}(\left| V \right|^3)$
+\lst{Push Relabel}{graphs/PushRelabel.cc}
 
 \subsubsection{Minimum s-t cut}
 
