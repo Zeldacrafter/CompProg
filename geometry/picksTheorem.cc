@@ -5,6 +5,6 @@ ll onEdge(vii pts) {
   F0R (i, SZ(pts) - 1)
         res += abs(gcd(
                 pts[i].fi - pts[i + 1].fi,
-                pts[i].se - pts[i + 1].se);
+                pts[i].se - pts[i + 1].se));
     return res;
 }

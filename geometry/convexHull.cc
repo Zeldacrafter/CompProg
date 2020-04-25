@@ -1,4 +1,4 @@
-#include "../template.cc"
+#include "geometry.cc"
 void convexHull(vector<ci>& pts) {
   // Assume that pts[0] != pts[SZ(pts) - 1]
   if (!SZ(pts)) return;

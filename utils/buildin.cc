@@ -24,11 +24,7 @@ int __builtin_popcount(unsigned int x);
 // unsigned long long: Postfix 'll'
 
 // Rotate bits of x left by n places.
-unsigned int _rotl(unsigned int x, int n);
-unsigned __int64 _rotl64(unsigned __int64 x,
-                         int n);
+unsigned int rotl(unsigned int x, int n);
 
 // Rotate bits of x right by n places.
-unsigned int _rotr(unsigned int x, int n);
-unsigned __int64 _rotr64(unsigned __int64 x,
-                         int n);
+unsigned int rotr(unsigned int x, int n);
