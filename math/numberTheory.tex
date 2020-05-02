@@ -1,21 +1,21 @@
 \section{Number Theory}
 \subsection{GCD and LCM}
-\lstwot{numberTheory/gcd_lcm.cc}
+\lstwot{math/gcd_lcm.cc}
 
 \subsection{Coefficients of a Polynomial}
 \underline{Runtime:} $\mathcal{O}(n^2)$ \\
 For any polynomial with $p(x_i) = y_i$ where all $x_i$ are distinct
 coefficients can be calculated the following way:
-\lstwot{numberTheory/getCoefficiants.cc}
+\lstwot{math/getCoefficiants.cc}
 This works for any field. Not just $ints$/$reals$.
 \subsection{Modular Exponentiation}
 \underline{Runtime:} $\mathcal{O}(\log n)$
-\lstwot{numberTheory/modpow.cc}
+\lstwot{math/modpow.cc}
 
 \subsection{Miller Rabin Prime Test}
 Works for all numbers up to $2^{64}$.\\
 \underline{Runtime:} $7\cdot$ complexity of calculating $a^b \; \% \; c$
-\lst{MillerRabin}{numberTheory/millerRabin.cc}
+\lst{MillerRabin}{math/millerRabin.cc}
 
 \subsection{Eulers Totoid Function}
 %TODO(Alex): Improve this -> better(more) details/ what is important, applications
@@ -25,7 +25,7 @@ $a, b \text{ coprime} \Rightarrow \phi(a \cdot b) = \phi(a) \cdot \phi(b)$ \\
 $a, b \in \mathbb{N} \Rightarrow \phi(a \cdot b) = \phi(a) \cdot \phi(b) \cdot \frac{gcd(a, b)}{\phi(gcd(a,b))}$ \\
 $P \text{ prime factors of } n \Rightarrow \phi(n) = n \cdot \prod_{p \in P} (1 - \frac{1}{p})$
 \underline{Runtime:} $\mathcal{O}(\sqrt{n})$
-\lstwot{numberTheory/totoid.cc}
+\lstwot{math/totoid.cc}
 
 
 %%% Local Variables:

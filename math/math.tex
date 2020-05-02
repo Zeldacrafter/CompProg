@@ -1,0 +1,167 @@
+\section{Math}
+
+\subsection{Geometric Series}
+Geometric series for $q \neq 1$:
+\[
+\sum\limits_{k=1}^n q^k = \frac{1-q^{n+1}}{1-q}
+\]
+For $\lvert q \rvert < 1$ the corresponding infinite sum converges:
+\[
+\sum_{i = 1}^{\infty} q^k = \frac{1}{1 - q}
+\]
+
+\subsection{Picks Theorem}
+For every polygon with integer-only coordinates with following holds
+for the area $A$, amount of interior integer points $i$ and amount of
+boundary points $b$:
+\[
+A = i + \frac{b}{2} - 1
+\]
+Calculation of border points:
+\lstwot{geometry/picksTheorem.cc}
+For polygon area see the geometry section.
+
+\subsection{Eulers formular for planar graphs}
+For every planar graph $G$ the following holds: $V - E + F = 2$
+
+\subsection{Combinatorics}
+%TODO(Alex): Basic combinatorics
+
+\subsubsection{Binomial coefficient}
+Number of possible sets with $k$ elements selected from $n$ elements. 
+\begin{equation*}
+  \binom{n}{k} = \binom{n}{n - k} = \frac{n!}{k!(n - k)!} =
+  \frac{n}{k}\binom{n - 1}{k - 1} = \binom{n - 1}{k} + \binom{n - 1}{k
+  - 1}
+\end{equation*}
+\lst{linear implementation}{math/binom.cc}
+
+\subsubsection{Catalan numbers}
+Use cases:
+\begin{itemize}
+\item The number of valid groupings of $n$ pairs of parentheses
+\item The number of diagonal-avoiding paths on $n\times n$ grid
+\item The number of ways to triangulate a regular polygon with $n + 2$
+  sides
+\item The number of rooted full binary trees with $n$ internal nodes
+\item The number of rooted trees with $n$ edges
+\item The number of ways to correctly parenthesize an ordered expression of $n
+  + 1$ items with a binary operation
+\end{itemize}
+\begin{equation*}
+  C_n = \frac{1}{n + 1}\binom{2n}{n} =
+  \begin{cases}
+    1 & n = 0 \lor n = 1\\
+    \sum\limits_{k = 0}^{n - 1}C_kC_{n - 1 - k} & \text{otherwise}
+  \end{cases}
+\end{equation*}
+
+\subsubsection{Euler numbers}
+
+The number of permutations $1,\ldots, n$ with exactly $k$
+non-decreasing Segments.
+\begin{equation*}
+  \left\langle
+    \begin{matrix}
+      n\\k
+    \end{matrix}
+\right\rangle = \sum\limits_{l = 0}^k(-1)^l \binom{n + 1}{l}(k + 1 - l)^n
+  =
+  \begin{cases}
+    1 & k = 0 \lor k = n\\
+    k \left\langle
+      \begin{smallmatrix}
+        n - 1\\k
+      \end{smallmatrix}
+\right\rangle + (n - k + 1) \left\langle
+  \begin{smallmatrix}
+    n - 1\\k - 1
+  \end{smallmatrix}
+\right\rangle & \text{otherwise}
+  \end{cases}
+\end{equation*}
+
+\subsubsection{Stirling numbers of the first kind}
+Number of permutations $1, \dots, n$ with exactly $k$ cycles.
+\begin{equation*}
+  \begin{bmatrix}
+    n\\k
+  \end{bmatrix} =
+  \begin{cases}
+    0 & k = 0\\
+    1 & n = n\\
+    \left[
+      \begin{smallmatrix}
+        n - 1\\k - 1
+      \end{smallmatrix}
+\right] + (n - 1) \left[
+  \begin{smallmatrix}
+    n-1\\k
+  \end{smallmatrix}
+\right] & \text{otherwise}
+  \end{cases}
+\end{equation*}
+
+\subsubsection{Stirling Numbers of the second kind}
+
+Number of partitions of $n$ elements into $k$ sets.
+\begin{equation*}
+  \begin{Bmatrix}
+    n\\k
+  \end{Bmatrix} =
+  \begin{cases}
+    1 & k = 1 \lor k = n\\
+    \left\{
+      \begin{smallmatrix}
+        n - 1\\k - 1
+      \end{smallmatrix}
+\right\} + k \left\{
+  \begin{smallmatrix}
+    n - 1\\k
+  \end{smallmatrix}
+\right\} & \text{otherwise}
+  \end{cases}
+\end{equation*}
+
+
+
+\subsubsection{Derangements}
+Amount of permutations of a set with $n$ elements such that no element
+is at its starting position.
+\begin{equation*}
+  \text{der}(n)
+  \begin{cases}
+    1 & n = 0\\
+    0 & n = 1\\
+    (n - 1)(\text{der}(n - 1) + \text{der}(n - 2)) & \text{otherwise}
+  \end{cases}
+\end{equation*}
+
+\subsubsection{Hypergeometric distribution}
+Set with $N$ elements of which $K$ have a wanted property. The
+probability of $k$ elements having property $K$ when choosing $n$ is
+\[
+H = \frac{
+	\left(\begin{array}{c}K\\k\end{array}\right)
+	\cdot 
+	\left(\begin{array}{c}N-K\\n-k\end{array}\right)
+}
+{
+	\left(\begin{array}{c}N\\n\end{array}\right)
+}
+\]
+\subsection{Newton Method}
+%TODO(Alex): More information when to use.
+The intersections of a function $f$ with the x-axis can be
+approximated iteratively:
+\[
+x_{n + 1} = x_n - \frac{f(x_n)}{f'(x_n)} 
+\]
+The method converges towards the solution quadratically therefore
+doubleing the amount of correct decimal places every iteration.
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:
