@@ -1,0 +1,26 @@
+Kominatorics tree
+combinatorics: Maybe inclusion-exclusion (Cp-Algo)
+BigInt
+List of
+    Primes
+    Divisor count
+    derangements
+nim / Sprague Grunge Theorem
+Stirling / Eulerian numbers applications
+Burnside Lemma
+fft
+lis rework
+bipartite matching / Halls Marriage theorem
+Dinitch
+Dilworths therorem
+heavy-light-decomp
+Königs Theoren
+closure Theorem
+sqrt decomp (moe's algo)
+suffix array
+union find -> dsu
+1d/2d sparse table in class
+hashes for bigInt (without space/tab)
+
+rework chapter order
+go through other scripts
