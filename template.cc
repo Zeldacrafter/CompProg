@@ -57,10 +57,10 @@ struct IsC<string> {
 template <class C>
 typename enable_if<IsC<C>::value, ostream&>::type operator<<(
     ostream& o, const C& c) {
-  o << '{';
+  o << '[';
   for (auto it = c.begin(); it != c.end();)
-    o << *it << (++it != c.end() ? ", " : "}");
-  return o;
+    o << *it << (++it != c.end() ? ", " : "");
+  return o << ']';
 }
 template <class a, class b>
 ostream& operator<<(ostream& o, const pair<a, b>& p) {
