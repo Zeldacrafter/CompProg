@@ -3,9 +3,7 @@ struct mod {
   static const ll p = 1e9 + 7;
   ll val;
   mod() : val(0) {}
-  mod(ll val) : val(val % p) {
-    if (this->val < 0) this->val += p;
-  }
+  mod(ll val) : val(val % p) { if (this->val < 0) this->val += p; }
   mod& operator+=(mod o) {
     val = (val + o.val) % p;
     return *this;
@@ -20,15 +18,9 @@ struct mod {
   }
   mod& operator/=(mod o) { return (*this) *= pow(o, p - 2); }
   mod& operator++() { return (*this) += 1; }
-  mod operator++(int) {
-    ++(*this);
-    return (*this) - 1;
-  }
+  mod operator++(int) { return ++(*this) - 1; }
   mod& operator--() { return (*this) -= 1; }
-  mod operator--(int) {
-    --(*this);
-    return (*this) + 1;
-  }
+  mod operator--(int) { return --(*this) + 1; }
   mod friend operator+(mod a, mod b) { return a += b; }
   mod friend operator-(mod a, mod b) { return a -= b; }
   mod friend operator*(mod a, mod b) { return a *= b; }
