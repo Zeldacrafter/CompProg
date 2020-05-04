@@ -3,3 +3,4 @@ map <space> /
 map 0 ^
 no ; :
 sy on
+hi CursorLine cterm=NONE ctermbg=black
