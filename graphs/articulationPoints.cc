@@ -20,9 +20,12 @@ int artiDfs(int v, vvi& adj, vi& a, int p = -1) {
   if (p == -1 && children > 1) a.pb(v);
   return low[v];
 }
-void findArtiPoints(vvi& adj, vi& artiP) {
+vi findArtiPoints(vvi& adj) {
   dfsNum.assign(SZ(adj), -1);
   low.assign(SZ(adj), -1);
+  dfsCounter = 0;
+  vi res;
   F0R (v, SZ(adj))
-    if (dfsNum[v] == -1) artiDfs(v, adj, artiP);
+    if (dfsNum[v] == -1) artiDfs(v, adj, res);
+  return res;
 }
