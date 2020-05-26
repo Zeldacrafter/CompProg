@@ -60,3 +60,8 @@ ll maxflow(int s, int t) {
   for (int i : adj[s]) maxflow += edges[i].flow(s);
   return maxflow;
 }
+void addEdge(int from, int to, int c, int f = 0) {
+  edges.eb(from, to, c, f);
+  adj[from].pb(SZ(edges) - 1);
+  adj[to].pb(SZ(edges) - 1);
+}
