@@ -2,8 +2,7 @@
 // TODO(Alex): Lazy updates, example for
 // complex queries?
 // segment tree for range maximum queries
-class SegmentTree {
- private:
+struct ST {
   int n;
   vi value, up;
   int inline left(int p) { return p << 1; }
@@ -43,11 +42,8 @@ class SegmentTree {
       up[p] = 0;
     }
   }
-
- public:
-  SegmentTree(int n) : n(n), value(n * 4, 0), up(n * 4, 0) {}
-  SegmentTree(const vi& a)
-      : n(SZ(a)), value(SZ(a) * 4), up(SZ(a) * 4) {
+  ST(int n) : n(n), value(n * 4, 0), up(n * 4, 0) {}
+  ST(const vi& a) : n(SZ(a)), value(SZ(a) * 4), up(SZ(a) * 4) {
     build(a, 1, 0, SZ(a) - 1);
   }
   int rmq(int i, int j) { return rmq(1, 0, n - 1, i, j); }
