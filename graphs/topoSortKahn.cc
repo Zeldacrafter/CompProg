@@ -8,6 +8,6 @@ int main() {
     if (!in[i]) q.pb(i);
   F0R (i, SZ(q))
     for (int v : adj[q[i]])
-      if (--in[v] == 0) 
+      if (!--in[v]) 
           q.pb(v);
 }
