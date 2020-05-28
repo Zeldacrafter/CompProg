@@ -1,21 +1,9 @@
 \section{Graphs}
-\subsection{Traversal}
-
-\underline{Runtime:}\\
-With adjacency list: $\mathcal{O}(\lvert V \rvert + \lvert E \rvert)$ \\
-With adjacency matrix: $\mathcal{O}(\lvert V \rvert^2)$
-\lst{DFS}{graphs/DFS.cc}
-\underline{Runtime:}\\
-With adjacency list: $\mathcal{O}(\lvert V \rvert + \lvert E \rvert)$ \\
-With adjacency matrix: $\mathcal{O}(\lvert V \rvert^2)$
-\lst{BFS}{graphs/BFS.cc}
 
 \subsection{Topological sort}
 
 \underline{Runtime:} $\mathcal{O}(\lvert V \rvert + \lvert E \rvert)$
-\lst{DFS}{graphs/topoSortDFS.cc}
-\underline{Runtime:} $\mathcal{O}(\lvert V \rvert + \lvert E \rvert)$
-\lst{Kahn}{graphs/topoSortKahn.cc}
+\lst{Kahn}{graphs/topoSort.cc}
 
 \subsection{Connected components}
 
@@ -43,7 +31,7 @@ components if removed.
 \subsection{Minimal spanning tree}
 \underline{Runtime:} $\mathcal{O}(\lvert E \rvert \log \lvert V
 \rvert) = \mathcal{O}(\lvert E \rvert \log \lvert E \rvert)$
-\lst{Kruskal}{graphs/Kruskal.cc}
+\lst{Kruskal}{graphs/kruskal.cc}
 
 \subsection{Shortest paths}
 
@@ -51,16 +39,16 @@ components if removed.
 \underline{Runtime:}
 $\mathcal{O}((\lvert E \rvert + \lvert V \rvert )\log \lvert V
 \rvert)$
-\lst{Djikstra}{graphs/Djikstra.cc}
+\lst{Djikstra}{graphs/djikstra.cc}
 
 \underline{Runtime:} $\mathcal{O}(\lvert E \rvert \lvert V \rvert)$
-\lst{Bellman Ford}{graphs/BellmanFord.cc}
+\lst{Bellman Ford}{graphs/bellmanFord.cc}
 
 This approach may be faster
-\lst{Bellman Ford w/ Queue}{graphs/BellmanFordQueue.cc}
+\lst{Bellman Ford w/ Queue}{graphs/bellmanFordQueue.cc}
 \subsubsection{All pairs shortest paths}
 \underline{Runtime:} $\mathcal{O}(\lvert V \rvert^3)$
-\lst{Floyd Warshall}{graphs/FloydWarshall.cc}
+\lst{Floyd Warshall}{graphs/floydWarshall.cc}
 
 \subsubsection{Lowest common ancestor}
 \underline{Runtime:} build: $\mathcal{O}(\lvert V \rvert \log \lvert
@@ -74,10 +62,10 @@ equal to the minimum capacity over all $s$-$t$ cuts
 
 \lst{Edges for flow algorithms}{graphs/flowedge.cc}
 \underline{Runtime:} $\mathcal{O}(\lvert V \rvert \lvert E \rvert^2)$
-\lst{Edmonds Karp}{graphs/EdmondsKarp.cc}
+\lst{Edmonds Karp}{graphs/edmondsKarp.cc}
 
 \underline{Runtime:} $\mathcal{O}(\left| V \right|^3)$
-\lst{Push Relabel}{graphs/PushRelabel.cc}
+\lst{Push Relabel}{graphs/pushRelabel.cc}
 
 \subsubsection{Minimum s-t cut}
 

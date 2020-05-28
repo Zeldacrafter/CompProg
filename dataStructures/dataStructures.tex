@@ -8,7 +8,7 @@
 \item query: $\mathcal{O}(\log n)$
 \item (point) update: $\mathcal{O}(\log n)$
 \end{itemize}
-\lst{Fenwick tree}{dataStructures/fenwickTree.cc}
+\lst{Fenwick tree}{dataStructures/FT.cc}
 
 
 \underline{Runtime:}
@@ -17,12 +17,12 @@
 \item query: $\mathcal{O}(\log n)$
 \item (point) update: $\mathcal{O}(\log n)$
 \end{itemize}
-\lst{Segment tree}{dataStructures/segmentTree.cc}
+\lst{Segment tree}{dataStructures/ST.cc}
 
 \subsection{Union find}
 \underline{Runtime:}\\
 For a set with $n$ elements $m \geq n$ mixed union and find operations need a maximum of $\mathcal{O}(m \cdot \alpha(m, n)) \approx \mathcal{O}(n)$ time.
-\lstwot{dataStructures/unionFind.cc}
+\lstwot{dataStructures/DSU.cc}
 
 \subsection{Sparse Table}
 Range queries for any function $f$ where reapplication does not change the result (min, max, gcd, lcm). Dynamic updates are not possible.
@@ -32,7 +32,7 @@ Range queries for any function $f$ where reapplication does not change the resul
 \item Build: $\mathcal{O}(n \log n)$
 \item Query: $\mathcal{O}(1)$
 \end{itemize}
-\lst{1D Sparse Table}{dataStructures/sparseTable.cc}
+\lst{1D Sparse Table}{dataStructures/SPT.cc}
 \underline{Runtime:}
 \begin{itemize}
 \item Build: $\mathcal{O}(n\cdot m \cdot \log n \cdot \log m)$

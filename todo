@@ -1,6 +1,5 @@
 Kominatorics tree
 combinatorics: Maybe inclusion-exclusion (Cp-Algo)
-BigInt
 List of
     Primes
     Divisor count
@@ -10,16 +9,17 @@ Stirling / Eulerian numbers applications
 Burnside Lemma
 fft
 lis rework
+scc rework struct/static?
 bipartite matching / Halls Marriage theorem
-Dinitch
+Dinic
 Dilworths therorem
 heavy-light-decomp
+binary lifting (for lca?)
 Königs Theoren
 closure Theorem
 sqrt decomp (moe's algo)
 suffix array
-union find -> dsu
-1d/2d sparse table in class
+2d sparse table in class
 hashes for bigInt (without space/tab)
 
 rework chapter order

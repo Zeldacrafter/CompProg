@@ -11,3 +11,10 @@ struct edge {
     mflow += v == mfrom ? amount : -amount;
   }
 };
+vector<edge> edges;
+vvi adj;
+void addEdge(int from, int to, int c, int f = 0) {
+  edges.eb(from, to, c, f);
+  adj[from].pb(SZ(edges) - 1);
+  adj[to].pb(SZ(edges) - 1);
+}

@@ -1,21 +1,18 @@
 #include "flowedge.cc"
 const ll inf = 10e12;
-vector<edge> edges;
-vvi adj(600);
-ll augment(const ll s, const ll t) {
+ll augment(int s, int t) {
   vii p(SZ(adj), mp(-1, -1));
-  queue<ll> q;
+  queue<int> q;
   p[s] = mp(-2, 0);
   q.push(s);
   while (!q.empty()) {
-    ll v = q.front();
+    int v = q.front();
     if (v == t) break;
     q.pop();
     for (int i : adj[v]) {
       edge& e = edges[i];
       if (p[e.other(v)] == mp(-1, -1) && e.flow(v) < e.capacity(v)) {
-        p[e.other(v)] = mp(v, i);
-        q.push(e.other(v));
+	p[e.other(v)] = mp(v, i); q.push(e.other(v));
       }
     }
   }

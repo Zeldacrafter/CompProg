@@ -1,6 +1,4 @@
 #include "flowedge.cc"
-vector<edge> edges;
-vvi adj;
 vi visited;
 void dfs(int v, vi& found) {
   visited[v] = 1;
