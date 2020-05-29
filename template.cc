@@ -17,8 +17,6 @@ typedef vector<vii> vvii;
 #define mp make_pair
 #define mt make_tuple
 #define SZ(x) (int)(x).size()
-#define ft front()
-#define bk back()
 #define endl '\n'
 #define FOR(a, b, c) for (auto a = (b); (a) < (c); ++(a))
 #define ROF(a, b, c) for (auto a = (b); (a) > (c); --(a))

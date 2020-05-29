@@ -27,13 +27,13 @@ struct bigint {
            --i, ++j, b *= 10) {
         if (b == base) j = 0, b = 1;
         if (!j) mag.pb(0);
-        mag.bk += (s[i] - '0') * b;
+        mag.back() += (s[i] - '0') * b;
       }
     }
   }
   size_t size() { return mag.size(); }
   static void trim(vll& v) {
-    while (SZ(v) && !v.bk) v.pop_back();
+    while (SZ(v) && !v.back()) v.pop_back();
   }
   void trim() {
     trim(mag);
@@ -204,7 +204,7 @@ struct bigint {
   friend string to_string(bigint& bi) {
     if (!bi.signum) return "0";
     stringstream ss;
-    ss << bi.signum * bi.mag.bk;
+    ss << bi.signum * bi.mag.back();
     R0F (i, SZ(bi) - 2)
       ss << setfill('0') << setw(9) << bi.mag[i];
     return ss.str();

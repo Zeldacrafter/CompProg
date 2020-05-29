@@ -1,7 +1,7 @@
 #include "bigint.cc"
 void testProperties(bigint& c) {
-  assert((c.signum == 0) == c.mag.empty());
-  assert(c.mag.empty() || c.mag.bk);
+  assert((!c.signum) == c.mag.empty());
+  assert(c.mag.empty() || c.mag.back());
 }
 int main() {
   while (1) {

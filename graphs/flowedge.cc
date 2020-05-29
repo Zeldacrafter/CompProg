@@ -5,7 +5,7 @@ struct edge {
   int mfrom, mto;
   ll mcapacity, mflow;
   int other(int v) { return v == mfrom ? mto : mfrom; }
-  ll capacity(int v = 0) { return v == mfrom ? mcapacity : 0; }
+  ll capacity(int v) { return v == mfrom ? mcapacity : 0; }
   ll flow(int v) { return v == mfrom ? mflow : -mflow; }
   void adjust(int v, ll amount) {
     mflow += v == mfrom ? amount : -amount;

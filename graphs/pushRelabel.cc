@@ -1,6 +1,6 @@
 
 #include "flowedge.cc"
-const ll inf = 10e12;
+const ll inf = 10e16;
 vi label;
 vi currentEdge;
 vector<ll> excess;
@@ -40,7 +40,8 @@ ll maxflow(int s, int t) {
   label[s] = SZ(adj);
   for (int i : adj[s]) push(s, edges[i]);
   while (!active.empty()) {
-    if (active.ft != s && active.ft != t) discharge(active.ft);
+    if (active.front() != s && active.front() != t)
+      discharge(active.front());
     active.pop();
   }
   ll maxflow = 0;

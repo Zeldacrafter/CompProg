@@ -1,5 +1,6 @@
+
 #include "flowedge.cc"
-const ll inf = 10e12;
+const ll inf = 10e16;
 ll augment(int s, int t) {
   vii p(SZ(adj), mp(-1, -1));
   queue<int> q;

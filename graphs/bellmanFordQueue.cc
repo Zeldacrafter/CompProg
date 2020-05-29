@@ -10,7 +10,7 @@ vi bellmanFordQueue(int start) {
   q.push(start);
   dist[start] = 0; inQ[start] = true;
   while (!q.empty()) {
-    int v = q.ft; q.pop();
+    int v = q.front(); q.pop();
     inQ[v] = false;
     for (auto [u, d] : adj[v])
       if (ckmin(dist[u], dist[v] + d)) {
