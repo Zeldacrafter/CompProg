@@ -10,7 +10,7 @@ vi djikstra(int start) {
     auto [d, v] = *q.begin(); q.erase(q.begin());
     if (dist[v] < d) continue;
     for (auto [u, du] : adj[v])
-      if (ckmin(dist[u], d + du)) q.emplace(u, d + du);
+      if (ckmin(dist[u], d + du)) q.emplace(d + du, u);
   }
   return dist;
 }
