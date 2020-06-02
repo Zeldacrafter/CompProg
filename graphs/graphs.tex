@@ -53,7 +53,10 @@ This approach may be faster
 \subsubsection{Lowest common ancestor}
 \underline{Runtime:} build: $\mathcal{O}(\lvert V \rvert \log \lvert
 V\rvert)$ query: $\mathcal{O}(1)$
-\lstwot{graphs/lca.cc}
+\lstwot{graphs/LCA.cc}
+
+\underline{Runtime:} build: $\mathcal{O}(|V|\log |V|)$ query: $\mathcal{O}(\log|V|)$
+\lst{LCA w/ binary lifting + max weighted edge on path}{graphs/LCABL.cc}
 
 \subsection{Maximum flow}
 
