@@ -1,7 +1,7 @@
 #include "../template.cc"
 const int inf = 1e9;
 vvii adj;
-vi djikstra(int start) {
+vi dijkstra(int start) {
   vi dist(SZ(adj), inf);
   set<ii> q;
   q.emplace(0, start);
