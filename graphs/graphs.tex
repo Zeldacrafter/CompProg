@@ -76,10 +76,8 @@ equal to the minimum capacity over all $s$-$t$ cuts
 \subsubsection{Minimum s-t cut}
 
 To find a minimal $s$-$t$ cut find all nodes that are reachable in the
-residual network for a network w/ maximum flow from $s$ and $t$
-respectively.
-
-\lstwot{graphs/s-t.cc}
+residual network for a network w/ maximum flow from $s$.  This is the
+$s$ part of the cut.  All other nodes belong to the $t$ part.
 
 \subsubsection{Closure Problem}
 
@@ -89,7 +87,7 @@ closure.  Solvable through reduction to a maximum flow problem: Add
 source and target, connect all the vertices with positive weight $w$
 to the source with capacity $w$ and connect all the vertices with
 negative weight $w$ to the target with capacity $-w$.  All of the
-vertices in the original capacity have infinite capacity in the new
+edges in the original graph have infinite capacity in the new
 graph.  The weight of the maximum weighted closure is equal to the sum
 of all positive weighted vertices in the original graph minus the
 maximum flow in the constructed graph.
