@@ -9,12 +9,10 @@ Stirling / Eulerian numbers applications
 Burnside Lemma
 fft
 lis rework
-scc rework struct/static?
+Dynamic Programmign Chapter (oops)
 bipartite matching / Halls Marriage theorem
-Dinic
 Dilworths therorem
 heavy-light-decomp
-binary lifting (for lca?)
 Königs Theoren
 closure Theorem
 sqrt decomp (moe's algo)
