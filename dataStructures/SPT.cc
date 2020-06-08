@@ -2,7 +2,7 @@
 struct SPT {
   vvi spT, idx; // min value, pos of min value
   SPT(vi& A) {
-    const int logn = ceil(log2l(SZ(A))) + 1;
+    const int logn = 33 - __builtin_clz(SZ(a));
     spT.assign(SZ(A), vi(logn));
     idx.assign(SZ(A), vi(logn));
     F0R (i, SZ(A)) spT[i][0] = A[i], idx[i][0] = i;
