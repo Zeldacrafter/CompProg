@@ -1,27 +1,27 @@
 #include "geometry.cc"
-bool inPolygon(vector<ci> pts, ci p) {
-  // Assume that pts[0] = pts[SZ(pts) - 1]
-  if (!SZ(pts)) return false;
-  double sum = 0.0;
-  F0R (i, SZ(pts) - 1) {
-    if (ccw(p, pts[i], pts[i + 1]) ||
-        collinear(p, pts[i], pts[i + 1]))
-      sum += angle(pts[i], p, pts[i + 1]);
-    else
-      sum += angle(pts[i + 1], p, pts[i]);
-  }
-  return abs(abs(sum) - 2 * M_PI) < EPS;
+bool inTriangle(pt a, pt b, pt c, pt p) {
+  return abs(-abs(dir(a, b, c)) + abs(dir(a, b, p)) + abs(dir(a, p, c)) + abs(dir(p, b, c))) < EPS;
 }
-
-double area(vector<ci> p) {
+bool inPolygon(vector<pt>& poly, pt p) {
+  int l = 1, r = SZ(poly) - 2;
+  while (l < r) {
+    int mid = (l + r) / 2;
+    if (cw(poly[0], poly[mid], p)) {
+      l = mid + 1;
+    } else {
+      r = mid;
+    }
+  }
+  return inTriangle(poly[0], poly[l], poly[l - 1], p);
+}
+double area(vector<pt> p) {
   // Assume that p[0] = p[SZ(p) - 1]
   double res = 0.0;
   F0R (i, SZ(p) - 1)
-    res += real(p[i]) * imag(p[i + 1]) - imag(p[i]) * real(p[i + 1]);
+    res += p[i].xx * p[i + 1].yy - p[i].yy * p[i + 1].xx;
   return abs(res) / 2;
 }
-
-bool isConvex(vector<ci> p) {
+bool isConvex(vector<pt> p) {
   // Assume that p[0] = p[SZ(p) - 1]
   if (SZ(p) < 4) return false;
   bool isLeft = ccw(p[0], p[1], p[2]);

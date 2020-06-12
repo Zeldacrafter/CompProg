@@ -1,13 +1,4 @@
-#include "../template.cc"
-#define xx real()
-#define yy imag()
-using pt = complex<double>;
-double dir(pt a, pt b, pt c) {
-  pt ab = b - a, ac = c - a;
-  return ab.xx * ac.yy - ab.yy * ac.xx;
-}
-bool cw(pt a, pt b, pt c) { return dir(a, b, c) < 0; }
-bool ccw(pt a, pt b, pt c) { return dir(a, b, c) > 0; }
+#include "geometry.cc"
 // careful with inputs for n < 2
 vector<pt> convexHull(vector<pt>& pts) {
   int n = SZ(pts);
