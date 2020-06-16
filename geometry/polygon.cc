@@ -21,12 +21,9 @@ double area(vector<pt> p) {
   return abs(res) / 2;
 }
 bool isConvex(vector<pt> p) {
-  // Assume that p[0] = p[SZ(p) - 1]
-  if (SZ(p) < 4) return false;
-  bool isLeft = ccw(p[0], p[1], p[2]);
-  F0R (i, SZ(p) - 1)
-    if (ccw(p[i], p[i + 1], p[(i + 2 == SZ(p)) ? 1 : i + 2]) !=
-        isLeft)
-      return false;
-  return true;
+  if (SZ(p) < 3) return false;
+  bool isLeft = ccw(p[0], p[1], p[2]), convex = true;
+  F0R (i, SZ(p))
+    convex &= isLeft == ccw(p[i], p[(i + 1) % SZ(p)], p[(i + 2) % SZ(p)]);
+  return convex;
 }
