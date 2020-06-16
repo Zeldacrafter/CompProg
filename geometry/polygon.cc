@@ -15,10 +15,9 @@ bool inPolygon(vector<pt>& poly, pt p) {
   return inTriangle(poly[0], poly[l], poly[l - 1], p);
 }
 double area(vector<pt> p) {
-  // Assume that p[0] = p[SZ(p) - 1]
   double res = 0.0;
-  F0R (i, SZ(p) - 1)
-    res += p[i].xx * p[i + 1].yy - p[i].yy * p[i + 1].xx;
+  F0R (i, SZ(p))
+    res += cross(p[i], p[(i + 1) % SZ(p)]);
   return abs(res) / 2;
 }
 bool isConvex(vector<pt> p) {
