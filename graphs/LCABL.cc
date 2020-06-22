@@ -30,7 +30,7 @@ struct LCA {
   int lca(int v, int u) {
     if (isAnc(v, u)) return v;
     if (isAnc(u, v)) return u;
-    R0F (l, logN)
+    for (int l = logN; ~l; --l)
       if (!isAnc(up[v][l], u)) v = up[v][l];
     return up[v][0];
   }
@@ -42,7 +42,7 @@ struct LCA {
   // returns max weight of an edge on path from v to u (isAnc(u, v))
   int maxPathAnc(int v, int u) {
     int res = numeric_limits<int>::min();
-    R0F (l, logN)
+    for (int l = logN; ~l; --l)
       if (isAnc(u, up[v][l])) {
         ckmax(res, weight[v][l]);
         v = up[v][l];

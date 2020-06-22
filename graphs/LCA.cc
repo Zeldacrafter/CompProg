@@ -6,9 +6,6 @@ struct LCA {
       : height(SZ(adj), -1), first(SZ(adj), -1) {
     dfs(adj, root);
     build();
-    dout << dvar(eulerTour) << endl;
-    dout << dvar(height) << dvar(first) << endl;
-    for (auto& v : idx) dout << dvar(v) << endl;
   }
   void build() {
     const int logn = ceil(log2l(SZ(eulerTour))) + 1;

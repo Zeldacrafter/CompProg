@@ -205,7 +205,7 @@ struct bigint {
     if (!bi.signum) return "0";
     stringstream ss;
     ss << bi.signum * bi.mag.back();
-    R0F (i, SZ(bi) - 2)
+    for (int i = SZ(bi) - 2; ~i; --i)
       ss << setfill('0') << setw(9) << bi.mag[i];
     return ss.str();
   }
