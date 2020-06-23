@@ -10,7 +10,7 @@ p = subprocess.Popen(["./a.out"], stdout=subprocess.PIPE,
                      stderr=subprocess.PIPE)
 i = 1
 while 1:
-    if (i % 10000 == 0):
+    if (i % 1000 == 0):
         print(i)
     a = random.getrandbits(random.randrange(minbits, maxbits + 1))
     b = random.getrandbits(random.randrange(minbits, maxbits + 1))

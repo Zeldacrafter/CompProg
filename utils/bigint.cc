@@ -4,7 +4,7 @@ int sign(T a) {
   return (a > 0) - (0 > a);
 }
 using vll = vector<ll>;
-using vit = vll::iterator;
+using vit = vll::const_iterator;
 struct bigint {
   static const ll base = 1e9;
   int signum;
@@ -31,7 +31,7 @@ struct bigint {
       }
     }
   }
-  size_t size() { return mag.size(); }
+  size_t size() const { return mag.size(); }
   static void trim(vll& v) {
     while (SZ(v) && !v.back()) v.pop_back();
   }
@@ -48,7 +48,7 @@ struct bigint {
     bigint t{val};
     return (*this) += t;
   }
-  bigint& operator+=(bigint& other) {
+  bigint& operator+=(const bigint& other) {
     if (!other.signum) return *this;
     if (!signum) return *this = other;
     if (signum == other.signum)
@@ -60,7 +60,7 @@ struct bigint {
     trim();
     return *this;
   }
-  friend bigint operator+(bigint a, bigint& b) { return a += b; }
+  friend bigint operator+(bigint a, const bigint& b) { return a += b; }
   friend bigint operator+(bigint a, ll val) { return a += val; }
   friend bigint operator+(ll val, bigint a) { return a += val; }
   static vll add(vit ab, vit ae, vit bb, vit be) {
@@ -82,7 +82,7 @@ struct bigint {
     bigint t{val};
     return (*this) -= t;
   }
-  bigint& operator-=(bigint& other) {
+  bigint& operator-=(const bigint& other) {
     if (!other.signum) return *this;
     if (!signum) {
       mag = other.mag;
@@ -98,7 +98,7 @@ struct bigint {
     trim();
     return *this;
   }
-  friend bigint operator-(bigint a, bigint& b) { return a -= b; }
+  friend bigint operator-(bigint a, const bigint& b) { return a -= b; }
   friend bigint operator-(bigint a, ll val) { return a -= val; }
   friend bigint operator-(ll val, bigint a) { return a -= val; }
   static vll sub(vit ab, vit ae, vit bb, vit be) {
@@ -128,7 +128,7 @@ struct bigint {
     signum *= sign(val);
     return *this;
   }
-  bigint& operator*=(bigint& other) {
+  bigint& operator*=(const bigint& other) {
     if (!signum || !other.signum) {
       signum = 0, mag.clear();
       return *this;
@@ -137,7 +137,7 @@ struct bigint {
     signum *= other.signum;
     return *this;
   }
-  friend bigint operator*(bigint a, bigint& b) { return a *= b; }
+  friend bigint operator*(bigint a, const bigint& b) { return a *= b; }
   friend bigint operator*(bigint a, ll val) { return a *= val; }
   friend bigint operator*(ll val, bigint a) { return a *= val; }
   static vll karat_mult(vit ab, vit ae, vit bb, vit be) {
@@ -182,7 +182,7 @@ struct bigint {
     trim(out);
     return out;
   }
-  friend bool operator<(bigint& a, bigint& b) {
+  friend bool operator<(const bigint& a, const bigint& b) {
     if (a.signum != b.signum) return a.signum < b.signum;
     if (!a.signum) return false;
     int c = cmp(ALL(a.mag), ALL(b.mag));
@@ -201,7 +201,7 @@ struct bigint {
     } while (!cmp && ae != ab);
     return cmp;
   }
-  friend string to_string(bigint& bi) {
+  friend string to_string(const bigint& bi) {
     if (!bi.signum) return "0";
     stringstream ss;
     ss << bi.signum * bi.mag.back();
@@ -209,7 +209,7 @@ struct bigint {
       ss << setfill('0') << setw(9) << bi.mag[i];
     return ss.str();
   }
-  friend ostream& operator<<(ostream& o, bigint& bi) {
+  friend ostream& operator<<(ostream& o, const bigint& bi) {
     return o << to_string(bi);
   }
 };
