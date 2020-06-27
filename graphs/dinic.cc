@@ -24,7 +24,7 @@ ll dinic_dfs(int v, int t, ll available) {
   ll pushed = 0;
   for (; ptr[v] < SZ(adj[v]); ++ptr[v]) {
     edge& e = edges[adj[v][ptr[v]]];
-    if (dist[v] + 1 != dist[e.other(v)] || e.flow(v) >= e.capacity(v))
+    if (dist[v] + 1 != dist[e.other(v)])
       continue;
     ll wasPushed =
         dinic_dfs(e.other(v), t,
@@ -36,7 +36,6 @@ ll dinic_dfs(int v, int t, ll available) {
   return pushed;
 }
 ll maxflow(int s, int t) {
-  dist.assign(SZ(adj), 0);
   ll f = 0;
   while (1) {
     if (!dinic_bfs(s, t)) return f;
