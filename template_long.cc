@@ -89,35 +89,3 @@ void tprint(vector<vector<T>>& v, size_t width = 0, ostream& o = cerr) {
     o << endl;
   }
 }
-template<typename T> struct range : public pair<T, T> {
-  template<typename U> struct it : iterator<forward_iterator_tag, U> {
-    U v;
-    it(U vv) : v(vv) {}
-    operator U&() { return v; }
-    U operator*() { return v; }
-  };
-  range(T b, T e) : pair<T, T>(b, e) {}
-  range(T e) : pair<T, T>(static_cast<T>(0), e) {}
-  it<T> begin() { return this->fi; }
-  it<T> end() { return this->se; }
-  bool in(T v) { return this->fi <= v && v < this->se; }
-};
-
-
-void solve() {
-  @
-}
-
-int main() {
-  ios_base::sync_with_stdio(0);
-  cout.tie(0);
-
-  int tt = 1;
-  cin >> tt;
-  FOR (t, 1, tt + 1) {
-    // cout << "Case #" << t << ": ";
-    solve();
-  }
-  
-  return 0;
-}
