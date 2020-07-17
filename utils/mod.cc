@@ -4,15 +4,15 @@ struct mod {
   ll val;
   mod() : val(0) {}
   mod(ll val) : val(val % p) { if (this->val < 0) this->val += p; }
-  mod& operator+=(mod o) {
+  mod& operator+=(const mod& o) {
     val = (val + o.val) % p;
     return *this;
   }
-  mod& operator-=(mod o) {
+  mod& operator-=(const mod& o) {
     val = (val - o.val + p) % p;
     return *this;
   }
-  mod& operator*=(mod o) {
+  mod& operator*=(const mod& o) {
     val = val * o.val % p;
     return *this;
   }
@@ -21,10 +21,10 @@ struct mod {
   mod operator++(int) { return ++(*this) - 1; }
   mod& operator--() { return (*this) -= 1; }
   mod operator--(int) { return --(*this) + 1; }
-  mod friend operator+(mod a, mod b) { return a += b; }
-  mod friend operator-(mod a, mod b) { return a -= b; }
-  mod friend operator*(mod a, mod b) { return a *= b; }
-  mod friend operator/(mod a, mod b) { return a /= b; }
+  mod friend operator+(mod a, const mod& b) { return a += b; }
+  mod friend operator-(mod a, const mod& b) { return a -= b; }
+  mod friend operator*(mod a, const mod& b) { return a *= b; }
+  mod friend operator/(mod a, const mod& b) { return a /= b; }
   static mod pow(mod a, mod b) {
     mod res = 1;
     for (; b.val; b.val >>= 1, a = a * a)
@@ -37,5 +37,5 @@ struct mod {
     if (m.val < 0) m.val += mod::p;
     return i;
   }
-  friend ostream& operator<<(ostream& o, mod m) { return o << m.val; }
+  friend ostream& operator<<(ostream& o, const mod& m) { return o << m.val; }
 };

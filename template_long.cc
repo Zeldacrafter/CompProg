@@ -84,8 +84,8 @@ typename enable_if<IsC<C>::value, ostream&>::type operator<<(
 template <typename T>
 void tprint(vector<vector<T>>& v, size_t width = 0, ostream& o = cerr) {
   if (!DEBUG) return;
-  for (auto& vv : v) {
-    for (auto& i : vv) o << setw(width) << i;
+  for (const auto& vv : v) {
+    for (const auto& i : vv) o << setw(width) << i;
     o << endl;
   }
 }
