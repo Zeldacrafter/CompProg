@@ -11,7 +11,7 @@ struct ST {
     build();
   }
   void build() {
-    for (int i = n - 1; i > 0; --i)
+    for (int i = n - 1; i; --i)
       data[i] = merge(data[i << 1], data[i << 1 | 1]);
   }
   T query(int l, int r) {
