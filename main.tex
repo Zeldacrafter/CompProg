@@ -2,7 +2,7 @@
 
 
 \usepackage[a4paper,margin=2cm,bottom=2cm,top=2cm,landscape]{geometry}
-\usepackage[ngerman]{babel}
+\usepackage{babel}
 \usepackage{lmodern}
 \usepackage[T1]{fontenc}       
 \usepackage[utf8]{inputenc}    
@@ -67,8 +67,16 @@
   postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
 }
 
-\newcommand{\lst}[2]{\lstinputlisting[title=#1, firstline=2]{#2}}
-\newcommand{\lstwot}[1]{\lstinputlisting[firstline=2]{#1}}
+% \newcommand{\lst}[2]{\lstinputlisting[title=#1, firstline=2]{#2}}
+% \newcommand{\lstwot}[1]{\lstinputlisting[firstline=2]{#1}}
+\newcommand{\lst}[3]{%
+  {
+    #1\hfill {\small #2}
+    \vspace*{-5pt}
+    \lstinputlisting[firstline=2]{#3}
+  }
+}
+
 
 % header
 \usepackage{fancyhdr}
@@ -105,14 +113,15 @@
 \end{titlepage}
       
 \begin{multicols*}{2}
-  \lst{template}{template.cc}
+  \lst{}{}{template.cc}
+  % \input{math/math}  
+  % \input{math/numberTheory}
+  % \input{dataStructures/dataStructures}
+  % \input{dp/dp}
   \input{graphs/graphs}
-  \input{dataStructures/dataStructures}
-  \input{strings/strings}
-  \input{utils/utils}
-  \input{math/numberTheory}
-  \input{geometry/geometry}
-  \input{math/math}  
+  % \input{strings/strings}
+  % \input{geometry/geometry}
+  % \input{utils/utils}
 \end{multicols*}
 
 \section{Acceptable Runtimes}

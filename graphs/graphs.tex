@@ -2,76 +2,42 @@
 
 \subsection{Topological sort}
 
-\underline{Runtime:} $\mathcal{O}(\lvert V \rvert + \lvert E \rvert)$
-\lst{Kahn}{graphs/topoSort.cc}
+\lst{Kahn}{$\mathcal{O}(| V | + | E |)$}{graphs/topoSort.cc}
 
 \subsection{Connected components}
 
-\subsubsection{Bridges}
-
-Bridges are edges that increase the number of connected components if
-removed.
-
-\underline{Runtime:} $\mathcal{O}(\lvert V \rvert + \lvert E \rvert)$
-\lstwot{graphs/bridges.cc}
-
-\subsubsection{Articulation Points}
-
-Articulation Points are vertices that increase the number of connected
-components if removed.
-
-\underline{Runtime:} $\mathcal{O}(\lvert V \rvert + \lvert E \rvert)$
-\lstwot{graphs/articulationPoints.cc}
-
-\subsubsection{Strongly connected components}
-\underline{Runtime:} $\mathcal{O}(\lvert V \rvert + \lvert E \rvert)$
-\lst{SCC Tarjan}{graphs/scc.cc}
+\lst{SCC Tarjan}{$\mathcal{O}(|V| + |E|)$}{graphs/scc.cc}
+\lst{Articulation Points}{$\mathcal{O}(| V | + | E |)$}{graphs/articulationPoints.cc}
+\lst{Bridges}{$\mathcal{O}(|V|+|E|)$}{graphs/bridges.cc}
 
 
 \subsection{Minimal spanning tree}
-\underline{Runtime:} $\mathcal{O}(\lvert E \rvert \log \lvert V
-\rvert) = \mathcal{O}(\lvert E \rvert \log \lvert E \rvert)$
-\lst{Kruskal}{graphs/kruskal.cc}
+\lst{Kruskal}{$\mathcal{O}(|E|\log|V|)$}{graphs/kruskal.cc}
 
 \subsection{Shortest paths}
 
-\subsubsection{Single source shortest path}
-\underline{Runtime:}
-$\mathcal{O}((\lvert E \rvert + \lvert V \rvert )\log \lvert V
-\rvert)$
-\lst{Dijkstra}{graphs/dijkstra.cc}
+\lst{Dijkstra}{$\mathcal((|E| + |V|)\log|V|)$}{graphs/dijkstra.cc}
 
-\underline{Runtime:} $\mathcal{O}(\lvert E \rvert \lvert V \rvert)$
-\lst{Bellman Ford}{graphs/bellmanFord.cc}
+\lst{Bellman Ford}{$\mathcal{O}(|E||V|)$}{graphs/bellmanFord.cc}
 
 This approach may be faster
-\lst{Bellman Ford w/ Queue}{graphs/bellmanFordQueue.cc}
+\lst{Bellman Ford w/ Queue}{$\mathcal{O}(|E||V|$}{graphs/bellmanFordQueue.cc}
 \subsubsection{All pairs shortest paths}
-\underline{Runtime:} $\mathcal{O}(\lvert V \rvert^3)$
-\lst{Floyd Warshall}{graphs/floydWarshall.cc}
+\lst{Floyd Warshall}{$\mathcal{O}(|V|^3)$}{graphs/floydWarshall.cc}
 
 \subsubsection{Lowest common ancestor}
-\underline{Runtime:} build: $\mathcal{O}(\lvert V \rvert \log \lvert
-V\rvert)$ query: $\mathcal{O}(1)$
-\lstwot{graphs/LCA.cc}
+\lst{LCA}{build: $\mathcal{O}(|V| \log|V|)$ query: $\mathcal{O}(1)$}{graphs/LCA.cc}
+\lst{LCA w/ binary lifting}{build: $\mathcal{O}(|V|\log |V|)$ query: $\mathcal{O}(\log|V|)$}{graphs/LCABL.cc}
 
-\underline{Runtime:} build: $\mathcal{O}(|V|\log |V|)$ query: $\mathcal{O}(\log|V|)$
-\lst{LCA w/ binary lifting + max weighted edge on path}{graphs/LCABL.cc}
-
-\subsection{Maximum flow}
+\subsection{Flow}
 
 \textbf{Max-flow min-cut theorem.} The maximum value of an $s$-$t$ flow is
 equal to the minimum capacity over all $s$-$t$ cuts
 
-\lst{Edges for flow algorithms}{graphs/flowedge.cc}
-\underline{Runtime:} $\mathcal{O}(\lvert V \rvert \lvert E \rvert^2)$
-\lst{Edmonds Karp}{graphs/edmondsKarp.cc}
-
-\underline{Runtime:} $\mathcal{O}(\left| V \right|^3)$
-\lst{Push Relabel}{graphs/pushRelabel.cc}
-
-\underline{Runtime:} $\mathcal{O}(|V|^2|E|)$ For unit networks: $\mathcal{O}(|E|\sqrt{|V|})$
-\lst{Dinic}{graphs/dinic.cc}
+\lst{Edges for flow algorithms}{}{graphs/flowedge.cc}
+\lst{Edmonds Karp}{$\mathcal{O}(|V||E|^2)$}{graphs/edmondsKarp.cc}
+\lst{Dinic}{$\mathcal{O}(|V|^2|E|)$}{graphs/dinic.cc}
+\lst{Push Relabel}{$\mathcal{O}(|V|^3)$}{graphs/pushRelabel.cc}
 
 \subsubsection{Minimum s-t cut}
 
