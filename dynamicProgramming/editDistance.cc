@@ -8,7 +8,8 @@ int editDistance(const string& a, const string& b) {
       if(!i) dp[i][j] = j;
       else if(!j) dp[i][j] = i;
       else {
-        dp[i][j] = 1 + min({dp[i - 1][j - 1], dp[i][j - 1], dp[i - 1][j]});
+        dp[i][j] = 1 + min({dp[i - 1][j - 1],
+                            dp[i][j - 1], dp[i - 1][j]});
         if(a[i - 1] == b[j - 1]) ckmin(dp[i][j], dp[i - 1][j - 1]);
       }
     }
