@@ -21,3 +21,7 @@ bool isPowOf2(int x) {
 }
 
 bool lsb(int x) { return x & (-x); }
+
+void allSubsetsOfM(int m) {
+  for(int i = m; i; --i &= m) { /* */ }
+}

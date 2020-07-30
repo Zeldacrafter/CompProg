@@ -6,8 +6,6 @@ nim / Sprague Grunge Theorem
 Stirling / Eulerian numbers applications
 Burnside Lemma
 fft
-lis rework
-Dynamic Programmign Chapter (oops)
 bipartite matching / Halls Marriage theorem
 Dilworths therorem
 heavy-light-decomp
@@ -20,3 +18,5 @@ rework chapter order
 go through other scripts
 
 128 Bit integer print as operater<<
+
+linear sieve
