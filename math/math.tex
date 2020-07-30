@@ -18,15 +18,14 @@ boundary points $b$:
 \[
 A = i + \frac{b}{2} - 1
 \]
-Calculation of border points:
-\lstwot{geometry/picksTheorem.cc}
+
+\lst{Calculation of border points:  }{$\mathcal{O}(b)$}{geometry/picksTheorem.cc}
 For polygon area see the geometry section.
 
 \subsection{Eulers formular for planar graphs}
 For every planar graph $G$ the following holds: $V - E + F = 2$
 
 \subsection{Combinatorics}
-%TODO(Alex): Basic combinatorics
 
 \subsubsection{Binomial coefficient}
 Number of possible sets with $k$ elements selected from $n$ elements. 
@@ -35,7 +34,7 @@ Number of possible sets with $k$ elements selected from $n$ elements.
   \frac{n}{k}\binom{n - 1}{k - 1} = \binom{n - 1}{k} + \binom{n - 1}{k
   - 1}
 \end{equation*}
-\lst{linear implementation}{math/binom.cc}
+\lst{Binomial coefficient}{$\mathcal{O}(\min(k, n - k))$}{math/binom.cc}
 \begin{center}
 	\begin{tabular}{ |l||l|l|l|l|l|l|l|l|l|l| } 
 		\hline

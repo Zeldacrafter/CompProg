@@ -6,11 +6,3 @@ ll gcd(ll x, ll y, ll& a, ll& b) {
   }
   return a = 1, b = 0, x;
 }
-int main() {
-  ll x, y;
-  while (cin >> x >> y, ~x) {
-    ll a, b;
-    ll res = gcd(x, y, a, b);
-    cout << dvar(res) << dvar(a) << dvar(b) << endl;
-  }
-}
