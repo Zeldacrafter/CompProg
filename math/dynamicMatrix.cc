@@ -1,3 +1,4 @@
+#include "../template.cc"
 template<typename T>
 struct matrix : public vector<vector<T>> {
   matrix(int sz) : vector<vector<T>>(sz, vector<T>(sz)) {}

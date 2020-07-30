@@ -1,3 +1,4 @@
+#include "../template.cc"
 template<int sz, typename T>
 struct matrix : public array<array<T, sz>, sz> {
   matrix() : array<array<T, sz>, sz>{} {}
