@@ -1,45 +1,39 @@
 \section{Strings}
-\subsection{Trie/Prefix Tree}
-\underline{Runtime:} $\mathcal{O}(n)$ for insertion and getting, where
-$n$ is the length of the key.
-\lst{Trie}{strings/trie.cc}
+\lst{Trie/Prefix Tree}{$\mathcal{O}(n)$ for insert and get}{strings/trie.cc}
 
 \subsection{Prefix Function}
 For a string $s$ return an array in which the $i$-th entry is the
 length of the longest proper prefix of $s[0,\ldots, i]$ which is also
 a suffix.  Note that the $0$-th entry is $0$
-\lstwot{strings/prefixFunction.cc}
+
+\lst{Prefix Function}{$\mathcal(O)(n)$}{strings/prefixFunction.cc}
 
 \subsection{KMP}
 Returns a list with all the starting indeces where the pattern matches
 the text.
 
-\underline{Runtime:} $\mathcal{O}(\left| \text{text} \right| + \left|
-  \text{pattern} \right|)$
-\lst{KMP}{strings/kmp.cc}
+\lst{KMP}{$\mathcal{O}(n + m)$}{strings/kmp.cc}
 
 \subsection{Manachers}
 % source: https://www.hackerrank.com/topics/manachers-algorithm
-Returns array where $P[i]$ contains the length of the palindrome with mid-point $i$.\\
-There are extra entries for where the mid-point is inbetween letters.\\
-Example for $abbaac$:
+Returns array where $P[i]$ contains the length of the palindrome with
+mid-point $i$. There are extra entries for where the mid-point is
+inbetween letters. Example for $abbaac$:
 \begin{lstlisting}
 | a | b | b | a | a | a | c |
 0 1 0 1 4 1 0 1 2 3 2 1 0 1 0
 \end{lstlisting}
-\underline{Runtime:} $\mathcal{O}(n)$
-\lst{Manachers}{strings/manachers.cc}
+
+\lst{Manachers}{$\mathcal{O}(n)$}{strings/manachers.cc}
 \subsection{Aho-Corasick Automaton}
 % See for detailed explaination:
 % http://web.stanford.edu/class/archive/cs/cs166/cs166.1166/lectures/02/Small02.pdf
 % TODO(Alex): Test query() call extensively. Build + insert are okay for sure.
-Data structure to search how often $n$ fixed strings $t_1, \dots, t_n$ are contained in a variable string $S$. Strings $t_j$ may each have values.\\
-\underline{Runtime:}
-\begin{itemize}
-	\item Build: $\mathcal{O}(\sum \lvert t_j \rvert)$
-	\item Query: $\mathcal{O}(\lvert S \rvert)$
-\end{itemize}
-\lst{Aho-Corasick Automaton}{strings/aho_corasick.cc}
+Data structure to search how often $n$ fixed strings $t_1, \dots, t_n$
+are contained in a variable string $S$. Strings $t_j$ may each have
+values.
+
+\lst{Aho-Corasick Automaton}{build: $\mathcal{O}(\sum |t_j|)$, query: $\mathcal{O}(|S|)$}{strings/aho_corasick.cc}
 
 %%% Local Variables:
 %%% mode: latex

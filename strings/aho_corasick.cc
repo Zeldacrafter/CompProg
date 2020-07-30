@@ -31,10 +31,8 @@ void buildAC() {
 int query(string& s) {
   int curr = 0, res = 0;
   for (char c : s) {
-    if (nxt[curr][c - 'a'])
-      curr = nxt[curr][c - 'a'];
-    else
-      while (curr && !nxt[curr][c - 'a']) curr = fail[curr];
+    if (nxt[curr][c - 'a']) curr = nxt[curr][c - 'a'];
+    else while (curr && !nxt[curr][c - 'a']) curr = fail[curr];
     res += val[curr];
   }
   return res;

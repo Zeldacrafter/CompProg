@@ -1,6 +1,8 @@
 #include "geometry.cc"
 bool inTriangle(pt a, pt b, pt c, pt p) {
-  return abs(-abs(dir(a, b, c)) + abs(dir(a, b, p)) + abs(dir(a, p, c)) + abs(dir(p, b, c))) < EPS;
+  return
+    abs(-abs(dir(a, b, c)) + abs(dir(a, b, p))
+        + abs(dir(a, p, c)) + abs(dir(p, b, c))) < EPS;
 }
 bool inPolygon(vector<pt>& poly, pt p) {
   int l = 1, r = SZ(poly) - 2;
