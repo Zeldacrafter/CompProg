@@ -1,7 +1,7 @@
 \documentclass{article}
 
 
-\usepackage[a4paper,margin=2cm,bottom=2cm,top=2cm,landscape]{geometry}
+\usepackage[a4paper,margin=2cm,bottom=2cm,top=2cm,landscape,twocolumn]{geometry}
 \usepackage{babel}
 \usepackage{lmodern}
 \usepackage[T1]{fontenc}       
@@ -13,6 +13,7 @@
 % font for more readable code
 \usepackage{dejavu}
 
+\usepackage{xparse}
 
 % math packages
 \usepackage{amsmath}
@@ -43,38 +44,112 @@
 
 
 % code listings
-\usepackage{listings}
 \usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+% \usepackage{listings}
+\usepackage[skins, breakable]{tcolorbox}
+\usepackage{fontawesome5}
 
-\lstset{
-  basicstyle=\footnotesize\ttfamily,
-  breakatwhitespace=false,
-  breaklines=false,
-  commentstyle=\color{OliveGreen},
-  keywordstyle=\color{blue},
-  stringstyle=\color{red},
-  rulecolor=\color{black},
-  frame=single,
-  keepspaces=true,
-  language=[11]c++,
-  morekeywords={},
-  showstringspaces=true,
-  showtabs=false,	
-  tabsize=2,
-  extendedchars=true,
-  breaklines=true,
-  prebreak=\mbox{\textcolor{red}{\textbackslash}},
-  postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
-}
+\usepackage{minted}
+\setminted[c++]{style=perldoc, fontsize=\footnotesize}
+
+% \lstset{
+%   basicstyle=\footnotesize\ttfamily,
+%   breakatwhitespace=false,
+%   breaklines=false,
+%   commentstyle=\color{OliveGreen},
+%   keywordstyle=\color{blue},
+%   stringstyle=\color{red},
+%   rulecolor=\color{black},
+%   % frame=single,
+%   keepspaces=true,
+%   language=[11]c++,
+%   morekeywords={},
+%   showstringspaces=true,
+%   showtabs=false,	
+%   tabsize=2,
+%   extendedchars=true,
+%   breaklines=true,
+%   prebreak=\mbox{\textcolor{red}{\textbackslash}},
+%   postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+% }
 
 % \newcommand{\lst}[2]{\lstinputlisting[title=#1, firstline=2]{#2}}
 % \newcommand{\lstwot}[1]{\lstinputlisting[firstline=2]{#1}}
-\newcommand{\lst}[3]{%
-  {
-    #1\hfill {\small #2}
-    \vspace*{-5pt}
-    \lstinputlisting[firstline=2]{#3}
-  }
+% \newcommand{\lst}[3]{%
+%   {
+%     #1\hfill {\small #2}
+%     \vspace*{-5pt}
+%     \lstinputlisting[firstline=2]{#3}
+%   }
+% }
+
+\NewDocumentCommand\lst{ommm}{%
+  \tcbset{enhanced, colframe=black, arc=0pt, boxsep=0pt, left=2pt, right=2pt}
+  \begin{tcolorbox}[%
+    title=#2,
+    colback=white,
+    leftupper=0pt,
+    rightupper=0pt,
+    top=0pt,
+    bottom=2pt,
+    boxrule=1pt,
+    middle=1pt,
+    drop fuzzy shadow,
+    lower separated=false,
+    toptitle=2pt,
+    bottomtitle=2pt,
+    breakable,
+    break at=-\baselineskip/0pt,
+    fonttitle=\bfseries\sffamily,
+    before title={\small\faCode\hspace*{2pt}}]
+    \IfNoValueTF{#1}
+    { %
+      \begin{tcolorbox}[ %
+        enhanced,
+        arc=0pt,
+        boxsep=0pt,
+        left=2pt,
+        right=2pt,
+        bottom=2pt,
+        top=2pt,
+        boxrule=0pt,
+        borderline south={1pt}{0pt}{black}]
+        \begin{small}
+          \begin{flushleft}
+            #3
+          \end{flushleft}
+        \end{small}
+      \end{tcolorbox}
+    } % 
+    { %
+      \begin{tcolorbox}[ %
+        enhanced,
+        arc=0pt,
+        boxsep=0pt,
+        left=2pt,
+        right=2pt,
+        bottom=2pt,
+        top=2pt,
+        sidebyside,
+        middle=2pt,
+        sidebyside gap=4pt,
+        righthand ratio=0.3,
+        boxrule=0pt,
+        borderline south={1pt}{0pt}{black},
+        segmentation style={draw=black, solid}]
+        #1
+        \tcblower
+        \begin{small}
+          \begin{flushleft}
+            #3
+          \end{flushleft}
+        \end{small}
+      \end{tcolorbox}
+    }%
+    \tcblower
+    % \lstinputlisting[firstline=2]{#3}
+    \inputminted[firstline=2]{c++}{#4}
+  \end{tcolorbox}
 }
 
 
@@ -85,7 +160,7 @@
 \setlength{\headheight}{1.2cm}
 \setlength{\headsep}{0.5cm}
 
-\lhead{\textit{Christian-Albrechts-Universität Kiel}}
+\lhead{Christian-Albrechts-Universität Kiel}
 \chead{}
 \rhead{\thepage}
 
@@ -93,10 +168,17 @@
 \lfoot[]{}
 \cfoot[]{}
 
+\usepackage{tocloft}
+\setlength{\cftbeforesecskip}{6pt}
+\usepackage[toc]{multitoc}
+\renewcommand*{\multicolumntoc}{2}
+\setlength{\columnseprule}{0.5pt}
 
 % multi column layout
 \usepackage{multicol}
 \setlength{\columnseprule}{0.4pt}
+
+\AtBeginDocument{\addtocontents{toc}{\protect\thispagestyle{fancy}}} 
 
 \begin{document}
 \begin{titlepage}
@@ -112,8 +194,10 @@
   \vspace*{\fill}
 \end{titlepage}
       
-\begin{multicols*}{2}
-  \lst{}{}{template.cc}
+% empt\begin{multicols*}{2}           
+  \setcounter{tocdepth}{1}
+  \tableofcontents
+  \lst{Template}{}{template.cc}
   \input{math/math}  
   \input{math/numberTheory}
   \input{dataStructures/dataStructures}
@@ -122,35 +206,37 @@
   \input{strings/strings}
   \input{geometry/geometry}
   \input{utils/utils}
-\end{multicols*}
+% \end{multicols*}
 
-\section{Acceptable Runtimes}
-\begin{table*}[h]
-	\centering
-	\begin{tabular}[t]{c c c}
-		\hline
-		$n$ & Worst AC Algorithm & Comment\\ [0.5ex]
-		\hline
-		\hline
-		$\leq 10$ & $\mathcal{O}(n!), \mathcal{O}(n^6)$ & e.g. Enumerating a Permutation\\
-		\hline
-		$\leq 20$ & $\mathcal{O}(2^n), \mathcal{O}(n^5)$ & e.g. DP + Bitmask Technique\\
-		\hline
-		$\leq 50$ & $\mathcal{O}(n^4)$ & e.g. DP with $3$ dimensions $+\mathcal{O}(n)$ loop, choosing $_nC_k=4$\\
-		\hline
-		$\leq 10^2$ & $\mathcal{O}(n^3)$ & e.g. Floyd Warshall’s\\
-		\hline
-		$\leq 10^3$ & $\mathcal{O}(n^2)$ & e.g. Bubble/Selection/Insertion Sort\\
-		\hline
-		$\leq 10^5$ & $\mathcal{O}(n log_2 n)$ & e.g. Merge Sort, building Segment Tree\\
-		\hline
-		$\leq 10^6$ & $\mathcal{O}(n),\mathcal{O}(log_2n),\mathcal{O}(1)$ & usually, contest problem has $n\leq 10^6$(e.g. to read input)\\
-		\hline
-	\end{tabular}
-\end{table*}
+% \section{Acceptable Runtimes}
+% \begin{table*}[h]
+%   \centering
+%   \begin{tabular}[t]{c c c}
+%     \hline
+%     $n$ & Worst AC Algorithm & Comment\\ [0.5ex]
+%     \hline
+%     \hline
+%     $\leq 10$ & $\mathcal{O}(n!), \mathcal{O}(n^6)$ & e.g. Enumerating a Permutation\\
+%     \hline
+%     $\leq 20$ & $\mathcal{O}(2^n), \mathcal{O}(n^5)$ & e.g. DP + Bitmask Technique\\
+%     \hline
+%     $\leq 50$ & $\mathcal{O}(n^4)$ & e.g. DP with $3$ dimensions $+\mathcal{O}(n)$ loop, choosing $_nC_k=4$\\
+%     \hline
+%     $\leq 10^2$ & $\mathcal{O}(n^3)$ & e.g. Floyd Warshall’s\\
+%     \hline
+%     $\leq 10^3$ & $\mathcal{O}(n^2)$ & e.g. Bubble/Selection/Insertion Sort\\
+%     \hline
+%     $\leq 10^5$ & $\mathcal{O}(n log_2 n)$ & e.g. Merge Sort, building Segment Tree\\
+%     \hline
+%     $\leq 10^6$ & $\mathcal{O}(n),\mathcal{O}(log_2n),\mathcal{O}(1)$ & usually, contest problem has $n\leq 10^6$(e.g. to read input)\\
+%     \hline
+%   \end{tabular}
+% \end{table*}
 
 \end{document}
+
 %%% Local Variables:
+%%% TeX-command-extra-options: "-shell-escape"
 %%% mode: latex
 %%% TeX-master: t
 %%% End:
