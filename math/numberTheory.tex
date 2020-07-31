@@ -1,27 +1,27 @@
 \section{Number Theory}
 \lst{GCD and LCM}{$\mathcal{O}(\log(a + b))$}{math/gcd_lcm.cc}
-\lst{extended euclid}{$\mathcal{O}(\log(a +
-  b))$}{math/extendedEuclid.cc} 
+\begin{code}{Extended Euclid}{$\mathcal{O}(\log(a + b))$}{math/extendedEuclid.cc} 
+ Calculates $a$ and $b$ such that $\gcd(x, y) = ax + by$
+\end{code}
 
+\begin{code}{Coefficients of a Polynomial}{$\mathcal{O}(n^2)$}{math/getCoefficiants.cc}
+  For any polynomial with $p(x_i) = y_i$ where all $x_i$ are distinct coefficients can be calculated the following way:
+\end{code}
 
-\lst[For any polynomial with $p(x_i) = y_i$ where all $x_i$ are distinct coefficients can be calculated the following way:]{Coefficients of a Polynomial}{$\mathcal{O}(n^2)$}{math/getCoefficiants.cc}
-\subsection{Modular Exponentiation}
-\lst{binary exponentiation}{$\mathcal{O}(\log b)$}{math/modpow.cc}
+\lst{Modular Exponentiation}{$\mathcal{O}(\log b)$}{math/modpow.cc}
 
-\subsection{Miller Rabin Prime Test}
-Works for all numbers up to $2^{64}$.
+\begin{code}{Miller Rabin Prime Test}{$\mathcal{O}(7\log b)$}{math/millerRabin.cc}
+  Works for all numbers up to $2^{64}$
+\end{code}
 
-\lst{Miller Rabin}{$\mathcal{O}(7\log b)$}{math/millerRabin.cc}
-
-\subsection{Eulers Totoid Function}
+\begin{code}{Eulers Totoid Function}{$\mathcal{O}(\sqrt{n})$}{math/totoid.cc}
 %TODO(Alex): Improve this -> better(more) details/ what is important, applications
 $\phi(n)$: Number of Integers in $[1, n]$ that are coprime to $n$.\\
 $p \text{ prime}, k \in \mathbb{N} \Rightarrow \phi(p^k) = p^k - p^{k-1}$ \\
 $a, b \text{ coprime} \Rightarrow \phi(a \cdot b) = \phi(a) \cdot \phi(b)$ \\
 $a, b \in \mathbb{N} \Rightarrow \phi(a \cdot b) = \phi(a) \cdot \phi(b) \cdot \frac{gcd(a, b)}{\phi(gcd(a,b))}$ \\
 $P \text{ prime factors of } n \Rightarrow \phi(n) = n \cdot \prod_{p \in P} (1 - \frac{1}{p})$
-
-\lst{totoid}{$\mathcal{O}(\sqrt{n})$}{math/totoid.cc}
+\end{code}
 
 
 %%% Local Variables:

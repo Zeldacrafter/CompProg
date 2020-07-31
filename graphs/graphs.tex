@@ -1,33 +1,32 @@
 \section{Graphs}
 
-\subsection{Topological sort}
+\begin{code}{Topological Sort}{$\mathcal{O}(|V| + |E|)$}{graphs/topoSort.cc}
+  A priority queue can be used if further sorting is necessary.
+\end{code}
 
-\lst{Kahn}{$\mathcal{O}(| V | + | E |)$}{graphs/topoSort.cc}
-
-\subsection{Connected components}
 
 \lst{SCC Tarjan}{$\mathcal{O}(|V| + |E|)$}{graphs/scc.cc}
 \lst{Articulation Points}{$\mathcal{O}(| V | + | E |)$}{graphs/articulationPoints.cc}
 \lst{Bridges}{$\mathcal{O}(|V|+|E|)$}{graphs/bridges.cc}
 
 
-\subsection{Minimal spanning tree}
-\lst{Kruskal}{$\mathcal{O}(|E|\log|V|)$}{graphs/kruskal.cc}
+\lst{Minimal Spanning Tree -- Kruskal}{$\mathcal{O}(|E|\log|V|)$}{graphs/kruskal.cc}
 
-\subsection{Shortest paths}
+\subsection{Shortest Paths}
 
 \lst{Dijkstra}{$\mathcal((|E| + |V|)\log|V|)$}{graphs/dijkstra.cc}
 
 \lst{Bellman Ford}{$\mathcal{O}(|E||V|)$}{graphs/bellmanFord.cc}
 
-This approach may be faster
-\lst{Bellman Ford w/ Queue}{$\mathcal{O}(|E||V|)$}{graphs/bellmanFordQueue.cc}
-\subsubsection{All pairs shortest paths}
+\begin{code}{Bellman Ford with Queue}{$\mathcal{O}(|E||V|)$}{graphs/bellmanFordQueue.cc}
+  This approach may be faster
+\end{code}
+
 \lst{Floyd Warshall}{$\mathcal{O}(|V|^3)$}{graphs/floydWarshall.cc}
 
-\subsubsection{Lowest common ancestor}
+\subsection{Lowest Common Ancestor}
 \lst{LCA}{build: $\mathcal{O}(|V| \log|V|)$ query: $\mathcal{O}(1)$}{graphs/LCA.cc}
-\lst{LCA w/ binary lifting}{build: $\mathcal{O}(|V|\log |V|)$ query: $\mathcal{O}(\log|V|)$}{graphs/LCABL.cc}
+\lst{LCA with binary lifting}{build: $\mathcal{O}(|V|\log |V|)$ query: $\mathcal{O}(\log|V|)$}{graphs/LCABL.cc}
 
 \subsection{Flow}
 

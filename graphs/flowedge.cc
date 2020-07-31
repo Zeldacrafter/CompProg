@@ -19,5 +19,6 @@ void addEdge(int from, int to, ll c, ll f = 0) {
   adj[to].pb(SZ(edges) - 1);
 }
 ostream& operator<<(ostream& o, const edge& e) {
-  return o << e.mfrom << "-- " << e.mflow << '/' << e.mcapacity << " -->" << e.mto;
+  return o << e.mfrom << "-- " << e.mflow << '/'
+           << e.mcapacity << " -->" << e.mto;
 }

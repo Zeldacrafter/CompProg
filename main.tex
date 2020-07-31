@@ -2,7 +2,7 @@
 
 
 \usepackage[a4paper,margin=2cm,bottom=2cm,top=2cm,landscape,twocolumn]{geometry}
-\usepackage{babel}
+\usepackage[english]{babel}
 \usepackage{lmodern}
 \usepackage[T1]{fontenc}       
 \usepackage[utf8]{inputenc}    
@@ -42,6 +42,7 @@
 \setlength\parindent{0pt}
 \setlength\parskip{\baselineskip}
 
+\setcounter{secnumdepth}{0}
 
 % code listings
 \usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
@@ -83,10 +84,35 @@
 %   }
 % }
 
-\NewDocumentCommand\lst{ommm}{%
+\NewDocumentCommand\lst{mmm}{%
   \tcbset{enhanced, colframe=black, arc=0pt, boxsep=0pt, left=2pt, right=2pt}
   \begin{tcolorbox}[%
-    title=#2,
+    arc=1pt,
+    title=#1,
+    colback=white,
+    leftupper=0pt,
+    rightupper=0pt,
+    top=2pt,
+    bottom=2pt,
+    boxrule=1pt,
+    drop fuzzy shadow,
+    lower separated=false,
+    toptitle=2pt,
+    bottomtitle=2pt,
+    breakable,
+    break at=-\baselineskip/0pt,
+    fonttitle=\bfseries\sffamily,
+    before title={\small\faCode\hspace*{2pt}},
+    after title={\hfill\normalfont\footnotesize #2}]
+    \inputminted[firstline=2]{c++}{#3}
+  \end{tcolorbox}
+}
+
+\NewDocumentEnvironment{code}{mmm}{%
+  \tcbset{enhanced, colframe=black, arc=0pt, boxsep=0pt, left=2pt, right=2pt}
+  \begin{tcolorbox}[%
+    arc=1pt,
+    title=#1,
     colback=white,
     leftupper=0pt,
     rightupper=0pt,
@@ -101,54 +127,23 @@
     breakable,
     break at=-\baselineskip/0pt,
     fonttitle=\bfseries\sffamily,
-    before title={\small\faCode\hspace*{2pt}}]
-    \IfNoValueTF{#1}
-    { %
-      \begin{tcolorbox}[ %
-        enhanced,
-        arc=0pt,
-        boxsep=0pt,
-        left=2pt,
-        right=2pt,
-        bottom=2pt,
-        top=2pt,
-        boxrule=0pt,
-        borderline south={1pt}{0pt}{black}]
-        \begin{small}
-          \begin{flushleft}
-            #3
-          \end{flushleft}
-        \end{small}
-      \end{tcolorbox}
-    } % 
-    { %
-      \begin{tcolorbox}[ %
-        enhanced,
-        arc=0pt,
-        boxsep=0pt,
-        left=2pt,
-        right=2pt,
-        bottom=2pt,
-        top=2pt,
-        sidebyside,
-        middle=2pt,
-        sidebyside gap=4pt,
-        righthand ratio=0.3,
-        boxrule=0pt,
-        borderline south={1pt}{0pt}{black},
-        segmentation style={draw=black, solid}]
-        #1
-        \tcblower
-        \begin{small}
-          \begin{flushleft}
-            #3
-          \end{flushleft}
-        \end{small}
-      \end{tcolorbox}
-    }%
+    before title={\small\faCode\hspace*{2pt}},
+    after title={\hfill\normalfont\footnotesize #2}]
+    \begin{tcolorbox}[ %
+      enhanced,
+      arc=0pt,
+      boxsep=0pt,
+      left=2pt,
+      right=2pt,
+      bottom=2pt,
+      top=2pt,
+      boxrule=0pt,
+      borderline south={1pt}{0pt}{black}]
+      \begin{small}}{%
+      \end{small}
+    \end{tcolorbox}
     \tcblower
-    % \lstinputlisting[firstline=2]{#3}
-    \inputminted[firstline=2]{c++}{#4}
+    \inputminted[firstline=2]{c++}{#3}
   \end{tcolorbox}
 }
 
@@ -174,6 +169,12 @@
 \renewcommand*{\multicolumntoc}{2}
 \setlength{\columnseprule}{0.5pt}
 
+\usepackage[en-GB]{datetime2}
+\makeatletter
+\newcommand{\daymonthyear}{%
+  \@dtm@day. \DTMenglishmonthname{\@dtm@month} \@dtm@year
+}
+\makeatother
 % multi column layout
 \usepackage{multicol}
 \setlength{\columnseprule}{0.4pt}
@@ -190,7 +191,7 @@
   \vspace{2.5\baselineskip}
   Christian-Albrechts-Universität Kiel \\
   \vspace{2\baselineskip}
-  \today \\
+  \daymonthyear
   \vspace*{\fill}
 \end{titlepage}
       

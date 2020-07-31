@@ -1,20 +1,18 @@
 \section{Strings}
 \lst{Trie/Prefix Tree}{$\mathcal{O}(n)$ for insert and get}{strings/trie.cc}
 
-\subsection{Prefix Function}
-For a string $s$ return an array in which the $i$-th entry is the
-length of the longest proper prefix of $s[0,\ldots, i]$ which is also
-a suffix.  Note that the $0$-th entry is $0$
+\begin{code}{Prefix Function}{$\mathcal{O}(n)$}{strings/prefixFunction.cc}
+  For a string $s$ return an array in which the $i$-th entry is the
+  length of the longest proper prefix of $s[0,\ldots, i]$ which is also
+  a suffix.  Note that the $0$-th entry is $0$
+\end{code}
 
-\lst{Prefix Function}{$\mathcal{O}(n)$}{strings/prefixFunction.cc}
+\begin{code}{KMP}{$\mathcal{O}(n + m)$}{strings/kmp.cc}
+  Returns a list with all the starting indeces where the pattern matches
+  the text.
+\end{code}
 
-\subsection{KMP}
-Returns a list with all the starting indeces where the pattern matches
-the text.
-
-\lst{KMP}{$\mathcal{O}(n + m)$}{strings/kmp.cc}
-
-\subsection{Manachers}
+\begin{code}{Manachers}{$\mathcal{O}(n)$}{strings/manachers.cc}
 % source: https://www.hackerrank.com/topics/manachers-algorithm
 Returns array where $P[i]$ contains the length of the palindrome with
 mid-point $i$. There are extra entries for where the mid-point is
@@ -23,17 +21,16 @@ inbetween letters. Example for $abbaac$:
 | a | b | b | a | a | a | c |
 0 1 0 1 4 1 0 1 2 3 2 1 0 1 0
 \end{verbatim}
+\end{code}
 
-\lst{Manachers}{$\mathcal{O}(n)$}{strings/manachers.cc}
-\subsection{Aho-Corasick Automaton}
-% See for detailed explaination:
-% http://web.stanford.edu/class/archive/cs/cs166/cs166.1166/lectures/02/Small02.pdf
-% TODO(Alex): Test query() call extensively. Build + insert are okay for sure.
-Data structure to search how often $n$ fixed strings $t_1, \dots, t_n$
-are contained in a variable string $S$. Strings $t_j$ may each have
-values.
-
-\lst{Aho-Corasick Automaton}{build: $\mathcal{O}(\sum |t_j|)$, query: $\mathcal{O}(|S|)$}{strings/aho_corasick.cc}
+\begin{code}{Aho-Corasick Automaton}{build: $\mathcal{O}(\sum |t_j|)$, query: $\mathcal{O}(|S|)$}{strings/aho_corasick.cc}
+  % See for detailed explaination:
+  % http://web.stanford.edu/class/archive/cs/cs166/cs166.1166/lectures/02/Small02.pdf
+  % TODO(Alex): Test query() call extensively. Build + insert are okay for sure.
+  Data structure to search how often $n$ fixed strings $t_1, \dots, t_n$
+  are contained in a variable string $S$. Strings $t_j$ may each have
+  values.
+\end{code}
 
 %%% Local Variables:
 %%% mode: latex
