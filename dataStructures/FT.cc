@@ -10,8 +10,8 @@ struct FT {
     return sum;
   }
   int query(int i, int j) { return query(j) - query(i - 1); }
-  void adjust(int i, int adjustBy) {
-    for (; i <= n; i += LSOne(i)) A[i] += adjustBy;
+  void update(int i, int add) {
+    for (; i <= n; i += LSOne(i)) A[i] += add;
   }
   // lb assumes query(i, i) >= 0 forall i in [1, n]
   // returns min p >= 1, so that [1, p] >= sum
