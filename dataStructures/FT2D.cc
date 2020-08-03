@@ -11,8 +11,8 @@ struct FT2D {
       return sum;
     }
     int query(int i, int j) { return query(j) - query(i - 1); }
-    void update(int i, int adjustBy) {
-      for (; i <= n; i += LSOne(i)) A[i] += adjustBy;
+    void update(int i, int add) {
+      for (; i <= n; i += LSOne(i)) A[i] += add;
     }
   };
   vector<FT> fts;
