@@ -4,6 +4,10 @@
  Calculates $a$ and $b$ such that $\gcd(x, y) = ax + by$
 \end{code}
 
+\begin{code}{Linear Prime Sieve}{$\mathcal{O}(n)$}{math/sieve.cc}
+    $lp[i]$ holds the smallest prime factor of $i$. Works well for $n \leq 1e7$
+\end{code}
+
 \begin{code}{Coefficients of a Polynomial}{$\mathcal{O}(n^2)$}{math/getCoefficiants.cc}
   For any polynomial with $p(x_i) = y_i$ where all $x_i$ are distinct coefficients can be calculated the following way:
 \end{code}

@@ -1,9 +1,7 @@
 #include "../template.cc"
-__uint128_t a;
-__int128_t b;
-void print_it(__int128_t n) {
+ostream& operator<<(ostream& o, __int128_t n) {
   if (n < 0) {
-    cout << '-';
+    o << '-';
     n *= -1;
   }
   ll mod = 1e18;
@@ -17,5 +15,12 @@ void print_it(__int128_t n) {
       s = dStr + s;
     n = (n - digits) / mod;
   } while (n);
-  cout << s;
+  return o << s;
+}
+
+int main() {
+  while (true) {
+    ll x, y; cin >> x >> y;
+    cout << static_cast<__int128_t>(x) * y << endl;
+  }
 }
