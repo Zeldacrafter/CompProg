@@ -1,7 +1,7 @@
 #include "../template.cc"
 struct Trie {
-  vvi adj(1, vi(26, -1));
-  vi value(1, -1);  // -1: no value present
+  vvi adj; vi value;  // -1: no value present
+  Trie() : adj(1, vi(26, -1)), value(1, -1) {}
   void insert(const string& s, int val) {
     int node = 0;
     for (char c : s) {
@@ -22,4 +22,4 @@ struct Trie {
     }
     return value[node];
   }
-}
+};

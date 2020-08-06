@@ -8,7 +8,7 @@ Burnside Lemma
 fft
 bipartite matching / Halls Marriage theorem
 Dilworths therorem
-test heavy-light-decomp
 Königs Theoren
-sqrt decomp (moe's algo)
+sqrt decomp (mo's algo)
 suffix array
+bellman ford floyd warshall negative cycle detection
