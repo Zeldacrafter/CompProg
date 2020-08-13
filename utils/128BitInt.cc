@@ -17,10 +17,3 @@ ostream& operator<<(ostream& o, __int128_t n) {
   } while (n);
   return o << s;
 }
-
-int main() {
-  while (true) {
-    ll x, y; cin >> x >> y;
-    cout << static_cast<__int128_t>(x) * y << endl;
-  }
-}
