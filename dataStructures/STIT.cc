@@ -1,13 +1,17 @@
 #include "../template.cc"
+template<typename T>
 struct ST {
-  using T = int;
-  const T unit = 0;
-  T merge(T l, T r) { return l + r; };
-  int n;
+  using type = T;
+  using MT = function<T(const T&, const T&)>;
+  const int n;
+  const T unit;
+  const MT merge;
   vector<T> data;
-  ST(int n) : n(n), data(2 * n) {}
-  ST(vector<T>& v) : n(SZ(v)), data(2 * SZ(v)) {
-    copy(ALL(v), data.begin() + SZ(v));
+  ST(int n, T unit, MT merge)
+    : n{n}, unit{unit}, merge{merge}, data(2 * n, unit) {}
+  ST(const vector<T>& v, T unit, MT merge)
+    : n{SZ(v)}, unit{unit}, merge{merge}, data(SZ(v), unit) {
+    data.insert(data.end(), ALL(v));
     build();
   }
   void build() {

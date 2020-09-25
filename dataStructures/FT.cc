@@ -1,18 +1,17 @@
 #include "../template.cc"
+template<typename T>
 struct FT {
-  using T = int;
   vector<T> A;
   int n;
   FT(int n) : A(n + 1, 0), n(n) {}
-  int inline LSOne(int i) { return i & (-i); }
   T query(int i) {
     T sum = 0;
-    for (; i; i -= LSOne(i)) sum += A[i];
+    for (; i; i -= i & -i) sum += A[i];
     return sum;
   }
   T query(int i, int j) { return query(j) - query(i - 1); }
   void update(int i, T add) {
-    for (; i <= n; i += LSOne(i)) A[i] += add;
+    for (; i <= n; i += i & -i) A[i] += add;
   }
   // lb assumes query(i, i) >= 0 forall i in [1, n]
   // returns min p >= 1, so that [1, p] >= sum

@@ -1,41 +1,45 @@
 #include "../template.cc"
-struct mod {
-  static const ll p = 1e9 + 7;
+template<ll p>
+struct mint {
+  static constexpr ll mod = p;
   ll val;
-  mod() : val(0) {}
-  mod(ll val) : val(val % p) { if (this->val < 0) this->val += p; }
-  mod& operator+=(const mod& o) {
+  mint() : val(0) {}
+  mint(ll val) : val(val % p) { if (this->val < 0) this->val += p; }
+  mint& operator+=(const mint& o) {
     val = (val + o.val) % p;
     return *this;
   }
-  mod& operator-=(const mod& o) {
+  mint& operator-=(const mint& o) {
     val = (val - o.val + p) % p;
     return *this;
   }
-  mod& operator*=(const mod& o) {
+  mint& operator*=(const mint& o) {
     val = val * o.val % p;
     return *this;
   }
-  mod& operator/=(mod o) { return (*this) *= pow(o, p - 2); }
-  mod& operator++() { return (*this) += 1; }
-  mod operator++(int) { return ++(*this) - 1; }
-  mod& operator--() { return (*this) -= 1; }
-  mod operator--(int) { return --(*this) + 1; }
-  mod friend operator+(mod a, const mod& b) { return a += b; }
-  mod friend operator-(mod a, const mod& b) { return a -= b; }
-  mod friend operator*(mod a, const mod& b) { return a *= b; }
-  mod friend operator/(mod a, const mod& b) { return a /= b; }
-  static mod pow(mod a, mod b) {
-    mod res = 1;
+  mint& operator/=(mint o) { return (*this) *= pow(o, p - 2); }
+  mint& operator++() { return (*this) += 1; }
+  mint operator++(int) { return ++(*this) - 1; }
+  mint& operator--() { return (*this) -= 1; }
+  mint operator--(int) { return --(*this) + 1; }
+  mint friend operator+(mint a, const mint& b) { return a += b; }
+  mint friend operator-(mint a, const mint& b) { return a -= b; }
+  mint friend operator*(mint a, const mint& b) { return a *= b; }
+  mint friend operator/(mint a, const mint& b) { return a /= b; }
+  static mint pow(mint a, mint b) {
+    mint res = 1;
     for (; b.val; b.val >>= 1, a = a * a)
       if (b.val & 1) res = res * a;
     return res;
   }
-  friend istream& operator>>(istream& i, mod& m) {
+  friend istream& operator>>(istream& i, mint& m) {
     i >> m.val;
-    m.val %= mod::p;
-    if (m.val < 0) m.val += mod::p;
+    m.val %= p;
+    if (m.val < 0) m.val += p;
     return i;
   }
-  friend ostream& operator<<(ostream& o, const mod& m) { return o << m.val; }
+  friend ostream& operator<<(ostream& o, const mint& m) { return o << m.val; }
 };
+using mod1 = mint<(ll)1e9 + 7ll>;
+using mod2 = mint<998244353ll>;
+using mod = mod1;

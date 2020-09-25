@@ -1,11 +1,14 @@
 #include "../dataStructures/STIT.cc"
+template<typename T>
 struct HLD {
   int n;
   vi par, sz, height, in, pos;
   vvi paths;
-  ST st;
-  HLD(vvi& adj, vector<ST::T> val, int root = 0)
-      : n{SZ(adj)}, par(n), sz(n, 1), height(n), in(n), pos(n), st{n} {
+  ST<T> st;
+  HLD(vvi& adj, const vector<T>& val,
+      T unit, typename ST<T>::MT merge, int root = 0)
+    : n{SZ(adj)}, par(n), sz(n, 1), height(n), in(n), pos(n),
+      st{n, unit, merge} {
     dfssz(adj, root);
     vi order;
     dfsbuild(adj, root, order);
@@ -35,9 +38,9 @@ struct HLD {
     if (~h) dfsbuild(adj, h, order, v, true);
     if (paths[in[v]][0] == v) order.pb(in[v]);
   }
-  void update(int v, ST::T val) { st.update(pos[v], val); }
-  ST::T queryPath(int a, int b) {
-    ST::T v = st.unit;
+  void update(int v, T val) { st.update(pos[v], val); }
+  T queryPath(int a, int b) {
+    T v = st.unit;
     while (in[a] != in[b]) {
       if (height[paths[in[a]][0]] < height[paths[in[b]][0]]) swap(a, b);
       v = st.merge(v, st.query(pos[paths[in[a]][0]], pos[a] + 1));
@@ -46,7 +49,7 @@ struct HLD {
     if (height[a] > height[b]) swap(a, b);
     return st.merge(v, st.query(pos[a], pos[b] + 1));
   }
-  ST::T querySubtree(int v) {
+  T querySubtree(int v) {
     return st.query(pos[v], pos[v] + sz[v]);
   }
 };
