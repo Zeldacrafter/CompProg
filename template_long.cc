@@ -32,17 +32,13 @@ bool ckmax(T& a, const T& b) {
 #define dout if (DEBUG) cerr
 #define dvar(...) " [" << #__VA_ARGS__ ": " << mt(__VA_ARGS__) << "] "
 template <typename T>
-struct IsC {
-  template <typename C>
-  static char test(typename C::const_iterator*);
-  template <typename C>
-  static int test(...);
-  static const bool value = sizeof(test<T>(0)) == sizeof(char);
-};
+true_type const_iterator_check(typename T::const_iterator*);
+template <typename T>
+false_type const_iterator_check(...);
+template <typename T>
+struct IsC : decltype(const_iterator_check<T>(nullptr)) {};
 template <>
-struct IsC<string> {
-  static const bool value = false;
-};
+struct IsC<string> : false_type {};
 template <typename C>
 typename enable_if<IsC<C>::value, ostream&>::type operator<<(ostream&, const C&);
 template <typename T1, typename T2>
