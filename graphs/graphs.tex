@@ -16,7 +16,10 @@
 
 \lst{Dijkstra}{$\mathcal((|E| + |V|)\log|V|)$}{graphs/dijkstra.cc}
 
-\lst{Bellman Ford}{$\mathcal{O}(|E||V|)$}{graphs/bellmanFord.cc}
+\begin{code}{Bellman Ford}{$\mathcal{O}(|E||V|)$}{graphs/bellmanFord.cc}
+	Check for negative cycles: \\
+	$dist$ still changes in a $\lvert V \rvert$'th relaxation step with $dist_i = 0$ initially for all $i$.
+\end{code}
 
 \begin{code}{Bellman Ford with Queue}{$\mathcal{O}(|E||V|)$}{graphs/bellmanFordQueue.cc}
   This approach may be faster

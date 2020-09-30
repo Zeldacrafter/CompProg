@@ -16,7 +16,7 @@ bool inPolygon(vector<pt>& poly, pt p) {
   }
   return inTriangle(poly[0], poly[l], poly[l - 1], p);
 }
-double area(vector<pt> p) {
+double area(vector<pt>& p) {
   double res = 0.0;
   F0R (i, SZ(p))
     res += cross(p[i], p[(i + 1) % SZ(p)]);
