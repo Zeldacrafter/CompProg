@@ -30,7 +30,7 @@ bool ckmax(T& a, const T& b) {
 #define DEBUG 0
 #endif
 #define dout if (DEBUG) cerr
-#define dvar(...) " [" << #__VA_ARGS__ ": " << mt(__VA_ARGS__) << "] "
+#define dvar(...) " \x1b[35m[" << #__VA_ARGS__ ": " << mt(__VA_ARGS__) << "]\x1b[0m "
 template <typename T>
 true_type const_iterator_check(typename T::const_iterator*);
 template <typename T>
