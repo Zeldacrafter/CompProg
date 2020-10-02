@@ -1,4 +1,4 @@
-#include "../template_long.cc"
+#include "../template.cc"
 vii SA_ns, SA_bs;
 template<int B = 'a', int S = 26, int N = 3>
 struct SA {
@@ -6,8 +6,9 @@ struct SA {
   SA(const string& s) {
     SA_bs.resize(max(S, SZ(s)) + 1);
     SA_ns.resize(max(S, SZ(s)) + 1);
-    vi ra(SZ(s) + 1);
+    vi ra(SZ(s) + 1 + N, -1);
     F0R (i, SZ(s)) ra[i] = s[i] - B + 1;
+    ra[SZ(s)] = 0;
     sa = build(ra);
   }
   vi build(const vi& prefRank) {
@@ -21,36 +22,37 @@ struct SA {
     //   1. use idx calcultion:
     //      a. more[i] -> offset[more[i] % N] + more[i] / N;
     //      b. pos[i] -> ...
-    vi one; one.reserve((SZ(prefRank) + N - 1)/N);
-    for (int i = 0; i < SZ(prefRank); i += N) one.pb(i);
-    vi more; more.reserve(SZ(prefRank) - SZ(one));
+    int n = SZ(prefRank) - N;
+    vi one; one.reserve((n + N - 1)/N);
+    for (int i = 0; i < n; i += N) one.pb(i);
+    vi more; more.reserve(n - SZ(one));
     FOR (j, 1, N)
-      for (int i = j; i < SZ(prefRank); i += N)
+      for (int i = j; i < n; i += N)
         more.pb(i);
-    vi pos(SZ(prefRank), -1); 
+    vi pos(n + N, SZ(more)); 
     F0R (i, SZ(more)) pos[more[i]] = i;
-    rsort(more, N, [&](int i, int it) { return getOr(prefRank, i + it) + 1; });
-    vi ra(SZ(more));
+    rsort(more, N, [&](int i, int it) { return prefRank[i + it] + 1; });
+    vi ra(SZ(more) + N, -1);
     int r = 0;
     F0R (i, SZ(more)) {
       ra[pos[more[i]]] = r;
       if (i + 1 < SZ(more))
         F0R (j, N)
-          if (getOr(prefRank, more[i] + j) != getOr(prefRank, more[i + 1] + j)) {
+          if (prefRank[more[i] + j] != prefRank[more[i + 1] + j]) {
             r++; break;
           }
     }
     if (r + 1 < SZ(more)) {
-      vi got = build(ra);
+      vi got(build(ra));
       F0R (i, SZ(got)) ra[got[i]] = i;
       F0R (i, SZ(pos)) 
-        if (~pos[i]) 
+        if (pos[i] < SZ(more)) 
           more[ra[pos[i]]] = i;
     }
     rsort(one, 2, [&](int i, int it) {
-      return it ? getOr(ra, getOr(pos, i + 1, SZ(ra))) + 1 : prefRank[i];
+      return it ? ra[pos[i + 1]] + 1 : prefRank[i];
     });
-    vi res; res.reserve(SZ(prefRank));
+    vi res; res.reserve(n);
 
     int o = 0, m = 0;
     while (o < SZ(one) && m < SZ(more)) {
@@ -58,8 +60,8 @@ struct SA {
       for (int k = 0; !c; ++k) {
         int a = one[o] + k, b = more[m] + k;
         c = (a % N && b % N) 
-            ? cmp(getOr(ra, getOr(pos, a, SZ(ra))), getOr(ra, getOr(pos, b, SZ(ra)))) 
-            : cmp(getOr(prefRank, a), getOr(prefRank, b));
+          ? cmp(ra[pos[a]], ra[pos[b]]) 
+            : cmp(prefRank[a], prefRank[b]);
       }
       res.pb(c < 0 ? one[o++] : more[m++]);
     }
@@ -69,18 +71,12 @@ struct SA {
     return res;
   }
   static inline int cmp(int a, int b) { return (a > b) - (a < b); }
-  static inline int getOr(const vi& v, int idx, int alternative = -1) {
-    return idx < SZ(v) ? v[idx] : alternative;
-  }
   static void rsort(vi& v, int iters, function<int(int, int)> bf) {
     for (int d = iters - 1; ~d; --d) {
       int mx = 0;
       F0R (i, SZ(v)) {
         int b = bf(v[i], d);
-        if (b >= mx) {
-          fill(SA_bs.begin() + mx, SA_bs.begin() + b + 1, mp(-1, -1));
-          mx = b + 1;
-        }
+        for (; mx <= b; ++mx) SA_bs[mx].fi = -1;
         if (SA_bs[b].fi == -1)
           SA_bs[b] = mp(i, i);
         SA_ns[SA_bs[b].se].se = i;
