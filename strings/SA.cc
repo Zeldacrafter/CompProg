@@ -5,11 +5,11 @@ template<int B = 'a', int S = 26, int N = 3>
 struct SA {
   vi sa;
   SA(const string& s) {
-    SA_bs.resize(max(S, SZ(s)) + 1);
-    SA_ns.resize(max(S, SZ(s)) + 1);
-    vi ra(SZ(s) + 1 + N, -1);
-    F0R (i, SZ(s)) ra[i] = s[i] - B + 1;
-    ra[SZ(s)] = 0;
+    SA_bs.resize(max(S, SZ(s)) + 2);
+    SA_ns.resize(max(S, SZ(s)) + 2);
+    vi ra(SZ(s) + 1 + N);
+    F0R (i, SZ(s)) ra[i] = s[i] - B + 2;
+    ra[SZ(s)] = 1;
     sa = build(ra);
   }
   vi build(const vi& prefRank) {
@@ -21,9 +21,9 @@ struct SA {
       offs[j] = SZ(arr) - offset;
       for (int i = j; i < n; i += N) arr.pb(i);
     }
-    rsort(offset + ALL(arr), N, [&](int i, int it) { return prefRank[i + it] + 1; });
-    vi ra(n - offset + N, -1);
-    int r = 0;
+    rsort(offset + ALL(arr), N, [&](int i, int it) { return prefRank[i + it]; });
+    vi ra(n - offset + N);
+    int r = 1;
     FOR (i, offset, n) {
       ra[offs[arr[i] % N] + arr[i] / N] = r;
       if (i + 1 < n)
@@ -32,14 +32,14 @@ struct SA {
             r++; break;
           }
     }
-    if (r + 1 < n - offset) {
+    if (r < n - offset) {
       vi got(build(ra));
       F0R (i, SZ(got)) ra[got[i]] = i;
       FOR (j, 1, N) for (int i = 0; j + i * N < n; ++i)
         arr[offset + ra[offs[j] + i]] = j + i * N;
     }
     rsort(arr.begin(), arr.begin() + offset, 2, [&](int i, int it) {
-      return it ? ra[offs[(i + 1) % N] + (i + 1) / N] + 1 : prefRank[i];
+      return it ? ra[offs[(i + 1) % N] + (i + 1) / N] : prefRank[i];
     });
     vi tmp(arr.begin(), arr.begin() + offset);
     int o = 0, m = offset, i = 0;
@@ -63,8 +63,7 @@ struct SA {
       F0R (i, distance(vb, ve)) {
         int b = bf(*(vb + i), d);
         for (; mx <= b; ++mx) SA_bs[mx].fi = -1;
-        if (SA_bs[b].fi == -1)
-          SA_bs[b] = mp(i, i);
+        if (SA_bs[b].fi == -1) SA_bs[b] = mp(i, i);
         SA_ns[SA_bs[b].se].se = i;
         SA_ns[i] = mp(*(vb + i), -1);
         SA_bs[b].se = i;
