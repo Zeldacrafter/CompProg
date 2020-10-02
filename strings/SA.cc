@@ -13,22 +13,19 @@ struct SA {
     sa = build(ra);
   }
   vi build(const vi& prefRank) {
-    // optimization ideas:
-    // - get rid of the pos array.  Ideas:
-    //   1. use idx calcultion:
-    //      a. more[i] -> offset[more[i] % N] + more[i] / N;
-    //      b. pos[i] -> ...
     int n = SZ(prefRank) - N;
     int offset = n / N + !!(n % N);
     vi arr; arr.reserve(n);
-    F0R (j, N) for (int i = j; i < n; i += N) arr.pb(i);
-    vi pos(n + N, n - offset); 
-    F0R (i, n - offset) pos[arr[i + offset]] = i;
+    array<int, N> offs;
+    F0R (j, N) {
+      offs[j] = SZ(arr) - offset;
+      for (int i = j; i < n; i += N) arr.pb(i);
+    }
     rsort(offset + ALL(arr), N, [&](int i, int it) { return prefRank[i + it] + 1; });
     vi ra(n - offset + N, -1);
     int r = 0;
     FOR (i, offset, n) {
-      ra[pos[arr[i]]] = r;
+      ra[offs[arr[i] % N] + arr[i] / N] = r;
       if (i + 1 < n)
         F0R (j, N)
           if (prefRank[arr[i] + j] != prefRank[arr[i + 1] + j]) {
@@ -38,12 +35,11 @@ struct SA {
     if (r + 1 < n - offset) {
       vi got(build(ra));
       F0R (i, SZ(got)) ra[got[i]] = i;
-      F0R (i, SZ(pos)) 
-        if (pos[i] < n - offset) 
-          arr[offset + ra[pos[i]]] = i;
+      FOR (j, 1, N) for (int i = 0; j + i * N < n; ++i)
+        arr[offset + ra[offs[j] + i]] = j + i * N;
     }
     rsort(arr.begin(), arr.begin() + offset, 2, [&](int i, int it) {
-      return it ? ra[pos[i + 1]] + 1 : prefRank[i];
+      return it ? ra[offs[(i + 1) % N] + (i + 1) / N] + 1 : prefRank[i];
     });
     vi tmp(arr.begin(), arr.begin() + offset);
     int o = 0, m = offset, i = 0;
@@ -52,7 +48,7 @@ struct SA {
       for (int k = 0; !c; ++k) {
         int a = tmp[o] + k, b = arr[m] + k;
         c = (a % N && b % N) 
-          ? cmp(ra[pos[a]], ra[pos[b]]) 
+          ? cmp(ra[offs[a % N] + a / N], ra[offs[b % N] + b / N]) 
             : cmp(prefRank[a], prefRank[b]);
       }
       arr[i++] = c < 0 ? tmp[o++] : arr[m++];
