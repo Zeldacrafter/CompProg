@@ -20,7 +20,7 @@ int artiDfs(int v, vi& a, int p = -1) {
   if (p == -1 && children > 1) a.pb(v);
   return low[v];
 }
-vi findArtiPoints(vvi& adj) {
+vi findArtiPoints() {
   dfsNum.assign(SZ(adj), -1);
   low.assign(SZ(adj), -1);
   dfsCounter = 0;
