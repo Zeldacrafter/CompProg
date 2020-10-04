@@ -57,7 +57,8 @@ struct SA {
     return arr;
   }
   static inline int cmp(int a, int b) { return (a > b) - (a < b); }
-  static void rsort(vit vb, vit ve, int iters, function<int(int, int)> bf) {
+  template<typename F>
+  static void rsort(vit vb, vit ve, int iters, F bf) {
     for (int d = iters - 1; ~d; --d) {
       int mx = 0;
       F0R (i, distance(vb, ve)) {
