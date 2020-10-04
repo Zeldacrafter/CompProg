@@ -1,86 +1,78 @@
-#include "../template_long.cc"
+#include "../template.cc"
 vii SA_ns, SA_bs;
+using vit = vi::iterator;
 template<int B = 'a', int S = 26, int N = 3>
 struct SA {
-  static inline int cmp(int a, int b) { return (a > b) - (a < b); }
-  static inline int getOr(const vi& v, int idx, int alternative = -1) {
-    return idx < SZ(v) ? v[idx] : alternative;
-  }
-  static void rsort(vi& v, int iters, function<int(int, int)> bf) {
-    for (int d = iters - 1; ~d; --d) {
-      int mx = 0;
-      F0R (i, SZ(v)) {
-        int b = bf(v[i], d);
-        if (b >= mx) {
-          fill(SA_bs.begin() + mx, SA_bs.begin() + b + 1, mp(-1, -1));
-          mx = b + 1;
-        }
-        if (SA_bs[b].fi == -1)
-          SA_bs[b] = mp(i, i);
-        SA_ns[SA_bs[b].se].se = i;
-        SA_ns[i] = mp(v[i], -1);
-        SA_bs[b].se = i;
-      }
-      int j = 0;
-      F0R (i, mx)
-        for (int it = SA_bs[i].fi; ~it; it = SA_ns[it].se)
-          v[j++] = SA_ns[it].fi;
-    }
-  }
   vi sa;
+  SA(const string& s) {
+    SA_bs.resize(max(S, SZ(s)) + 2);
+    SA_ns.resize(max(S, SZ(s)) + 2);
+    vi ra(SZ(s) + 1 + N);
+    F0R (i, SZ(s)) ra[i] = s[i] - B + 2;
+    ra[SZ(s)] = 1;
+    sa = build(ra);
+  }
   vi build(const vi& prefRank) {
-    vi one; one.reserve((SZ(prefRank) + N - 1)/N);
-    for (int i = 0; i < SZ(prefRank); i += N) one.pb(i);
-    vi more; more.reserve(SZ(prefRank) - SZ(one));
-    FOR (j, 1, N)
-      for (int i = j; i < SZ(prefRank); i += N)
-        more.pb(i);
-    vi pos(SZ(prefRank), -1); 
-    F0R (i, SZ(more)) pos[more[i]] = i;
-    rsort(more, N, [&](int i, int it) { return getOr(prefRank, i + it) + 1; });
-    vi ra(SZ(more));
-    int r = 0;
-    F0R (i, SZ(more)) {
-      ra[pos[more[i]]] = r;
-      if (i + 1 < SZ(more))
+    int n = SZ(prefRank) - N;
+    int offset = n / N + !!(n % N);
+    vi arr; arr.reserve(n);
+    array<int, N> offs;
+    F0R (j, N) {
+      offs[j] = SZ(arr) - offset;
+      for (int i = j; i < n; i += N) arr.pb(i);
+    }
+    rsort(offset + ALL(arr), N, [&](int i, int it) { return prefRank[i + it]; });
+    vi ra(n - offset + N);
+    int r = 1;
+    FOR (i, offset, n) {
+      ra[offs[arr[i] % N] + arr[i] / N] = r;
+      if (i + 1 < n)
         F0R (j, N)
-          if (getOr(prefRank, more[i] + j) != getOr(prefRank, more[i + 1] + j)) {
+          if (prefRank[arr[i] + j] != prefRank[arr[i + 1] + j]) {
             r++; break;
           }
     }
-    if (r + 1 < SZ(more)) {
-      vi got = build(ra);
+    if (r < n - offset) {
+      vi got(build(ra));
       F0R (i, SZ(got)) ra[got[i]] = i;
-      F0R (i, SZ(pos)) 
-        if (~pos[i]) 
-          more[ra[pos[i]]] = i;
+      FOR (j, 1, N) for (int i = 0; j + i * N < n; ++i)
+        arr[offset + ra[offs[j] + i]] = j + i * N;
     }
-    rsort(one, 2, [&](int i, int it) {
-      return it ? getOr(ra, getOr(pos, i + 1, SZ(ra))) + 1 : prefRank[i];
+    rsort(arr.begin(), arr.begin() + offset, 2, [&](int i, int it) {
+      return it ? ra[offs[(i + 1) % N] + (i + 1) / N] : prefRank[i];
     });
-    vi res; res.reserve(SZ(prefRank));
-
-    int o = 0, m = 0;
-    while (o < SZ(one) && m < SZ(more)) {
+    vi tmp(arr.begin(), arr.begin() + offset);
+    int o = 0, m = offset, i = 0;
+    while (o < offset && m < n) {
       int c = 0;
       for (int k = 0; !c; ++k) {
-        int a = one[o] + k, b = more[m] + k;
+        int a = tmp[o] + k, b = arr[m] + k;
         c = (a % N && b % N) 
-            ? cmp(getOr(ra, getOr(pos, a, SZ(ra))), getOr(ra, getOr(pos, b, SZ(ra)))) 
-            : cmp(getOr(prefRank, a), getOr(prefRank, b));
+          ? cmp(ra[offs[a % N] + a / N], ra[offs[b % N] + b / N]) 
+            : cmp(prefRank[a], prefRank[b]);
       }
-      res.pb(c < 0 ? one[o++] : more[m++]);
+      arr[i++] = c < 0 ? tmp[o++] : arr[m++];
     }
-    while (o == SZ(one) && m < SZ(more)) res.pb(more[m++]);
-    while (m == SZ(more) && o < SZ(one)) res.pb(one[o++]);
-
-    return res;
+    while (o < offset) arr[i++] = tmp[o++];
+    return arr;
   }
-  SA(const string& s) {
-    SA_bs.resize(max(S, SZ(s)) + 1);
-    SA_ns.resize(max(S, SZ(s)) + 1);
-    vi ra(SZ(s) + 1);
-    F0R (i, SZ(s)) ra[i] = s[i] - B + 1;
-    sa = build(ra);
+  static inline int cmp(int a, int b) { return (a > b) - (a < b); }
+  template<typename F>
+  static void rsort(vit vb, vit ve, int iters, F bf) {
+    for (int d = iters - 1; ~d; --d) {
+      int mx = 0;
+      F0R (i, distance(vb, ve)) {
+        int b = bf(*(vb + i), d);
+        for (; mx <= b; ++mx) SA_bs[mx].fi = -1;
+        if (SA_bs[b].fi == -1) SA_bs[b] = mp(i, i);
+        SA_ns[SA_bs[b].se].se = i;
+        SA_ns[i] = mp(*(vb + i), -1);
+        SA_bs[b].se = i;
+      }
+      vit j = vb;
+      F0R (i, mx)
+        for (int it = SA_bs[i].fi; ~it; it = SA_ns[it].se, ++j)
+          *j = SA_ns[it].fi;
+    }
   }
 };
