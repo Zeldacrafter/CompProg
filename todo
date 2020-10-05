@@ -1,5 +1,5 @@
 combinatorics:
-  - tree
+  - tree picture
   - maybe inclusion-exclusion (Cp-Algo)
 nim / Sprague Grunge Theorem
 Stirling / Eulerian numbers applications
@@ -13,3 +13,4 @@ suffix array:
   - rank array
   - lcp
 floyd warshall negative cycle detection
+xorbasis: https://codeforces.com/blog/entry/68953
