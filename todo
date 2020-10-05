@@ -1,5 +1,6 @@
-Kominatorics tree
-combinatorics: Maybe inclusion-exclusion (Cp-Algo)
+combinatorics:
+  - tree
+  - maybe inclusion-exclusion (Cp-Algo)
 nim / Sprague Grunge Theorem
 Stirling / Eulerian numbers applications
 Burnside Lemma
@@ -8,5 +9,7 @@ bipartite matching / Halls Marriage theorem
 Dilworths therorem
 Königs Theoren
 sqrt decomp (mo's algo)
-suffix array
-bellman ford floyd warshall negative cycle detection
+suffix array:
+  - rank array
+  - lcp
+floyd warshall negative cycle detection
