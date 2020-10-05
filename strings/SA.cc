@@ -3,7 +3,7 @@ vii SA_ns, SA_bs;
 using vit = vi::iterator;
 template<int B = 'a', int S = 26, int N = 3>
 struct SA {
-  vi sa;
+  vi sa, rank, lcp;
   SA(const string& s) {
     SA_bs.resize(max(S, SZ(s)) + 2);
     SA_ns.resize(max(S, SZ(s)) + 2);
@@ -11,6 +11,23 @@ struct SA {
     F0R (i, SZ(s)) ra[i] = s[i] - B + 2;
     ra[SZ(s)] = 1;
     sa = build(ra);
+  }
+  void buildRank() {
+    rank.resize(SZ(sa));
+    F0R (i, SZ(sa)) rank[sa[i]] = i;
+  }
+  void buildLcp(const string& s) {
+    if(rank.empty()) buildRank();
+    lcp.resize(SZ(sa) - 1);
+    int k = 0;
+    F0R (i, SZ(sa)) {
+      if (rank[i] == SZ(sa) - 1) {
+        k = 0; continue;
+      }
+      for (int j = sa[rank[i] + 1]; max(i, j) + k < SZ(s) && s[i + k] == s[j + k]; ++k);
+      lcp[rank[i]] = k;
+      if (k) --k;
+    }
   }
   vi build(const vi& prefRank) {
     int n = SZ(prefRank) - N;
