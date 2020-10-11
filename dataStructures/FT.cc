@@ -3,7 +3,7 @@ template<typename T>
 struct FT {
   vector<T> A;
   int n;
-  FT(int n) : A(n + 1, 0), n(n) {}
+  FT(int _n) : A(_n + 1, 0), n(_n) {}
   T query(int i) {
     T sum = 0;
     for (; i; i -= i & -i) sum += A[i];
