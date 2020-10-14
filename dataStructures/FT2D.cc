@@ -1,9 +1,9 @@
 #include "FT.cc"
 template<typename T>
 struct FT2D {
-  vector<FT<T>> fts;
   int n;
-  FT2D(int n, int m) : fts(n + 1, FT<T>(m)), n(n) {};
+  vector<FT<T>> fts;
+  FT2D(int sz1, int sz2) : n{sz1}, fts(n + 1, FT<T>(sz2)) {};
   T query(int i, int j1, int j2) {
     T sum = 0;
     for (; i; i -= i & -i) sum += fts[i].query(j1, j2);

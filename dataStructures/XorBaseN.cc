@@ -1,6 +1,6 @@
 #include "../template.cc" // https://codeforces.com/blog/entry/68953
 template<int N>
-struct XorBase : vector<biset<N>> {
+struct XorBase : vector<bitset<N>> {
   using T = bitset<N>;
   static bool tryReduce(T& test, const T& other) {
     for (int i = N - 1; ~i; --i) {

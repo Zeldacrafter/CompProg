@@ -14,7 +14,7 @@ struct bigint {
     val = abs(val);
     while (val) mag.pb(val % base), val /= base;
   }
-  bigint(int sig, vll&& mag) : signum(sig), mag(mag) {
+  bigint(int sig, vll&& m) : signum(sig), mag(m) {
     if (!sig) mag.clear();
     trim();
   }

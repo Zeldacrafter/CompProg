@@ -4,7 +4,7 @@ struct mint {
   static constexpr ll mod = p;
   ll val;
   mint() : val(0) {}
-  mint(ll val) : val(val % p) { if (this->val < 0) this->val += p; }
+  mint(ll v) : val(v % p) { if (val < 0) val += p; }
   mint& operator+=(const mint& o) {
     val = (val + o.val) % p;
     return *this;

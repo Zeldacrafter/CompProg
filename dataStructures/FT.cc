@@ -1,9 +1,9 @@
 #include "../template.cc"
 template<typename T>
 struct FT {
-  vector<T> A;
   int n;
-  FT(int _n) : A(_n + 1, 0), n(_n) {}
+  vector<T> A;
+  FT(int sz) : n{sz}, A(n + 1, 0) {}
   T query(int i) {
     T sum = 0;
     for (; i; i -= i & -i) sum += A[i];

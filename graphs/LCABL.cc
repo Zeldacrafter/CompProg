@@ -3,11 +3,11 @@ struct LCA {
   int timer = 0, logN, root;
   vi tin, tout;
   vvi up, weight;
-  LCA(vvii& adj, int root = 0)
-      : logN(31 - __builtin_clz(SZ(adj))), root(root),
-        tin(SZ(adj)), tout(SZ(adj)),
-        up(SZ(adj), vi(logN + 1, root)),
-        weight(SZ(adj), vi(logN + 1, root)) {
+  LCA(vvii& adj, int r = 0)
+    : logN{31 - __builtin_clz(SZ(adj))}, root{r},
+      tin(SZ(adj)), tout(SZ(adj)),
+      up(SZ(adj), vi(logN + 1, root)),
+      weight(SZ(adj), vi(logN + 1, root)) {
     lcadfs(adj, root);
   }
   void lcadfs(vvii& adj, int v, int p = -1,
@@ -20,8 +20,8 @@ struct LCA {
       weight[v][i] =
           max(weight[v][i - 1], weight[up[v][i - 1]][i - 1]);
     }
-    for (auto [u, w] : adj[v])
-      if (u != p) lcadfs(adj, u, v, w);
+    for (auto [u, we] : adj[v])
+      if (u != p) lcadfs(adj, u, v, we);
     tout[v] = ++timer;
   }
   bool isAnc(int v, int u) {

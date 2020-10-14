@@ -7,13 +7,7 @@ struct ST {
   const T unit;
   const MT merge;
   vector<T> data;
-  ST(int n, T unit, MT merge)
-    : n{n}, unit{unit}, merge{merge}, data(2 * n, unit) {}
-  ST(const vector<T>& v, T unit, MT merge)
-    : n{SZ(v)}, unit{unit}, merge{merge}, data(SZ(v), unit) {
-    data.insert(data.end(), ALL(v));
-    build();
-  }
+  ST(int sz, T u, MT m) : n{sz}, unit{u}, merge{m}, data(2 * n, unit) {}
   void build() {
     for (int i = n - 1; i; --i)
       data[i] = merge(data[i << 1], data[i << 1 | 1]);
