@@ -75,6 +75,38 @@ typename enable_if<IsC<C>::value, ostream&>::type operator<<(
     o << *it << (next(it) != c.cend() ? ", " : "");
   return o << ']';
 }
+template <typename C>
+typename enable_if<IsC<C>::value, istream&>::type operator>>(istream&, C&);
+template <typename T1, typename T2>
+istream& operator>>(istream&, pair<T1, T2>&);
+template<size_t idx, typename... T>
+typename enable_if<TS<T...>::value == idx + 1, istream&>::type
+operator>>(istream& i, tuple<T...>& t) {
+  return i >> get<idx>(t);
+}
+template<size_t idx, typename... T>
+typename enable_if<0 < idx && idx + 1 < TS<T...>::value, istream&>::type
+operator>>(istream& i, tuple<T...>& t) {
+  return operator>><idx + 1>(i >> get<idx>(t), t);
+}
+template<size_t idx = 0, typename... T>
+typename enable_if<1 < TS<T...>::value && !idx, istream&>::type
+operator>>(istream& i, tuple<T...>& t) {
+  return operator>><idx + 1>(i >> get<idx>(t), t);
+}
+template<typename T>
+istream& operator>>(istream& i, tuple<T>& t) {
+  return i >> get<0>(t);
+}
+template <typename T1, typename T2>
+istream& operator>>(istream& i, pair<T1, T2>& p) {
+  return i >> p.fi >> p.se;
+}
+template <typename C>
+typename enable_if<IsC<C>::value, istream&>::type operator>>(istream& i, C& v) {
+  for (auto& x : v) i >> x;
+  return i;
+}
 template <typename T>
 void tprint(vector<vector<T>>& v, size_t width = 0, ostream& o = cerr) {
   if (!DEBUG) return;
