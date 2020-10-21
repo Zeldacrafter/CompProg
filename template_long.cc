@@ -127,6 +127,59 @@ void tprint(vector<vector<T>>& v, size_t width = 0, ostream& o = cerr) {
 }
 
 ///////////////////////////////////////////////////////////////
+// Pretty output
+///////////////////////////////////////////////////////////////
+
+template <typename T, size_t N>
+struct PP {
+  const T& v;
+  using ptr = shared_ptr<array<string, N>>;
+  ptr se;
+  size_t idx;
+  PP(const T& value, ptr p, size_t i = 0) : v{value}, se{p}, idx{i} {}
+};
+template <typename T, typename... Ts, size_t N = sizeof...(Ts)>
+PP<T, N> pp(const T& value, Ts... seps) {
+  return PP<T, N>(value, make_shared<array<string, N>>(array<string, N>{seps...}));
+}
+template <typename T, size_t N>
+typename enable_if<not IsC<T>::value, ostream&>::type
+operator<<(ostream& o, const PP<T, N>& p) {
+  return o << p.v;
+}
+template <typename T, typename U, size_t N>
+ostream& operator<<(ostream&, const PP<pair<T, U>, N>&);
+template <typename T, size_t N>
+typename enable_if<IsC<T>::value, ostream&>::type
+operator<<(ostream& o, const PP<T, N>& p);
+template <size_t N, size_t idx = 0, typename... Ts>
+typename enable_if<idx + 1 < sizeof...(Ts), ostream&>::type
+operator<<(ostream& o, const PP<tuple<Ts...>, N>& p) {
+  const string& sep = p.idx < N ? (*p.se)[p.idx] : " ";
+  return operator<<<N, idx + 1, Ts...>(o << PP<typename tuple_element<idx, tuple<Ts...>>::type, N>(get<idx>(p.v), p.se, p.idx + 1) << sep, p); 
+}
+template <size_t N, size_t idx = 0, typename... Ts>
+typename enable_if<idx + 1 == sizeof...(Ts), ostream&>::type
+operator<<(ostream& o, const PP<tuple<Ts...>, N>& p) {
+  return o << PP<typename tuple_element<idx, tuple<Ts...>>::type, N>(get<idx>(p.v), p.se, p.idx + 1);
+}
+template <typename T, typename U, size_t N>
+ostream& operator<<(ostream& o, const PP<pair<T, U>, N>& p) {
+  const string& sep = p.idx < N ? (*p.se)[p.idx] : " ";
+  return o << PP<T, N>(p.v.fi, p.se, p.idx + 1) << sep
+           << PP<U, N>(p.v.se, p.se, p.idx + 1);
+}
+template <typename T, size_t N>
+typename enable_if<IsC<T>::value, ostream&>::type
+operator<<(ostream& o, const PP<T, N>& p) {
+  const string& sep = p.idx < N ? (*p.se)[p.idx] : " ";
+  for (auto it = p.v.cbegin(); it != p.v.cend(); ++it)
+    o << PP<typename T::value_type, N>(*it, p.se, p.idx + 1)
+      << (next(it) != p.v.cend() ? sep : "");
+  return o;
+}
+
+///////////////////////////////////////////////////////////////
 // Begin Input 
 ///////////////////////////////////////////////////////////////
 
