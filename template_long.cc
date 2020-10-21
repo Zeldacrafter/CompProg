@@ -116,68 +116,93 @@ typename enable_if<IsC<C>::value, ostream&>::type operator<<(
   return o << ']';
 }
 
-// Print a 2D-vector as a grid to the specified ostream with a specified minimum width per element.
-template <typename T>
-void tprint(vector<vector<T>>& v, size_t width = 0, ostream& o = cerr) {
-  if (!DEBUG) return;
-  for (const auto& vv : v) {
-    for (const auto& i : vv) o << setw(width) << i;
-    o << endl;
-  }
-}
-
 ///////////////////////////////////////////////////////////////
 // Pretty output
 ///////////////////////////////////////////////////////////////
 
+// PrettyPrint struct that contains a value to be printed and
+// a list of seperators which indicate how different dimensions
+// of multidimensional values should be seperated.
 template <typename T, size_t N>
 struct PP {
-  const T& v;
-  using ptr = shared_ptr<array<string, N>>;
-  ptr se;
+  // Value to print.
+  const T& v; 
+  // Pointer to next seperator.
+  shared_ptr<array<string, N>> se;
+  // Index of next seperator.
   size_t idx;
-  PP(const T& value, ptr p, size_t i = 0) : v{value}, se{p}, idx{i} {}
+  PP(const T& value, shared_ptr<array<string, N>> p, size_t i = 0) 
+      : v{value}, se{p}, idx{i} {}
 };
-template <typename T, typename... Ts, size_t N = sizeof...(Ts)>
-PP<T, N> pp(const T& value, Ts... seps) {
-  return PP<T, N>(value, make_shared<array<string, N>>(array<string, N>{seps...}));
-}
-template <typename T, size_t N>
-typename enable_if<not IsC<T>::value, ostream&>::type
-operator<<(ostream& o, const PP<T, N>& p) {
+
+// If a value is not a pair, tuple or std-library-continer just print it.
+// Pairs and tuples are implemented via template specialization further down.
+template <typename U, size_t M>
+typename enable_if<not IsC<U>::value, ostream&>::type
+operator<<(ostream& o, const PP<U, M>& p) {
   return o << p.v;
 }
+
+// Forward declarations.
 template <typename T, typename U, size_t N>
 ostream& operator<<(ostream&, const PP<pair<T, U>, N>&);
 template <typename T, size_t N>
 typename enable_if<IsC<T>::value, ostream&>::type
 operator<<(ostream& o, const PP<T, N>& p);
-template <size_t N, size_t idx = 0, typename... Ts>
+
+// Prints every but the last tuple element.
+template <size_t M, size_t idx = 0, typename... Ts>
 typename enable_if<idx + 1 < sizeof...(Ts), ostream&>::type
-operator<<(ostream& o, const PP<tuple<Ts...>, N>& p) {
-  const string& sep = p.idx < N ? (*p.se)[p.idx] : " ";
-  return operator<<<N, idx + 1, Ts...>(o << PP<typename tuple_element<idx, tuple<Ts...>>::type, N>(get<idx>(p.v), p.se, p.idx + 1) << sep, p); 
+operator<<(ostream& o, const PP<tuple<Ts...>, M>& p) {
+  const string& sep = p.idx < M ? (*p.se)[p.idx] : " ";
+  return operator<<<M, idx + 1, Ts...>(o << PP<typename tuple_element<idx, tuple<Ts...>>::type, M>(get<idx>(p.v), p.se, p.idx + 1) << sep, p); 
 }
-template <size_t N, size_t idx = 0, typename... Ts>
+
+// Prints the last element of a tuple without a seperator.
+template <size_t M, size_t idx = 0, typename... Ts>
 typename enable_if<idx + 1 == sizeof...(Ts), ostream&>::type
-operator<<(ostream& o, const PP<tuple<Ts...>, N>& p) {
-  return o << PP<typename tuple_element<idx, tuple<Ts...>>::type, N>(get<idx>(p.v), p.se, p.idx + 1);
+operator<<(ostream& o, const PP<tuple<Ts...>, M>& p) {
+  return o << PP<typename tuple_element<idx, tuple<Ts...>>::type, M>(get<idx>(p.v), p.se, p.idx + 1);
 }
-template <typename T, typename U, size_t N>
-ostream& operator<<(ostream& o, const PP<pair<T, U>, N>& p) {
-  const string& sep = p.idx < N ? (*p.se)[p.idx] : " ";
-  return o << PP<T, N>(p.v.fi, p.se, p.idx + 1) << sep
-           << PP<U, N>(p.v.se, p.se, p.idx + 1);
+
+// Print pairs with the specified seperator for that level.
+template <typename U1, typename U2, size_t M>
+ostream& operator<<(ostream& o, const PP<pair<U1, U2>, M>& p) {
+  const string& sep = p.idx < M ? (*p.se)[p.idx] : " ";
+  return o << PP<U1, M>(p.v.fi, p.se, p.idx + 1) << sep
+           << PP<U2, M>(p.v.se, p.se, p.idx + 1);
 }
-template <typename T, size_t N>
-typename enable_if<IsC<T>::value, ostream&>::type
-operator<<(ostream& o, const PP<T, N>& p) {
-  const string& sep = p.idx < N ? (*p.se)[p.idx] : " ";
+
+// Print std-library-container with the specified seperator.
+template <typename U, size_t M>
+typename enable_if<IsC<U>::value, ostream&>::type
+operator<<(ostream& o, const PP<U, M>& p) {
+  // Seperator for the current layer (or default)
+  const string& sep = p.idx < M ? (*p.se)[p.idx] : " ";
+  // Print every container element
   for (auto it = p.v.cbegin(); it != p.v.cend(); ++it)
-    o << PP<typename T::value_type, N>(*it, p.se, p.idx + 1)
+    o << PP<typename U::value_type, M>(*it, p.se, p.idx + 1)
       << (next(it) != p.v.cend() ? sep : "");
   return o;
 }
+
+// Function for PrettyPrinting a object with specified seperators.
+// Each additional seperator specifies the seperator for one level
+// further into a nested structure. Pairs, tuples and std-library-container
+// cause the level to increase.
+// If no seperator is specified a default of " "(space) is used.
+// For example a call 
+//    vector<ii> a(4, mp(1, 2));
+//    cout << pp(a, " | ", "-");
+// results in the output (without trailing newline)
+//    1-2 | 1-2 | 1-2 | 1-2
+//
+// This function is the main way for a user to interface with the PrettyPrinter.
+template <typename T, typename... Ts, size_t N = sizeof...(Ts)>
+PP<T, N> pp(const T& value, Ts... seps) {
+  return PP<T, N>(value, make_shared<array<string, N>>(array<string, N>{seps...}));
+}
+
 
 ///////////////////////////////////////////////////////////////
 // Begin Input 
