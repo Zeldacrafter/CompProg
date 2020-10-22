@@ -47,6 +47,17 @@ bool ckmax(T& a, const T& b) { return a < b ? a = b, true : false; }
 #define dvar(...) " \x1b[35m[" << #__VA_ARGS__ ": " << mt(__VA_ARGS__) << "]\x1b[0m "
 
 ///////////////////////////////////////////////////////////////
+// Declare stuff that is not in all c++ versions
+///////////////////////////////////////////////////////////////
+
+#if __cplusplus <= 201103L
+template <bool B, class T = void>
+using enable_if_t = typename enable_if<B, T>::type;
+template <size_t I, class T>
+using tuple_element_t = typename tuple_element<I, T>::type;
+#endif
+
+///////////////////////////////////////////////////////////////
 // Begin template definitions for input/output.
 ///////////////////////////////////////////////////////////////
 
@@ -58,58 +69,45 @@ template <typename T> struct IsC : decltype(const_iterator_check<T>(nullptr)) {}
 // No new input/output for string as those already exist.
 template <> struct IsC<string> : false_type {};
 
-template <typename... T> using TS = tuple_size<tuple<T...>>;
-
 ///////////////////////////////////////////////////////////////
 // Begin Output 
 ///////////////////////////////////////////////////////////////
 
 // Forward declarations.
-template <typename C>
-typename enable_if<IsC<C>::value, ostream&>::type operator<<(ostream&, const C&);
+template <typename T>
+enable_if_t<IsC<T>::value, ostream&> operator<<(ostream&, const T&);
 template <typename T1, typename T2>
 ostream& operator<<(ostream&, const pair<T1, T2>&);
 
 // Output routine for tuples:
 // 'idx' tracks the index of the current element that we want to print.
-// The last element is at index 'TS<T...>::value - 1'.
+// The last element is at index 'sizeof...(Ts) - 1'.
 
 // Print the last element of the tuple.
-template <size_t idx, typename... T>
-typename enable_if<TS<T...>::value == idx + 1, ostream&>::type
-operator<<(ostream& o, const tuple<T...>& t) {
-  return o << ", " << get<idx>(t) << ')';
+template <size_t idx = 0, typename... Ts>
+enable_if_t<sizeof...(Ts) - 1 == idx, ostream&>
+operator<<(ostream& o, const tuple<Ts...>& t) {
+  o << get<idx>(t);
+  return idx ? o << ')' : o;
 }
+
 // Print all but the first and last element of a tuple.
-template <size_t idx, typename... T>
-typename enable_if<0 < idx && idx + 1 < TS<T...>::value, ostream&>::type
-operator<<(ostream& o, const tuple<T...>& t) {
-  return operator<<<idx + 1>(o << ", " << get<idx>(t), t);
+template <size_t idx = 0, typename... Ts>
+enable_if_t<idx + 1 < sizeof...(Ts), ostream&>
+operator<<(ostream& o, const tuple<Ts...>& t) {
+  if (not idx) o << '(';
+  return operator<<<idx + 1>(o << get<idx>(t) << ", ", t);
 }
-// Print the first element of a tuple.
-template <size_t idx = 0, typename... T>
-typename enable_if<1 < TS<T...>::value && !idx, ostream&>::type
-operator<<(ostream& o, const tuple<T...>& t) {
-  return operator<<<idx + 1>(o << '(' << get<idx>(t), t);
-}
-
-// Print tuples with only one contained element.
-// Mainly here so that 'dvar(..)' functions correctly with only one element.
-template <typename T>
-ostream& operator<<(ostream& o, const tuple<T>& t) {
-  return o << get<0>(t);
-}
-
 
 // Output for pairs via above defined tuple output routine.
 template <typename T1, typename T2>
 ostream& operator<<(ostream& o, const pair<T1, T2>& p) {
-  return o << mt(p.fi, p.se);
+  return o << '(' << p.fi << ", " << p.se << ')';
 }
+
 // Output every element in a container with 'begin' and 'end' iterators.
-template <typename C>
-typename enable_if<IsC<C>::value, ostream&>::type operator<<(
-    ostream& o, const C& c) {
+template <typename T>
+enable_if_t<IsC<T>::value, ostream&> operator<<(ostream& o, const T& c) {
   o << '[';
   for (auto it = c.cbegin(); it != c.cend(); ++it)
     o << *it << (next(it) != c.cend() ? ", " : "");
@@ -127,7 +125,7 @@ template <typename T, size_t N>
 struct PP {
   // Value to print.
   const T& v; 
-  // Pointer to next seperator.
+  // Pointer to seperator list.
   shared_ptr<array<string, N>> se;
   // Index of next seperator.
   size_t idx;
@@ -137,51 +135,47 @@ struct PP {
 
 // If a value is not a pair, tuple or std-library-continer just print it.
 // Pairs and tuples are implemented via template specialization further down.
-template <typename U, size_t M>
-typename enable_if<not IsC<U>::value, ostream&>::type
-operator<<(ostream& o, const PP<U, M>& p) {
+template <typename T, size_t M>
+enable_if_t<not IsC<T>::value, ostream&>
+operator<<(ostream& o, const PP<T, M>& p) {
   return o << p.v;
 }
 
-// Forward declarations.
-template <typename T, typename U, size_t N>
-ostream& operator<<(ostream&, const PP<pair<T, U>, N>&);
-template <typename T, size_t N>
-typename enable_if<IsC<T>::value, ostream&>::type
-operator<<(ostream& o, const PP<T, N>& p);
-
 // Prints every but the last tuple element.
 template <size_t M, size_t idx = 0, typename... Ts>
-typename enable_if<idx + 1 < sizeof...(Ts), ostream&>::type
+enable_if_t<idx + 1 < sizeof...(Ts), ostream&>
 operator<<(ostream& o, const PP<tuple<Ts...>, M>& p) {
   const string& sep = p.idx < M ? (*p.se)[p.idx] : " ";
-  return operator<<<M, idx + 1, Ts...>(o << PP<typename tuple_element<idx, tuple<Ts...>>::type, M>(get<idx>(p.v), p.se, p.idx + 1) << sep, p); 
+  return operator<<<M, idx + 1, Ts...>
+    (o << PP<tuple_element_t<idx, tuple<Ts...>>, M>
+     (get<idx>(p.v), p.se, p.idx + 1) << sep, p); 
 }
 
 // Prints the last element of a tuple without a seperator.
 template <size_t M, size_t idx = 0, typename... Ts>
-typename enable_if<idx + 1 == sizeof...(Ts), ostream&>::type
+enable_if_t<idx + 1 == sizeof...(Ts), ostream&>
 operator<<(ostream& o, const PP<tuple<Ts...>, M>& p) {
-  return o << PP<typename tuple_element<idx, tuple<Ts...>>::type, M>(get<idx>(p.v), p.se, p.idx + 1);
+  return o << PP<tuple_element_t<idx, tuple<Ts...>>, M>
+    (get<idx>(p.v), p.se, p.idx + 1);
 }
 
 // Print pairs with the specified seperator for that level.
-template <typename U1, typename U2, size_t M>
-ostream& operator<<(ostream& o, const PP<pair<U1, U2>, M>& p) {
+template <typename T1, typename T2, size_t M>
+ostream& operator<<(ostream& o, const PP<pair<T1, T2>, M>& p) {
   const string& sep = p.idx < M ? (*p.se)[p.idx] : " ";
-  return o << PP<U1, M>(p.v.fi, p.se, p.idx + 1) << sep
-           << PP<U2, M>(p.v.se, p.se, p.idx + 1);
+  return o << PP<T1, M>(p.v.fi, p.se, p.idx + 1) << sep
+           << PP<T2, M>(p.v.se, p.se, p.idx + 1);
 }
 
 // Print std-library-container with the specified seperator.
-template <typename U, size_t M>
-typename enable_if<IsC<U>::value, ostream&>::type
-operator<<(ostream& o, const PP<U, M>& p) {
+template <typename T, size_t M>
+enable_if_t<IsC<T>::value, ostream&>
+operator<<(ostream& o, const PP<T, M>& p) {
   // Seperator for the current layer (or default)
   const string& sep = p.idx < M ? (*p.se)[p.idx] : " ";
   // Print every container element
   for (auto it = p.v.cbegin(); it != p.v.cend(); ++it)
-    o << PP<typename U::value_type, M>(*it, p.se, p.idx + 1)
+    o << PP<typename T::value_type, M>(*it, p.se, p.idx + 1)
       << (next(it) != p.v.cend() ? sep : "");
   return o;
 }
@@ -203,45 +197,32 @@ PP<T, N> pp(const T& value, Ts... seps) {
   return PP<T, N>(value, make_shared<array<string, N>>(array<string, N>{seps...}));
 }
 
-
 ///////////////////////////////////////////////////////////////
 // Begin Input 
 ///////////////////////////////////////////////////////////////
 
 // Forward declarations.
-template <typename C>
-typename enable_if<IsC<C>::value, istream&>::type operator>>(istream&, C&);
+template <typename T>
+enable_if_t<IsC<T>::value, istream&> operator>>(istream&, T&);
 template <typename T1, typename T2>
 istream& operator>>(istream&, pair<T1, T2>&);
 
 // Input routine for tuples:
 // 'idx' tracks the index of the current element that we want to read.
-// The last element is at index 'TS<T...>::value - 1'.
+// The last element is at index 'sizeof(Ts) - 1'.
 
 // Read the last element of the tuple.
-template <size_t idx, typename... T>
-typename enable_if<TS<T...>::value == idx + 1, istream&>::type
-operator>>(istream& i, tuple<T...>& t) {
-  return i >> get<idx>(t);
-}
-// Read all but the first and last element of a tuple.
-template <size_t idx, typename... T>
-typename enable_if<0 < idx && idx + 1 < TS<T...>::value, istream&>::type
-operator>>(istream& i, tuple<T...>& t) {
-  return operator>><idx + 1>(i >> get<idx>(t), t);
-}
-// Read the first element of a tuple.
-template <size_t idx = 0, typename... T>
-typename enable_if<1 < TS<T...>::value && !idx, istream&>::type
-operator>>(istream& i, tuple<T...>& t) {
-  return operator>><idx + 1>(i >> get<idx>(t), t);
+template <size_t idx = 0, typename... Ts>
+enable_if_t<sizeof...(Ts) == idx, istream&>
+operator>>(istream& i, tuple<Ts...>&) {
+  return i;
 }
 
-// Read tuples with only one contained element. 
-//   (You could also just use this thing called a 'variable')
-template <typename T>
-istream& operator>>(istream& i, tuple<T>& t) {
-  return i >> get<0>(t);
+// Read all but the first and last element of a tuple.
+template <size_t idx = 0, typename... Ts>
+enable_if_t<idx < sizeof...(Ts), istream&>
+operator>>(istream& i, tuple<Ts...>& t) {
+  return operator>><idx + 1>(i >> get<idx>(t), t);
 }
 
 // Read the contents of a 'pair' object.
@@ -251,8 +232,8 @@ istream& operator>>(istream& i, pair<T1, T2>& p) {
 }
 
 // Read containers with 'begin' and 'end' iterators.
-template <typename C>
-typename enable_if<IsC<C>::value, istream&>::type operator>>(istream& i, C& v) {
+template <typename T>
+enable_if_t<IsC<T>::value, istream&> operator>>(istream& i, T& v) {
   for (auto& x : v) i >> x;
   return i;
 }
