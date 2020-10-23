@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/aplusb"
 
-#include "../template.cc"
+#include "../../template.cc"
 
 int main() {
   cin.tie(0);
