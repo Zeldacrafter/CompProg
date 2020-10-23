@@ -20,7 +20,7 @@ int main() {
     int l, r;
     cin >> c >> l >> r;
     if(!c)
-      st.update(l + st.query(l, l + 1), r);
+      st.update(l, st.query(l, l + 1) + r);
     else
       cout << st.query(l, r) << endl;
   }
