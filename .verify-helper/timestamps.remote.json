@@ -1,6 +1,7 @@
 {
-"tests/aplusb.yosupo.test.cpp": "2020-10-23 21:43:55 +0200",
-"tests/associative_array.yosupo.test.cpp": "2020-10-23 21:53:49 +0200",
-"tests/static_range_sum.yosupo.test.cpp": "2020-10-23 22:10:16 +0200",
-"tests/unionfind.yosupo.test.cpp": "2020-10-23 21:43:55 +0200"
+"tests/yosupo/aplusb.test.cpp": "2020-10-23 22:18:24 +0200",
+"tests/yosupo/associative_array.test.cpp": "2020-10-23 22:18:24 +0200",
+"tests/yosupo/fenwick_tree.static_range_sum.test.cpp": "2020-10-23 22:18:24 +0200",
+"tests/yosupo/segment_tree.static_range_sum.test.cpp": "2020-10-23 22:24:20 +0200",
+"tests/yosupo/unionfind.test.cpp": "2020-10-23 22:18:24 +0200"
 }
