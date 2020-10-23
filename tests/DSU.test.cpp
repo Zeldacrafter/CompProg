@@ -13,7 +13,7 @@ int main() {
   while(q--) {
     int a, b ,c;
     cin >> a >> b >> c;
-    if(a) {
+    if(!a) {
       dsu.join(b, c);
     } else {
       cout << dsu.sameSet(b, c) << endl;
