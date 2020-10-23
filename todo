@@ -11,3 +11,4 @@ lazy segment tree
 lazy, persistent, pointer-based segment tree
 check use of std::function in STIT.cc
 0 indexed FT
+sparse table exclusive on 'r'
