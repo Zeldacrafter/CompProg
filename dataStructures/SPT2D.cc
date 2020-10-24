@@ -29,12 +29,12 @@ struct SPT2D {
                     spT[ir + (1 << (jr - 1))][jr - 1][ic][jc]);
   }
 
-  int query(int r1, int r2, int c1, int c2) {
-    int rk = 31 - __builtin_clz(r2 - r1 + 1);
-    int ck = 31 - __builtin_clz(c2 - c1 + 1);
+  int query(int r1, int r2, int c1, int c2) { //r2, c2 are exclusive
+    int rk = 31 - __builtin_clz(r2 - r1);
+    int ck = 31 - __builtin_clz(c2 - c1);
 
-    int cc = c2 - (1 << ck) + 1;
-    int rr = r2 - (1 << rk) + 1;
+    int cc = c2 - (1 << ck);
+    int rr = r2 - (1 << rk);
     return min({spT[r1][rk][c1][ck], spT[r1][rk][cc][ck],
                 spT[rr][rk][c1][ck], spT[rr][rk][cc][ck]});
   }

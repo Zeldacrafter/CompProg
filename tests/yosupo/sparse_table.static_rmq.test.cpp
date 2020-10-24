@@ -19,7 +19,7 @@ int main() {
   while(q--) {
     int l, r;
     cin >> l >> r;
-    cout << spt.rmq(l, r - 1).fi << endl;
+    cout << spt.rmq(l, r).fi << endl;
   }
 }
 

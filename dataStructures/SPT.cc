@@ -13,9 +13,9 @@ struct SPT {
         if (ckmin(spT[i][j], spT[i][j - 1])) idx[i][j] = idx[i][j - 1];
     }
   }
-  ii rmq(int l, int r) {
-    int k = 31 - __builtin_clz(r - l + 1);
+  ii rmq(int l, int r) { // 'r' is exclusive
+    int k = 31 - __builtin_clz(r - l);
     return min(mp(spT[l][k], idx[l][k]),
-               mp(spT[r - (1 << k) + 1][k], idx[r - (1 << k) + 1][k]));
+               mp(spT[r - (1 << k)][k], idx[r - (1 << k)][k]));
   }
 };

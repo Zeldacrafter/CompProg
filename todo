@@ -10,4 +10,3 @@ floyd warshall negative cycle detection
 lazy segment tree
 lazy, persistent, pointer-based segment tree
 check use of std::function in STIT.cc
-sparse table exclusive on 'r'
