@@ -13,7 +13,7 @@ int main() {
   F0R(i, n) {
     ll k;
     cin >> k;
-    ft.update(i + 1, k);
+    ft.update(i, k);
   }
 
   while(q--) {
@@ -21,9 +21,9 @@ int main() {
     int l, r;
     cin >> c >> l >> r;
     if(!c)
-      ft.update(l + 1, r);
+      ft.update(l, r);
     else
-      cout << ft.query(l + 1, r) << endl;
+      cout << ft.query(l, r) << endl;
   }
 }
 
