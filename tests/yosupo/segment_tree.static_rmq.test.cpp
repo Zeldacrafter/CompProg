@@ -11,7 +11,8 @@ int main() {
   int n, q;
   cin >> n >> q;
 
-  ST<int> st(n, INF, [](auto a, auto b) { return min(a, b); });
+  auto f = [](auto a, auto b) { return min(a, b); };
+  ST<int, decltype(f)> st(n, INF, f);
 
   F0R(i, n)
     cin >> st.data[n + i];
