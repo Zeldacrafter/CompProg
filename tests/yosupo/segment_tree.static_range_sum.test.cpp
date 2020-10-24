@@ -9,7 +9,7 @@ int main() {
   int n, q;
   cin >> n >> q;
 
-  auto f = [](auto a, auto b) { return a + b; }
+  auto f = [](auto a, auto b) { return a + b; };
   ST<ll, decltype(f)> st(n, 0, f);
 
   F0R(i, n)
