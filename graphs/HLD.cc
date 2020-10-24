@@ -1,12 +1,12 @@
 #include "../dataStructures/STIT.cc"
-template<typename T>
+template<typename T, typename F>
 struct HLD {
   int n;
   vi par, sz, height, in, pos;
   vvi paths;
-  ST<T> st;
+  ST<T, F> st;
   HLD(vvi& adj, const vector<T>& val,
-      T unit, typename ST<T>::MT merge, int root = 0)
+      T unit, F merge, int root = 0)
     : n{SZ(adj)}, par(n), sz(n, 1), height(n), in(n), pos(n),
       st{n, unit, merge} {
     dfssz(adj, root);

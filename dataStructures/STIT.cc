@@ -1,13 +1,13 @@
 #include "../template.cc"
-template<typename T>
+template<typename T, typename F>
 struct ST {
-  using type = T;
-  using MT = function<T(const T&, const T&)>;
+  using value_type = T;
+  using merge_type = F; 
   const int n;
   const T unit;
-  const MT merge;
+  F merge;
   vector<T> data;
-  ST(int sz, T u, MT m) : n{sz}, unit{u}, merge{m}, data(2 * n, unit) {}
+  ST(int sz, T u, F m) : n{sz}, unit{u}, merge{m}, data(2 * n, unit) {}
   void build() {
     for (int i = n - 1; i; --i)
       data[i] = merge(data[i << 1], data[i << 1 | 1]);
