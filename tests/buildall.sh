@@ -1,14 +1,29 @@
 #!/bin/bash
 
-tmp_dir=$(mktemp -d)
-echo $tmp_dir
+TMP_DIR=$(mktemp -d)
+echo ${TMP_DIR}
 
-find . -name '*.cc' | while read line; do
-    line=${line/.\//}
-    echo "trying to compile $line"
-    out="$tmp_dir/${line//\//-}"
-    g++ -c -Wall -Wextra -Wshadow -Wpedantic -Werror -std=c++17 -o $out $line
+COPTIONS="-c -Wall -Wextra -Wshadow -Wpedantic -Werror -Wunused-variable -std=c++17"
+
+EXIT="0"
+ERRORS=""
+
+for LINE in $(find . -name '*.cc' | sort); do
+    LINE=${LINE/.\//}
+    echo "trying to compile ${LINE}"
+    OUT="${TMP_DIR}/${LINE//\//-}"
+    g++ ${COPTIONS} -o ${OUT} ${LINE} 
+    if [ "$?" -ne "0" ]; then
+        ERRORS="${ERRORS}  - ${LINE}\n"
+        EXIT="1"
+    fi 
 done
 
-rm -r $tmp_dir
+rm -r ${TMP_DIR}
+
+if [ -n "${ERRORS}" ]; then
+    echo -ne "Failed for:\n${ERRORS}"
+fi
+
+exit ${EXIT}
 
