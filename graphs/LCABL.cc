@@ -7,12 +7,12 @@ struct LCA {
       : n{SZ(adj)}, logN{31 - __builtin_clz(n)},
         root{r}, up(n, vi(logN + 1, root)),
         h(n, -1) { 
-    build(adj, root);
+    build(adj);
   }
-  void build(vvi& adj, int v) {
+  void build(vvi& adj) {
     queue<int> q;
-    q.push(v);
-    h[v] = 0;
+    q.push(root);
+    h[root] = 0;
     while (SZ(q)) {
       int v = q.front();
       q.pop();

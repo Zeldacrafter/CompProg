@@ -8,12 +8,12 @@ struct LCA {
         root{r}, up(n, vi(logN + 1, root)),
         weight(n, vi(logN + 1, numeric_limits<int>::min())),
         h(n, -1) { 
-    build(adj, root);
+    build(adj);
   }
-  void build(vvii& adj, int v) {
+  void build(vvii& adj) {
     queue<int> q;
-    q.push(v);
-    h[v] = 0;
+    q.push(root);
+    h[root] = 0;
     while (SZ(q)) {
       int v = q.front();
       q.pop();
