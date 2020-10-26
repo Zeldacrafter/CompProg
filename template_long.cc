@@ -2,7 +2,7 @@
 // Long template from: https://github.com/Zeldacrafter/CompProg
 //
 // Feature list:
-// * C++11 compatibility.
+// * C++14 compatibility.
 // * Various 'define'-shorthands and typedefs.
 // * Output stream that is only active with 'DEBUG'-flag set.
 // * Input and output stream operators for...
@@ -11,6 +11,7 @@
 //     (Except for 0 elements tuples :'( ) Related: https://xkcd.com/541/
 //   * pairs.
 // * Line seperated and aligned output of 2D vectors.
+// * TODO: pretty printer
 ///////////////////////////////////////////////////////////////
 
 #include <bits/stdc++.h>
@@ -47,19 +48,27 @@ bool ckmax(T& a, const T& b) { return a < b ? a = b, true : false; }
 #define dvar(...) " \x1b[35m[" << #__VA_ARGS__ ": " << mt(__VA_ARGS__) << "]\x1b[0m "
 
 ///////////////////////////////////////////////////////////////
-// Declare stuff that is not in all c++ versions
+// Utility functions.
 ///////////////////////////////////////////////////////////////
 
-#if __cplusplus <= 201103L
-template <bool B, class T = void>
-using enable_if_t = typename enable_if<B, T>::type;
-template <size_t I, class T>
-using tuple_element_t = typename tuple_element<I, T>::type;
-#endif
+namespace impl {
+  template <typename T, typename F, size_t... Is>
+  F for_each(T& t, F f, index_sequence<Is...>) {
+    auto l = { (f(get<Is>(t), Is), 0)... };
+    (void) l;
+    return f;
+  }
+}
 
-///////////////////////////////////////////////////////////////
-// Begin template definitions for input/output.
-///////////////////////////////////////////////////////////////
+template <typename... Ts, typename F>
+F for_each(tuple<Ts...>& t, F f) { 
+  return impl::for_each(t, f, make_index_sequence<sizeof...(Ts)>{});
+}
+
+template <typename... Ts, typename F>
+F for_each(const tuple<Ts...>& t, F f) { 
+  return impl::for_each(t, f, make_index_sequence<sizeof...(Ts)>{});
+}
 
 // IsC indicates whether a type defines a 'const_iterator'.
 // IsC::value is true if 'const_iterator' exists and false otherwise.
@@ -79,24 +88,12 @@ enable_if_t<IsC<T>::value, ostream&> operator<<(ostream&, const T&);
 template <typename T1, typename T2>
 ostream& operator<<(ostream&, const pair<T1, T2>&);
 
-// Output routine for tuples:
-// 'idx' tracks the index of the current element that we want to print.
-// The last element is at index 'sizeof...(Ts) - 1'.
-
-// Print the last element of the tuple.
-template <size_t idx = 0, typename... Ts>
-enable_if_t<sizeof...(Ts) - 1 == idx, ostream&>
-operator<<(ostream& o, const tuple<Ts...>& t) {
-  o << get<idx>(t);
-  return idx ? o << ')' : o;
-}
-
-// Print all but the first and last element of a tuple.
-template <size_t idx = 0, typename... Ts>
-enable_if_t<idx + 1 < sizeof...(Ts), ostream&>
-operator<<(ostream& o, const tuple<Ts...>& t) {
-  if (not idx) o << '(';
-  return operator<<<idx + 1>(o << get<idx>(t) << ", ", t);
+// Print each tuple element.
+template <typename... Ts>
+ostream& operator<<(ostream& o, const tuple<Ts...>& t) {
+    o << '(';
+    for_each(t, [&](auto& x, size_t i) { if(i) o << ", "; o << x; });
+    return o << ')';
 }
 
 // Output for pairs via above defined tuple output routine.
@@ -141,22 +138,15 @@ operator<<(ostream& o, const PP<T, M>& p) {
   return o << p.v;
 }
 
-// Prints every but the last tuple element.
-template <size_t M, size_t idx = 0, typename... Ts>
-enable_if_t<idx + 1 < sizeof...(Ts), ostream&>
-operator<<(ostream& o, const PP<tuple<Ts...>, M>& p) {
+// Prints every tuple element.
+template <size_t M, typename... Ts>
+ostream& operator<<(ostream& o, const PP<tuple<Ts...>, M>& p) {
   const string& sep = p.idx < M ? (*p.se)[p.idx] : " ";
-  return operator<<<M, idx + 1, Ts...>
-    (o << PP<tuple_element_t<idx, tuple<Ts...>>, M>
-     (get<idx>(p.v), p.se, p.idx + 1) << sep, p); 
-}
-
-// Prints the last element of a tuple without a seperator.
-template <size_t M, size_t idx = 0, typename... Ts>
-enable_if_t<idx + 1 == sizeof...(Ts), ostream&>
-operator<<(ostream& o, const PP<tuple<Ts...>, M>& p) {
-  return o << PP<tuple_element_t<idx, tuple<Ts...>>, M>
-    (get<idx>(p.v), p.se, p.idx + 1);
+  for_each(p.v, [&](auto& x, size_t i) { 
+    if(i) o << sep; 
+    o << PP<decay_t<decltype(x)>, M>(x, p.se, p.idx + 1);
+  });
+  return o;
 }
 
 // Print pairs with the specified seperator for that level.
@@ -207,22 +197,11 @@ enable_if_t<IsC<T>::value, istream&> operator>>(istream&, T&);
 template <typename T1, typename T2>
 istream& operator>>(istream&, pair<T1, T2>&);
 
-// Input routine for tuples:
-// 'idx' tracks the index of the current element that we want to read.
-// The last element is at index 'sizeof(Ts) - 1'.
-
-// Read the last element of the tuple.
-template <size_t idx = 0, typename... Ts>
-enable_if_t<sizeof...(Ts) == idx, istream&>
-operator>>(istream& i, tuple<Ts...>&) {
+// Read a tuple.
+template <typename... Ts>
+istream& operator>>(istream& i, tuple<Ts...>& t) {
+  for_each(t, [&](auto& x, int) { cin >> x; });
   return i;
-}
-
-// Read all but the first and last element of a tuple.
-template <size_t idx = 0, typename... Ts>
-enable_if_t<idx < sizeof...(Ts), istream&>
-operator>>(istream& i, tuple<Ts...>& t) {
-  return operator>><idx + 1>(i >> get<idx>(t), t);
 }
 
 // Read the contents of a 'pair' object.
