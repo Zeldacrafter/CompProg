@@ -66,7 +66,7 @@ struct LCA {
   int maxPathAnc(int v, int u) {
     int res = numeric_limits<int>::min();
     for (int l = logN; ~l; --l) {
-      if (h[u] <= up[v][l]) {
+      if (up[v][l] != -1 && h[u] <= h[up[v][l]]) {
         ckmax(res, weight[v][l]);
         v = up[v][l];
       }
