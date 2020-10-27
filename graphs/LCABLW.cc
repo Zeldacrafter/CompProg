@@ -1,16 +1,20 @@
 #include "../template.cc"
+
+template <typename T, typename F>
 struct LCA {
-  int n, logN, root;
-  vvi up, weight;
+  int n, logN, root, e;
+  F f;
+  vvi up;
+  vector<vector<T>> weight;
   vi h;
-  LCA(vvii& adj, int r = 0)
+  LCA(vector<vector<pair<int, T>>>& adj, F _f, T neutral, int r = 0)
       : n{SZ(adj)}, logN{31 - __builtin_clz(n)},
-        root{r}, up(n, vi(logN + 1, root)),
-        weight(n, vi(logN + 1, numeric_limits<int>::min())),
-        h(n, -1) { 
+        root{r}, e{neutral}, f{_f},
+        up(n, vi(logN + 1, root)), 
+        weight(n, vector<T>(logN + 1, neutral)), h(n, -1) { 
     build(adj);
   }
-  void build(vvii& adj) {
+  void build(vector<vector<pair<int, T>>>& adj) {
     queue<int> q;
     q.push(root);
     h[root] = 0;
@@ -33,8 +37,8 @@ struct LCA {
       F0R (v, n)
         if (up[v][exp - 1] != -1) {
           up[v][exp] = up[up[v][exp - 1]][exp - 1];
-          weight[v][exp] = max(weight[v][exp - 1], 
-                               weight[up[v][exp - 1]][exp - 1]);
+          weight[v][exp] = f(weight[v][exp - 1], 
+                             weight[up[v][exp - 1]][exp - 1]);
         }
   }
   int jumpUp(int v, int amt) {
@@ -57,17 +61,15 @@ struct LCA {
     }
     return up[v][0];
   }
-  // returns max weight of an edge on the the path v -- u
-  int maxPath(int v, int u) {
+  int pathQuery(int v, int u) {
     int anc = lca(v, u);
-    return max(maxPathAnc(v, anc), maxPathAnc(u, anc));
+    return f(pathQueryAnc(v, anc), pathQueryAnc(u, anc));
   }
-  // returns max weight of an edge on path from v to u (isAnc(u, v))
-  int maxPathAnc(int v, int u) {
-    int res = numeric_limits<int>::min();
+  int pathQueryAnc(int v, int u) {
+    int res = e;
     for (int l = logN; ~l; --l) {
       if (up[v][l] != -1 && h[u] <= h[up[v][l]]) {
-        ckmax(res, weight[v][l]);
+        res = f(res, weight[v][l]);
         v = up[v][l];
       }
     }
