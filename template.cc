@@ -19,14 +19,10 @@ typedef vector<vii> vvii;
 #define SZ(x) (int)(x).size()
 #define FOR(a, b, c) for (auto a = (b); (a) < (c); ++(a))
 #define F0R(a, b) FOR (a, 0, (b))
-template <class T>
-bool ckmin(T& a, const T& b) {
-  return a > b ? a = b, true : false;
-}
-template <class T>
-bool ckmax(T& a, const T& b) {
-  return a < b ? a = b, true : false;
-}
+template <typename T>
+bool ckmin(T& a, const T& b) { return a > b ? a = b, true : false; }
+template <typename T>
+bool ckmax(T& a, const T& b) { return a < b ? a = b, true : false; }
 #ifndef DEBUG
 #define DEBUG 0
 #endif

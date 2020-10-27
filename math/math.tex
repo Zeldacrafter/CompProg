@@ -19,7 +19,7 @@ boundary points $b$:
 A = i + \frac{b}{2} - 1
 \]
 
-\lst{Calculation of border points:  }{$\mathcal{O}(b\cdot \log(maxVal))$}{geometry/picksTheorem.cc}
+\lst{Calculation of border points:  }{$\mathcal{O}(b\cdot \log(\text{maxVal}))$}{geometry/picksTheorem.cc}
 For polygon area see the geometry section.
 
 \subsection{Eulers formular for planar graphs}
@@ -34,7 +34,6 @@ Number of possible sets with $k$ elements selected from $n$ elements.
   \frac{n}{k}\binom{n - 1}{k - 1} = \binom{n - 1}{k} + \binom{n - 1}{k
   - 1}
 \end{equation*}
-\lst{Binomial coefficient}{$\mathcal{O}(\min(k, n - k))$}{math/binom.cc}
 \begin{center}
 	\begin{tabular}{ |l||l|l|l|l|l|l|l|l|l|l| } 
 		\hline

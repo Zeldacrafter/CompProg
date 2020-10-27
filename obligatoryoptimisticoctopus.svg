@@ -8,7 +8,7 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    sodipodi:docname="obligatoryoptimisticoctopus.svg"
-   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
    id="svg8"
    version="1.1"
    viewBox="0 0 297 210"
@@ -111,16 +111,16 @@
   </defs>
   <sodipodi:namedview
      inkscape:window-maximized="0"
-     inkscape:window-y="27"
-     inkscape:window-x="72"
-     inkscape:window-height="1016"
-     inkscape:window-width="1800"
+     inkscape:window-y="14"
+     inkscape:window-x="0"
+     inkscape:window-height="1031"
+     inkscape:window-width="960"
      inkscape:snap-others="false"
      showgrid="false"
      inkscape:document-rotation="0"
      inkscape:current-layer="layer2"
      inkscape:document-units="mm"
-     inkscape:cy="209.94808"
+     inkscape:cy="369.94808"
      inkscape:cx="571.57579"
      inkscape:zoom="1"
      inkscape:pageshadow="2"
@@ -138,7 +138,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -162,19 +162,20 @@
     <flowRoot
        xml:space="preserve"
        id="flowRoot12"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40.00077057px;line-height:1.25;font-family:'Comic Neue';-inkscape-font-specification:'Comic Neue, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40.0008px;line-height:1.25;font-family:'Comic Neue';-inkscape-font-specification:'Comic Neue, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
        transform="matrix(0.18842379,0,0,0.18842379,70.086911,66.644301)"><flowRegion
          id="flowRegion14"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40.00077057px;font-family:'Comic Neue';-inkscape-font-specification:'Comic Neue, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle"><rect
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40.0008px;font-family:'Comic Neue';-inkscape-font-specification:'Comic Neue, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle"><rect
            id="rect16"
            width="538.38037"
            height="253.52701"
            x="145.54456"
            y="322.41367"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40.00077057px;font-family:'Comic Neue';-inkscape-font-specification:'Comic Neue, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle" /></flowRegion><flowPara
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40.00077057px;font-family:'Comic Neue';-inkscape-font-specification:'Comic Neue, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;" /></flowRegion><flowPara
          id="flowPara18">Team reference document</flowPara><flowPara
          id="flowPara119" /><flowPara
-         id="flowPara121">University of Kiel</flowPara></flowRoot>    <path
+         id="flowPara121">Kiel University</flowPara></flowRoot>
+    <path
        style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 114.30015,36.389077 c 1.58764,-1.896057 4.49806,-2.248834 5.60037,-0.396883 1.10231,1.851951 0.3968,5.908595 -1.19072,7.805078 -1.58753,1.896483 -4.05666,1.631933 -5.15926,-0.220398 -1.10259,-1.852331 -0.83802,-5.291741 0.74961,-7.187797 z"
        id="path24"

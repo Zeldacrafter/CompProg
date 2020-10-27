@@ -1,22 +1,9 @@
 \section{Number Theory}
-\lst{GCD and LCM}{$\mathcal{O}(\log(a + b))$}{math/gcd_lcm.cc}
 \begin{code}{Extended Euclid}{$\mathcal{O}(\log(a + b))$}{math/extendedEuclid.cc} 
- Calculates $a$ and $b$ such that $\gcd(x, y) = ax + by$
-\end{code}
-
-\begin{code}{Linear Prime Sieve}{$\mathcal{O}(n)$}{math/sieve.cc}
-    $lp[i]$ holds the smallest prime factor of $i$. Works well for $n \leq 1e7$
-\end{code}
-
-\begin{code}{Coefficients of a Polynomial}{$\mathcal{O}(n^2)$}{math/getCoefficiants.cc}
-  For any polynomial with $p(x_i) = y_i$ where all $x_i$ are distinct coefficients can be calculated the following way:
+  Calculates $a$ and $b$ such that $\gcd(x, y) = ax + by$
 \end{code}
 
 \lst{Modular Exponentiation}{$\mathcal{O}(\log b)$}{math/modpow.cc}
-
-\begin{code}{Miller Rabin Prime Test}{$\mathcal{O}(7\log b)$}{math/millerRabin.cc}
-  Works for all numbers up to $2^{64}$
-\end{code}
 
 \begin{code}{Eulers Totoid Function}{$\mathcal{O}(\sqrt{n})$}{math/totoid.cc}
 %TODO(Alex): Improve this -> better(more) details/ what is important, applications
