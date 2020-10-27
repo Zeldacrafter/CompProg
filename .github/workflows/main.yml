@@ -41,10 +41,7 @@ jobs:
       - name: Build Document
         run: docker run -v "${PWD}:/src" -w /src thomasweise/docker-texlive-full latexmk -pdf -latexoption="-shell-escape" main.tex
 
-      - name: baum
-        run: ls
-
       - uses: actions/upload-artifact@v2
         with:
           name: document.pdf
-          path: src/main.pdf
+          path: main.pdf
