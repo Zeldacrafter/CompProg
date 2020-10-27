@@ -1,5 +1,3 @@
-[![Actions Status](https://github.com/beet-aizu/library/workflows/verify/badge.svg)](https://github.com/beet-aizu/library/actions)
-
 ### Attributions
 The code icon used in the document is from Font Awesome.  The font
 used on the title page is [Comic Neue](https://github.com/crozynski/comicneue). 
