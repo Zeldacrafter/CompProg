@@ -1,6 +1,6 @@
 [![Actions Status](https://github.com/Zeldacrafter/CompProg/workflows/verify/badge.svg)](https://github.com/Zeldacrafter/CompProg/actions?query=workflow%3AVerify)
-[Build](https://github.com/Zeldacrafter/CompProg/workflows/build/badge.svg)
-[Document](https://github.com/Zeldacrafter/CompProg/workflows/document/badge.svg)
+[![Build](https://github.com/Zeldacrafter/CompProg/workflows/Build/badge.svg)](https://github.com/Zeldacrafter/CompProg/actions?query=workflow%3ABuild)
+[![Document](https://github.com/Zeldacrafter/CompProg/workflows/Document/badge.svg)](https://github.com/Zeldacrafter/CompProg/actions?query=workflow%3ADocument)
 
 ### Attributions
 The code icon used in the document is from Font Awesome.  The font
