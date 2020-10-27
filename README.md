@@ -1,4 +1,4 @@
-[![GitHub Pages](https://img.shields.io/static/v1?label=GitHub+Pages&message=+&color=brightgreen&logo=github)](https://Zeldacrafter.github.io/CompProg/)
+[![Actions Status](https://github.com/beet-aizu/library/workflows/verify/badge.svg)](https://github.com/beet-aizu/library/actions)
 
 ### Attributions
 The code icon used in the document is from Font Awesome.  The font
