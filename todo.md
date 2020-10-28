@@ -10,7 +10,6 @@
 ### lazy segment tree
 ### lazy, persistent, pointer-based segment tree
 ### linear sieve
-### aho corasick as struct
 ### Trie rework
 ### Sparse Table remove spT use original array
 ### template sparse table

@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/staticrmq"
 
-#include "../../code/dataStructures/SPT.cc"
+#include "../../code/dataStructures/SPTI.cc"
 
 int main() {
   cin.tie(0);
@@ -9,14 +9,14 @@ int main() {
   int n, q;
   cin >> n >> q;
 
-  auto f = [](int a, int b) { return min(a, b); };
-  SPT<int, decltype(f)> st(n, f);
-  F0R(i, n) cin >> st.d[0][i];
+  auto f = [](int a, int b) { return a <= b; };
+  SPTI<int, decltype(f)> st(n, f);
+  F0R(i, n) cin >> st.d[i];
   st.build();
 
   while(q--) {
     int l, r; cin >> l >> r;
-    cout << st.query(l, r) << endl;
+    cout << st.d[st.query(l, r)] << endl;
   }
 }
 

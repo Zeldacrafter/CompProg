@@ -1,5 +1,5 @@
 #include "../template.hh"
-vi prefixFunction(string& s) {
+vi prefixFunction(const string& s) {
   vi prefix(SZ(s));
   FOR (i, 1, SZ(s)) {
     int j = prefix[i - 1];
