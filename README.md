@@ -1,6 +1,7 @@
 [![Verify](https://github.com/Zeldacrafter/CompProg/workflows/Verify/badge.svg)](https://github.com/Zeldacrafter/CompProg/actions?query=workflow%3AVerify)
 [![Build](https://github.com/Zeldacrafter/CompProg/workflows/Build/badge.svg)](https://github.com/Zeldacrafter/CompProg/actions?query=workflow%3ABuild)
 [![Document](https://github.com/Zeldacrafter/CompProg/workflows/Document/badge.svg)](https://github.com/Zeldacrafter/CompProg/actions?query=workflow%3ADocument)
+[![License: Unlicense](https://img.shields.io/badge/License-Unlicense-blue.svg)](http://unlicense.org/)
 
 ### Attributions
 The code icon used in the document is from Font Awesome.  The font
