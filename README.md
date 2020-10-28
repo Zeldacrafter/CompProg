@@ -1,4 +1,4 @@
-[![Actions Status](https://github.com/Zeldacrafter/CompProg/workflows/verify/badge.svg)](https://github.com/Zeldacrafter/CompProg/actions?query=workflow%3AVerify)
+[![Verify](https://github.com/Zeldacrafter/CompProg/workflows/Verify/badge.svg)](https://github.com/Zeldacrafter/CompProg/actions?query=workflow%3AVerify)
 [![Build](https://github.com/Zeldacrafter/CompProg/workflows/Build/badge.svg)](https://github.com/Zeldacrafter/CompProg/actions?query=workflow%3ABuild)
 [![Document](https://github.com/Zeldacrafter/CompProg/workflows/Document/badge.svg)](https://github.com/Zeldacrafter/CompProg/actions?query=workflow%3ADocument)
 
