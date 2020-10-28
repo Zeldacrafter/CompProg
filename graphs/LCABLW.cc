@@ -7,11 +7,11 @@ struct LCA {
   vvi up;
   vector<vector<T>> weight;
   vi h;
-  LCA(vector<vector<pair<int, T>>>& adj, F _f, T neutral, int r = 0)
+  LCA(vector<vector<pair<int, T>>>& adj, F _f, T _e, int r = 0)
       : n{SZ(adj)}, logN{31 - __builtin_clz(n)},
-        root{r}, e{neutral}, f{_f},
+        root{r}, e{_e}, f{_f},
         up(n, vi(logN + 1, root)), 
-        weight(n, vector<T>(logN + 1, neutral)), h(n, -1) { 
+        weight(n, vector<T>(logN + 1, _e)), h(n, -1) { 
     build(adj);
   }
   void build(vector<vector<pair<int, T>>>& adj) {
@@ -21,18 +21,14 @@ struct LCA {
     while (SZ(q)) {
       int v = q.front();
       q.pop();
-      for (auto [u, _] : adj[v])
+      for (auto [u, w] : adj[v])
         if (h[u] == -1) {
           h[u] = h[v] + 1;
           q.push(u);
+          up[u][0] = v;
+          weight[u][0] = w;
         }
     }
-    F0R (v, n)
-      for (auto [u, w] : adj[v])
-        if (h[u] < h[v]) {
-          up[v][0] = u;
-          weight[v][0] = w;
-        }
     FOR (exp, 1, logN + 1)
       F0R (v, n)
         if (up[v][exp - 1] != -1) {

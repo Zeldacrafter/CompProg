@@ -20,12 +20,9 @@ struct LCA {
         if (h[u] == -1) {
           h[u] = h[v] + 1;
           q.push(u);
+          up[u][0] = v;
         }
     }
-    F0R (v, n)
-      for (int u : adj[v])
-        if (h[u] < h[v])
-          up[v][0] = u;
     FOR (exp, 1, logN + 1)
       F0R (v, n)
         if (up[v][exp - 1] != -1)
