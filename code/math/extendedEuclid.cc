@@ -1,4 +1,4 @@
-#include "../template.cc"
+#include "../template.hh"
 ll gcd(ll x, ll y, ll& a, ll& b) {
   if (y) {
     ll res = gcd(y, x % y, b, a);

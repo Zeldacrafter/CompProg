@@ -1,4 +1,4 @@
-#include "../template.cc"
+#include "../template.hh"
 int lcs(const string& s, const string& t) {
   int n = SZ(s), m = SZ(t);
   vvi dp(n + 1, vi(m + 1, 0));

@@ -1,4 +1,4 @@
-#include "../template.cc"
+#include "../template.hh"
 vii SA_ns, SA_bs;
 using vit = vi::iterator;
 template<int B = 'a', int S = 26, int N = 3>

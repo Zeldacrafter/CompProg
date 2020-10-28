@@ -1,4 +1,4 @@
-#include "../template.cc"
+#include "../template.hh"
 vi preprocess(string& s) {
   vi fail(SZ(s) + 1);
   fail[0] = -1;

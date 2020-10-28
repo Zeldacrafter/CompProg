@@ -1,4 +1,4 @@
-#include "../template.cc"
+#include "../template.hh"
 vvi adj;
 vi dfs_num, dfs_low, S;
 vector<bool> onStack;

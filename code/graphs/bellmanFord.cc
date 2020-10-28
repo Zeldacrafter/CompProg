@@ -1,4 +1,4 @@
-#include "../template.cc"
+#include "../template.hh"
 const int inf = 1e9;
 // vertex a, vertex b, distance
 vector<tuple<int, int, int>> edges;

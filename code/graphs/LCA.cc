@@ -1,4 +1,4 @@
-#include "../template.cc"
+#include "../template.hh"
 struct LCA {
   vi height, eulerTour, first;
   vvi idx;

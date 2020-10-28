@@ -1,7 +1,7 @@
 /*
  *
  */
-#include "../template.cc"
+#include "../template.hh"
 
 template<typename T>
 struct Combinatorics {

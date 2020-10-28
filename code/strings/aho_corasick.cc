@@ -1,4 +1,4 @@
-#include "../template.cc"
+#include "../template.hh"
 
 template <typename T, int E = 26, typename V = char, V base = 'a'>
 struct AHC {

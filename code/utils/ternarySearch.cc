@@ -1,4 +1,4 @@
-#include "../template.cc"
+#include "../template.hh"
 // f unimodal function on [l, r]
 double terSearch(double l, double r, function<double(double)> f,
                  bool mx = true) {

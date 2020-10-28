@@ -1,4 +1,4 @@
-#include "../template.cc"
+#include "../template.hh"
 const int inf = 1e9;
 int knapsack(const vi& w, const vi& p, int B) {
   ll maxP = accumulate(ALL(p), 0);

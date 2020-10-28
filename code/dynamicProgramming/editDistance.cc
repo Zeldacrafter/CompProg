@@ -1,4 +1,4 @@
-#include "../template.cc"
+#include "../template.hh"
 const int inf = 1e9;
 
 int editDistance(const string& a, const string& b) {

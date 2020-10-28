@@ -1,4 +1,4 @@
-#include "../template.cc"
+#include "../template.hh"
 template<ll p>
 struct mint {
   static constexpr ll mod = p;

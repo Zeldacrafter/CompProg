@@ -1,4 +1,4 @@
-#include "../template.cc"
+#include "../template.hh"
 // for c++14 and above;  explicitly specify the return type of the lambda
 // links:
 //  1. https://stackoverflow.com/a/40873657

@@ -1,4 +1,4 @@
-#include "../template.cc"
+#include "../template.hh"
 vi prefixFunction(string& s) {
   vi prefix(SZ(s));
   FOR (i, 1, SZ(s)) {

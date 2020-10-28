@@ -1,4 +1,4 @@
-#include "../template.cc"
+#include "../template.hh"
 vvi adj;
 vi dfsNum, low;
 int dfsCounter = 0;

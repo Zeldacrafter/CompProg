@@ -1,4 +1,4 @@
-#include "../template.cc"
+#include "../template.hh"
 int msb(unsigned int x) {
   for (int i = 1; i <= 16; i <<= 1) x |= x >> i;
   return x - (x >> 1);

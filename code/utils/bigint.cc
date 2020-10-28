@@ -1,4 +1,4 @@
-#include "../template.cc"
+#include "../template.hh"
 template <class T>
 int sign(T a) {
   return (a > 0) - (0 > a);

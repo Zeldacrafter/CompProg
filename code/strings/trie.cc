@@ -1,4 +1,4 @@
-#include "../template.cc"
+#include "../template.hh"
 struct Trie {
   vvi adj; vi value;  // -1: no value present
   Trie() : adj(1, vi(26, -1)), value(1, -1) {}

@@ -1,4 +1,4 @@
-#include "../template.cc"
+#include "../template.hh"
 struct DSU {
   DSU(int size) : msize(size), data(size, -1) {}
   bool sameSet(int a, int b) { return find(a) == find(b); }

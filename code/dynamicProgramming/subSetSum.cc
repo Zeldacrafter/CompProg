@@ -1,4 +1,4 @@
-#include "../template.cc"
+#include "../template.hh"
 const int mxSum = 1000;
 bitset<mxSum + 1> subSetSum(const vi& v) {
   bitset<mxSum + 1> dp;

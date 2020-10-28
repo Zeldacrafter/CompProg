@@ -1,4 +1,4 @@
-#include "../template.cc"
+#include "../template.hh"
 vi manacher(string s) {
   string T = "#";   // Assume that '#' is not in the alphabet
   for (char c : s) T += c, T += '#';

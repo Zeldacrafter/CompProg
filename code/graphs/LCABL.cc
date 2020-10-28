@@ -1,4 +1,4 @@
-#include "../template.cc"
+#include "../template.hh"
 struct LCA {
   int n, logN, root;
   vvi up;

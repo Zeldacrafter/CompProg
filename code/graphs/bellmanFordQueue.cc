@@ -1,4 +1,4 @@
-#include "../template.cc"
+#include "../template.hh"
 const int inf = 1e9;
 vvii adj;
 // returns empty vector if there's a neg cycle

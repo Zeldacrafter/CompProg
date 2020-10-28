@@ -1,4 +1,4 @@
-#include "../template.cc"
+#include "../template.hh"
 const int inf = 1e9;
 vvii adj;
 vi dijkstra(int start) {

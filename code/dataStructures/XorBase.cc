@@ -1,4 +1,4 @@
-#include "../template.cc" // https://codeforces.com/blog/entry/68953
+#include "../template.hh" // https://codeforces.com/blog/entry/68953
 template<typename T = int>
 struct XorBase : vector<T> {
   void apply(T& toApply) {

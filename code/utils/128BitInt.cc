@@ -1,4 +1,4 @@
-#include "../template.cc"
+#include "../template.hh"
 ostream& operator<<(ostream& o, __int128_t n) {
   if (n < 0) {
     o << '-';

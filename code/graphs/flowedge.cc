@@ -1,4 +1,4 @@
-#include "../template.cc"
+#include "../template.hh"
 struct edge {
   edge(int from, int to, ll capacity, ll flow = 0)
       : mfrom(from), mto(to), mcapacity(capacity), mflow(flow) {}

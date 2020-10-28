@@ -1,4 +1,4 @@
-#include "../template.cc"
+#include "../template.hh"
 int phi(int n) {
     int result = n;
     for (int i = 2; i * i <= n; i++) {

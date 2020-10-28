@@ -1,4 +1,4 @@
-#include "../template.cc"
+#include "../template.hh"
 vvi adj; // adjacency matrix
 void floydWarshall() {
   F0R (k, SZ(adj)) F0R (i, SZ(adj)) F0R (j, SZ(adj))

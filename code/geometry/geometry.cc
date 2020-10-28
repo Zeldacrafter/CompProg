@@ -1,4 +1,4 @@
-#include "../template.cc"
+#include "../template.hh"
 #define xx real()
 #define yy imag()
 const double EPS = 1e-9;

@@ -1,4 +1,4 @@
-#include "../template.cc"
+#include "../template.hh"
 ll modpow(ll a, ll b, ll m) {
   a %= m;  // normal pow with m = inf
   ll res = 1;

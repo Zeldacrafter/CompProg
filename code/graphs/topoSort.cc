@@ -1,4 +1,4 @@
-#include "../template.cc"
+#include "../template.hh"
 int N;
 vvi adj(N);
 vi in(N);  // in degree for every node

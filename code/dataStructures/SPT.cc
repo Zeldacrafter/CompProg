@@ -1,4 +1,4 @@
-#include "../template.cc"
+#include "../template.hh"
 struct SPT {
   vvi spT, idx; // min value, pos of min value
   SPT(vi& A) {
