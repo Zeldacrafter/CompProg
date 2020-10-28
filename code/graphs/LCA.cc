@@ -19,7 +19,7 @@ struct LCA {
       spt.d[0][idx++] = v;
     }
   }
-  int lca(int a, int b) {
+  int query(int a, int b) {
     ii m = minmax(first[a], first[b]);
     return spt.query(m.fi, m.se);
   }

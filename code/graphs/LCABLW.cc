@@ -43,7 +43,7 @@ struct LCA {
         v = up[v][i];
     return v;
   }
-  int lca(int v, int u) {
+  int query(int v, int u) {
     v = jumpUp(v, max(0, h[v] - h[u]));
     u = jumpUp(u, max(0, h[u] - h[v]));
     if (u == v) return u;
@@ -58,7 +58,7 @@ struct LCA {
     return up[v][0];
   }
   int pathQuery(int v, int u) {
-    int anc = lca(v, u);
+    int anc = query(v, u);
     return f(pathQueryAnc(v, anc), pathQueryAnc(u, anc));
   }
   int pathQueryAnc(int v, int u) {

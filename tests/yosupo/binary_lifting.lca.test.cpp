@@ -21,7 +21,7 @@ int main() {
     while(q--) {
         int u, v;
         cin >> u >> v;
-        cout << lca.lca(u, v) << endl;
+        cout << lca.query(u, v) << endl;
     }
 }
 

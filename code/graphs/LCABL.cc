@@ -34,7 +34,7 @@ struct LCA {
         v = up[v][i];
     return v;
   }
-  int lca(int v, int u) {
+  int query(int v, int u) {
     v = jumpUp(v, max(0, h[v] - h[u]));
     u = jumpUp(u, max(0, h[u] - h[v]));
     if (u == v) return u;
