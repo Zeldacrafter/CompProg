@@ -1,1 +1,15 @@
-{}
+{
+"tests/hackerrank/fenwick_tree_2d.cube-summation.test.cpp": "2020-10-28 15:31:23 +0100",
+"tests/yosupo/aplusb.test.cpp": "2020-10-28 15:31:23 +0100",
+"tests/yosupo/associative_array.test.cpp": "2020-10-28 15:31:23 +0100",
+"tests/yosupo/binary_lifting.lca.test.cpp": "2020-10-28 15:31:23 +0100",
+"tests/yosupo/fenwick_tree.point_add_range_sum.test.cpp": "2020-10-28 15:31:23 +0100",
+"tests/yosupo/fenwick_tree.static_range_sum.test.cpp": "2020-10-28 15:31:23 +0100",
+"tests/yosupo/many_aplusb.test.cpp": "2020-10-28 15:31:23 +0100",
+"tests/yosupo/segment_tree.point_add_range_sum.test.cpp": "2020-10-28 15:31:23 +0100",
+"tests/yosupo/segment_tree.static_range_sum.test.cpp": "2020-10-28 15:31:23 +0100",
+"tests/yosupo/segment_tree.static_rmq.test.cpp": "2020-10-28 15:31:23 +0100",
+"tests/yosupo/sparse_table.lca.test.cpp": "2020-10-28 15:31:23 +0100",
+"tests/yosupo/sparse_table.static_rmq.test.cpp": "2020-10-28 15:31:23 +0100",
+"tests/yosupo/unionfind.test.cpp": "2020-10-28 15:31:23 +0100"
+}
