@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/unionfind"
 
-#include "../../dataStructures/DSU.cc"
+#include "../../code/dataStructures/DSU.cc"
 
 int main() {
   cin.tie(0);

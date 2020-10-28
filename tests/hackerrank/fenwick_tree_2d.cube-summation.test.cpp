@@ -1,6 +1,6 @@
 #define PROBLEM "https://www.hackerrank.com/challenges/cube-summation/problem"
 
-#include "../../dataStructures/FT2D.cc"
+#include "../../code/dataStructures/FT2D.cc"
 
 template<typename T>
 struct FT3D {

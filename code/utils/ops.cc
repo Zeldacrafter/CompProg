@@ -1,4 +1,4 @@
-#include "template_long.cc"
+#include "../template_long.cc"
 
 ///////////////////////////////////////////////////////////////
 // Utility functions.

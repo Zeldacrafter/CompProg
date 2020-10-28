@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/lca"
 
-#include "../../graphs/LCABL.cc"
+#include "../../code/graphs/LCABL.cc"
 
 int main() {
     cin.tie(0);

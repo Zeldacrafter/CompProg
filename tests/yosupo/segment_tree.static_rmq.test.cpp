@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/staticrmq"
 
-#include "../../dataStructures/STIT.cc"
+#include "../../code/dataStructures/STIT.cc"
 
 const int INF = 1e9 + 5;
 

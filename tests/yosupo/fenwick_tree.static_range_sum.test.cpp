@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/static_range_sum"
 
-#include "../../dataStructures/FT.cc"
+#include "../../code/dataStructures/FT.cc"
 
 int main() {
   cin.tie(0);
