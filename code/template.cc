@@ -1,4 +1,5 @@
-// this line is here for a reason
+#pragma once
+
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
