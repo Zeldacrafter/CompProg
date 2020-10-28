@@ -1,25 +1,28 @@
 #include "../template.hh"
+template <typename T, int E = 26, typename V = char, V base = 'a'>
 struct Trie {
-  vvi adj; vi value;  // -1: no value present
-  Trie() : adj(1, vi(26, -1)), value(1, -1) {}
-  void insert(const string& s, int val) {
-    int node = 0;
-    for (char c : s) {
-      if (adj[node][c - 'A'] == -1) {
-        adj.eb(26, -1);
-        value.eb(-1);
-        adj[node][c - 'A'] = SZ(adj) - 1;
+  using str = basic_string<V>;
+  vector<array<int, E>> nxt;
+  vector<T> v;
+  Trie() : nxt{array<int, E>{}}, v(1, -1) {}
+  void set(const str& s, T val) {
+    int it = 0;
+    for (V c : s) {
+      if (!nxt[it][c - base]) {
+        nxt[it][c - base] = SZ(nxt);
+        nxt.eb();
+        v.eb();
       }
-      node = adj[node][c - 'A'];
+      it = nxt[it][c - base];
     }
-    value[node] = val;
+    v[it] = val;
   }
-  int get(const string& s) {
-    int node = 0;
-    for (char c : s) {
-      if (adj[node][c - 'A'] == -1) return -1;
-      node = adj[node][c - 'A'];
+  T get(const str& s) {
+    int it = 0;
+    for (V c : s) {
+      if (!nxt[it][c - base]) return T();
+      it = nxt[it][c - base];
     }
-    return value[node];
+    return v[it];
   }
 };

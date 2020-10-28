@@ -10,8 +10,4 @@
 ### lazy segment tree
 ### lazy, persistent, pointer-based segment tree
 ### linear sieve
-### Trie rework
-### Sparse Table remove spT use original array
-### template sparse table
-### License + License Button
 ### rework .vimrc 
