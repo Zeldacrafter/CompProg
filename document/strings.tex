@@ -1,5 +1,5 @@
 \section{Strings}
-\lst{Trie/Prefix Tree}{$\mathcal{O}(n)$ for insert and get}{strings/trie.cc}
+\lst{Trie/Prefix Tree}{$\mathcal{O}(n)$ for set and get}{strings/trie.cc}
 
 \begin{code}{Prefix Function}{$\mathcal{O}(n)$}{strings/prefixFunction.cc}
   For a string $s$ return an array in which the $i$-th entry is the
@@ -23,7 +23,7 @@ inbetween letters. Example for $abbaac$:
 \end{verbatim}
 \end{code}
 
-\begin{code}{Aho-Corasick Automaton}{build: $\mathcal{O}(\sum |t_j|)$, query: $\mathcal{O}(|S|)$}{strings/aho_corasick.cc}
+\begin{code}{Aho-Corasick Automaton}{build: $\mathcal{O}(\sum |t_j|)$, query: $\mathcal{O}(|S|)$}{strings/AHC.cc}
   % See for detailed explaination:
   % http://web.stanford.edu/class/archive/cs/cs166/cs166.1166/lectures/02/Small02.pdf
   % TODO(Alex): Test query() call extensively. Build + insert are okay for sure.

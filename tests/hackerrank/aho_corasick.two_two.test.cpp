@@ -1,6 +1,6 @@
 #define PROBLEM "https://www.hackerrank.com/challenges/two-two/problem"
 
-#include "../../code/strings/aho_corasick.cc"
+#include "../../code/strings/AHC.cc"
 #include "../../code/utils/bigint.cc"
 
 int main() {
