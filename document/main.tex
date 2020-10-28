@@ -45,7 +45,6 @@
 
 % code listings
 \usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
-% \usepackage{listings}
 \usepackage[skins, breakable]{tcolorbox}
 \usepackage{fontawesome5}
 \usepackage{wallpaper}
@@ -53,40 +52,9 @@
 \usepackage{minted}
 \setminted[c++]{style=perldoc, fontsize=\footnotesize}
 
-% \lstset{
-%   basicstyle=\footnotesize\ttfamily,
-%   breakatwhitespace=false,
-%   breaklines=false,
-%   commentstyle=\color{OliveGreen},
-%   keywordstyle=\color{blue},
-%   stringstyle=\color{red},
-%   rulecolor=\color{black},
-%   % frame=single,
-%   keepspaces=true,
-%   language=[11]c++,
-%   morekeywords={},
-%   showstringspaces=true,
-%   showtabs=false,	
-%   tabsize=2,
-%   extendedchars=true,
-%   breaklines=true,
-%   prebreak=\mbox{\textcolor{red}{\textbackslash}},
-%   postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
-% }
-
-% \newcommand{\lst}[2]{\lstinputlisting[title=#1, firstline=2]{#2}}
-% \newcommand{\lstwot}[1]{\lstinputlisting[firstline=2]{#1}}
-% \newcommand{\lst}[3]{%
-%   {
-%     #1\hfill {\small #2}
-%     \vspace*{-5pt}
-%     \lstinputlisting[firstline=2]{#3}
-%   }
-% }
-
-\NewDocumentCommand\lst{mmm}{%
+\NewDocumentCommand\lst{mmm}{ %
   \tcbset{enhanced, colframe=black, arc=0pt, boxsep=0pt, left=2pt, right=2pt}
-  \begin{tcolorbox}[%
+  \begin{tcolorbox}[ %
     arc=1pt,
     title=#1,
     colback=white,
@@ -104,13 +72,13 @@
     fonttitle=\bfseries\sffamily,
     before title={\small\faCode\hspace*{2pt}},
     after title={\hfill\normalfont\footnotesize #2}]
-    \inputminted[firstline=2]{c++}{#3}
+    \inputminted[firstline=2]{c++}{../code/#3}
   \end{tcolorbox}
 }
 
-\NewDocumentEnvironment{code}{mmm}{%
+\NewDocumentEnvironment{code}{mmm}{ %
   \tcbset{enhanced, colframe=black, arc=0pt, boxsep=0pt, left=2pt, right=2pt}
-  \begin{tcolorbox}[%
+  \begin{tcolorbox}[ %
     arc=1pt,
     title=#1,
     colback=white,
@@ -139,11 +107,11 @@
       top=2pt,
       boxrule=0pt,
       borderline south={1pt}{0pt}{black}]
-      \begin{small}}{%
+      \begin{small}}{ %
       \end{small}
     \end{tcolorbox}
     \tcblower
-    \inputminted[firstline=2]{c++}{#3}
+    \inputminted[firstline=2]{c++}{../code/#3}
   \end{tcolorbox}
 }
 
@@ -184,59 +152,24 @@
 
 \begin{document}
 \begin{titlepage}
-  % \centering
-  % \large
-  % \vspace*{\fill}
-  % \vspace{0.5\baselineskip}
-  % Team reference document\\
-  % \vspace{2.5\baselineskip}
-  % University of Kiel \\
-  % \vspace{2\baselineskip}
-  % \daymonthyear
-  % \vspace*{\fill}
-  \ThisCenterWallPaper{1.0}{obligatoryoptimisticoctopus.pdf}
-  \textcolor{white}{.}
+  \ThisCenterWallPaper{1.0}{assets/obligatoryoptimisticoctopus.pdf}
+  \vspace*{44em}
+  \hfill\daymonthyear
 \end{titlepage}
       
-% empt\begin{multicols*}{2}           
   \setcounter{tocdepth}{1}
   \tableofcontents
   \blfootnote{Code icon by Font Awesome}
   \lst{Template}{}{template.cc}
-  \input{math/math}  
-  \input{math/numberTheory}
-  \input{dataStructures/dataStructures}
-  \input{dynamicProgramming/dynamicProgramming}
-  \input{graphs/graphs}
-  \input{strings/strings}
-  \input{geometry/geometry}
-  \input{utils/utils}
-% \end{multicols*}
-
-% \section{Acceptable Runtimes}
-% \begin{table*}[h]
-%   \centering
-%   \begin{tabular}[t]{c c c}
-%     \hline
-%     $n$ & Worst AC Algorithm & Comment\\ [0.5ex]
-%     \hline
-%     \hline
-%     $\leq 10$ & $\mathcal{O}(n!), \mathcal{O}(n^6)$ & e.g. Enumerating a Permutation\\
-%     \hline
-%     $\leq 20$ & $\mathcal{O}(2^n), \mathcal{O}(n^5)$ & e.g. DP + Bitmask Technique\\
-%     \hline
-%     $\leq 50$ & $\mathcal{O}(n^4)$ & e.g. DP with $3$ dimensions $+\mathcal{O}(n)$ loop, choosing $_nC_k=4$\\
-%     \hline
-%     $\leq 10^2$ & $\mathcal{O}(n^3)$ & e.g. Floyd Warshall’s\\
-%     \hline
-%     $\leq 10^3$ & $\mathcal{O}(n^2)$ & e.g. Bubble/Selection/Insertion Sort\\
-%     \hline
-%     $\leq 10^5$ & $\mathcal{O}(n log_2 n)$ & e.g. Merge Sort, building Segment Tree\\
-%     \hline
-%     $\leq 10^6$ & $\mathcal{O}(n),\mathcal{O}(log_2n),\mathcal{O}(1)$ & usually, contest problem has $n\leq 10^6$(e.g. to read input)\\
-%     \hline
-%   \end{tabular}
-% \end{table*}
+  \lst{.vimrc}{}{utils/.vimrc}
+  \input{math}  
+  \input{numberTheory}
+  \input{dataStructures}
+  \input{dynamicProgramming}
+  \input{graphs}
+  \input{strings}
+  \input{geometry}
+  \input{utils}
 
 \end{document}
 
