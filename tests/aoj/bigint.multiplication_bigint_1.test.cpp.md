@@ -10,12 +10,14 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_2_C
     links:
-    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_2_F
-  bundledCode: "#line 1 \"tests/aoj/bigint.multiplication_bigint_2.cpp\"\n#define\
-    \ PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_2_F\"\
+    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_2_C
+  bundledCode: "#line 1 \"tests/aoj/bigint.multiplication_bigint_1.test.cpp\"\n#define\
+    \ PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_2_C\"\
     \n\n#line 1 \"code/template.cc\"\n// this line is here for a reason\n#include\
     \ <bits/stdc++.h>\nusing namespace std;\ntypedef long long ll;\ntypedef pair<int,\
     \ int> ii;\ntypedef vector<int> vi;\ntypedef vector<ii> vii;\ntypedef vector<vi>\
@@ -112,26 +114,26 @@ data:
     \ bi.mag[i];\n    return ss.str();\n  }\n  friend istream& operator>>(istream&\
     \ i, bigint& bi) {\n    string s;\n    i >> s;\n    bi = bigint(s);\n    return\
     \ i;\n  }\n  friend ostream& operator<<(ostream& o, const bigint& bi) {\n    return\
-    \ o << to_string(bi);\n  }\n};\n#line 4 \"tests/aoj/bigint.multiplication_bigint_2.cpp\"\
+    \ o << to_string(bi);\n  }\n};\n#line 4 \"tests/aoj/bigint.multiplication_bigint_1.test.cpp\"\
     \n\nint main() {\n  cin.tie(0);\n  ios_base::sync_with_stdio(0);\n\n  bigint a,\
     \ b;\n  cin >> a >> b;\n  cout << a * b << endl;\n}\n"
-  code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_2_F\"\
+  code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_2_C\"\
     \n\n#include \"../../code/utils/bigint.cc\"\n\nint main() {\n  cin.tie(0);\n \
     \ ios_base::sync_with_stdio(0);\n\n  bigint a, b;\n  cin >> a >> b;\n  cout <<\
     \ a * b << endl;\n}\n"
   dependsOn:
   - code/utils/bigint.cc
   - code/template.cc
-  isVerificationFile: false
-  path: tests/aoj/bigint.multiplication_bigint_2.cpp
+  isVerificationFile: true
+  path: tests/aoj/bigint.multiplication_bigint_1.test.cpp
   requiredBy: []
   timestamp: '2020-10-29 22:02:54+01:00'
-  verificationStatus: LIBRARY_NO_TESTS
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: tests/aoj/bigint.multiplication_bigint_2.cpp
+documentation_of: tests/aoj/bigint.multiplication_bigint_1.test.cpp
 layout: document
 redirect_from:
-- /library/tests/aoj/bigint.multiplication_bigint_2.cpp
-- /library/tests/aoj/bigint.multiplication_bigint_2.cpp.html
-title: tests/aoj/bigint.multiplication_bigint_2.cpp
+- /verify/tests/aoj/bigint.multiplication_bigint_1.test.cpp
+- /verify/tests/aoj/bigint.multiplication_bigint_1.test.cpp.html
+title: tests/aoj/bigint.multiplication_bigint_1.test.cpp
 ---

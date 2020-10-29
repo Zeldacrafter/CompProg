@@ -206,14 +206,6 @@ data:
     - icon: ':warning:'
       path: code/utils/y_combinator.cc
       title: code/utils/y_combinator.cc
-  - name: tests/aoj
-    pages:
-    - icon: ':warning:'
-      path: tests/aoj/bigint.multiplication_bigint_1.cpp
-      title: tests/aoj/bigint.multiplication_bigint_1.cpp
-    - icon: ':warning:'
-      path: tests/aoj/bigint.multiplication_bigint_2.cpp
-      title: tests/aoj/bigint.multiplication_bigint_2.cpp
   verificationCategories:
   - name: tests/aoj
     pages:
@@ -229,6 +221,12 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/aoj/bigint.addition_bigint.test.cpp
       title: tests/aoj/bigint.addition_bigint.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: tests/aoj/bigint.multiplication_bigint_1.test.cpp
+      title: tests/aoj/bigint.multiplication_bigint_1.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: tests/aoj/bigint.multiplication_bigint_2.test.cpp
+      title: tests/aoj/bigint.multiplication_bigint_2.test.cpp
     - icon: ':heavy_check_mark:'
       path: tests/aoj/bigint.subtraction_bigint.test.cpp
       title: tests/aoj/bigint.subtraction_bigint.test.cpp

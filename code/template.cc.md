@@ -179,12 +179,6 @@ data:
   - icon: ':warning:'
     path: code/utils/y_combinator.cc
     title: code/utils/y_combinator.cc
-  - icon: ':warning:'
-    path: tests/aoj/bigint.multiplication_bigint_1.cpp
-    title: tests/aoj/bigint.multiplication_bigint_1.cpp
-  - icon: ':warning:'
-    path: tests/aoj/bigint.multiplication_bigint_2.cpp
-    title: tests/aoj/bigint.multiplication_bigint_2.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: tests/aoj/articulation_points.articulation_points.test.cpp
@@ -198,6 +192,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: tests/aoj/bigint.addition_bigint.test.cpp
     title: tests/aoj/bigint.addition_bigint.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: tests/aoj/bigint.multiplication_bigint_1.test.cpp
+    title: tests/aoj/bigint.multiplication_bigint_1.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: tests/aoj/bigint.multiplication_bigint_2.test.cpp
+    title: tests/aoj/bigint.multiplication_bigint_2.test.cpp
   - icon: ':heavy_check_mark:'
     path: tests/aoj/bigint.subtraction_bigint.test.cpp
     title: tests/aoj/bigint.subtraction_bigint.test.cpp
@@ -473,17 +473,17 @@ data:
   - code/dynamicProgramming/editDistance.cc
   - code/dynamicProgramming/lis.cc
   - code/dynamicProgramming/lcs.cc
-  - tests/aoj/bigint.multiplication_bigint_2.cpp
-  - tests/aoj/bigint.multiplication_bigint_1.cpp
   timestamp: '2020-10-28 19:21:59+01:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/bellman_ford.single_source_shortest_path_negative_edges.test.cpp
   - tests/aoj/edmonds_karp.maximum_flow.test.cpp
+  - tests/aoj/bigint.multiplication_bigint_1.test.cpp
   - tests/aoj/dinic.maximum_flow.test.cpp
   - tests/aoj/articulation_points.articulation_points.test.cpp
   - tests/aoj/bigint.addition_bigint.test.cpp
   - tests/aoj/floyd_warshall.all_pairs_shortest_path.test.cpp
+  - tests/aoj/bigint.multiplication_bigint_2.test.cpp
   - tests/aoj/dijkstra.single_source_shortest_path.test.cpp
   - tests/aoj/kruskal.minimum_spanning_tree.test.cc
   - tests/aoj/bellman_ford_queue.single_source_shortest_path_negative_edges.test.cpp
