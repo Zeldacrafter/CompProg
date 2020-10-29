@@ -4,9 +4,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: code/template.cc
     title: code/template.cc
-  - icon: ':warning:'
-    path: code/utils/bits.cc
-    title: code/utils/bits.cc
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cc
@@ -25,30 +22,24 @@ data:
     \ : false; }\ntemplate <typename T>\nbool ckmax(T& a, const T& b) { return a <\
     \ b ? a = b, true : false; }\n#ifndef DEBUG\n#define DEBUG 0\n#endif\n#define\
     \ dout if (DEBUG) cerr\n#define dvar(...) \" [\" << #__VA_ARGS__ \": \" << (__VA_ARGS__)\
-    \ << \"] \"\n#line 2 \"code/utils/bits.cc\"\nint msb(unsigned int x) {\n  for\
-    \ (int i = 1; i <= 16; i <<= 1) x |= x >> i;\n  return x - (x >> 1);\n}\nint lsb(int\
-    \ x) { return x & -x; }\nbool oppositeSign(int x, int y) { return (x ^ y) < 0;\
-    \ }\nbool isPowOf2(int x) { return x && !(x & (x - 1)); }\nvoid allSubsets(int\
-    \ m) {\n  for(int i = m; i; --i &= m) { /* */ }\n}\nvoid allSupersets(int m, int\
-    \ nx) {\n  for (int i = m; i < nx; ++i |= m) { /* */ }\n}\n#line 2 \"code/dataStructures/SPT2D.cc\"\
-    \n\ntypedef vector<vvi> vvvi;\ntypedef vector<vvvi> vvvvi;\nstruct SPT2D {\n \
-    \ vvvvi spT;\n  int n, m, log2n, log2m;\n\n  SPT2D(vvi& A) : n(SZ(A)), m(SZ(A[0])),\n\
-    \        log2n(33 - __builtin_clz(n)),\n        log2m(33 - __builtin_clz(m)) {\n\
-    \    spT.assign(n, vvvi(log2n, vvi(m, vi(log2m))));\n\n    F0R (ir, n) {\n   \
-    \   F0R (ic, m)\n        spT[ir][0][ic][0] = A[ir][ic];\n      for (int jc = 1;\
-    \ (1 << jc) <= m; ++jc)\n        for (int ic = 0; ic + (1 << jc) <= m; ++ic)\n\
-    \          spT[ir][0][ic][jc] =\n              min(spT[ir][0][ic][jc - 1],\n \
-    \                 spT[ir][0][ic + (1 << (jc - 1))][jc - 1]);\n    }\n    for (int\
-    \ jr = 1; (1 << jr) <= n; ++jr)\n      for (int ir = 0; ir + (1 << jr) <= n; ++ir)\n\
-    \        for (int jc = 0; (1 << jc) <= m; ++jc)\n          for (int ic = 0; ic\
-    \ + (1 << jc) <= m; ++ic)\n            spT[ir][jr][ic][jc] =\n               \
-    \ min(spT[ir][jr - 1][ic][jc],\n                    spT[ir + (1 << (jr - 1))][jr\
-    \ - 1][ic][jc]);\n  }\n\n  int query(int r1, int r2, int c1, int c2) { //r2, c2\
-    \ are exclusive\n    int rk = 31 - __builtin_clz(r2 - r1);\n    int ck = 31 -\
-    \ __builtin_clz(c2 - c1);\n\n    int cc = c2 - (1 << ck);\n    int rr = r2 - (1\
-    \ << rk);\n    return min({spT[r1][rk][c1][ck], spT[r1][rk][cc][ck],\n       \
-    \         spT[rr][rk][c1][ck], spT[rr][rk][cc][ck]});\n  }\n};\n"
-  code: "#include \"../utils/bits.cc\"\n\ntypedef vector<vvi> vvvi;\ntypedef vector<vvvi>\
+    \ << \"] \"\n#line 2 \"code/dataStructures/SPT2D.cc\"\n\ntypedef vector<vvi> vvvi;\n\
+    typedef vector<vvvi> vvvvi;\nstruct SPT2D {\n  vvvvi spT;\n  int n, m, log2n,\
+    \ log2m;\n\n  SPT2D(vvi& A) : n(SZ(A)), m(SZ(A[0])),\n        log2n(33 - __builtin_clz(n)),\n\
+    \        log2m(33 - __builtin_clz(m)) {\n    spT.assign(n, vvvi(log2n, vvi(m,\
+    \ vi(log2m))));\n\n    F0R (ir, n) {\n      F0R (ic, m)\n        spT[ir][0][ic][0]\
+    \ = A[ir][ic];\n      for (int jc = 1; (1 << jc) <= m; ++jc)\n        for (int\
+    \ ic = 0; ic + (1 << jc) <= m; ++ic)\n          spT[ir][0][ic][jc] =\n       \
+    \       min(spT[ir][0][ic][jc - 1],\n                  spT[ir][0][ic + (1 << (jc\
+    \ - 1))][jc - 1]);\n    }\n    for (int jr = 1; (1 << jr) <= n; ++jr)\n      for\
+    \ (int ir = 0; ir + (1 << jr) <= n; ++ir)\n        for (int jc = 0; (1 << jc)\
+    \ <= m; ++jc)\n          for (int ic = 0; ic + (1 << jc) <= m; ++ic)\n       \
+    \     spT[ir][jr][ic][jc] =\n                min(spT[ir][jr - 1][ic][jc],\n  \
+    \                  spT[ir + (1 << (jr - 1))][jr - 1][ic][jc]);\n  }\n\n  int query(int\
+    \ r1, int r2, int c1, int c2) { //r2, c2 are exclusive\n    int rk = 31 - __builtin_clz(r2\
+    \ - r1);\n    int ck = 31 - __builtin_clz(c2 - c1);\n\n    int cc = c2 - (1 <<\
+    \ ck);\n    int rr = r2 - (1 << rk);\n    return min({spT[r1][rk][c1][ck], spT[r1][rk][cc][ck],\n\
+    \                spT[rr][rk][c1][ck], spT[rr][rk][cc][ck]});\n  }\n};\n"
+  code: "#include \"../template.hh\"\n\ntypedef vector<vvi> vvvi;\ntypedef vector<vvvi>\
     \ vvvvi;\nstruct SPT2D {\n  vvvvi spT;\n  int n, m, log2n, log2m;\n\n  SPT2D(vvi&\
     \ A) : n(SZ(A)), m(SZ(A[0])),\n        log2n(33 - __builtin_clz(n)),\n       \
     \ log2m(33 - __builtin_clz(m)) {\n    spT.assign(n, vvvi(log2n, vvi(m, vi(log2m))));\n\
@@ -66,12 +57,11 @@ data:
     \   int rr = r2 - (1 << rk);\n    return min({spT[r1][rk][c1][ck], spT[r1][rk][cc][ck],\n\
     \                spT[rr][rk][c1][ck], spT[rr][rk][cc][ck]});\n  }\n};\n"
   dependsOn:
-  - code/utils/bits.cc
   - code/template.cc
   isVerificationFile: false
   path: code/dataStructures/SPT2D.cc
   requiredBy: []
-  timestamp: '2020-10-28 19:21:59+01:00'
+  timestamp: '2020-10-29 09:01:05+01:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: code/dataStructures/SPT2D.cc

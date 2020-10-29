@@ -104,7 +104,7 @@ data:
   - icon: ':warning:'
     path: code/graphs/pushRelabel.cc
     title: code/graphs/pushRelabel.cc
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: code/graphs/scc.cc
     title: code/graphs/scc.cc
   - icon: ':warning:'
@@ -204,6 +204,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: tests/yosupo/many_aplusb.test.cpp
     title: tests/yosupo/many_aplusb.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: tests/yosupo/scc.scc.test.cpp
+    title: tests/yosupo/scc.scc.test.cpp
   - icon: ':heavy_check_mark:'
     path: tests/yosupo/segment_tree.point_add_range_sum.test.cpp
     title: tests/yosupo/segment_tree.point_add_range_sum.test.cpp
@@ -424,6 +427,7 @@ data:
   verifiedWith:
   - tests/hackerrank/aho_corasick.two_two.test.cpp
   - tests/hackerrank/fenwick_tree_2d.cube-summation.test.cpp
+  - tests/yosupo/scc.scc.test.cpp
   - tests/yosupo/binary_lifting.lca.test.cpp
   - tests/yosupo/segment_tree.point_add_range_sum.test.cpp
   - tests/yosupo/sparse_table.lca.test.cpp

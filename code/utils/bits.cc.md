@@ -4,10 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: code/template.cc
     title: code/template.cc
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: code/dataStructures/SPT2D.cc
-    title: code/dataStructures/SPT2D.cc
+  _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cc
   _verificationStatusIcon: ':warning:'
@@ -41,8 +38,7 @@ data:
   - code/template.cc
   isVerificationFile: false
   path: code/utils/bits.cc
-  requiredBy:
-  - code/dataStructures/SPT2D.cc
+  requiredBy: []
   timestamp: '2020-10-28 19:21:59+01:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
