@@ -1,7 +1,7 @@
 #include "../template.hh"
 const int inf = 1e9;
 
-int LIS(const vi& a) {
+int lis(const vi& a) {
   vi dp(SZ(a) + 1, inf);
   dp[0] = -inf;
   F0R(i, SZ(a)) {
