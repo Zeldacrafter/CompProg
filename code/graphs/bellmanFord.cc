@@ -3,11 +3,15 @@ const int inf = 1e9;
 // vertex a, vertex b, distance
 vector<tuple<int, int, int>> edges;
 int V;
-vi bellmanFord(int start) {
+pair<bool, vi> bellmanFord(int start) {
   vi dist(V, inf);
   dist[start] = 0;
-  F0R (i, V - 1)
+  bool negCycle = false;
+  F0R (i, V) {
+    negCycle = false;
     for (auto [a, b, d] : edges)
-      ckmin(dist[a], dist[b] + d);
-  return dist;
+      if (ckmin(dist[b], dist[a] + d))
+          negCycle = true;
+  }
+  return mp(negCycle, dist);
 }
