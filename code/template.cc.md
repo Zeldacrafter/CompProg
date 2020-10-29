@@ -59,7 +59,7 @@ data:
   - icon: ':warning:'
     path: code/geometry/polygon.cc
     title: code/geometry/polygon.cc
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: code/graphs/HLD.cc
     title: code/graphs/HLD.cc
   - icon: ':heavy_check_mark:'
@@ -204,6 +204,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: tests/aoj/floyd_warshall.all_pairs_shortest_path.test.cpp
     title: tests/aoj/floyd_warshall.all_pairs_shortest_path.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: tests/aoj/hld.range_query_on_tree.test.cpp
+    title: tests/aoj/hld.range_query_on_tree.test.cpp
   - icon: ':heavy_check_mark:'
     path: tests/aoj/kmp.string_matches.test.cpp
     title: tests/aoj/kmp.string_matches.test.cpp
@@ -471,6 +474,7 @@ data:
   - tests/aoj/bellman_ford_queue.single_source_shortest_path_negative_edges.test.cpp
   - tests/aoj/brides.brides.test.cpp
   - tests/aoj/push_relabel.maximum_flow.test.cpp
+  - tests/aoj/hld.range_query_on_tree.test.cpp
   - tests/aoj/kmp.string_matches.test.cpp
   - tests/hackerrank/aho_corasick.two_two.test.cpp
   - tests/hackerrank/fenwick_tree_2d.cube-summation.test.cpp

@@ -5,10 +5,13 @@ data:
     path: code/template.cc
     title: code/template.cc
   _extendedRequiredBy:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: code/graphs/HLD.cc
     title: code/graphs/HLD.cc
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: tests/aoj/hld.range_query_on_tree.test.cpp
+    title: tests/aoj/hld.range_query_on_tree.test.cpp
   - icon: ':heavy_check_mark:'
     path: tests/yosupo/segment_tree.point_add_range_sum.test.cpp
     title: tests/yosupo/segment_tree.point_add_range_sum.test.cpp
@@ -63,6 +66,7 @@ data:
   timestamp: '2020-10-28 19:21:59+01:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - tests/aoj/hld.range_query_on_tree.test.cpp
   - tests/yosupo/segment_tree.point_add_range_sum.test.cpp
   - tests/yosupo/segment_tree.static_rmq.test.cpp
   - tests/yosupo/segment_tree.static_range_sum.test.cpp

@@ -66,7 +66,7 @@ data:
       title: code/geometry/polygon.cc
   - name: code/graphs
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: code/graphs/HLD.cc
       title: code/graphs/HLD.cc
     - icon: ':heavy_check_mark:'
@@ -233,6 +233,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/aoj/floyd_warshall.all_pairs_shortest_path.test.cpp
       title: tests/aoj/floyd_warshall.all_pairs_shortest_path.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: tests/aoj/hld.range_query_on_tree.test.cpp
+      title: tests/aoj/hld.range_query_on_tree.test.cpp
     - icon: ':heavy_check_mark:'
       path: tests/aoj/kmp.string_matches.test.cpp
       title: tests/aoj/kmp.string_matches.test.cpp

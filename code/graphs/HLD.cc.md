@@ -8,9 +8,12 @@ data:
     path: code/template.cc
     title: code/template.cc
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: tests/aoj/hld.range_query_on_tree.test.cpp
+    title: tests/aoj/hld.range_query_on_tree.test.cpp
   _pathExtension: cc
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"code/template.cc\"\n// this line is here for a reason\n\
@@ -51,7 +54,7 @@ data:
     \ / 2) h = u;\n        else dfsbuild(adj, u, order, v);\n      }\n    if (~h)\
     \ dfsbuild(adj, h, order, v, true);\n    if (paths[in[v]][0] == v) order.pb(in[v]);\n\
     \  }\n  void update(int v, T val) { st.update(pos[v], val); }\n  T queryPath(int\
-    \ a, int b) {\n    T v = st.unit;\n    while (in[a] != in[b]) {\n      if (height[paths[in[a]][0]]\
+    \ a, int b) {\n    T v = st.e;\n    while (in[a] != in[b]) {\n      if (height[paths[in[a]][0]]\
     \ < height[paths[in[b]][0]]) swap(a, b);\n      v = st.merge(v, st.query(pos[paths[in[a]][0]],\
     \ pos[a] + 1));\n      a = par[paths[in[a]][0]];\n    }\n    if (height[a] > height[b])\
     \ swap(a, b);\n    return st.merge(v, st.query(pos[a], pos[b] + 1));\n  }\n  T\
@@ -72,8 +75,8 @@ data:
     \   if (sz[u] > sz[v] / 2) h = u;\n        else dfsbuild(adj, u, order, v);\n\
     \      }\n    if (~h) dfsbuild(adj, h, order, v, true);\n    if (paths[in[v]][0]\
     \ == v) order.pb(in[v]);\n  }\n  void update(int v, T val) { st.update(pos[v],\
-    \ val); }\n  T queryPath(int a, int b) {\n    T v = st.unit;\n    while (in[a]\
-    \ != in[b]) {\n      if (height[paths[in[a]][0]] < height[paths[in[b]][0]]) swap(a,\
+    \ val); }\n  T queryPath(int a, int b) {\n    T v = st.e;\n    while (in[a] !=\
+    \ in[b]) {\n      if (height[paths[in[a]][0]] < height[paths[in[b]][0]]) swap(a,\
     \ b);\n      v = st.merge(v, st.query(pos[paths[in[a]][0]], pos[a] + 1));\n  \
     \    a = par[paths[in[a]][0]];\n    }\n    if (height[a] > height[b]) swap(a,\
     \ b);\n    return st.merge(v, st.query(pos[a], pos[b] + 1));\n  }\n  T querySubtree(int\
@@ -84,9 +87,10 @@ data:
   isVerificationFile: false
   path: code/graphs/HLD.cc
   requiredBy: []
-  timestamp: '2020-10-28 19:21:59+01:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  timestamp: '2020-10-29 21:29:28+01:00'
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - tests/aoj/hld.range_query_on_tree.test.cpp
 documentation_of: code/graphs/HLD.cc
 layout: document
 redirect_from:
