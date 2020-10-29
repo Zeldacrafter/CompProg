@@ -1,16 +1,19 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: code/graphs/flowedge.cc
     title: code/graphs/flowedge.cc
   - icon: ':heavy_check_mark:'
     path: code/template.cc
     title: code/template.cc
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: tests/yosupo/dinic.bipartitematching.test.cpp
+    title: tests/yosupo/dinic.bipartitematching.test.cpp
   _pathExtension: cc
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"code/graphs/dinic.cc\"\n\n#line 1 \"code/template.cc\"\n\
@@ -72,8 +75,9 @@ data:
   path: code/graphs/dinic.cc
   requiredBy: []
   timestamp: '2020-10-28 19:21:59+01:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - tests/yosupo/dinic.bipartitematching.test.cpp
 documentation_of: code/graphs/dinic.cc
 layout: document
 redirect_from:

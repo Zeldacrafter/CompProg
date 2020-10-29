@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: code/graphs/flowedge.cc
     title: code/graphs/flowedge.cc
   - icon: ':heavy_check_mark:'

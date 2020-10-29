@@ -5,7 +5,7 @@ data:
     path: code/template.cc
     title: code/template.cc
   _extendedRequiredBy:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: code/graphs/dinic.cc
     title: code/graphs/dinic.cc
   - icon: ':warning:'
@@ -14,9 +14,12 @@ data:
   - icon: ':warning:'
     path: code/graphs/pushRelabel.cc
     title: code/graphs/pushRelabel.cc
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: tests/yosupo/dinic.bipartitematching.test.cpp
+    title: tests/yosupo/dinic.bipartitematching.test.cpp
   _pathExtension: cc
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"code/template.cc\"\n// this line is here for a reason\n\
@@ -61,8 +64,9 @@ data:
   - code/graphs/pushRelabel.cc
   - code/graphs/edmondsKarp.cc
   timestamp: '2020-10-28 19:21:59+01:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - tests/yosupo/dinic.bipartitematching.test.cpp
 documentation_of: code/graphs/flowedge.cc
 layout: document
 redirect_from:

@@ -93,13 +93,13 @@ data:
     - icon: ':warning:'
       path: code/graphs/dijkstra.cc
       title: code/graphs/dijkstra.cc
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: code/graphs/dinic.cc
       title: code/graphs/dinic.cc
     - icon: ':warning:'
       path: code/graphs/edmondsKarp.cc
       title: code/graphs/edmondsKarp.cc
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: code/graphs/flowedge.cc
       title: code/graphs/flowedge.cc
     - icon: ':warning:'
@@ -226,6 +226,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/yosupo/binary_lifting.lca.test.cpp
       title: tests/yosupo/binary_lifting.lca.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: tests/yosupo/dinic.bipartitematching.test.cpp
+      title: tests/yosupo/dinic.bipartitematching.test.cpp
     - icon: ':heavy_check_mark:'
       path: tests/yosupo/fenwick_tree.point_add_range_sum.test.cpp
       title: tests/yosupo/fenwick_tree.point_add_range_sum.test.cpp
