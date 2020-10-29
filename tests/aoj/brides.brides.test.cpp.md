@@ -1,22 +1,22 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: code/graphs/bridges.cc
     title: code/graphs/bridges.cc
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: code/template.cc
     title: code/template.cc
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_A
+    PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_B
     links:
-    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_A
-  bundledCode: "#line 1 \"tests/aoj/brides.brides.test.cpp\"\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_A\"\
+    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_B
+  bundledCode: "#line 1 \"tests/aoj/brides.brides.test.cpp\"\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_B\"\
     \n\n#line 1 \"code/template.cc\"\n// this line is here for a reason\n#include\
     \ <bits/stdc++.h>\nusing namespace std;\ntypedef long long ll;\ntypedef pair<int,\
     \ int> ii;\ntypedef vector<int> vi;\ntypedef vector<ii> vii;\ntypedef vector<vi>\
@@ -42,7 +42,7 @@ data:
     \ v;\n      adj[u].eb(v);\n      adj[v].eb(u);\n  }\n\n  vii res = findBridges();\n\
     \  for(auto& [a, b] : res) if(a > b) swap(a, b);\n  sort(ALL(res));\n  for(auto\
     \ [a, b] : res)\n      cout << a << ' ' << b << endl;\n}\n\n\n\n\n\n"
-  code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_A\"\
+  code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_B\"\
     \n\n#include \"../../code/graphs/bridges.cc\"\n\nint main() {\n  cin.tie(0);\n\
     \  ios_base::sync_with_stdio(0);\n\n  int V, E;\n  cin >> V >> E;\n\n  adj.resize(V);\n\
     \n  F0R(i, E) {\n      int u, v;\n      cin >> u >> v;\n      adj[u].eb(v);\n\
@@ -56,7 +56,7 @@ data:
   path: tests/aoj/brides.brides.test.cpp
   requiredBy: []
   timestamp: '2020-10-29 16:58:23+01:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/aoj/brides.brides.test.cpp
 layout: document
