@@ -5,10 +5,13 @@ data:
     path: code/template.cc
     title: code/template.cc
   _extendedRequiredBy:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: code/graphs/kruskal.cc
     title: code/graphs/kruskal.cc
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: tests/aoj/kruskal.minimum_spanning_tree.test.cc
+    title: tests/aoj/kruskal.minimum_spanning_tree.test.cc
   - icon: ':heavy_check_mark:'
     path: tests/yosupo/unionfind.test.cpp
     title: tests/yosupo/unionfind.test.cpp
@@ -51,6 +54,7 @@ data:
   timestamp: '2020-10-28 19:21:59+01:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - tests/aoj/kruskal.minimum_spanning_tree.test.cc
   - tests/yosupo/unionfind.test.cpp
 documentation_of: code/dataStructures/DSU.cc
 layout: document

@@ -8,9 +8,12 @@ data:
     path: code/template.cc
     title: code/template.cc
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: tests/aoj/kruskal.minimum_spanning_tree.test.cc
+    title: tests/aoj/kruskal.minimum_spanning_tree.test.cc
   _pathExtension: cc
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"code/template.cc\"\n// this line is here for a reason\n\
@@ -51,8 +54,9 @@ data:
   path: code/graphs/kruskal.cc
   requiredBy: []
   timestamp: '2020-10-28 19:21:59+01:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - tests/aoj/kruskal.minimum_spanning_tree.test.cc
 documentation_of: code/graphs/kruskal.cc
 layout: document
 redirect_from:

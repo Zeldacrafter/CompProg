@@ -105,7 +105,7 @@ data:
     - icon: ':warning:'
       path: code/graphs/floydWarshall.cc
       title: code/graphs/floydWarshall.cc
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: code/graphs/kruskal.cc
       title: code/graphs/kruskal.cc
     - icon: ':warning:'
@@ -207,6 +207,11 @@ data:
       path: code/utils/y_combinator.cc
       title: code/utils/y_combinator.cc
   verificationCategories:
+  - name: tests/aoj
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: tests/aoj/kruskal.minimum_spanning_tree.test.cc
+      title: tests/aoj/kruskal.minimum_spanning_tree.test.cc
   - name: tests/hackerrank
     pages:
     - icon: ':heavy_check_mark:'

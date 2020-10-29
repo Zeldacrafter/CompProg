@@ -98,7 +98,7 @@ data:
   - icon: ':warning:'
     path: code/graphs/floydWarshall.cc
     title: code/graphs/floydWarshall.cc
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: code/graphs/kruskal.cc
     title: code/graphs/kruskal.cc
   - icon: ':warning:'
@@ -180,6 +180,9 @@ data:
     path: code/utils/y_combinator.cc
     title: code/utils/y_combinator.cc
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: tests/aoj/kruskal.minimum_spanning_tree.test.cc
+    title: tests/aoj/kruskal.minimum_spanning_tree.test.cc
   - icon: ':heavy_check_mark:'
     path: tests/hackerrank/aho_corasick.two_two.test.cpp
     title: tests/hackerrank/aho_corasick.two_two.test.cpp
@@ -428,6 +431,7 @@ data:
   timestamp: '2020-10-28 19:21:59+01:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - tests/aoj/kruskal.minimum_spanning_tree.test.cc
   - tests/hackerrank/aho_corasick.two_two.test.cpp
   - tests/hackerrank/fenwick_tree_2d.cube-summation.test.cpp
   - tests/yosupo/scc.scc.test.cpp
