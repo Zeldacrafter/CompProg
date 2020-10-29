@@ -13,11 +13,11 @@ data:
   _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A
+    PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_B
     links:
-    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A
+    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_B
   bundledCode: "#line 1 \"tests/aoj/bellman_ford.single_source_shortest_path_negative_edges.test.cpp\"\
-    \n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A\"\
+    \n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_B\"\
     \n\n#line 1 \"code/template.cc\"\n// this line is here for a reason\n#include\
     \ <bits/stdc++.h>\nusing namespace std;\ntypedef long long ll;\ntypedef pair<int,\
     \ int> ii;\ntypedef vector<int> vi;\ntypedef vector<ii> vii;\ntypedef vector<vi>\
@@ -42,7 +42,7 @@ data:
     \  if(!SZ(res)) {\n      cout << \"NEGATIVE CYCLE\\n\";\n  } else {\n      for(int\
     \ d : res) {\n          if(d == inf)\n              cout << \"INF\\n\";\n    \
     \      else\n              cout << d << endl;\n      }\n  }\n}\n\n\n\n\n"
-  code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A\"\
+  code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_B\"\
     \n\n#include \"../../code/graphs/bellmanFord.cc\"\n\nint main() {\n  cin.tie(0);\n\
     \  ios_base::sync_with_stdio(0);\n\n  int E, r;\n  cin >> V >> E >> r;\n\n  edges.resize(E);\n\
     \n  F0R(i, E) {\n      int u, v, d;\n      cin >> u >> v >> d;\n      edges.eb(u,\
@@ -56,7 +56,7 @@ data:
   isVerificationFile: true
   path: tests/aoj/bellman_ford.single_source_shortest_path_negative_edges.test.cpp
   requiredBy: []
-  timestamp: '2020-10-29 11:30:05+01:00'
+  timestamp: '2020-10-29 14:58:23+01:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: tests/aoj/bellman_ford.single_source_shortest_path_negative_edges.test.cpp
