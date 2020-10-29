@@ -29,7 +29,7 @@ data:
   - icon: ':warning:'
     path: code/dataStructures/XorBaseN.cc
     title: code/dataStructures/XorBaseN.cc
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: code/dynamicProgramming/editDistance.cc
     title: code/dynamicProgramming/editDistance.cc
   - icon: ':warning:'
@@ -210,6 +210,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: tests/aoj/dinic.maximum_flow.test.cpp
     title: tests/aoj/dinic.maximum_flow.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: tests/aoj/edit_distance.test.cpp
+    title: tests/aoj/edit_distance.test.cpp
   - icon: ':heavy_check_mark:'
     path: tests/aoj/edmonds_karp.maximum_flow.test.cpp
     title: tests/aoj/edmonds_karp.maximum_flow.test.cpp
@@ -508,6 +511,7 @@ data:
   - tests/aoj/hld.range_query_on_tree.test.cpp
   - tests/aoj/bigint.subtraction_bigint.test.cpp
   - tests/aoj/kmp.string_matches.test.cpp
+  - tests/aoj/edit_distance.test.cpp
   - tests/hackerrank/aho_corasick.two_two.test.cpp
   - tests/hackerrank/fenwick_tree_2d.cube-summation.test.cpp
   - tests/yosupo/scc.scc.test.cpp

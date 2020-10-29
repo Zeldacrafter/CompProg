@@ -32,7 +32,7 @@ data:
       title: code/dataStructures/XorBaseN.cc
   - name: code/dynamicProgramming
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: code/dynamicProgramming/editDistance.cc
       title: code/dynamicProgramming/editDistance.cc
     - icon: ':warning:'
@@ -239,6 +239,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/aoj/dinic.maximum_flow.test.cpp
       title: tests/aoj/dinic.maximum_flow.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: tests/aoj/edit_distance.test.cpp
+      title: tests/aoj/edit_distance.test.cpp
     - icon: ':heavy_check_mark:'
       path: tests/aoj/edmonds_karp.maximum_flow.test.cpp
       title: tests/aoj/edmonds_karp.maximum_flow.test.cpp
