@@ -4,6 +4,7 @@
 "tests/yosupo/aplusb.test.cpp": "2020-10-28 19:21:59 +0100",
 "tests/yosupo/associative_array.test.cpp": "2020-10-28 19:21:59 +0100",
 "tests/yosupo/binary_lifting.lca.test.cpp": "2020-10-28 23:44:21 +0100",
+"tests/yosupo/dinic.bipartitematching.test.cpp": "2020-10-29 09:19:52 +0100",
 "tests/yosupo/fenwick_tree.point_add_range_sum.test.cpp": "2020-10-28 19:21:59 +0100",
 "tests/yosupo/fenwick_tree.static_range_sum.test.cpp": "2020-10-28 19:21:59 +0100",
 "tests/yosupo/many_aplusb.test.cpp": "2020-10-28 19:21:59 +0100",
