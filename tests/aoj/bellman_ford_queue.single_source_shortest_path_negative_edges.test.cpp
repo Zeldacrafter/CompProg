@@ -1,23 +1,23 @@
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A"
 
-#include "../../code/graphs/bellmanFord.cc"
+#include "../../code/graphs/bellmanFordQueue.cc"
 
 int main() {
   cin.tie(0);
   ios_base::sync_with_stdio(0);
 
-  int E, r;
+  int V, E, r;
   cin >> V >> E >> r;
 
-  edges.resize(E);
+  adj.resize(V);
 
   F0R(i, E) {
       int u, v, d;
       cin >> u >> v >> d;
-      edges.eb(u, v, d);
+      adj[u].eb(v, d);
   }
 
-  vi res = bellmanFord(r);
+  vi res = bellmanFordQueue(r);
   if(!SZ(res)) {
       cout << "NEGATIVE CYCLE\n";
   } else {
@@ -29,6 +29,7 @@ int main() {
       }
   }
 }
+
 
 
 

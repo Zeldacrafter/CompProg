@@ -14,7 +14,7 @@ vi bellmanFordQueue(int start) {
     inQ[v] = false;
     for (auto [u, d] : adj[v])
       if (ckmin(dist[u], dist[v] + d)) {
-	  if (++cnt[u] > SZ(adj)) return vi();
+        if (++cnt[u] > SZ(adj)) return vi();
         if (!inQ[u]) q.push(u), inQ[u] = true;
       }
   }
