@@ -8,6 +8,12 @@
 ### sqrt decomp (mo's algo)
 ### floyd warshall negative cycle detection
 ### lazy segment tree
+### HLD with range updates
+[Test](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_E)
+### Min cost flow
+[Test](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_B)
+### Minimum-Cost Arborescence
+[Test](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_B)
 ### lazy, persistent, pointer-based segment tree
 ### linear sieve
 ### rework .vimrc 

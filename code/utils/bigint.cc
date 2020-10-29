@@ -209,6 +209,12 @@ struct bigint {
       ss << setfill('0') << setw(9) << bi.mag[i];
     return ss.str();
   }
+  friend istream& operator>>(istream& i, bigint& bi) {
+    string s;
+    i >> s;
+    bi = bigint(s);
+    return i;
+  }
   friend ostream& operator<<(ostream& o, const bigint& bi) {
     return o << to_string(bi);
   }
