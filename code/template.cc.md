@@ -125,7 +125,7 @@ data:
   - icon: ':warning:'
     path: code/math/staticMatrix.cc
     title: code/math/staticMatrix.cc
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: code/math/totoid.cc
     title: code/math/totoid.cc
   - icon: ':heavy_check_mark:'
@@ -231,6 +231,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: tests/aoj/push_relabel.maximum_flow.test.cpp
     title: tests/aoj/push_relabel.maximum_flow.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: tests/aoj/totoid.eulers_phi_function.test.cpp
+    title: tests/aoj/totoid.eulers_phi_function.test.cpp
   - icon: ':heavy_check_mark:'
     path: tests/hackerrank/aho_corasick.two_two.test.cpp
     title: tests/hackerrank/aho_corasick.two_two.test.cpp
@@ -479,6 +482,7 @@ data:
   timestamp: '2020-10-28 19:21:59+01:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - tests/aoj/totoid.eulers_phi_function.test.cpp
   - tests/aoj/bellman_ford.single_source_shortest_path_negative_edges.test.cpp
   - tests/aoj/edmonds_karp.maximum_flow.test.cpp
   - tests/aoj/bigint.multiplication_bigint_1.test.cpp

@@ -134,7 +134,7 @@ data:
     - icon: ':warning:'
       path: code/math/staticMatrix.cc
       title: code/math/staticMatrix.cc
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: code/math/totoid.cc
       title: code/math/totoid.cc
   - name: code/strings
@@ -260,6 +260,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/aoj/push_relabel.maximum_flow.test.cpp
       title: tests/aoj/push_relabel.maximum_flow.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: tests/aoj/totoid.eulers_phi_function.test.cpp
+      title: tests/aoj/totoid.eulers_phi_function.test.cpp
   - name: tests/hackerrank
     pages:
     - icon: ':heavy_check_mark:'
