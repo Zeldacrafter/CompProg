@@ -206,6 +206,14 @@ data:
     - icon: ':warning:'
       path: code/utils/y_combinator.cc
       title: code/utils/y_combinator.cc
+  - name: tests/aoj
+    pages:
+    - icon: ':warning:'
+      path: tests/aoj/bigint.multiplication_bigint_1.cpp
+      title: tests/aoj/bigint.multiplication_bigint_1.cpp
+    - icon: ':warning:'
+      path: tests/aoj/bigint.multiplication_bigint_2.cpp
+      title: tests/aoj/bigint.multiplication_bigint_2.cpp
   verificationCategories:
   - name: tests/aoj
     pages:

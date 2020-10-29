@@ -179,6 +179,12 @@ data:
   - icon: ':warning:'
     path: code/utils/y_combinator.cc
     title: code/utils/y_combinator.cc
+  - icon: ':warning:'
+    path: tests/aoj/bigint.multiplication_bigint_1.cpp
+    title: tests/aoj/bigint.multiplication_bigint_1.cpp
+  - icon: ':warning:'
+    path: tests/aoj/bigint.multiplication_bigint_2.cpp
+    title: tests/aoj/bigint.multiplication_bigint_2.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: tests/aoj/articulation_points.articulation_points.test.cpp
@@ -467,6 +473,8 @@ data:
   - code/dynamicProgramming/editDistance.cc
   - code/dynamicProgramming/lis.cc
   - code/dynamicProgramming/lcs.cc
+  - tests/aoj/bigint.multiplication_bigint_2.cpp
+  - tests/aoj/bigint.multiplication_bigint_1.cpp
   timestamp: '2020-10-28 19:21:59+01:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

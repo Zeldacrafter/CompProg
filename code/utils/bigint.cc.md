@@ -8,6 +8,12 @@ data:
   - icon: ':warning:'
     path: code/utils/stresstestbigint.cc
     title: code/utils/stresstestbigint.cc
+  - icon: ':warning:'
+    path: tests/aoj/bigint.multiplication_bigint_1.cpp
+    title: tests/aoj/bigint.multiplication_bigint_1.cpp
+  - icon: ':warning:'
+    path: tests/aoj/bigint.multiplication_bigint_2.cpp
+    title: tests/aoj/bigint.multiplication_bigint_2.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: tests/aoj/bigint.addition_bigint.test.cpp
@@ -210,6 +216,8 @@ data:
   path: code/utils/bigint.cc
   requiredBy:
   - code/utils/stresstestbigint.cc
+  - tests/aoj/bigint.multiplication_bigint_2.cpp
+  - tests/aoj/bigint.multiplication_bigint_1.cpp
   timestamp: '2020-10-29 21:53:40+01:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
