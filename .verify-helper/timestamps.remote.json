@@ -20,6 +20,7 @@
 "tests/aoj/lis.longest_increasing_subsequence.test.cpp": "2020-10-29 22:52:12 +0100",
 "tests/aoj/push_relabel.maximum_flow.test.cpp": "2020-10-29 09:47:03 +0100",
 "tests/aoj/totoid.eulers_phi_function.test.cpp": "2020-10-29 22:43:21 +0100",
+"tests/aoj/tsp.test.cpp": "2020-10-30 00:46:21 +0100",
 "tests/hackerrank/aho_corasick.two_two.test.cpp": "2020-10-29 21:53:40 +0100",
 "tests/hackerrank/fenwick_tree_2d.cube-summation.test.cpp": "2020-10-28 19:21:59 +0100",
 "tests/yosupo/aplusb.test.cpp": "2020-10-28 19:21:59 +0100",
