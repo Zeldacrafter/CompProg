@@ -74,7 +74,7 @@ data:
   - icon: ':warning:'
     path: code/graphs/articulationPoints.cc
     title: code/graphs/articulationPoints.cc
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: code/graphs/bellmanFord.cc
     title: code/graphs/bellmanFord.cc
   - icon: ':heavy_check_mark:'
@@ -180,7 +180,7 @@ data:
     path: code/utils/y_combinator.cc
     title: code/utils/y_combinator.cc
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: tests/aoj/bellman_ford.single_source_shortest_path_negative_edges.test.cpp
     title: tests/aoj/bellman_ford.single_source_shortest_path_negative_edges.test.cpp
   - icon: ':heavy_check_mark:'
@@ -259,7 +259,7 @@ data:
     path: tests/yosupo/unionfind.test.cpp
     title: tests/yosupo/unionfind.test.cpp
   _pathExtension: cc
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: '#line 1 "code/template.cc"
@@ -450,7 +450,7 @@ data:
   - code/dynamicProgramming/lis.cc
   - code/dynamicProgramming/lcs.cc
   timestamp: '2020-10-28 19:21:59+01:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/bellman_ford.single_source_shortest_path_negative_edges.test.cpp
   - tests/aoj/edmonds_karp.maximum_flow.test.cpp

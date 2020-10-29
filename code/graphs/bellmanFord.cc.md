@@ -1,16 +1,16 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: code/template.cc
     title: code/template.cc
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: tests/aoj/bellman_ford.single_source_shortest_path_negative_edges.test.cpp
     title: tests/aoj/bellman_ford.single_source_shortest_path_negative_edges.test.cpp
   _pathExtension: cc
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"code/template.cc\"\n// this line is here for a reason\n\
@@ -29,21 +29,22 @@ data:
     \ vertex a, vertex b, distance\nvector<tuple<int, int, int>> edges;\nint V;\n\
     // Returns empty vector on negative cycle\nvi bellmanFord(int start) {\n  vi dist(V,\
     \ inf);\n  dist[start] = 0;\n  bool negCycle = false;\n  F0R (i, V) {\n    negCycle\
-    \ = false;\n    for (auto [a, b, d] : edges)\n      if (ckmin(dist[b], dist[a]\
-    \ + d))\n          negCycle = true;\n  }\n  return negCycle ? vi() : dist;\n}\n"
+    \ = false;\n    for (auto [a, b, d] : edges)\n      if (dist[a] < inf && ckmin(dist[b],\
+    \ dist[a] + d))\n          negCycle = true;\n  }\n  return negCycle ? vi() : dist;\n\
+    }\n"
   code: "#include \"../template.hh\"\nconst int inf = 1e9;\n// vertex a, vertex b,\
     \ distance\nvector<tuple<int, int, int>> edges;\nint V;\n// Returns empty vector\
     \ on negative cycle\nvi bellmanFord(int start) {\n  vi dist(V, inf);\n  dist[start]\
     \ = 0;\n  bool negCycle = false;\n  F0R (i, V) {\n    negCycle = false;\n    for\
-    \ (auto [a, b, d] : edges)\n      if (ckmin(dist[b], dist[a] + d))\n         \
-    \ negCycle = true;\n  }\n  return negCycle ? vi() : dist;\n}\n"
+    \ (auto [a, b, d] : edges)\n      if (dist[a] < inf && ckmin(dist[b], dist[a]\
+    \ + d))\n          negCycle = true;\n  }\n  return negCycle ? vi() : dist;\n}\n"
   dependsOn:
   - code/template.cc
   isVerificationFile: false
   path: code/graphs/bellmanFord.cc
   requiredBy: []
-  timestamp: '2020-10-29 11:30:05+01:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2020-10-29 15:18:02+01:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/bellman_ford.single_source_shortest_path_negative_edges.test.cpp
 documentation_of: code/graphs/bellmanFord.cc

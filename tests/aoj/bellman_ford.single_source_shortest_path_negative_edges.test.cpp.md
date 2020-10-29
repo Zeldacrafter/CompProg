@@ -1,16 +1,16 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: code/graphs/bellmanFord.cc
     title: code/graphs/bellmanFord.cc
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: code/template.cc
     title: code/template.cc
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_B
@@ -34,21 +34,22 @@ data:
     \ distance\nvector<tuple<int, int, int>> edges;\nint V;\n// Returns empty vector\
     \ on negative cycle\nvi bellmanFord(int start) {\n  vi dist(V, inf);\n  dist[start]\
     \ = 0;\n  bool negCycle = false;\n  F0R (i, V) {\n    negCycle = false;\n    for\
-    \ (auto [a, b, d] : edges)\n      if (ckmin(dist[b], dist[a] + d))\n         \
-    \ negCycle = true;\n  }\n  return negCycle ? vi() : dist;\n}\n#line 4 \"tests/aoj/bellman_ford.single_source_shortest_path_negative_edges.test.cpp\"\
+    \ (auto [a, b, d] : edges)\n      if (dist[a] < inf && ckmin(dist[b], dist[a]\
+    \ + d))\n          negCycle = true;\n  }\n  return negCycle ? vi() : dist;\n}\n\
+    #line 4 \"tests/aoj/bellman_ford.single_source_shortest_path_negative_edges.test.cpp\"\
     \n\nint main() {\n  cin.tie(0);\n  ios_base::sync_with_stdio(0);\n\n  int E, r;\n\
     \  cin >> V >> E >> r;\n\n  edges.resize(E);\n\n  F0R(i, E) {\n      int u, v,\
     \ d;\n      cin >> u >> v >> d;\n      edges.eb(u, v, d);\n  }\n\n  vi res = bellmanFord(r);\n\
-    \  if(!SZ(res)) {\n      cout << \"NEGATIVE CYCLE\\n\";\n  } else {\n      for(int\
+    \n  if(!SZ(res)) {\n      cout << \"NEGATIVE CYCLE\\n\";\n  } else {\n      for(int\
     \ d : res) {\n          if(d == inf)\n              cout << \"INF\\n\";\n    \
     \      else\n              cout << d << endl;\n      }\n  }\n}\n\n\n\n\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_B\"\
     \n\n#include \"../../code/graphs/bellmanFord.cc\"\n\nint main() {\n  cin.tie(0);\n\
     \  ios_base::sync_with_stdio(0);\n\n  int E, r;\n  cin >> V >> E >> r;\n\n  edges.resize(E);\n\
     \n  F0R(i, E) {\n      int u, v, d;\n      cin >> u >> v >> d;\n      edges.eb(u,\
-    \ v, d);\n  }\n\n  vi res = bellmanFord(r);\n  if(!SZ(res)) {\n      cout << \"\
-    NEGATIVE CYCLE\\n\";\n  } else {\n      for(int d : res) {\n          if(d ==\
-    \ inf)\n              cout << \"INF\\n\";\n          else\n              cout\
+    \ v, d);\n  }\n\n  vi res = bellmanFord(r);\n\n  if(!SZ(res)) {\n      cout <<\
+    \ \"NEGATIVE CYCLE\\n\";\n  } else {\n      for(int d : res) {\n          if(d\
+    \ == inf)\n              cout << \"INF\\n\";\n          else\n              cout\
     \ << d << endl;\n      }\n  }\n}\n\n\n\n\n"
   dependsOn:
   - code/graphs/bellmanFord.cc
@@ -56,8 +57,8 @@ data:
   isVerificationFile: true
   path: tests/aoj/bellman_ford.single_source_shortest_path_negative_edges.test.cpp
   requiredBy: []
-  timestamp: '2020-10-29 14:58:23+01:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2020-10-29 15:18:02+01:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/aoj/bellman_ford.single_source_shortest_path_negative_edges.test.cpp
 layout: document
