@@ -40,7 +40,7 @@ struct HLD {
   }
   void update(int v, T val) { st.update(pos[v], val); }
   T queryPath(int a, int b) {
-    T v = st.unit;
+    T v = st.e;
     while (in[a] != in[b]) {
       if (height[paths[in[a]][0]] < height[paths[in[b]][0]]) swap(a, b);
       v = st.merge(v, st.query(pos[paths[in[a]][0]], pos[a] + 1));
