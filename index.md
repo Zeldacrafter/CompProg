@@ -38,7 +38,7 @@ data:
     - icon: ':warning:'
       path: code/dynamicProgramming/knapsack.cc
       title: code/dynamicProgramming/knapsack.cc
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: code/dynamicProgramming/lcs.cc
       title: code/dynamicProgramming/lcs.cc
     - icon: ':warning:'
@@ -257,6 +257,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/aoj/kruskal.minimum_spanning_tree.test.cc
       title: tests/aoj/kruskal.minimum_spanning_tree.test.cc
+    - icon: ':heavy_check_mark:'
+      path: tests/aoj/lcs.longest_common_subsequence.test.cpp
+      title: tests/aoj/lcs.longest_common_subsequence.test.cpp
     - icon: ':heavy_check_mark:'
       path: tests/aoj/push_relabel.maximum_flow.test.cpp
       title: tests/aoj/push_relabel.maximum_flow.test.cpp
