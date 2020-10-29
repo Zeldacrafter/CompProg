@@ -1,4 +1,4 @@
-#include "../utils/bits.cc"
+#include "../template.hh"
 
 typedef vector<vvi> vvvi;
 typedef vector<vvvi> vvvvi;
