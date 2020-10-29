@@ -1,13 +1,16 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: code/template.cc
     title: code/template.cc
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: tests/aoj/tsp.test.cpp
+    title: tests/aoj/tsp.test.cpp
   _pathExtension: cc
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 1 \"code/template.cc\"\n// this line is here for a reason\n\
@@ -22,26 +25,30 @@ data:
     \ : false; }\ntemplate <typename T>\nbool ckmax(T& a, const T& b) { return a <\
     \ b ? a = b, true : false; }\n#ifndef DEBUG\n#define DEBUG 0\n#endif\n#define\
     \ dout if (DEBUG) cerr\n#define dvar(...) \" [\" << #__VA_ARGS__ \": \" << (__VA_ARGS__)\
-    \ << \"] \"\n#line 2 \"code/dynamicProgramming/tsp.cc\"\nvector<vi> A(12, vi(2048,\
-    \ -1));\nvector<vi> dist(11, vi(11));  // adj matrix\nint N;\n\nint tsp(int pos,\
-    \ int mask) {\n  if ((1 << N) - 1 == mask) return dist[pos][0];\n  if (A[pos][mask]\
-    \ != -1) return A[pos][mask];\n  int minV = 100000000;\n  F0R (i, N)\n    if (i\
-    \ != pos && !(mask & (1 << i)))\n      minV = min(minV, dist[pos][i] + tsp(i,\
-    \ mask | (1 << i)));\n  return A[pos][mask] = minV;\n}\n"
-  code: "#include \"../template.hh\"\nvector<vi> A(12, vi(2048, -1));\nvector<vi>\
-    \ dist(11, vi(11));  // adj matrix\nint N;\n\nint tsp(int pos, int mask) {\n \
-    \ if ((1 << N) - 1 == mask) return dist[pos][0];\n  if (A[pos][mask] != -1) return\
-    \ A[pos][mask];\n  int minV = 100000000;\n  F0R (i, N)\n    if (i != pos && !(mask\
-    \ & (1 << i)))\n      minV = min(minV, dist[pos][i] + tsp(i, mask | (1 << i)));\n\
-    \  return A[pos][mask] = minV;\n}\n"
+    \ << \"] \"\n#line 2 \"code/dynamicProgramming/tsp.cc\"\nconst int INF = 1e9;\n\
+    vvi dp, adj; // adjacency matrix\nint tsp_calc(int pos, int mask = 0) {\n  if\
+    \ ((1 << SZ(adj)) - 1 == mask) return adj[pos][0];\n  if (dp[pos][mask] != -1)\
+    \ return dp[pos][mask];\n  int minV = INF;\n  F0R (i, SZ(adj))\n    if (i != pos\
+    \ && !(mask & (1 << i)))\n      ckmin(minV, adj[pos][i] + tsp_calc(i, mask | (1\
+    \ << i)));\n  return dp[pos][mask] = minV;\n}\nint tsp(int start = 0) {\n  dp.assign(SZ(adj),\
+    \ vi(1 << SZ(adj), -1));\n  F0R(i, SZ(adj)) ckmin(adj[i][i], 0);\n  return tsp_calc(start);\n\
+    }\n"
+  code: "#include \"../template.hh\"\nconst int INF = 1e9;\nvvi dp, adj; // adjacency\
+    \ matrix\nint tsp_calc(int pos, int mask = 0) {\n  if ((1 << SZ(adj)) - 1 == mask)\
+    \ return adj[pos][0];\n  if (dp[pos][mask] != -1) return dp[pos][mask];\n  int\
+    \ minV = INF;\n  F0R (i, SZ(adj))\n    if (i != pos && !(mask & (1 << i)))\n \
+    \     ckmin(minV, adj[pos][i] + tsp_calc(i, mask | (1 << i)));\n  return dp[pos][mask]\
+    \ = minV;\n}\nint tsp(int start = 0) {\n  dp.assign(SZ(adj), vi(1 << SZ(adj),\
+    \ -1));\n  F0R(i, SZ(adj)) ckmin(adj[i][i], 0);\n  return tsp_calc(start);\n}\n"
   dependsOn:
   - code/template.cc
   isVerificationFile: false
   path: code/dynamicProgramming/tsp.cc
   requiredBy: []
-  timestamp: '2020-10-28 19:21:59+01:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  timestamp: '2020-10-29 23:11:15+01:00'
+  verificationStatus: LIBRARY_ALL_WA
+  verifiedWith:
+  - tests/aoj/tsp.test.cpp
 documentation_of: code/dynamicProgramming/tsp.cc
 layout: document
 redirect_from:

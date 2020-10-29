@@ -44,7 +44,7 @@ data:
   - icon: ':warning:'
     path: code/dynamicProgramming/subSetSum.cc
     title: code/dynamicProgramming/subSetSum.cc
-  - icon: ':warning:'
+  - icon: ':x:'
     path: code/dynamicProgramming/tsp.cc
     title: code/dynamicProgramming/tsp.cc
   - icon: ':warning:'
@@ -243,6 +243,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: tests/aoj/totoid.eulers_phi_function.test.cpp
     title: tests/aoj/totoid.eulers_phi_function.test.cpp
+  - icon: ':x:'
+    path: tests/aoj/tsp.test.cpp
+    title: tests/aoj/tsp.test.cpp
   - icon: ':heavy_check_mark:'
     path: tests/hackerrank/aho_corasick.two_two.test.cpp
     title: tests/hackerrank/aho_corasick.two_two.test.cpp
@@ -298,7 +301,7 @@ data:
     path: tests/yosupo/unionfind.test.cpp
     title: tests/yosupo/unionfind.test.cpp
   _pathExtension: cc
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: '#line 1 "code/template.cc"
@@ -489,7 +492,7 @@ data:
   - code/dynamicProgramming/lis.cc
   - code/dynamicProgramming/lcs.cc
   timestamp: '2020-10-28 19:21:59+01:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - tests/aoj/totoid.eulers_phi_function.test.cpp
   - tests/aoj/bellman_ford.single_source_shortest_path_negative_edges.test.cpp
@@ -499,6 +502,7 @@ data:
   - tests/aoj/articulation_points.articulation_points.test.cpp
   - tests/aoj/extended_euclid.test.cpp
   - tests/aoj/bigint.addition_bigint.test.cpp
+  - tests/aoj/tsp.test.cpp
   - tests/aoj/floyd_warshall.all_pairs_shortest_path.test.cpp
   - tests/aoj/lcs.longest_common_subsequence.test.cpp
   - tests/aoj/bigint.multiplication_bigint_2.test.cpp
