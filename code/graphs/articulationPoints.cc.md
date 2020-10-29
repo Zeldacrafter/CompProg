@@ -1,13 +1,16 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: code/template.cc
     title: code/template.cc
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: tests/aoj/articulation_points.articulation_points.test.cpp
+    title: tests/aoj/articulation_points.articulation_points.test.cpp
   _pathExtension: cc
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 1 \"code/template.cc\"\n// this line is here for a reason\n\
@@ -47,8 +50,9 @@ data:
   path: code/graphs/articulationPoints.cc
   requiredBy: []
   timestamp: '2020-10-28 19:21:59+01:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_WA
+  verifiedWith:
+  - tests/aoj/articulation_points.articulation_points.test.cpp
 documentation_of: code/graphs/articulationPoints.cc
 layout: document
 redirect_from:

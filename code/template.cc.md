@@ -71,7 +71,7 @@ data:
   - icon: ':warning:'
     path: code/graphs/LCABLW.cc
     title: code/graphs/LCABLW.cc
-  - icon: ':warning:'
+  - icon: ':x:'
     path: code/graphs/articulationPoints.cc
     title: code/graphs/articulationPoints.cc
   - icon: ':heavy_check_mark:'
@@ -180,6 +180,9 @@ data:
     path: code/utils/y_combinator.cc
     title: code/utils/y_combinator.cc
   _extendedVerifiedWith:
+  - icon: ':x:'
+    path: tests/aoj/articulation_points.articulation_points.test.cpp
+    title: tests/aoj/articulation_points.articulation_points.test.cpp
   - icon: ':heavy_check_mark:'
     path: tests/aoj/bellman_ford.single_source_shortest_path_negative_edges.test.cpp
     title: tests/aoj/bellman_ford.single_source_shortest_path_negative_edges.test.cpp
@@ -262,7 +265,7 @@ data:
     path: tests/yosupo/unionfind.test.cpp
     title: tests/yosupo/unionfind.test.cpp
   _pathExtension: cc
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: '#line 1 "code/template.cc"
@@ -453,11 +456,12 @@ data:
   - code/dynamicProgramming/lis.cc
   - code/dynamicProgramming/lcs.cc
   timestamp: '2020-10-28 19:21:59+01:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - tests/aoj/bellman_ford.single_source_shortest_path_negative_edges.test.cpp
   - tests/aoj/edmonds_karp.maximum_flow.test.cpp
   - tests/aoj/dinic.maximum_flow.test.cpp
+  - tests/aoj/articulation_points.articulation_points.test.cpp
   - tests/aoj/floyd_warshall.all_pairs_shortest_path.test.cpp
   - tests/aoj/dijkstra.single_source_shortest_path.test.cpp
   - tests/aoj/kruskal.minimum_spanning_tree.test.cc
