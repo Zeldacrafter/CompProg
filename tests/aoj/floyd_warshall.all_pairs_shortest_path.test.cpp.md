@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: code/graphs/floydWarshall.cc
     title: code/graphs/floydWarshall.cc
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: code/template.cc
     title: code/template.cc
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A
+    PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_C
     links:
-    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A
+    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_C
   bundledCode: "#line 1 \"tests/aoj/floyd_warshall.all_pairs_shortest_path.test.cpp\"\
-    \n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A\"\
+    \n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_C\"\
     \n\n#line 1 \"code/template.cc\"\n// this line is here for a reason\n#include\
     \ <bits/stdc++.h>\nusing namespace std;\ntypedef long long ll;\ntypedef pair<int,\
     \ int> ii;\ntypedef vector<int> vi;\ntypedef vector<ii> vii;\ntypedef vector<vi>\
@@ -36,22 +36,23 @@ data:
     \ != INF)\n      ckmin(adj[i][j], adj[i][k] + adj[k][j]);\n  F0R (k, SZ(adj))\
     \ if(adj[k][k] < 0) negCycle = true;\n}\n#line 4 \"tests/aoj/floyd_warshall.all_pairs_shortest_path.test.cpp\"\
     \n\nint main() {\n  cin.tie(0);\n  ios_base::sync_with_stdio(0);\n\n  int V, E;\n\
-    \  cin >> V >> E;\n\n  adj.assign(V, vi(V, INF));\n\n  F0R(i, E) {\n      int\
-    \ u, v, d;\n      cin >> u >> v >> d;\n      ckmin(adj[u][v], d);\n  }\n\n  F0R(i,\
-    \ V) adj[i][i] = 0;\n  floydWarshall();\n\n  if(negCycle) {\n      cout << \"\
-    NEGATIVE CYCLE\\n\";\n  } else {\n      F0R(i, V) {\n        F0R(j, V) {\n   \
-    \       if(j) cout << ' ';\n          if(adj[i][j] == INF)\n            cout <<\
-    \ \"INF\";\n          else\n            cout << adj[i][j];\n        }\n      \
-    \  cout << endl;\n      }\n  }\n}\n\n\n\n\n\n"
-  code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A\"\
+    \  cin >> V >> E;\n\n  adj.assign(V, vector<ll>(V, INF));\n\n  F0R(i, E) {\n \
+    \     int u, v, d;\n      cin >> u >> v >> d;\n      ckmin(adj[u][v], (ll)d);\n\
+    \  }\n\n  F0R(i, V) adj[i][i] = 0;\n  floydWarshall();\n\n  if(negCycle) {\n \
+    \     cout << \"NEGATIVE CYCLE\\n\";\n  } else {\n      F0R(i, V) {\n        F0R(j,\
+    \ V) {\n          if(j) cout << ' ';\n          if(adj[i][j] == INF)\n       \
+    \     cout << \"INF\";\n          else\n            cout << adj[i][j];\n     \
+    \   }\n        cout << endl;\n      }\n  }\n}\n\n\n\n\n\n"
+  code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_C\"\
     \n\n#include \"../../code/graphs/floydWarshall.cc\"\n\nint main() {\n  cin.tie(0);\n\
     \  ios_base::sync_with_stdio(0);\n\n  int V, E;\n  cin >> V >> E;\n\n  adj.assign(V,\
-    \ vi(V, INF));\n\n  F0R(i, E) {\n      int u, v, d;\n      cin >> u >> v >> d;\n\
-    \      ckmin(adj[u][v], d);\n  }\n\n  F0R(i, V) adj[i][i] = 0;\n  floydWarshall();\n\
-    \n  if(negCycle) {\n      cout << \"NEGATIVE CYCLE\\n\";\n  } else {\n      F0R(i,\
-    \ V) {\n        F0R(j, V) {\n          if(j) cout << ' ';\n          if(adj[i][j]\
-    \ == INF)\n            cout << \"INF\";\n          else\n            cout << adj[i][j];\n\
-    \        }\n        cout << endl;\n      }\n  }\n}\n\n\n\n\n\n"
+    \ vector<ll>(V, INF));\n\n  F0R(i, E) {\n      int u, v, d;\n      cin >> u >>\
+    \ v >> d;\n      ckmin(adj[u][v], (ll)d);\n  }\n\n  F0R(i, V) adj[i][i] = 0;\n\
+    \  floydWarshall();\n\n  if(negCycle) {\n      cout << \"NEGATIVE CYCLE\\n\";\n\
+    \  } else {\n      F0R(i, V) {\n        F0R(j, V) {\n          if(j) cout << '\
+    \ ';\n          if(adj[i][j] == INF)\n            cout << \"INF\";\n         \
+    \ else\n            cout << adj[i][j];\n        }\n        cout << endl;\n   \
+    \   }\n  }\n}\n\n\n\n\n\n"
   dependsOn:
   - code/graphs/floydWarshall.cc
   - code/template.cc
@@ -59,7 +60,7 @@ data:
   path: tests/aoj/floyd_warshall.all_pairs_shortest_path.test.cpp
   requiredBy: []
   timestamp: '2020-10-29 16:39:06+01:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/aoj/floyd_warshall.all_pairs_shortest_path.test.cpp
 layout: document

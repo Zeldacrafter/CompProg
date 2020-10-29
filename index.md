@@ -102,7 +102,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: code/graphs/flowedge.cc
       title: code/graphs/flowedge.cc
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: code/graphs/floydWarshall.cc
       title: code/graphs/floydWarshall.cc
     - icon: ':heavy_check_mark:'
@@ -159,7 +159,7 @@ data:
       title: code/strings/trie.cc
   - name: code
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: code/template.cc
       title: code/template.cc
     - icon: ':warning:'
@@ -224,7 +224,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/aoj/edmonds_karp.maximum_flow.test.cpp
       title: tests/aoj/edmonds_karp.maximum_flow.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: tests/aoj/floyd_warshall.all_pairs_shortest_path.test.cpp
       title: tests/aoj/floyd_warshall.all_pairs_shortest_path.test.cpp
     - icon: ':heavy_check_mark:'

@@ -1,16 +1,16 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: code/template.cc
     title: code/template.cc
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: tests/aoj/floyd_warshall.all_pairs_shortest_path.test.cpp
     title: tests/aoj/floyd_warshall.all_pairs_shortest_path.test.cpp
   _pathExtension: cc
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"code/template.cc\"\n// this line is here for a reason\n\
@@ -41,7 +41,7 @@ data:
   path: code/graphs/floydWarshall.cc
   requiredBy: []
   timestamp: '2020-10-29 16:39:06+01:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/floyd_warshall.all_pairs_shortest_path.test.cpp
 documentation_of: code/graphs/floydWarshall.cc
