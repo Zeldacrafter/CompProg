@@ -2,6 +2,7 @@
 "tests/aoj/articulation_points.articulation_points.test.cpp": "2020-10-29 16:52:24 +0100",
 "tests/aoj/bellman_ford.single_source_shortest_path_negative_edges.test.cpp": "2020-10-29 15:18:02 +0100",
 "tests/aoj/bellman_ford_queue.single_source_shortest_path_negative_edges.test.cpp": "2020-10-29 14:58:23 +0100",
+"tests/aoj/brides.brides.test.cpp": "2020-10-29 16:58:23 +0100",
 "tests/aoj/dijkstra.single_source_shortest_path.test.cpp": "2020-10-29 11:06:03 +0100",
 "tests/aoj/dinic.maximum_flow.test.cpp": "2020-10-29 09:47:03 +0100",
 "tests/aoj/edmonds_karp.maximum_flow.test.cpp": "2020-10-29 09:47:03 +0100",
