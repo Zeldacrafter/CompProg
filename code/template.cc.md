@@ -134,7 +134,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: code/strings/SA.cc
     title: code/strings/SA.cc
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: code/strings/kmp.cc
     title: code/strings/kmp.cc
   - icon: ':warning:'
@@ -186,6 +186,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: tests/aoj/edmonds_karp.maximum_flow.test.cpp
     title: tests/aoj/edmonds_karp.maximum_flow.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: tests/aoj/kmp.string_matches.test.cpp
+    title: tests/aoj/kmp.string_matches.test.cpp
   - icon: ':heavy_check_mark:'
     path: tests/aoj/kruskal.minimum_spanning_tree.test.cc
     title: tests/aoj/kruskal.minimum_spanning_tree.test.cc
@@ -444,6 +447,7 @@ data:
   - tests/aoj/dinic.maximum_flow.test.cpp
   - tests/aoj/kruskal.minimum_spanning_tree.test.cc
   - tests/aoj/push_relabel.maximum_flow.test.cpp
+  - tests/aoj/kmp.string_matches.test.cpp
   - tests/hackerrank/aho_corasick.two_two.test.cpp
   - tests/hackerrank/fenwick_tree_2d.cube-summation.test.cpp
   - tests/yosupo/scc.scc.test.cpp
