@@ -13,6 +13,9 @@ data:
     path: tests/aoj/bigint.addition_bigint.test.cpp
     title: tests/aoj/bigint.addition_bigint.test.cpp
   - icon: ':heavy_check_mark:'
+    path: tests/aoj/bigint.subtraction_bigint.test.cpp
+    title: tests/aoj/bigint.subtraction_bigint.test.cpp
+  - icon: ':heavy_check_mark:'
     path: tests/hackerrank/aho_corasick.two_two.test.cpp
     title: tests/hackerrank/aho_corasick.two_two.test.cpp
   _pathExtension: cc
@@ -211,6 +214,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/bigint.addition_bigint.test.cpp
+  - tests/aoj/bigint.subtraction_bigint.test.cpp
   - tests/hackerrank/aho_corasick.two_two.test.cpp
 documentation_of: code/utils/bigint.cc
 layout: document

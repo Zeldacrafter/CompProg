@@ -193,6 +193,9 @@ data:
     path: tests/aoj/bigint.addition_bigint.test.cpp
     title: tests/aoj/bigint.addition_bigint.test.cpp
   - icon: ':heavy_check_mark:'
+    path: tests/aoj/bigint.subtraction_bigint.test.cpp
+    title: tests/aoj/bigint.subtraction_bigint.test.cpp
+  - icon: ':heavy_check_mark:'
     path: tests/aoj/brides.brides.test.cpp
     title: tests/aoj/brides.brides.test.cpp
   - icon: ':heavy_check_mark:'
@@ -479,6 +482,7 @@ data:
   - tests/aoj/brides.brides.test.cpp
   - tests/aoj/push_relabel.maximum_flow.test.cpp
   - tests/aoj/hld.range_query_on_tree.test.cpp
+  - tests/aoj/bigint.subtraction_bigint.test.cpp
   - tests/aoj/kmp.string_matches.test.cpp
   - tests/hackerrank/aho_corasick.two_two.test.cpp
   - tests/hackerrank/fenwick_tree_2d.cube-summation.test.cpp

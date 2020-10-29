@@ -222,6 +222,9 @@ data:
       path: tests/aoj/bigint.addition_bigint.test.cpp
       title: tests/aoj/bigint.addition_bigint.test.cpp
     - icon: ':heavy_check_mark:'
+      path: tests/aoj/bigint.subtraction_bigint.test.cpp
+      title: tests/aoj/bigint.subtraction_bigint.test.cpp
+    - icon: ':heavy_check_mark:'
       path: tests/aoj/brides.brides.test.cpp
       title: tests/aoj/brides.brides.test.cpp
     - icon: ':heavy_check_mark:'
