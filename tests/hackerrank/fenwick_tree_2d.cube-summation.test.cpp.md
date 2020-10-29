@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: code/dataStructures/FT2D.cc
     title: code/dataStructures/FT2D.cc
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: code/template.cc
     title: code/template.cc
   _extendedRequiredBy: []

@@ -44,7 +44,7 @@ data:
   - icon: ':warning:'
     path: code/dynamicProgramming/subSetSum.cc
     title: code/dynamicProgramming/subSetSum.cc
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: code/dynamicProgramming/tsp.cc
     title: code/dynamicProgramming/tsp.cc
   - icon: ':warning:'
@@ -243,7 +243,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: tests/aoj/totoid.eulers_phi_function.test.cpp
     title: tests/aoj/totoid.eulers_phi_function.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: tests/aoj/tsp.test.cpp
     title: tests/aoj/tsp.test.cpp
   - icon: ':heavy_check_mark:'
@@ -301,7 +301,7 @@ data:
     path: tests/yosupo/unionfind.test.cpp
     title: tests/yosupo/unionfind.test.cpp
   _pathExtension: cc
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: '#line 1 "code/template.cc"
@@ -492,7 +492,7 @@ data:
   - code/dynamicProgramming/lis.cc
   - code/dynamicProgramming/lcs.cc
   timestamp: '2020-10-28 19:21:59+01:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/totoid.eulers_phi_function.test.cpp
   - tests/aoj/bellman_ford.single_source_shortest_path_negative_edges.test.cpp

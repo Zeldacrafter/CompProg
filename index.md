@@ -47,7 +47,7 @@ data:
     - icon: ':warning:'
       path: code/dynamicProgramming/subSetSum.cc
       title: code/dynamicProgramming/subSetSum.cc
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: code/dynamicProgramming/tsp.cc
       title: code/dynamicProgramming/tsp.cc
   - name: code/geometry
@@ -159,7 +159,7 @@ data:
       title: code/strings/trie.cc
   - name: code
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: code/template.cc
       title: code/template.cc
     - icon: ':warning:'
@@ -272,7 +272,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/aoj/totoid.eulers_phi_function.test.cpp
       title: tests/aoj/totoid.eulers_phi_function.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: tests/aoj/tsp.test.cpp
       title: tests/aoj/tsp.test.cpp
   - name: tests/hackerrank
