@@ -14,6 +14,9 @@
 [Test](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_B)
 ### Minimum-Cost Arborescence
 [Test](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_B)
+### Bigint division/module
+[Division](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_2_D)
+[Remainder](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_2_E)
 ### lazy, persistent, pointer-based segment tree
 ### linear sieve
 ### rework .vimrc 

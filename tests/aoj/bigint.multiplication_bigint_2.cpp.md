@@ -114,11 +114,11 @@ data:
     \ i;\n  }\n  friend ostream& operator<<(ostream& o, const bigint& bi) {\n    return\
     \ o << to_string(bi);\n  }\n};\n#line 4 \"tests/aoj/bigint.multiplication_bigint_2.cpp\"\
     \n\nint main() {\n  cin.tie(0);\n  ios_base::sync_with_stdio(0);\n\n  bigint a,\
-    \ b;\n  cin >> a >> b;\n  cout << a * b << endl;\n}\n\n\n\n\n\n\n\n"
+    \ b;\n  cin >> a >> b;\n  cout << a * b << endl;\n}\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_2_F\"\
     \n\n#include \"../../code/utils/bigint.cc\"\n\nint main() {\n  cin.tie(0);\n \
     \ ios_base::sync_with_stdio(0);\n\n  bigint a, b;\n  cin >> a >> b;\n  cout <<\
-    \ a * b << endl;\n}\n\n\n\n\n\n\n\n"
+    \ a * b << endl;\n}\n"
   dependsOn:
   - code/utils/bigint.cc
   - code/template.cc
