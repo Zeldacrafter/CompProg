@@ -219,6 +219,9 @@ data:
       path: tests/aoj/bellman_ford_queue.single_source_shortest_path_negative_edges.test.cpp
       title: tests/aoj/bellman_ford_queue.single_source_shortest_path_negative_edges.test.cpp
     - icon: ':heavy_check_mark:'
+      path: tests/aoj/bigint.addition_bigint.test.cpp
+      title: tests/aoj/bigint.addition_bigint.test.cpp
+    - icon: ':heavy_check_mark:'
       path: tests/aoj/brides.brides.test.cpp
       title: tests/aoj/brides.brides.test.cpp
     - icon: ':heavy_check_mark:'

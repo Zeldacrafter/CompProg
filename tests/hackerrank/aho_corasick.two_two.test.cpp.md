@@ -134,14 +134,15 @@ data:
     \    return cmp;\n  }\n  friend string to_string(const bigint& bi) {\n    if (!bi.signum)\
     \ return \"0\";\n    stringstream ss;\n    ss << bi.signum * bi.mag.back();\n\
     \    for (int i = SZ(bi) - 2; ~i; --i)\n      ss << setfill('0') << setw(9) <<\
-    \ bi.mag[i];\n    return ss.str();\n  }\n  friend ostream& operator<<(ostream&\
-    \ o, const bigint& bi) {\n    return o << to_string(bi);\n  }\n};\n#line 5 \"\
-    tests/hackerrank/aho_corasick.two_two.test.cpp\"\n\nint main() {\n    cin.tie(0);\n\
-    \    ios_base::sync_with_stdio(0);\n\n    vector<pair<string, int>> strs;\n\n\
-    \    bigint x = 1;\n    F0R(i, 801) {\n        strs.eb(to_string(x), 1);\n   \
-    \     x *= 2;\n    }\n\n    AHC<int, 10, char, '0'> ahc(0, strs);\n\n    int t;\n\
-    \    cin >> t;\n    while(t--) {\n        string s;\n        cin >> s;\n     \
-    \   cout << ahc.query(s);\n        if(t) cout << endl;\n    }\n}\n"
+    \ bi.mag[i];\n    return ss.str();\n  }\n  friend istream& operator>>(istream&\
+    \ i, bigint& bi) {\n    string s;\n    i >> s;\n    bi = bigint(s);\n    return\
+    \ i;\n  }\n  friend ostream& operator<<(ostream& o, const bigint& bi) {\n    return\
+    \ o << to_string(bi);\n  }\n};\n#line 5 \"tests/hackerrank/aho_corasick.two_two.test.cpp\"\
+    \n\nint main() {\n    cin.tie(0);\n    ios_base::sync_with_stdio(0);\n\n    vector<pair<string,\
+    \ int>> strs;\n\n    bigint x = 1;\n    F0R(i, 801) {\n        strs.eb(to_string(x),\
+    \ 1);\n        x *= 2;\n    }\n\n    AHC<int, 10, char, '0'> ahc(0, strs);\n\n\
+    \    int t;\n    cin >> t;\n    while(t--) {\n        string s;\n        cin >>\
+    \ s;\n        cout << ahc.query(s);\n        if(t) cout << endl;\n    }\n}\n"
   code: "#define PROBLEM \"https://www.hackerrank.com/challenges/two-two/problem\"\
     \n\n#include \"../../code/strings/AHC.cc\"\n#include \"../../code/utils/bigint.cc\"\
     \n\nint main() {\n    cin.tie(0);\n    ios_base::sync_with_stdio(0);\n\n    vector<pair<string,\
@@ -156,7 +157,7 @@ data:
   isVerificationFile: true
   path: tests/hackerrank/aho_corasick.two_two.test.cpp
   requiredBy: []
-  timestamp: '2020-10-29 00:25:40+01:00'
+  timestamp: '2020-10-29 21:53:40+01:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/hackerrank/aho_corasick.two_two.test.cpp

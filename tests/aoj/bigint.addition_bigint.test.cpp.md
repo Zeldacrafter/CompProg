@@ -9,40 +9,45 @@ data:
     title: code/utils/bigint.cc
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _pathExtension: cc
-  _verificationStatusIcon: ':warning:'
+  _pathExtension: cpp
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    links: []
-  bundledCode: "#line 1 \"code/template.cc\"\n// this line is here for a reason\n\
-    #include <bits/stdc++.h>\nusing namespace std;\ntypedef long long ll;\ntypedef\
-    \ pair<int, int> ii;\ntypedef vector<int> vi;\ntypedef vector<ii> vii;\ntypedef\
-    \ vector<vi> vvi;\ntypedef vector<vii> vvii;\n#define fi first\n#define se second\n\
-    #define eb emplace_back\n#define pb push_back\n#define mp make_pair\n#define mt\
-    \ make_tuple\n#define endl '\\n'\n#define ALL(x) (x).begin(), (x).end()\n#define\
-    \ RALL(x) (x).rbegin(), (x).rend()\n#define SZ(x) (int)(x).size()\n#define FOR(a,\
-    \ b, c) for (auto a = (b); (a) < (c); ++(a))\n#define F0R(a, b) FOR (a, 0, (b))\n\
-    template <typename T>\nbool ckmin(T& a, const T& b) { return a > b ? a = b, true\
-    \ : false; }\ntemplate <typename T>\nbool ckmax(T& a, const T& b) { return a <\
-    \ b ? a = b, true : false; }\n#ifndef DEBUG\n#define DEBUG 0\n#endif\n#define\
-    \ dout if (DEBUG) cerr\n#define dvar(...) \" [\" << #__VA_ARGS__ \": \" << (__VA_ARGS__)\
-    \ << \"] \"\n#line 2 \"code/utils/bigint.cc\"\ntemplate <class T>\nint sign(T\
-    \ a) {\n  return (a > 0) - (0 > a);\n}\nusing vll = vector<ll>;\nusing vit = vll::const_iterator;\n\
-    struct bigint {\n  static const ll base = 1e9;\n  int signum;\n  vll mag;\n  bigint()\
-    \ : signum(0), mag() {}\n  bigint(ll val) : signum(sign(val)), mag() {\n    val\
-    \ = abs(val);\n    while (val) mag.pb(val % base), val /= base;\n  }\n  bigint(int\
-    \ sig, vll&& m) : signum(sig), mag(m) {\n    if (!sig) mag.clear();\n    trim();\n\
-    \  }\n  bigint(string s) {\n    if (s.empty() || s == \"0\")\n      signum = 0;\n\
-    \    else {\n      signum = s[0] == '-' ? -1 : 1;\n      for (int i = SZ(s) -\
-    \ 1, j = 0, b = 1; ~i && isdigit(s[i]);\n           --i, ++j, b *= 10) {\n   \
-    \     if (b == base) j = 0, b = 1;\n        if (!j) mag.pb(0);\n        mag.back()\
-    \ += (s[i] - '0') * b;\n      }\n    }\n  }\n  size_t size() const { return mag.size();\
-    \ }\n  static void trim(vll& v) {\n    while (SZ(v) && !v.back()) v.pop_back();\n\
-    \  }\n  void trim() {\n    trim(mag);\n    if (mag.empty()) signum = 0;\n  }\n\
-    \  ll val(int index) { return index < SZ(mag) ? mag[index] : 0; }\n  friend bigint\
-    \ operator-(bigint a) {\n    a.signum *= -1;\n    return a;\n  }\n  bigint& operator+=(ll\
-    \ val) {\n    bigint t{val};\n    return (*this) += t;\n  }\n  bigint& operator+=(const\
-    \ bigint& other) {\n    if (!other.signum) return *this;\n    if (!signum) return\
-    \ *this = other;\n    if (signum == other.signum)\n      add_to(mag, ALL(other.mag));\n\
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_2_A
+    links:
+    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_2_A
+  bundledCode: "#line 1 \"tests/aoj/bigint.addition_bigint.test.cpp\"\n#define PROBLEM\
+    \ \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_2_A\"\n\n#line\
+    \ 1 \"code/template.cc\"\n// this line is here for a reason\n#include <bits/stdc++.h>\n\
+    using namespace std;\ntypedef long long ll;\ntypedef pair<int, int> ii;\ntypedef\
+    \ vector<int> vi;\ntypedef vector<ii> vii;\ntypedef vector<vi> vvi;\ntypedef vector<vii>\
+    \ vvii;\n#define fi first\n#define se second\n#define eb emplace_back\n#define\
+    \ pb push_back\n#define mp make_pair\n#define mt make_tuple\n#define endl '\\\
+    n'\n#define ALL(x) (x).begin(), (x).end()\n#define RALL(x) (x).rbegin(), (x).rend()\n\
+    #define SZ(x) (int)(x).size()\n#define FOR(a, b, c) for (auto a = (b); (a) < (c);\
+    \ ++(a))\n#define F0R(a, b) FOR (a, 0, (b))\ntemplate <typename T>\nbool ckmin(T&\
+    \ a, const T& b) { return a > b ? a = b, true : false; }\ntemplate <typename T>\n\
+    bool ckmax(T& a, const T& b) { return a < b ? a = b, true : false; }\n#ifndef\
+    \ DEBUG\n#define DEBUG 0\n#endif\n#define dout if (DEBUG) cerr\n#define dvar(...)\
+    \ \" [\" << #__VA_ARGS__ \": \" << (__VA_ARGS__) << \"] \"\n#line 2 \"code/utils/bigint.cc\"\
+    \ntemplate <class T>\nint sign(T a) {\n  return (a > 0) - (0 > a);\n}\nusing vll\
+    \ = vector<ll>;\nusing vit = vll::const_iterator;\nstruct bigint {\n  static const\
+    \ ll base = 1e9;\n  int signum;\n  vll mag;\n  bigint() : signum(0), mag() {}\n\
+    \  bigint(ll val) : signum(sign(val)), mag() {\n    val = abs(val);\n    while\
+    \ (val) mag.pb(val % base), val /= base;\n  }\n  bigint(int sig, vll&& m) : signum(sig),\
+    \ mag(m) {\n    if (!sig) mag.clear();\n    trim();\n  }\n  bigint(string s) {\n\
+    \    if (s.empty() || s == \"0\")\n      signum = 0;\n    else {\n      signum\
+    \ = s[0] == '-' ? -1 : 1;\n      for (int i = SZ(s) - 1, j = 0, b = 1; ~i && isdigit(s[i]);\n\
+    \           --i, ++j, b *= 10) {\n        if (b == base) j = 0, b = 1;\n     \
+    \   if (!j) mag.pb(0);\n        mag.back() += (s[i] - '0') * b;\n      }\n   \
+    \ }\n  }\n  size_t size() const { return mag.size(); }\n  static void trim(vll&\
+    \ v) {\n    while (SZ(v) && !v.back()) v.pop_back();\n  }\n  void trim() {\n \
+    \   trim(mag);\n    if (mag.empty()) signum = 0;\n  }\n  ll val(int index) { return\
+    \ index < SZ(mag) ? mag[index] : 0; }\n  friend bigint operator-(bigint a) {\n\
+    \    a.signum *= -1;\n    return a;\n  }\n  bigint& operator+=(ll val) {\n   \
+    \ bigint t{val};\n    return (*this) += t;\n  }\n  bigint& operator+=(const bigint&\
+    \ other) {\n    if (!other.signum) return *this;\n    if (!signum) return *this\
+    \ = other;\n    if (signum == other.signum)\n      add_to(mag, ALL(other.mag));\n\
     \    else if (less(ALL(mag), ALL(other.mag)))\n      signum *= -1, mag = sub(ALL(other.mag),\
     \ ALL(mag));\n    else\n      sub_from(mag, ALL(other.mag));\n    trim();\n  \
     \  return *this;\n  }\n  friend bigint operator+(bigint a, const bigint& b) {\
@@ -109,34 +114,26 @@ data:
     \ bi.mag[i];\n    return ss.str();\n  }\n  friend istream& operator>>(istream&\
     \ i, bigint& bi) {\n    string s;\n    i >> s;\n    bi = bigint(s);\n    return\
     \ i;\n  }\n  friend ostream& operator<<(ostream& o, const bigint& bi) {\n    return\
-    \ o << to_string(bi);\n  }\n};\n#line 2 \"code/utils/stresstestbigint.cc\"\nvoid\
-    \ testProperties(bigint& c) {\n  assert((!c.signum) == c.mag.empty());\n  assert(c.mag.empty()\
-    \ || c.mag.back());\n}\nint main() {\n  while (1) {\n    char op;\n    cin >>\
-    \ op;\n    if (op == 'q') break;\n    string a, b;\n    cin >> a >> b;\n    bigint\
-    \ aa(a), bb(b);\n    assert(to_string(aa) == a && to_string(bb) == b);\n    if\
-    \ (op == '+')\n      aa += bb;\n    else if (op == '-')\n      aa -= bb;\n   \
-    \ else\n      aa *= bb;\n    testProperties(aa);\n    cout << aa << endl;\n  \
-    \  cout.flush();\n  }\n}\n"
-  code: "#include \"bigint.cc\"\nvoid testProperties(bigint& c) {\n  assert((!c.signum)\
-    \ == c.mag.empty());\n  assert(c.mag.empty() || c.mag.back());\n}\nint main()\
-    \ {\n  while (1) {\n    char op;\n    cin >> op;\n    if (op == 'q') break;\n\
-    \    string a, b;\n    cin >> a >> b;\n    bigint aa(a), bb(b);\n    assert(to_string(aa)\
-    \ == a && to_string(bb) == b);\n    if (op == '+')\n      aa += bb;\n    else\
-    \ if (op == '-')\n      aa -= bb;\n    else\n      aa *= bb;\n    testProperties(aa);\n\
-    \    cout << aa << endl;\n    cout.flush();\n  }\n}\n"
+    \ o << to_string(bi);\n  }\n};\n#line 4 \"tests/aoj/bigint.addition_bigint.test.cpp\"\
+    \n\nint main() {\n  cin.tie(0);\n  ios_base::sync_with_stdio(0);\n\n  bigint a,\
+    \ b;\n  cin >> a >> b;\n  cout << a + b << endl;\n}\n\n\n\n\n\n"
+  code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_2_A\"\
+    \n\n#include \"../../code/utils/bigint.cc\"\n\nint main() {\n  cin.tie(0);\n \
+    \ ios_base::sync_with_stdio(0);\n\n  bigint a, b;\n  cin >> a >> b;\n  cout <<\
+    \ a + b << endl;\n}\n\n\n\n\n\n"
   dependsOn:
   - code/utils/bigint.cc
   - code/template.cc
-  isVerificationFile: false
-  path: code/utils/stresstestbigint.cc
+  isVerificationFile: true
+  path: tests/aoj/bigint.addition_bigint.test.cpp
   requiredBy: []
   timestamp: '2020-10-29 21:53:40+01:00'
-  verificationStatus: LIBRARY_NO_TESTS
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: code/utils/stresstestbigint.cc
+documentation_of: tests/aoj/bigint.addition_bigint.test.cpp
 layout: document
 redirect_from:
-- /library/code/utils/stresstestbigint.cc
-- /library/code/utils/stresstestbigint.cc.html
-title: code/utils/stresstestbigint.cc
+- /verify/tests/aoj/bigint.addition_bigint.test.cpp
+- /verify/tests/aoj/bigint.addition_bigint.test.cpp.html
+title: tests/aoj/bigint.addition_bigint.test.cpp
 ---

@@ -10,6 +10,9 @@ data:
     title: code/utils/stresstestbigint.cc
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: tests/aoj/bigint.addition_bigint.test.cpp
+    title: tests/aoj/bigint.addition_bigint.test.cpp
+  - icon: ':heavy_check_mark:'
     path: tests/hackerrank/aho_corasick.two_two.test.cpp
     title: tests/hackerrank/aho_corasick.two_two.test.cpp
   _pathExtension: cc
@@ -109,8 +112,10 @@ data:
     \    return cmp;\n  }\n  friend string to_string(const bigint& bi) {\n    if (!bi.signum)\
     \ return \"0\";\n    stringstream ss;\n    ss << bi.signum * bi.mag.back();\n\
     \    for (int i = SZ(bi) - 2; ~i; --i)\n      ss << setfill('0') << setw(9) <<\
-    \ bi.mag[i];\n    return ss.str();\n  }\n  friend ostream& operator<<(ostream&\
-    \ o, const bigint& bi) {\n    return o << to_string(bi);\n  }\n};\n"
+    \ bi.mag[i];\n    return ss.str();\n  }\n  friend istream& operator>>(istream&\
+    \ i, bigint& bi) {\n    string s;\n    i >> s;\n    bi = bigint(s);\n    return\
+    \ i;\n  }\n  friend ostream& operator<<(ostream& o, const bigint& bi) {\n    return\
+    \ o << to_string(bi);\n  }\n};\n"
   code: "#include \"../template.hh\"\ntemplate <class T>\nint sign(T a) {\n  return\
     \ (a > 0) - (0 > a);\n}\nusing vll = vector<ll>;\nusing vit = vll::const_iterator;\n\
     struct bigint {\n  static const ll base = 1e9;\n  int signum;\n  vll mag;\n  bigint()\
@@ -192,17 +197,20 @@ data:
     \    return cmp;\n  }\n  friend string to_string(const bigint& bi) {\n    if (!bi.signum)\
     \ return \"0\";\n    stringstream ss;\n    ss << bi.signum * bi.mag.back();\n\
     \    for (int i = SZ(bi) - 2; ~i; --i)\n      ss << setfill('0') << setw(9) <<\
-    \ bi.mag[i];\n    return ss.str();\n  }\n  friend ostream& operator<<(ostream&\
-    \ o, const bigint& bi) {\n    return o << to_string(bi);\n  }\n};\n"
+    \ bi.mag[i];\n    return ss.str();\n  }\n  friend istream& operator>>(istream&\
+    \ i, bigint& bi) {\n    string s;\n    i >> s;\n    bi = bigint(s);\n    return\
+    \ i;\n  }\n  friend ostream& operator<<(ostream& o, const bigint& bi) {\n    return\
+    \ o << to_string(bi);\n  }\n};\n"
   dependsOn:
   - code/template.cc
   isVerificationFile: false
   path: code/utils/bigint.cc
   requiredBy:
   - code/utils/stresstestbigint.cc
-  timestamp: '2020-10-28 19:21:59+01:00'
+  timestamp: '2020-10-29 21:53:40+01:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - tests/aoj/bigint.addition_bigint.test.cpp
   - tests/hackerrank/aho_corasick.two_two.test.cpp
 documentation_of: code/utils/bigint.cc
 layout: document
