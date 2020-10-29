@@ -7,6 +7,7 @@
 "tests/yosupo/fenwick_tree.point_add_range_sum.test.cpp": "2020-10-28 19:21:59 +0100",
 "tests/yosupo/fenwick_tree.static_range_sum.test.cpp": "2020-10-28 19:21:59 +0100",
 "tests/yosupo/many_aplusb.test.cpp": "2020-10-28 19:21:59 +0100",
+"tests/yosupo/scc.scc.test.cpp": "2020-10-29 09:01:05 +0100",
 "tests/yosupo/segment_tree.point_add_range_sum.test.cpp": "2020-10-28 19:21:59 +0100",
 "tests/yosupo/segment_tree.static_range_sum.test.cpp": "2020-10-28 19:21:59 +0100",
 "tests/yosupo/segment_tree.static_rmq.test.cpp": "2020-10-28 19:21:59 +0100",
