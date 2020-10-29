@@ -1,13 +1,16 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: code/template.cc
     title: code/template.cc
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: tests/aoj/bellman_ford_queue.single_source_shortest_path_negative_edges.test.cpp
+    title: tests/aoj/bellman_ford_queue.single_source_shortest_path_negative_edges.test.cpp
   _pathExtension: cc
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"code/template.cc\"\n// this line is here for a reason\n\
@@ -28,25 +31,26 @@ data:
     \ false);\n  vi cnt(SZ(adj), 0); // cnt number of relaxations for neg cycles\n\
     \  q.push(start);\n  dist[start] = 0; inQ[start] = true;\n  while (!q.empty())\
     \ {\n    int v = q.front(); q.pop();\n    inQ[v] = false;\n    for (auto [u, d]\
-    \ : adj[v])\n      if (ckmin(dist[u], dist[v] + d)) {\n\t  if (++cnt[u] > SZ(adj))\
-    \ return vi();\n        if (!inQ[u]) q.push(u), inQ[u] = true;\n      }\n  }\n\
-    \  return dist;\n}\n"
+    \ : adj[v])\n      if (ckmin(dist[u], dist[v] + d)) {\n        if (++cnt[u] >\
+    \ SZ(adj)) return vi();\n        if (!inQ[u]) q.push(u), inQ[u] = true;\n    \
+    \  }\n  }\n  return dist;\n}\n"
   code: "#include \"../template.hh\"\nconst int inf = 1e9;\nvvii adj;\n// returns\
     \ empty vector if there's a neg cycle\nvi bellmanFordQueue(int start) {\n  vi\
     \ dist(SZ(adj), inf);\n  queue<int> q;\n  vector<bool> inQ(SZ(adj), false);\n\
     \  vi cnt(SZ(adj), 0); // cnt number of relaxations for neg cycles\n  q.push(start);\n\
     \  dist[start] = 0; inQ[start] = true;\n  while (!q.empty()) {\n    int v = q.front();\
     \ q.pop();\n    inQ[v] = false;\n    for (auto [u, d] : adj[v])\n      if (ckmin(dist[u],\
-    \ dist[v] + d)) {\n\t  if (++cnt[u] > SZ(adj)) return vi();\n        if (!inQ[u])\
+    \ dist[v] + d)) {\n        if (++cnt[u] > SZ(adj)) return vi();\n        if (!inQ[u])\
     \ q.push(u), inQ[u] = true;\n      }\n  }\n  return dist;\n}\n"
   dependsOn:
   - code/template.cc
   isVerificationFile: false
   path: code/graphs/bellmanFordQueue.cc
   requiredBy: []
-  timestamp: '2020-10-28 19:21:59+01:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  timestamp: '2020-10-29 11:30:05+01:00'
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - tests/aoj/bellman_ford_queue.single_source_shortest_path_negative_edges.test.cpp
 documentation_of: code/graphs/bellmanFordQueue.cc
 layout: document
 redirect_from:

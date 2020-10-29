@@ -1,13 +1,16 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: code/template.cc
     title: code/template.cc
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: tests/aoj/bellman_ford.single_source_shortest_path_negative_edges.test.cpp
+    title: tests/aoj/bellman_ford.single_source_shortest_path_negative_edges.test.cpp
   _pathExtension: cc
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 1 \"code/template.cc\"\n// this line is here for a reason\n\
@@ -24,21 +27,25 @@ data:
     \ dout if (DEBUG) cerr\n#define dvar(...) \" [\" << #__VA_ARGS__ \": \" << (__VA_ARGS__)\
     \ << \"] \"\n#line 2 \"code/graphs/bellmanFord.cc\"\nconst int inf = 1e9;\n//\
     \ vertex a, vertex b, distance\nvector<tuple<int, int, int>> edges;\nint V;\n\
-    vi bellmanFord(int start) {\n  vi dist(V, inf);\n  dist[start] = 0;\n  F0R (i,\
-    \ V - 1)\n    for (auto [a, b, d] : edges)\n      ckmin(dist[a], dist[b] + d);\n\
-    \  return dist;\n}\n"
+    // Returns empty vector on negative cycle\nvi bellmanFord(int start) {\n  vi dist(V,\
+    \ inf);\n  dist[start] = 0;\n  bool negCycle = false;\n  F0R (i, V) {\n    negCycle\
+    \ = false;\n    for (auto [a, b, d] : edges)\n      if (ckmin(dist[b], dist[a]\
+    \ + d))\n          negCycle = true;\n  }\n  return negCycle ? vi() : dist;\n}\n"
   code: "#include \"../template.hh\"\nconst int inf = 1e9;\n// vertex a, vertex b,\
-    \ distance\nvector<tuple<int, int, int>> edges;\nint V;\nvi bellmanFord(int start)\
-    \ {\n  vi dist(V, inf);\n  dist[start] = 0;\n  F0R (i, V - 1)\n    for (auto [a,\
-    \ b, d] : edges)\n      ckmin(dist[a], dist[b] + d);\n  return dist;\n}\n"
+    \ distance\nvector<tuple<int, int, int>> edges;\nint V;\n// Returns empty vector\
+    \ on negative cycle\nvi bellmanFord(int start) {\n  vi dist(V, inf);\n  dist[start]\
+    \ = 0;\n  bool negCycle = false;\n  F0R (i, V) {\n    negCycle = false;\n    for\
+    \ (auto [a, b, d] : edges)\n      if (ckmin(dist[b], dist[a] + d))\n         \
+    \ negCycle = true;\n  }\n  return negCycle ? vi() : dist;\n}\n"
   dependsOn:
   - code/template.cc
   isVerificationFile: false
   path: code/graphs/bellmanFord.cc
   requiredBy: []
-  timestamp: '2020-10-28 19:21:59+01:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  timestamp: '2020-10-29 11:30:05+01:00'
+  verificationStatus: LIBRARY_ALL_WA
+  verifiedWith:
+  - tests/aoj/bellman_ford.single_source_shortest_path_negative_edges.test.cpp
 documentation_of: code/graphs/bellmanFord.cc
 layout: document
 redirect_from:

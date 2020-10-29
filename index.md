@@ -81,16 +81,16 @@ data:
     - icon: ':warning:'
       path: code/graphs/articulationPoints.cc
       title: code/graphs/articulationPoints.cc
-    - icon: ':warning:'
+    - icon: ':x:'
       path: code/graphs/bellmanFord.cc
       title: code/graphs/bellmanFord.cc
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: code/graphs/bellmanFordQueue.cc
       title: code/graphs/bellmanFordQueue.cc
     - icon: ':warning:'
       path: code/graphs/bridges.cc
       title: code/graphs/bridges.cc
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: code/graphs/dijkstra.cc
       title: code/graphs/dijkstra.cc
     - icon: ':heavy_check_mark:'
@@ -159,7 +159,7 @@ data:
       title: code/strings/trie.cc
   - name: code
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: code/template.cc
       title: code/template.cc
     - icon: ':warning:'
@@ -209,6 +209,15 @@ data:
   verificationCategories:
   - name: tests/aoj
     pages:
+    - icon: ':x:'
+      path: tests/aoj/bellman_ford.single_source_shortest_path_negative_edges.test.cpp
+      title: tests/aoj/bellman_ford.single_source_shortest_path_negative_edges.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: tests/aoj/bellman_ford_queue.single_source_shortest_path_negative_edges.test.cpp
+      title: tests/aoj/bellman_ford_queue.single_source_shortest_path_negative_edges.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: tests/aoj/dijkstra.single_source_shortest_path.test.cpp
+      title: tests/aoj/dijkstra.single_source_shortest_path.test.cpp
     - icon: ':heavy_check_mark:'
       path: tests/aoj/dinic.maximum_flow.test.cpp
       title: tests/aoj/dinic.maximum_flow.test.cpp
