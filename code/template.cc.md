@@ -107,7 +107,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: code/graphs/scc.cc
     title: code/graphs/scc.cc
-  - icon: ':warning:'
+  - icon: ':x:'
     path: code/graphs/topoSort.cc
     title: code/graphs/topoSort.cc
   - icon: ':warning:'
@@ -192,6 +192,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: tests/aoj/push_relabel.maximum_flow.test.cpp
     title: tests/aoj/push_relabel.maximum_flow.test.cpp
+  - icon: ':x:'
+    path: tests/aoj/toposort.topological_sort.test.cpp
+    title: tests/aoj/toposort.topological_sort.test.cpp
   - icon: ':heavy_check_mark:'
     path: tests/hackerrank/aho_corasick.two_two.test.cpp
     title: tests/hackerrank/aho_corasick.two_two.test.cpp
@@ -247,7 +250,7 @@ data:
     path: tests/yosupo/unionfind.test.cpp
     title: tests/yosupo/unionfind.test.cpp
   _pathExtension: cc
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: '#line 1 "code/template.cc"
@@ -438,10 +441,11 @@ data:
   - code/dynamicProgramming/lis.cc
   - code/dynamicProgramming/lcs.cc
   timestamp: '2020-10-28 19:21:59+01:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - tests/aoj/edmonds_karp.maximum_flow.test.cpp
   - tests/aoj/dinic.maximum_flow.test.cpp
+  - tests/aoj/toposort.topological_sort.test.cpp
   - tests/aoj/kruskal.minimum_spanning_tree.test.cc
   - tests/aoj/push_relabel.maximum_flow.test.cpp
   - tests/hackerrank/aho_corasick.two_two.test.cpp

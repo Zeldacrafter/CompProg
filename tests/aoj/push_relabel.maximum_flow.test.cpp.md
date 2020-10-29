@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: code/graphs/pushRelabel.cc
     title: code/graphs/pushRelabel.cc
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: code/template.cc
     title: code/template.cc
   _extendedRequiredBy: []
