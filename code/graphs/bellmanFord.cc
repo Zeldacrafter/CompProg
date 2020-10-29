@@ -11,7 +11,7 @@ vi bellmanFord(int start) {
   F0R (i, V) {
     negCycle = false;
     for (auto [a, b, d] : edges)
-      if (ckmin(dist[b], dist[a] + d))
+      if (dist[a] < inf && ckmin(dist[b], dist[a] + d))
           negCycle = true;
   }
   return negCycle ? vi() : dist;

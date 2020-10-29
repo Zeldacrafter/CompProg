@@ -18,6 +18,7 @@ int main() {
   }
 
   vi res = bellmanFord(r);
+
   if(!SZ(res)) {
       cout << "NEGATIVE CYCLE\n";
   } else {
