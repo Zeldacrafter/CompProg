@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: code/graphs/flowedge.cc
     title: code/graphs/flowedge.cc
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: code/template.cc
     title: code/template.cc
   _extendedRequiredBy: []

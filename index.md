@@ -114,7 +114,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: code/graphs/scc.cc
       title: code/graphs/scc.cc
-    - icon: ':x:'
+    - icon: ':warning:'
       path: code/graphs/topoSort.cc
       title: code/graphs/topoSort.cc
   - name: code/math
@@ -159,7 +159,7 @@ data:
       title: code/strings/trie.cc
   - name: code
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: code/template.cc
       title: code/template.cc
     - icon: ':warning:'
@@ -221,9 +221,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/aoj/push_relabel.maximum_flow.test.cpp
       title: tests/aoj/push_relabel.maximum_flow.test.cpp
-    - icon: ':x:'
-      path: tests/aoj/toposort.topological_sort.test.cpp
-      title: tests/aoj/toposort.topological_sort.test.cpp
   - name: tests/hackerrank
     pages:
     - icon: ':heavy_check_mark:'
