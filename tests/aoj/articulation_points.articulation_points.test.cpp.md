@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: code/graphs/articulationPoints.cc
     title: code/graphs/articulationPoints.cc
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: code/template.cc
     title: code/template.cc
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A
+    PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_A
     links:
-    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A
+    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_A
   bundledCode: "#line 1 \"tests/aoj/articulation_points.articulation_points.test.cpp\"\
-    \n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A\"\
+    \n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_A\"\
     \n\n#line 1 \"code/template.cc\"\n// this line is here for a reason\n#include\
     \ <bits/stdc++.h>\nusing namespace std;\ntypedef long long ll;\ntypedef pair<int,\
     \ int> ii;\ntypedef vector<int> vi;\ntypedef vector<ii> vii;\ntypedef vector<vi>\
@@ -44,7 +44,7 @@ data:
     \  cin >> u >> v;\n      adj[u].eb(v);\n      adj[v].eb(u);\n  }\n\n  vi res =\
     \ findArtiPoints();\n  sort(ALL(res));\n  for(int i : res)\n      cout << i <<\
     \ endl;\n}\n\n\n\n\n"
-  code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_A\"\
+  code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_A\"\
     \n\n#include \"../../code/graphs/articulationPoints.cc\"\nint main() {\n  cin.tie(0);\n\
     \  ios_base::sync_with_stdio(0);\n\n  int V, E;\n  cin >> V >> E;\n\n  adj.resize(V);\n\
     \n  F0R(i, E) {\n      int u, v;\n      cin >> u >> v;\n      adj[u].eb(v);\n\
@@ -57,7 +57,7 @@ data:
   path: tests/aoj/articulation_points.articulation_points.test.cpp
   requiredBy: []
   timestamp: '2020-10-29 16:52:24+01:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/aoj/articulation_points.articulation_points.test.cpp
 layout: document

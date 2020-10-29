@@ -78,7 +78,7 @@ data:
     - icon: ':warning:'
       path: code/graphs/LCABLW.cc
       title: code/graphs/LCABLW.cc
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: code/graphs/articulationPoints.cc
       title: code/graphs/articulationPoints.cc
     - icon: ':heavy_check_mark:'
@@ -159,7 +159,7 @@ data:
       title: code/strings/trie.cc
   - name: code
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: code/template.cc
       title: code/template.cc
     - icon: ':warning:'
@@ -209,7 +209,7 @@ data:
   verificationCategories:
   - name: tests/aoj
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: tests/aoj/articulation_points.articulation_points.test.cpp
       title: tests/aoj/articulation_points.articulation_points.test.cpp
     - icon: ':heavy_check_mark:'
