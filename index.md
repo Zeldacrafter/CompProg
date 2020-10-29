@@ -125,7 +125,7 @@ data:
     - icon: ':warning:'
       path: code/math/dynamicMatrix.cc
       title: code/math/dynamicMatrix.cc
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: code/math/extendedEuclid.cc
       title: code/math/extendedEuclid.cc
     - icon: ':warning:'
@@ -242,6 +242,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/aoj/edmonds_karp.maximum_flow.test.cpp
       title: tests/aoj/edmonds_karp.maximum_flow.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: tests/aoj/extended_euclid.test.cpp
+      title: tests/aoj/extended_euclid.test.cpp
     - icon: ':heavy_check_mark:'
       path: tests/aoj/floyd_warshall.all_pairs_shortest_path.test.cpp
       title: tests/aoj/floyd_warshall.all_pairs_shortest_path.test.cpp
