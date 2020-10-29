@@ -96,7 +96,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: code/graphs/dinic.cc
       title: code/graphs/dinic.cc
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: code/graphs/edmondsKarp.cc
       title: code/graphs/edmondsKarp.cc
     - icon: ':heavy_check_mark:'
@@ -108,7 +108,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: code/graphs/kruskal.cc
       title: code/graphs/kruskal.cc
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: code/graphs/pushRelabel.cc
       title: code/graphs/pushRelabel.cc
     - icon: ':heavy_check_mark:'
@@ -210,8 +210,17 @@ data:
   - name: tests/aoj
     pages:
     - icon: ':heavy_check_mark:'
+      path: tests/aoj/dinic.maximum_flow.test.cpp
+      title: tests/aoj/dinic.maximum_flow.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: tests/aoj/edmonds_karp.maximum_flow.test.cpp
+      title: tests/aoj/edmonds_karp.maximum_flow.test.cpp
+    - icon: ':heavy_check_mark:'
       path: tests/aoj/kruskal.minimum_spanning_tree.test.cc
       title: tests/aoj/kruskal.minimum_spanning_tree.test.cc
+    - icon: ':heavy_check_mark:'
+      path: tests/aoj/push_relabel.maximum_flow.test.cpp
+      title: tests/aoj/push_relabel.maximum_flow.test.cpp
   - name: tests/hackerrank
     pages:
     - icon: ':heavy_check_mark:'

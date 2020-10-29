@@ -10,6 +10,9 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: tests/aoj/dinic.maximum_flow.test.cpp
+    title: tests/aoj/dinic.maximum_flow.test.cpp
+  - icon: ':heavy_check_mark:'
     path: tests/yosupo/dinic.bipartitematching.test.cpp
     title: tests/yosupo/dinic.bipartitematching.test.cpp
   _pathExtension: cc
@@ -77,6 +80,7 @@ data:
   timestamp: '2020-10-28 19:21:59+01:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - tests/aoj/dinic.maximum_flow.test.cpp
   - tests/yosupo/dinic.bipartitematching.test.cpp
 documentation_of: code/graphs/dinic.cc
 layout: document

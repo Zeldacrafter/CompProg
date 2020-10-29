@@ -5,22 +5,27 @@ data:
     path: code/graphs/flowedge.cc
     title: code/graphs/flowedge.cc
   - icon: ':heavy_check_mark:'
+    path: code/graphs/pushRelabel.cc
+    title: code/graphs/pushRelabel.cc
+  - icon: ':heavy_check_mark:'
     path: code/template.cc
     title: code/template.cc
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: tests/aoj/push_relabel.maximum_flow.test.cpp
-    title: tests/aoj/push_relabel.maximum_flow.test.cpp
-  _pathExtension: cc
+  _extendedVerifiedWith: []
+  _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    links: []
-  bundledCode: "#line 1 \"code/graphs/pushRelabel.cc\"\n\n#line 1 \"code/template.cc\"\
-    \n// this line is here for a reason\n#include <bits/stdc++.h>\nusing namespace\
-    \ std;\ntypedef long long ll;\ntypedef pair<int, int> ii;\ntypedef vector<int>\
-    \ vi;\ntypedef vector<ii> vii;\ntypedef vector<vi> vvi;\ntypedef vector<vii> vvii;\n\
-    #define fi first\n#define se second\n#define eb emplace_back\n#define pb push_back\n\
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A
+    links:
+    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A
+  bundledCode: "#line 1 \"tests/aoj/push_relabel.maximum_flow.test.cpp\"\n#define\
+    \ PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A\"\
+    \n\n#line 1 \"code/graphs/pushRelabel.cc\"\n\n#line 1 \"code/template.cc\"\n//\
+    \ this line is here for a reason\n#include <bits/stdc++.h>\nusing namespace std;\n\
+    typedef long long ll;\ntypedef pair<int, int> ii;\ntypedef vector<int> vi;\ntypedef\
+    \ vector<ii> vii;\ntypedef vector<vi> vvi;\ntypedef vector<vii> vvii;\n#define\
+    \ fi first\n#define se second\n#define eb emplace_back\n#define pb push_back\n\
     #define mp make_pair\n#define mt make_tuple\n#define endl '\\n'\n#define ALL(x)\
     \ (x).begin(), (x).end()\n#define RALL(x) (x).rbegin(), (x).rend()\n#define SZ(x)\
     \ (int)(x).size()\n#define FOR(a, b, c) for (auto a = (b); (a) < (c); ++(a))\n\
@@ -55,38 +60,30 @@ data:
     \ while (!active.empty()) {\n    if (active.front() != s && active.front() !=\
     \ t)\n      discharge(active.front());\n    active.pop();\n  }\n  ll maxflow =\
     \ 0;\n  for (int i : adj[s]) maxflow += edges[i].flow(s);\n  return maxflow;\n\
-    }\n"
-  code: "\n#include \"flowedge.cc\"\nconst ll inf = 10e16;\nvi label;\nvi currentEdge;\n\
-    vector<ll> excess;\nqueue<int> active;\nvoid push(int v, edge& e) {\n  ll more\
-    \ = min(excess[v], e.capacity(v) - e.flow(v));\n  excess[e.other(v)] += more;\n\
-    \  excess[v] -= more;\n  e.adjust(v, more);\n  if (more && excess[e.other(v)]\
-    \ == more) active.push(e.other(v));\n}\nvoid relabel(int v) {\n  int m = numeric_limits<int>::max();\n\
-    \  for (int i : adj[v]) {\n    auto& e = edges[i];\n    if (e.flow(v) < e.capacity(v))\
-    \ ckmin(m, label[edges[i].other(v)]);\n  }\n  if (m < numeric_limits<int>::max())\
-    \ label[v] = m + 1;\n}\nvoid discharge(int v) {\n  while (excess[v]) {\n    auto&\
-    \ e = edges[adj[v][currentEdge[v]]];\n    if (label[v] - 1 == label[e.other(v)]\
-    \ &&\n        e.flow(v) < e.capacity(v))\n      push(v, e);\n    else if (SZ(adj[v])\
-    \ == ++currentEdge[v]) {\n      currentEdge[v] = 0;\n      relabel(v);\n    }\n\
-    \  }\n}\nll maxflow(int s, int t) {\n  currentEdge.assign(SZ(adj), 0);\n  label.assign(SZ(adj),\
-    \ 0);\n  excess.assign(SZ(adj), 0);\n  excess[s] = inf;\n  label[s] = SZ(adj);\n\
-    \  for (int i : adj[s]) push(s, edges[i]);\n  while (!active.empty()) {\n    if\
-    \ (active.front() != s && active.front() != t)\n      discharge(active.front());\n\
-    \    active.pop();\n  }\n  ll maxflow = 0;\n  for (int i : adj[s]) maxflow +=\
-    \ edges[i].flow(s);\n  return maxflow;\n}\n"
+    }\n#line 4 \"tests/aoj/push_relabel.maximum_flow.test.cpp\"\n\nint main() {\n\
+    \  cin.tie(0);\n  ios_base::sync_with_stdio(0);\n\n  int V, E;\n  cin >> V >>\
+    \ E;\n\n  adj.resize(V);\n\n  F0R(i, E) {\n      int u, v, c;\n      cin >> u\
+    \ >> v >> c;\n      addEdge(u, v, c);\n  }\n\n  cout << maxflow(0, V - 1) << endl;\n\
+    }\n\n\n\n"
+  code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A\"\
+    \n\n#include \"../../code/graphs/pushRelabel.cc\"\n\nint main() {\n  cin.tie(0);\n\
+    \  ios_base::sync_with_stdio(0);\n\n  int V, E;\n  cin >> V >> E;\n\n  adj.resize(V);\n\
+    \n  F0R(i, E) {\n      int u, v, c;\n      cin >> u >> v >> c;\n      addEdge(u,\
+    \ v, c);\n  }\n\n  cout << maxflow(0, V - 1) << endl;\n}\n\n\n\n"
   dependsOn:
+  - code/graphs/pushRelabel.cc
   - code/graphs/flowedge.cc
   - code/template.cc
-  isVerificationFile: false
-  path: code/graphs/pushRelabel.cc
+  isVerificationFile: true
+  path: tests/aoj/push_relabel.maximum_flow.test.cpp
   requiredBy: []
-  timestamp: '2020-10-28 19:21:59+01:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - tests/aoj/push_relabel.maximum_flow.test.cpp
-documentation_of: code/graphs/pushRelabel.cc
+  timestamp: '2020-10-29 09:47:03+01:00'
+  verificationStatus: TEST_ACCEPTED
+  verifiedWith: []
+documentation_of: tests/aoj/push_relabel.maximum_flow.test.cpp
 layout: document
 redirect_from:
-- /library/code/graphs/pushRelabel.cc
-- /library/code/graphs/pushRelabel.cc.html
-title: code/graphs/pushRelabel.cc
+- /verify/tests/aoj/push_relabel.maximum_flow.test.cpp
+- /verify/tests/aoj/push_relabel.maximum_flow.test.cpp.html
+title: tests/aoj/push_relabel.maximum_flow.test.cpp
 ---

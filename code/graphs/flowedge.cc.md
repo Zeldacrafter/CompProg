@@ -8,13 +8,22 @@ data:
   - icon: ':heavy_check_mark:'
     path: code/graphs/dinic.cc
     title: code/graphs/dinic.cc
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: code/graphs/edmondsKarp.cc
     title: code/graphs/edmondsKarp.cc
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: code/graphs/pushRelabel.cc
     title: code/graphs/pushRelabel.cc
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: tests/aoj/dinic.maximum_flow.test.cpp
+    title: tests/aoj/dinic.maximum_flow.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: tests/aoj/edmonds_karp.maximum_flow.test.cpp
+    title: tests/aoj/edmonds_karp.maximum_flow.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: tests/aoj/push_relabel.maximum_flow.test.cpp
+    title: tests/aoj/push_relabel.maximum_flow.test.cpp
   - icon: ':heavy_check_mark:'
     path: tests/yosupo/dinic.bipartitematching.test.cpp
     title: tests/yosupo/dinic.bipartitematching.test.cpp
@@ -66,6 +75,9 @@ data:
   timestamp: '2020-10-28 19:21:59+01:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - tests/aoj/edmonds_karp.maximum_flow.test.cpp
+  - tests/aoj/dinic.maximum_flow.test.cpp
+  - tests/aoj/push_relabel.maximum_flow.test.cpp
   - tests/yosupo/dinic.bipartitematching.test.cpp
 documentation_of: code/graphs/flowedge.cc
 layout: document
