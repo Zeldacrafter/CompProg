@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: code/graphs/kruskal.cc
     title: code/graphs/kruskal.cc
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: code/template.cc
     title: code/template.cc
   _extendedRequiredBy: []

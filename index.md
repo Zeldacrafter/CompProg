@@ -87,7 +87,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: code/graphs/bellmanFordQueue.cc
       title: code/graphs/bellmanFordQueue.cc
-    - icon: ':warning:'
+    - icon: ':x:'
       path: code/graphs/bridges.cc
       title: code/graphs/bridges.cc
     - icon: ':heavy_check_mark:'
@@ -159,7 +159,7 @@ data:
       title: code/strings/trie.cc
   - name: code
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: code/template.cc
       title: code/template.cc
     - icon: ':warning:'
@@ -218,6 +218,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/aoj/bellman_ford_queue.single_source_shortest_path_negative_edges.test.cpp
       title: tests/aoj/bellman_ford_queue.single_source_shortest_path_negative_edges.test.cpp
+    - icon: ':x:'
+      path: tests/aoj/brides.brides.test.cpp
+      title: tests/aoj/brides.brides.test.cpp
     - icon: ':heavy_check_mark:'
       path: tests/aoj/dijkstra.single_source_shortest_path.test.cpp
       title: tests/aoj/dijkstra.single_source_shortest_path.test.cpp
