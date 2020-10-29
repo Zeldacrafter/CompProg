@@ -38,7 +38,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: code/dynamicProgramming/lcs.cc
     title: code/dynamicProgramming/lcs.cc
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: code/dynamicProgramming/lis.cc
     title: code/dynamicProgramming/lis.cc
   - icon: ':warning:'
@@ -231,6 +231,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: tests/aoj/lcs.longest_common_subsequence.test.cpp
     title: tests/aoj/lcs.longest_common_subsequence.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: tests/aoj/lis.longest_increasing_subsequence.test.cpp
+    title: tests/aoj/lis.longest_increasing_subsequence.test.cpp
   - icon: ':heavy_check_mark:'
     path: tests/aoj/push_relabel.maximum_flow.test.cpp
     title: tests/aoj/push_relabel.maximum_flow.test.cpp
@@ -500,6 +503,7 @@ data:
   - tests/aoj/kruskal.minimum_spanning_tree.test.cc
   - tests/aoj/bellman_ford_queue.single_source_shortest_path_negative_edges.test.cpp
   - tests/aoj/brides.brides.test.cpp
+  - tests/aoj/lis.longest_increasing_subsequence.test.cpp
   - tests/aoj/push_relabel.maximum_flow.test.cpp
   - tests/aoj/hld.range_query_on_tree.test.cpp
   - tests/aoj/bigint.subtraction_bigint.test.cpp

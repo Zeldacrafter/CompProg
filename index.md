@@ -41,7 +41,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: code/dynamicProgramming/lcs.cc
       title: code/dynamicProgramming/lcs.cc
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: code/dynamicProgramming/lis.cc
       title: code/dynamicProgramming/lis.cc
     - icon: ':warning:'
@@ -260,6 +260,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/aoj/lcs.longest_common_subsequence.test.cpp
       title: tests/aoj/lcs.longest_common_subsequence.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: tests/aoj/lis.longest_increasing_subsequence.test.cpp
+      title: tests/aoj/lis.longest_increasing_subsequence.test.cpp
     - icon: ':heavy_check_mark:'
       path: tests/aoj/push_relabel.maximum_flow.test.cpp
       title: tests/aoj/push_relabel.maximum_flow.test.cpp

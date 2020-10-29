@@ -5,9 +5,12 @@ data:
     path: code/template.cc
     title: code/template.cc
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: tests/aoj/lis.longest_increasing_subsequence.test.cpp
+    title: tests/aoj/lis.longest_increasing_subsequence.test.cpp
   _pathExtension: cc
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"code/template.cc\"\n// this line is here for a reason\n\
@@ -23,11 +26,11 @@ data:
     \ b ? a = b, true : false; }\n#ifndef DEBUG\n#define DEBUG 0\n#endif\n#define\
     \ dout if (DEBUG) cerr\n#define dvar(...) \" [\" << #__VA_ARGS__ \": \" << (__VA_ARGS__)\
     \ << \"] \"\n#line 2 \"code/dynamicProgramming/lis.cc\"\nconst int inf = 1e9;\n\
-    \nint LIS(const vi& a) {\n  vi dp(SZ(a) + 1, inf);\n  dp[0] = -inf;\n  F0R(i,\
+    \nint lis(const vi& a) {\n  vi dp(SZ(a) + 1, inf);\n  dp[0] = -inf;\n  F0R(i,\
     \ SZ(a)) {\n    int ind = upper_bound(ALL(dp), a[i]) - dp.begin();\n    if(dp[ind\
     \ - 1] < a[i] && a[i] < dp[ind])\n      dp[ind] = a[i];\n  }\n  return lower_bound(ALL(dp),\
     \ inf) - dp.begin() - 1;\n}\n"
-  code: "#include \"../template.hh\"\nconst int inf = 1e9;\n\nint LIS(const vi& a)\
+  code: "#include \"../template.hh\"\nconst int inf = 1e9;\n\nint lis(const vi& a)\
     \ {\n  vi dp(SZ(a) + 1, inf);\n  dp[0] = -inf;\n  F0R(i, SZ(a)) {\n    int ind\
     \ = upper_bound(ALL(dp), a[i]) - dp.begin();\n    if(dp[ind - 1] < a[i] && a[i]\
     \ < dp[ind])\n      dp[ind] = a[i];\n  }\n  return lower_bound(ALL(dp), inf) -\
@@ -37,9 +40,10 @@ data:
   isVerificationFile: false
   path: code/dynamicProgramming/lis.cc
   requiredBy: []
-  timestamp: '2020-10-28 19:21:59+01:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  timestamp: '2020-10-29 22:52:12+01:00'
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - tests/aoj/lis.longest_increasing_subsequence.test.cpp
 documentation_of: code/dynamicProgramming/lis.cc
 layout: document
 redirect_from:
