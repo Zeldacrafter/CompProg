@@ -15,6 +15,7 @@
 "tests/aoj/hld.range_query_on_tree.test.cpp": "2020-10-29 21:29:28 +0100",
 "tests/aoj/kmp.string_matches.test.cpp": "2020-10-29 10:58:30 +0100",
 "tests/aoj/kruskal.minimum_spanning_tree.test.cc": "2020-10-29 09:38:34 +0100",
+"tests/aoj/lcs.longest_common_subsequence.test.cpp": "2020-10-29 22:46:53 +0100",
 "tests/aoj/push_relabel.maximum_flow.test.cpp": "2020-10-29 09:47:03 +0100",
 "tests/aoj/totoid.eulers_phi_function.test.cpp": "2020-10-29 22:43:21 +0100",
 "tests/hackerrank/aho_corasick.two_two.test.cpp": "2020-10-29 21:53:40 +0100",
