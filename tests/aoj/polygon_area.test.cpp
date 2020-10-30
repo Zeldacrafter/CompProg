@@ -1,4 +1,5 @@
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_A"
+#define ERROR -1e6
 
 #include "../../code/geometry/polygon.cc"
 
@@ -14,6 +15,6 @@ int main() {
       cin >> x >> y;
       pts[i] = pt(x, y);
   }
-  cout << fixed << setprecision(9) << area(pts) << endl;
+  cout << fixed << setprecision(1) << area(pts) << endl;
 }
 
