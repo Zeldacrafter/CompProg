@@ -61,7 +61,7 @@ data:
     - icon: ':warning:'
       path: code/geometry/picksTheorem.cc
       title: code/geometry/picksTheorem.cc
-    - icon: ':question:'
+    - icon: ':x:'
       path: code/geometry/polygon.cc
       title: code/geometry/polygon.cc
   - name: code/graphs
@@ -269,7 +269,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/aoj/lis.longest_increasing_subsequence.test.cpp
       title: tests/aoj/lis.longest_increasing_subsequence.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: tests/aoj/polygon_area.test.cpp
       title: tests/aoj/polygon_area.test.cpp
     - icon: ':x:'
