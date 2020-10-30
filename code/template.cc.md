@@ -56,7 +56,7 @@ data:
   - icon: ':warning:'
     path: code/geometry/picksTheorem.cc
     title: code/geometry/picksTheorem.cc
-  - icon: ':x:'
+  - icon: ':question:'
     path: code/geometry/polygon.cc
     title: code/geometry/polygon.cc
   - icon: ':heavy_check_mark:'
@@ -243,7 +243,7 @@ data:
   - icon: ':x:'
     path: tests/aoj/polygon_area.test.cpp
     title: tests/aoj/polygon_area.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: tests/aoj/polygon_convex.test.cpp
     title: tests/aoj/polygon_convex.test.cpp
   - icon: ':heavy_check_mark:'

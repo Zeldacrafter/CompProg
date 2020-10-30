@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: code/geometry/geometry.cc
     title: code/geometry/geometry.cc
-  - icon: ':x:'
+  - icon: ':question:'
     path: code/geometry/polygon.cc
     title: code/geometry/polygon.cc
   - icon: ':question:'
@@ -68,13 +68,14 @@ data:
     \ poly[l], poly[l - 1], p);\n}\ndouble area(const vector<pt>& p) {\n  double res\
     \ = 0.0;\n  F0R (i, SZ(p))\n    res += cross(p[i], p[(i + 1) % SZ(p)]);\n  return\
     \ abs(res) / 2;\n}\nbool isConvex(const vector<pt>& p) {\n  if (SZ(p) < 3) return\
-    \ false;\n  bool isLeft = ccw(p[0], p[1], p[2]), convex = true;\n  F0R (i, SZ(p))\n\
-    \    convex &= isLeft == ccw(p[i], p[(i + 1) % SZ(p)], p[(i + 2) % SZ(p)]);\n\
-    \  return convex;\n}\n#line 5 \"tests/aoj/polygon_area.test.cpp\"\n\nint main()\
-    \ {\n  cin.tie(0);\n  ios_base::sync_with_stdio(0);\n\n  int n;\n  cin >> n;\n\
-    \  vector<pt> pts(n);\n  F0R(i, n) {\n      int x, y;\n      cin >> x >> y;\n\
-    \      pts[i] = pt(x, y);\n  }\n  cout << fixed << setprecision(1) << area(pts)\
-    \ << endl;\n}\n\n"
+    \ false;\n  bool isLeft = ccw(p[0], p[1], p[2]) || collinear(p[0], p[1], p[2]),\n\
+    \      convex = true;\n  F0R (i, SZ(p))\n    convex &= isLeft == (ccw(p[i], p[(i\
+    \ + 1) % SZ(p)], p[(i + 2) % SZ(p)])\n                     || collinear(p[i],\
+    \ p[(i + 1) % SZ(p)], p[(i + 2) % SZ(p)]));\n  return convex;\n}\n#line 5 \"tests/aoj/polygon_area.test.cpp\"\
+    \n\nint main() {\n  cin.tie(0);\n  ios_base::sync_with_stdio(0);\n\n  int n;\n\
+    \  cin >> n;\n  vector<pt> pts(n);\n  F0R(i, n) {\n      int x, y;\n      cin\
+    \ >> x >> y;\n      pts[i] = pt(x, y);\n  }\n  cout << fixed << setprecision(1)\
+    \ << area(pts) << endl;\n}\n\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_A\"\
     \n#define ERROR -1e6\n\n#include \"../../code/geometry/polygon.cc\"\n\nint main()\
     \ {\n  cin.tie(0);\n  ios_base::sync_with_stdio(0);\n\n  int n;\n  cin >> n;\n\
@@ -88,7 +89,7 @@ data:
   isVerificationFile: true
   path: tests/aoj/polygon_area.test.cpp
   requiredBy: []
-  timestamp: '2020-10-30 09:41:07+01:00'
+  timestamp: '2020-10-30 09:49:43+01:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: tests/aoj/polygon_area.test.cpp

@@ -8,7 +8,7 @@ data:
   - icon: ':warning:'
     path: code/geometry/convexHull.cc
     title: code/geometry/convexHull.cc
-  - icon: ':x:'
+  - icon: ':question:'
     path: code/geometry/polygon.cc
     title: code/geometry/polygon.cc
   _extendedVerifiedWith:
@@ -18,7 +18,7 @@ data:
   - icon: ':x:'
     path: tests/aoj/polygon_area.test.cpp
     title: tests/aoj/polygon_area.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: tests/aoj/polygon_convex.test.cpp
     title: tests/aoj/polygon_convex.test.cpp
   _pathExtension: cc

@@ -12,11 +12,11 @@ data:
   - icon: ':x:'
     path: tests/aoj/polygon_area.test.cpp
     title: tests/aoj/polygon_area.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: tests/aoj/polygon_convex.test.cpp
     title: tests/aoj/polygon_convex.test.cpp
   _pathExtension: cc
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"code/template.cc\"\n// this line is here for a reason\n\
@@ -66,9 +66,10 @@ data:
     \ poly[l], poly[l - 1], p);\n}\ndouble area(const vector<pt>& p) {\n  double res\
     \ = 0.0;\n  F0R (i, SZ(p))\n    res += cross(p[i], p[(i + 1) % SZ(p)]);\n  return\
     \ abs(res) / 2;\n}\nbool isConvex(const vector<pt>& p) {\n  if (SZ(p) < 3) return\
-    \ false;\n  bool isLeft = ccw(p[0], p[1], p[2]), convex = true;\n  F0R (i, SZ(p))\n\
-    \    convex &= isLeft == ccw(p[i], p[(i + 1) % SZ(p)], p[(i + 2) % SZ(p)]);\n\
-    \  return convex;\n}\n"
+    \ false;\n  bool isLeft = ccw(p[0], p[1], p[2]) || collinear(p[0], p[1], p[2]),\n\
+    \      convex = true;\n  F0R (i, SZ(p))\n    convex &= isLeft == (ccw(p[i], p[(i\
+    \ + 1) % SZ(p)], p[(i + 2) % SZ(p)])\n                     || collinear(p[i],\
+    \ p[(i + 1) % SZ(p)], p[(i + 2) % SZ(p)]));\n  return convex;\n}\n"
   code: "#include \"geometry.cc\"\nbool inTriangle(pt a, pt b, pt c, pt p) {\n  return\n\
     \    abs(-abs(dir(a, b, c)) + abs(dir(a, b, p))\n        + abs(dir(a, p, c)) +\
     \ abs(dir(p, b, c))) < EPS;\n}\nbool inPolygon(const vector<pt>& poly, pt p) {\n\
@@ -78,16 +79,18 @@ data:
     }\ndouble area(const vector<pt>& p) {\n  double res = 0.0;\n  F0R (i, SZ(p))\n\
     \    res += cross(p[i], p[(i + 1) % SZ(p)]);\n  return abs(res) / 2;\n}\nbool\
     \ isConvex(const vector<pt>& p) {\n  if (SZ(p) < 3) return false;\n  bool isLeft\
-    \ = ccw(p[0], p[1], p[2]), convex = true;\n  F0R (i, SZ(p))\n    convex &= isLeft\
-    \ == ccw(p[i], p[(i + 1) % SZ(p)], p[(i + 2) % SZ(p)]);\n  return convex;\n}\n"
+    \ = ccw(p[0], p[1], p[2]) || collinear(p[0], p[1], p[2]),\n      convex = true;\n\
+    \  F0R (i, SZ(p))\n    convex &= isLeft == (ccw(p[i], p[(i + 1) % SZ(p)], p[(i\
+    \ + 2) % SZ(p)])\n                     || collinear(p[i], p[(i + 1) % SZ(p)],\
+    \ p[(i + 2) % SZ(p)]));\n  return convex;\n}\n"
   dependsOn:
   - code/geometry/geometry.cc
   - code/template.cc
   isVerificationFile: false
   path: code/geometry/polygon.cc
   requiredBy: []
-  timestamp: '2020-10-28 19:21:59+01:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2020-10-30 09:49:43+01:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - tests/aoj/polygon_convex.test.cpp
   - tests/aoj/polygon_area.test.cpp
