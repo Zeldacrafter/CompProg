@@ -7,6 +7,7 @@
 "tests/aoj/bigint.multiplication_bigint_2.test.cpp": "2020-10-29 22:02:54 +0100",
 "tests/aoj/bigint.subtraction_bigint.test.cpp": "2020-10-29 21:57:58 +0100",
 "tests/aoj/brides.brides.test.cpp": "2020-10-29 16:58:23 +0100",
+"tests/aoj/ccw.counter_clockwise.test.cpp": "2020-10-30 09:22:11 +0100",
 "tests/aoj/dijkstra.single_source_shortest_path.test.cpp": "2020-10-29 11:06:03 +0100",
 "tests/aoj/dinic.maximum_flow.test.cpp": "2020-10-29 09:47:03 +0100",
 "tests/aoj/edit_distance.test.cpp": "2020-10-29 22:54:37 +0100",
