@@ -15,6 +15,7 @@ int main() {
       pts[i] = pt(x, y);
   }
 
+  pts.pb(pts[0]);
   reverse(ALL(pts));
 
   int q;
