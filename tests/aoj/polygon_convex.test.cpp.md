@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: code/geometry/geometry.cc
     title: code/geometry/geometry.cc
-  - icon: ':x:'
+  - icon: ':question:'
     path: code/geometry/polygon.cc
     title: code/geometry/polygon.cc
   - icon: ':question:'

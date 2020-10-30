@@ -9,14 +9,14 @@ data:
     title: code/template.cc
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: tests/aoj/polygon_area.test.cpp
     title: tests/aoj/polygon_area.test.cpp
   - icon: ':x:'
     path: tests/aoj/polygon_convex.test.cpp
     title: tests/aoj/polygon_convex.test.cpp
   _pathExtension: cc
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"code/template.cc\"\n// this line is here for a reason\n\
@@ -87,7 +87,7 @@ data:
   path: code/geometry/polygon.cc
   requiredBy: []
   timestamp: '2020-10-28 19:21:59+01:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - tests/aoj/polygon_convex.test.cpp
   - tests/aoj/polygon_area.test.cpp
