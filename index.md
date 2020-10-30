@@ -272,6 +272,9 @@ data:
     - icon: ':x:'
       path: tests/aoj/polygon_area.test.cpp
       title: tests/aoj/polygon_area.test.cpp
+    - icon: ':x:'
+      path: tests/aoj/polygon_convex.test.cpp
+      title: tests/aoj/polygon_convex.test.cpp
     - icon: ':heavy_check_mark:'
       path: tests/aoj/push_relabel.maximum_flow.test.cpp
       title: tests/aoj/push_relabel.maximum_flow.test.cpp

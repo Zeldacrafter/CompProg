@@ -16,10 +16,10 @@ data:
   _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_C
+    PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_A
     links:
-    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_C
-  bundledCode: "#line 1 \"tests/aoj/polygon_area.test.cpp\"\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_C\"\
+    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_A
+  bundledCode: "#line 1 \"tests/aoj/polygon_area.test.cpp\"\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_A\"\
     \n\n#line 1 \"code/template.cc\"\n// this line is here for a reason\n#include\
     \ <bits/stdc++.h>\nusing namespace std;\ntypedef long long ll;\ntypedef pair<int,\
     \ int> ii;\ntypedef vector<int> vi;\ntypedef vector<ii> vii;\ntypedef vector<vi>\
@@ -74,7 +74,7 @@ data:
     \  vector<pt> pts(n);\n  F0R(i, n) {\n      int x, y;\n      cin >> x >> y;\n\
     \      pts[i] = pt(x, y);\n  }\n  cout << fixed << setprecision(9) << area(pts)\
     \ << endl;\n}\n\n"
-  code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_C\"\
+  code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_A\"\
     \n\n#include \"../../code/geometry/polygon.cc\"\n\nint main() {\n  cin.tie(0);\n\
     \  ios_base::sync_with_stdio(0);\n\n  int n;\n  cin >> n;\n  vector<pt> pts(n);\n\
     \  F0R(i, n) {\n      int x, y;\n      cin >> x >> y;\n      pts[i] = pt(x, y);\n\

@@ -18,6 +18,9 @@ data:
   - icon: ':x:'
     path: tests/aoj/polygon_area.test.cpp
     title: tests/aoj/polygon_area.test.cpp
+  - icon: ':x:'
+    path: tests/aoj/polygon_convex.test.cpp
+    title: tests/aoj/polygon_convex.test.cpp
   _pathExtension: cc
   _verificationStatusIcon: ':question:'
   attributes:
@@ -98,6 +101,7 @@ data:
   timestamp: '2020-10-28 19:21:59+01:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - tests/aoj/polygon_convex.test.cpp
   - tests/aoj/ccw.counter_clockwise.test.cpp
   - tests/aoj/polygon_area.test.cpp
 documentation_of: code/geometry/geometry.cc
