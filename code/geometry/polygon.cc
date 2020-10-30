@@ -4,15 +4,16 @@ bool inTriangle(pt a, pt b, pt c, pt p) {
     abs(-abs(dir(a, b, c)) + abs(dir(a, b, p))
         + abs(dir(a, p, c)) + abs(dir(p, b, c))) < EPS;
 }
+// poly sorted in clockwise direction.
+// returns true if point is on edge of poly.
 bool inPolygon(const vector<pt>& poly, pt p) {
   int l = 1, r = SZ(poly) - 2;
   while (l < r) {
     int mid = (l + r) / 2;
-    if (cw(poly[0], poly[mid], p)) {
+    if (cw(poly[0], poly[mid], p))
       l = mid + 1;
-    } else {
+    else
       r = mid;
-    }
   }
   return inTriangle(poly[0], poly[l], poly[l - 1], p);
 }
