@@ -55,7 +55,7 @@ data:
     - icon: ':warning:'
       path: code/geometry/convexHull.cc
       title: code/geometry/convexHull.cc
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: code/geometry/geometry.cc
       title: code/geometry/geometry.cc
     - icon: ':warning:'
@@ -233,6 +233,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/aoj/brides.brides.test.cpp
       title: tests/aoj/brides.brides.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: tests/aoj/ccw.counter_clockwise.test.cpp
+      title: tests/aoj/ccw.counter_clockwise.test.cpp
     - icon: ':heavy_check_mark:'
       path: tests/aoj/dijkstra.single_source_shortest_path.test.cpp
       title: tests/aoj/dijkstra.single_source_shortest_path.test.cpp
