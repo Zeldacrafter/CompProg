@@ -74,13 +74,13 @@ data:
     \ p[(i + 1) % SZ(p)], p[(i + 2) % SZ(p)]));\n  return convex;\n}\n#line 5 \"tests/aoj/polygon_area.test.cpp\"\
     \n\nint main() {\n  cin.tie(0);\n  ios_base::sync_with_stdio(0);\n\n  int n;\n\
     \  cin >> n;\n  vector<pt> pts(n);\n  F0R(i, n) {\n      int x, y;\n      cin\
-    \ >> x >> y;\n      pts[i] = pt(x, y);\n  }\n  cout << fixed << setprecision(1)\
+    \ >> x >> y;\n      pts[i] = pt(x, y);\n  }\n  cout << fixed << setprecision(6)\
     \ << area(pts) << endl;\n}\n\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_A\"\
     \n#define ERROR -1e6\n\n#include \"../../code/geometry/polygon.cc\"\n\nint main()\
     \ {\n  cin.tie(0);\n  ios_base::sync_with_stdio(0);\n\n  int n;\n  cin >> n;\n\
     \  vector<pt> pts(n);\n  F0R(i, n) {\n      int x, y;\n      cin >> x >> y;\n\
-    \      pts[i] = pt(x, y);\n  }\n  cout << fixed << setprecision(1) << area(pts)\
+    \      pts[i] = pt(x, y);\n  }\n  cout << fixed << setprecision(6) << area(pts)\
     \ << endl;\n}\n\n"
   dependsOn:
   - code/geometry/polygon.cc
@@ -89,7 +89,7 @@ data:
   isVerificationFile: true
   path: tests/aoj/polygon_area.test.cpp
   requiredBy: []
-  timestamp: '2020-10-30 09:49:43+01:00'
+  timestamp: '2020-10-30 09:53:33+01:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: tests/aoj/polygon_area.test.cpp
