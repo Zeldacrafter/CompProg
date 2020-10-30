@@ -7,6 +7,7 @@ vector<pt> convexHull(vector<pt>& pts) {
   vector<pt> up, down;
   up.eb(pts[0]); down.eb(pts[0]);
   FOR (i, 1, n) {
+    // for colinear poins change ccw->!cw & cw->!ccw
     if (i == n - 1 || ccw(pts[0], pts[n - 1], pts[i])) {
       while (SZ(up) > 1 &&
              ccw(up[SZ(up) - 2], up[SZ(up) - 1], pts[i]))

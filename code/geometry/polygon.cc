@@ -4,10 +4,21 @@ bool inTriangle(pt a, pt b, pt c, pt p) {
     abs(-abs(dir(a, b, c)) + abs(dir(a, b, p))
         + abs(dir(a, p, c)) + abs(dir(p, b, c))) < EPS;
 }
-// poly must be convex and sorted in clockwise direction.
-// poly[0] = poly[SZ(poly) - 1]
+// poly must be sorted in clockwise direction.
 // returns true if point is on edge of poly.
 bool inPolygon(const vector<pt>& poly, pt p) {
+  double sum = 0;
+  F0R(i, SZ(poly)) {
+    double ang = angle(poly[i], poly[(i + 1) % SZ(poly)], p);
+    if(ang > M_PI) ang -= 2*M_PI; // we want angle (-PI, PI] not [0, 2PI)
+    sum += ang;
+  }
+  return abs(abs(sum) - 2*M_PI) < EPS;
+}
+// poly must be sorted in clockwise direction.
+// poly[0] = poly[SZ(poly) - 1]
+// returns true if point is on edge of poly.
+bool inConvexPolygon(const vector<pt>& poly, pt p) {
   int l = 1, r = SZ(poly) - 2;
   while (l < r) {
     int mid = (l + r) / 2;
