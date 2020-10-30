@@ -24,8 +24,10 @@ double area(const vector<pt>& p) {
 }
 bool isConvex(const vector<pt>& p) {
   if (SZ(p) < 3) return false;
-  bool isLeft = ccw(p[0], p[1], p[2]), convex = true;
+  bool isLeft = ccw(p[0], p[1], p[2]) || collinear(p[0], p[1], p[2]),
+      convex = true;
   F0R (i, SZ(p))
-    convex &= isLeft == ccw(p[i], p[(i + 1) % SZ(p)], p[(i + 2) % SZ(p)]);
+    convex &= isLeft == (ccw(p[i], p[(i + 1) % SZ(p)], p[(i + 2) % SZ(p)])
+                     || collinear(p[i], p[(i + 1) % SZ(p)], p[(i + 2) % SZ(p)]));
   return convex;
 }
