@@ -62,22 +62,27 @@ data:
     \ is in segment.\n}\n#line 2 \"code/geometry/polygon.cc\"\nbool inTriangle(pt\
     \ a, pt b, pt c, pt p) {\n  return\n    abs(-abs(dir(a, b, c)) + abs(dir(a, b,\
     \ p))\n        + abs(dir(a, p, c)) + abs(dir(p, b, c))) < EPS;\n}\n// poly must\
-    \ be convex and sorted in clockwise direction.\n// poly[0] = poly[SZ(poly) - 1]\n\
-    // returns true if point is on edge of poly.\nbool inPolygon(const vector<pt>&\
-    \ poly, pt p) {\n  int l = 1, r = SZ(poly) - 2;\n  while (l < r) {\n    int mid\
-    \ = (l + r) / 2;\n    if (cw(poly[0], poly[mid], p))\n      l = mid + 1;\n   \
-    \ else\n      r = mid;\n  }\n  return inTriangle(poly[0], poly[l], poly[l - 1],\
-    \ p);\n}\ndouble area(const vector<pt>& p) {\n  double res = 0.0;\n  F0R (i, SZ(p))\n\
-    \    res += cross(p[i], p[(i + 1) % SZ(p)]);\n  return abs(res) / 2;\n}\nbool\
-    \ isConvex(const vector<pt>& p) {\n  if (SZ(p) < 3) return false;\n  bool isLeft\
-    \ = ccw(p[0], p[1], p[2]) || collinear(p[0], p[1], p[2]),\n      convex = true;\n\
-    \  F0R (i, SZ(p))\n    convex &= isLeft == (ccw(p[i], p[(i + 1) % SZ(p)], p[(i\
-    \ + 2) % SZ(p)])\n                     || collinear(p[i], p[(i + 1) % SZ(p)],\
-    \ p[(i + 2) % SZ(p)]));\n  return convex;\n}\n#line 5 \"tests/aoj/polygon_area.test.cpp\"\
-    \n\nint main() {\n  cin.tie(0);\n  ios_base::sync_with_stdio(0);\n\n  int n;\n\
-    \  cin >> n;\n  vector<pt> pts(n);\n  F0R(i, n) {\n      int x, y;\n      cin\
-    \ >> x >> y;\n      pts[i] = pt(x, y);\n  }\n  cout << fixed << setprecision(6)\
-    \ << area(pts) << endl;\n}\n\n"
+    \ be sorted in clockwise direction.\n// returns true if point is on edge of poly.\n\
+    bool inPolygon(const vector<pt>& poly, pt p) {\n  double sum = 0;\n  F0R(i, SZ(poly))\
+    \ {\n    double ang = angle(poly[i], poly[(i + 1) % SZ(poly)], p);\n    if(ang\
+    \ > M_PI) ang -= 2*M_PI; // we want angle (-PI, PI] not [0, 2PI)\n    sum += ang;\n\
+    \  }\n  return abs(abs(sum) - 2*M_PI) < EPS;\n}\n// poly must be sorted in clockwise\
+    \ direction.\n// poly[0] = poly[SZ(poly) - 1]\n// returns true if point is on\
+    \ edge of poly.\nbool inConvexPolygon(const vector<pt>& poly, pt p) {\n  int l\
+    \ = 1, r = SZ(poly) - 2;\n  while (l < r) {\n    int mid = (l + r) / 2;\n    if\
+    \ (cw(poly[0], poly[mid], p))\n      l = mid + 1;\n    else\n      r = mid;\n\
+    \  }\n  return inTriangle(poly[0], poly[l], poly[l - 1], p);\n}\ndouble area(const\
+    \ vector<pt>& p) {\n  double res = 0.0;\n  F0R (i, SZ(p))\n    res += cross(p[i],\
+    \ p[(i + 1) % SZ(p)]);\n  return abs(res) / 2;\n}\nbool isConvex(const vector<pt>&\
+    \ p) {\n  if (SZ(p) < 3) return false;\n  bool isLeft = ccw(p[0], p[1], p[2])\
+    \ || collinear(p[0], p[1], p[2]),\n      convex = true;\n  F0R (i, SZ(p))\n  \
+    \  convex &= isLeft == (ccw(p[i], p[(i + 1) % SZ(p)], p[(i + 2) % SZ(p)])\n  \
+    \                   || collinear(p[i], p[(i + 1) % SZ(p)], p[(i + 2) % SZ(p)]));\n\
+    \  return convex;\n}\n#line 5 \"tests/aoj/polygon_area.test.cpp\"\n\nint main()\
+    \ {\n  cin.tie(0);\n  ios_base::sync_with_stdio(0);\n\n  int n;\n  cin >> n;\n\
+    \  vector<pt> pts(n);\n  F0R(i, n) {\n      int x, y;\n      cin >> x >> y;\n\
+    \      pts[i] = pt(x, y);\n  }\n  cout << fixed << setprecision(6) << area(pts)\
+    \ << endl;\n}\n\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_A\"\
     \n#define ERROR 1e-6\n\n#include \"../../code/geometry/polygon.cc\"\n\nint main()\
     \ {\n  cin.tie(0);\n  ios_base::sync_with_stdio(0);\n\n  int n;\n  cin >> n;\n\
@@ -91,7 +96,7 @@ data:
   isVerificationFile: true
   path: tests/aoj/polygon_area.test.cpp
   requiredBy: []
-  timestamp: '2020-10-30 10:40:14+01:00'
+  timestamp: '2020-10-30 13:45:04+01:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/aoj/polygon_area.test.cpp

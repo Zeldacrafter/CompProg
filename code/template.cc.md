@@ -244,6 +244,9 @@ data:
     path: tests/aoj/polygon_area.test.cpp
     title: tests/aoj/polygon_area.test.cpp
   - icon: ':heavy_check_mark:'
+    path: tests/aoj/polygon_contains_point.test.cpp
+    title: tests/aoj/polygon_contains_point.test.cpp
+  - icon: ':heavy_check_mark:'
     path: tests/aoj/polygon_convex.test.cpp
     title: tests/aoj/polygon_convex.test.cpp
   - icon: ':heavy_check_mark:'
@@ -511,6 +514,7 @@ data:
   - tests/aoj/bigint.multiplication_bigint_1.test.cpp
   - tests/aoj/dinic.maximum_flow.test.cpp
   - tests/aoj/articulation_points.articulation_points.test.cpp
+  - tests/aoj/polygon_contains_point.test.cpp
   - tests/aoj/extended_euclid.test.cpp
   - tests/aoj/bigint.addition_bigint.test.cpp
   - tests/aoj/tsp.test.cpp

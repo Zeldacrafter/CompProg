@@ -55,30 +55,32 @@ data:
     \ inputs for n < 2\nvector<pt> convexHull(vector<pt>& pts) {\n  int n = SZ(pts);\n\
     \  sort(ALL(pts),\n       [](pt a, pt b) { return mp(a.xx, a.yy) < mp(b.xx, b.yy);\
     \ });\n  vector<pt> up, down;\n  up.eb(pts[0]); down.eb(pts[0]);\n  FOR (i, 1,\
-    \ n) {\n    if (i == n - 1 || ccw(pts[0], pts[n - 1], pts[i])) {\n      while\
-    \ (SZ(up) > 1 &&\n             ccw(up[SZ(up) - 2], up[SZ(up) - 1], pts[i]))\n\
+    \ n) {\n    // for colinear poins change ccw->!cw & cw->!ccw\n    if (i == n -\
+    \ 1 || ccw(pts[0], pts[n - 1], pts[i])) {\n      while (SZ(up) > 1 &&\n      \
+    \       ccw(up[SZ(up) - 2], up[SZ(up) - 1], pts[i]))\n        up.pop_back();\n\
+    \      up.eb(pts[i]);\n    }\n    if (i == n - 1 || cw(pts[0], pts[n - 1], pts[i]))\
+    \ {\n      while (SZ(down) > 1 &&\n             cw(down[SZ(down) - 2], down[SZ(down)\
+    \ - 1], pts[i]))\n        down.pop_back();\n      down.eb(pts[i]);\n    }\n  }\n\
+    \  vector<pt> ans(up);\n  ans.insert(ans.end(), 1 + RALL(down));\n  return ans;\n\
+    }\n"
+  code: "#include \"geometry.cc\"\n// careful with inputs for n < 2\nvector<pt> convexHull(vector<pt>&\
+    \ pts) {\n  int n = SZ(pts);\n  sort(ALL(pts),\n       [](pt a, pt b) { return\
+    \ mp(a.xx, a.yy) < mp(b.xx, b.yy); });\n  vector<pt> up, down;\n  up.eb(pts[0]);\
+    \ down.eb(pts[0]);\n  FOR (i, 1, n) {\n    // for colinear poins change ccw->!cw\
+    \ & cw->!ccw\n    if (i == n - 1 || ccw(pts[0], pts[n - 1], pts[i])) {\n     \
+    \ while (SZ(up) > 1 &&\n             ccw(up[SZ(up) - 2], up[SZ(up) - 1], pts[i]))\n\
     \        up.pop_back();\n      up.eb(pts[i]);\n    }\n    if (i == n - 1 || cw(pts[0],\
     \ pts[n - 1], pts[i])) {\n      while (SZ(down) > 1 &&\n             cw(down[SZ(down)\
     \ - 2], down[SZ(down) - 1], pts[i]))\n        down.pop_back();\n      down.eb(pts[i]);\n\
     \    }\n  }\n  vector<pt> ans(up);\n  ans.insert(ans.end(), 1 + RALL(down));\n\
     \  return ans;\n}\n"
-  code: "#include \"geometry.cc\"\n// careful with inputs for n < 2\nvector<pt> convexHull(vector<pt>&\
-    \ pts) {\n  int n = SZ(pts);\n  sort(ALL(pts),\n       [](pt a, pt b) { return\
-    \ mp(a.xx, a.yy) < mp(b.xx, b.yy); });\n  vector<pt> up, down;\n  up.eb(pts[0]);\
-    \ down.eb(pts[0]);\n  FOR (i, 1, n) {\n    if (i == n - 1 || ccw(pts[0], pts[n\
-    \ - 1], pts[i])) {\n      while (SZ(up) > 1 &&\n             ccw(up[SZ(up) - 2],\
-    \ up[SZ(up) - 1], pts[i]))\n        up.pop_back();\n      up.eb(pts[i]);\n   \
-    \ }\n    if (i == n - 1 || cw(pts[0], pts[n - 1], pts[i])) {\n      while (SZ(down)\
-    \ > 1 &&\n             cw(down[SZ(down) - 2], down[SZ(down) - 1], pts[i]))\n \
-    \       down.pop_back();\n      down.eb(pts[i]);\n    }\n  }\n  vector<pt> ans(up);\n\
-    \  ans.insert(ans.end(), 1 + RALL(down));\n  return ans;\n}\n"
   dependsOn:
   - code/geometry/geometry.cc
   - code/template.cc
   isVerificationFile: false
   path: code/geometry/convexHull.cc
   requiredBy: []
-  timestamp: '2020-10-28 19:21:59+01:00'
+  timestamp: '2020-10-30 13:45:04+01:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: code/geometry/convexHull.cc

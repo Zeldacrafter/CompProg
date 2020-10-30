@@ -19,6 +19,9 @@ data:
     path: tests/aoj/polygon_area.test.cpp
     title: tests/aoj/polygon_area.test.cpp
   - icon: ':heavy_check_mark:'
+    path: tests/aoj/polygon_contains_point.test.cpp
+    title: tests/aoj/polygon_contains_point.test.cpp
+  - icon: ':heavy_check_mark:'
     path: tests/aoj/polygon_convex.test.cpp
     title: tests/aoj/polygon_convex.test.cpp
   _pathExtension: cc
@@ -103,6 +106,7 @@ data:
   verifiedWith:
   - tests/aoj/polygon_convex.test.cpp
   - tests/aoj/ccw.counter_clockwise.test.cpp
+  - tests/aoj/polygon_contains_point.test.cpp
   - tests/aoj/polygon_area.test.cpp
 documentation_of: code/geometry/geometry.cc
 layout: document
