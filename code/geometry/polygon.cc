@@ -4,7 +4,7 @@ bool inTriangle(pt a, pt b, pt c, pt p) {
     abs(-abs(dir(a, b, c)) + abs(dir(a, b, p))
         + abs(dir(a, p, c)) + abs(dir(p, b, c))) < EPS;
 }
-// poly sorted in clockwise direction.
+// poly must be convex and sorted in clockwise direction.
 // poly[0] = poly[SZ(poly) - 1]
 // returns true if point is on edge of poly.
 bool inPolygon(const vector<pt>& poly, pt p) {
