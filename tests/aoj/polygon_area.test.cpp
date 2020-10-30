@@ -15,6 +15,6 @@ int main() {
       cin >> x >> y;
       pts[i] = pt(x, y);
   }
-  cout << fixed << setprecision(1) << area(pts) << endl;
+  cout << fixed << setprecision(6) << area(pts) << endl;
 }
 
