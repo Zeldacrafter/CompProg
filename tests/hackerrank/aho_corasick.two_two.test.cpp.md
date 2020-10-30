@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: code/strings/AHC.cc
     title: code/strings/AHC.cc
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: code/template.cc
     title: code/template.cc
   - icon: ':heavy_check_mark:'

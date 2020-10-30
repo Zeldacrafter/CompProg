@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: code/template.cc
     title: code/template.cc
   _extendedRequiredBy:
   - icon: ':warning:'
     path: code/geometry/convexHull.cc
     title: code/geometry/convexHull.cc
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: code/geometry/polygon.cc
     title: code/geometry/polygon.cc
   _extendedVerifiedWith:
@@ -18,14 +18,11 @@ data:
   - icon: ':heavy_check_mark:'
     path: tests/aoj/polygon_area.test.cpp
     title: tests/aoj/polygon_area.test.cpp
-  - icon: ':x:'
-    path: tests/aoj/polygon_contains_point.test.cpp
-    title: tests/aoj/polygon_contains_point.test.cpp
   - icon: ':heavy_check_mark:'
     path: tests/aoj/polygon_convex.test.cpp
     title: tests/aoj/polygon_convex.test.cpp
   _pathExtension: cc
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"code/template.cc\"\n// this line is here for a reason\n\
@@ -102,11 +99,10 @@ data:
   - code/geometry/convexHull.cc
   - code/geometry/polygon.cc
   timestamp: '2020-10-28 19:21:59+01:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/polygon_convex.test.cpp
   - tests/aoj/ccw.counter_clockwise.test.cpp
-  - tests/aoj/polygon_contains_point.test.cpp
   - tests/aoj/polygon_area.test.cpp
 documentation_of: code/geometry/geometry.cc
 layout: document

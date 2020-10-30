@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: code/geometry/geometry.cc
     title: code/geometry/geometry.cc
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: code/template.cc
     title: code/template.cc
   _extendedRequiredBy: []
@@ -12,14 +12,11 @@ data:
   - icon: ':heavy_check_mark:'
     path: tests/aoj/polygon_area.test.cpp
     title: tests/aoj/polygon_area.test.cpp
-  - icon: ':x:'
-    path: tests/aoj/polygon_contains_point.test.cpp
-    title: tests/aoj/polygon_contains_point.test.cpp
   - icon: ':heavy_check_mark:'
     path: tests/aoj/polygon_convex.test.cpp
     title: tests/aoj/polygon_convex.test.cpp
   _pathExtension: cc
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"code/template.cc\"\n// this line is here for a reason\n\
@@ -62,44 +59,44 @@ data:
     \ abs(p - b);  // b is closest\n  }\n  return abs(p - a - ab * u);      // closest\
     \ is in segment.\n}\n#line 2 \"code/geometry/polygon.cc\"\nbool inTriangle(pt\
     \ a, pt b, pt c, pt p) {\n  return\n    abs(-abs(dir(a, b, c)) + abs(dir(a, b,\
-    \ p))\n        + abs(dir(a, p, c)) + abs(dir(p, b, c))) < EPS;\n}\n// poly sorted\
-    \ in clockwise direction.\n// poly[0] = poly[SZ(poly) - 1]\n// returns true if\
-    \ point is on edge of poly.\nbool inPolygon(const vector<pt>& poly, pt p) {\n\
-    \  int l = 1, r = SZ(poly) - 2;\n  while (l < r) {\n    int mid = (l + r) / 2;\n\
-    \    if (cw(poly[0], poly[mid], p))\n      l = mid + 1;\n    else\n      r = mid;\n\
-    \  }\n  return inTriangle(poly[0], poly[l], poly[l - 1], p);\n}\ndouble area(const\
-    \ vector<pt>& p) {\n  double res = 0.0;\n  F0R (i, SZ(p))\n    res += cross(p[i],\
-    \ p[(i + 1) % SZ(p)]);\n  return abs(res) / 2;\n}\nbool isConvex(const vector<pt>&\
-    \ p) {\n  if (SZ(p) < 3) return false;\n  bool isLeft = ccw(p[0], p[1], p[2])\
-    \ || collinear(p[0], p[1], p[2]),\n      convex = true;\n  F0R (i, SZ(p))\n  \
-    \  convex &= isLeft == (ccw(p[i], p[(i + 1) % SZ(p)], p[(i + 2) % SZ(p)])\n  \
-    \                   || collinear(p[i], p[(i + 1) % SZ(p)], p[(i + 2) % SZ(p)]));\n\
-    \  return convex;\n}\n"
+    \ p))\n        + abs(dir(a, p, c)) + abs(dir(p, b, c))) < EPS;\n}\n// poly must\
+    \ be convex and sorted in clockwise direction.\n// poly[0] = poly[SZ(poly) - 1]\n\
+    // returns true if point is on edge of poly.\nbool inPolygon(const vector<pt>&\
+    \ poly, pt p) {\n  int l = 1, r = SZ(poly) - 2;\n  while (l < r) {\n    int mid\
+    \ = (l + r) / 2;\n    if (cw(poly[0], poly[mid], p))\n      l = mid + 1;\n   \
+    \ else\n      r = mid;\n  }\n  return inTriangle(poly[0], poly[l], poly[l - 1],\
+    \ p);\n}\ndouble area(const vector<pt>& p) {\n  double res = 0.0;\n  F0R (i, SZ(p))\n\
+    \    res += cross(p[i], p[(i + 1) % SZ(p)]);\n  return abs(res) / 2;\n}\nbool\
+    \ isConvex(const vector<pt>& p) {\n  if (SZ(p) < 3) return false;\n  bool isLeft\
+    \ = ccw(p[0], p[1], p[2]) || collinear(p[0], p[1], p[2]),\n      convex = true;\n\
+    \  F0R (i, SZ(p))\n    convex &= isLeft == (ccw(p[i], p[(i + 1) % SZ(p)], p[(i\
+    \ + 2) % SZ(p)])\n                     || collinear(p[i], p[(i + 1) % SZ(p)],\
+    \ p[(i + 2) % SZ(p)]));\n  return convex;\n}\n"
   code: "#include \"geometry.cc\"\nbool inTriangle(pt a, pt b, pt c, pt p) {\n  return\n\
     \    abs(-abs(dir(a, b, c)) + abs(dir(a, b, p))\n        + abs(dir(a, p, c)) +\
-    \ abs(dir(p, b, c))) < EPS;\n}\n// poly sorted in clockwise direction.\n// poly[0]\
-    \ = poly[SZ(poly) - 1]\n// returns true if point is on edge of poly.\nbool inPolygon(const\
-    \ vector<pt>& poly, pt p) {\n  int l = 1, r = SZ(poly) - 2;\n  while (l < r) {\n\
-    \    int mid = (l + r) / 2;\n    if (cw(poly[0], poly[mid], p))\n      l = mid\
-    \ + 1;\n    else\n      r = mid;\n  }\n  return inTriangle(poly[0], poly[l], poly[l\
-    \ - 1], p);\n}\ndouble area(const vector<pt>& p) {\n  double res = 0.0;\n  F0R\
-    \ (i, SZ(p))\n    res += cross(p[i], p[(i + 1) % SZ(p)]);\n  return abs(res) /\
-    \ 2;\n}\nbool isConvex(const vector<pt>& p) {\n  if (SZ(p) < 3) return false;\n\
-    \  bool isLeft = ccw(p[0], p[1], p[2]) || collinear(p[0], p[1], p[2]),\n     \
-    \ convex = true;\n  F0R (i, SZ(p))\n    convex &= isLeft == (ccw(p[i], p[(i +\
-    \ 1) % SZ(p)], p[(i + 2) % SZ(p)])\n                     || collinear(p[i], p[(i\
-    \ + 1) % SZ(p)], p[(i + 2) % SZ(p)]));\n  return convex;\n}\n"
+    \ abs(dir(p, b, c))) < EPS;\n}\n// poly must be convex and sorted in clockwise\
+    \ direction.\n// poly[0] = poly[SZ(poly) - 1]\n// returns true if point is on\
+    \ edge of poly.\nbool inPolygon(const vector<pt>& poly, pt p) {\n  int l = 1,\
+    \ r = SZ(poly) - 2;\n  while (l < r) {\n    int mid = (l + r) / 2;\n    if (cw(poly[0],\
+    \ poly[mid], p))\n      l = mid + 1;\n    else\n      r = mid;\n  }\n  return\
+    \ inTriangle(poly[0], poly[l], poly[l - 1], p);\n}\ndouble area(const vector<pt>&\
+    \ p) {\n  double res = 0.0;\n  F0R (i, SZ(p))\n    res += cross(p[i], p[(i + 1)\
+    \ % SZ(p)]);\n  return abs(res) / 2;\n}\nbool isConvex(const vector<pt>& p) {\n\
+    \  if (SZ(p) < 3) return false;\n  bool isLeft = ccw(p[0], p[1], p[2]) || collinear(p[0],\
+    \ p[1], p[2]),\n      convex = true;\n  F0R (i, SZ(p))\n    convex &= isLeft ==\
+    \ (ccw(p[i], p[(i + 1) % SZ(p)], p[(i + 2) % SZ(p)])\n                     ||\
+    \ collinear(p[i], p[(i + 1) % SZ(p)], p[(i + 2) % SZ(p)]));\n  return convex;\n\
+    }\n"
   dependsOn:
   - code/geometry/geometry.cc
   - code/template.cc
   isVerificationFile: false
   path: code/geometry/polygon.cc
   requiredBy: []
-  timestamp: '2020-10-30 10:30:36+01:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2020-10-30 10:40:14+01:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/polygon_convex.test.cpp
-  - tests/aoj/polygon_contains_point.test.cpp
   - tests/aoj/polygon_area.test.cpp
 documentation_of: code/geometry/polygon.cc
 layout: document

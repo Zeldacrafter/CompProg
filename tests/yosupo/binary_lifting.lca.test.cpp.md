@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: code/graphs/LCABL.cc
     title: code/graphs/LCABL.cc
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: code/template.cc
     title: code/template.cc
   _extendedRequiredBy: []

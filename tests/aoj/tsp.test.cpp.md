@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: code/dynamicProgramming/tsp.cc
     title: code/dynamicProgramming/tsp.cc
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: code/template.cc
     title: code/template.cc
   _extendedRequiredBy: []
