@@ -4,7 +4,7 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: py
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
     IGNORE: ''
     links: []
@@ -30,16 +30,16 @@ data:
     \ + '\\n')\n        f.close()\n    i += 1\n\np.stdin.write('q'.encode())\np.stdin.flush()\n\
     p.wait();\n\nprint(\"100/100\")\n"
   dependsOn: []
-  isVerificationFile: false
-  path: tests/bigint_stresstest.py
+  isVerificationFile: true
+  path: tests/bigint_stresstest.test.py
   requiredBy: []
   timestamp: '1970-01-01 00:00:00+00:00'
-  verificationStatus: LIBRARY_NO_TESTS
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: tests/bigint_stresstest.py
+documentation_of: tests/bigint_stresstest.test.py
 layout: document
 redirect_from:
-- /library/tests/bigint_stresstest.py
-- /library/tests/bigint_stresstest.py.html
-title: tests/bigint_stresstest.py
+- /verify/tests/bigint_stresstest.test.py
+- /verify/tests/bigint_stresstest.test.py.html
+title: tests/bigint_stresstest.test.py
 ---

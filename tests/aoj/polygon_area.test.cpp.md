@@ -1,27 +1,27 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: code/geometry/geometry.cc
     title: code/geometry/geometry.cc
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: code/geometry/polygon.cc
     title: code/geometry/polygon.cc
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: code/template.cc
     title: code/template.cc
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    ERROR: -1e6
+    ERROR: '0.000001'
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_A
     links:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_A
   bundledCode: "#line 1 \"tests/aoj/polygon_area.test.cpp\"\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_A\"\
-    \n#define ERROR \"-1e6\"\n\n#line 1 \"code/template.cc\"\n// this line is here\
+    \n#define ERROR 0.000001\n\n#line 1 \"code/template.cc\"\n// this line is here\
     \ for a reason\n#include <bits/stdc++.h>\nusing namespace std;\ntypedef long long\
     \ ll;\ntypedef pair<int, int> ii;\ntypedef vector<int> vi;\ntypedef vector<ii>\
     \ vii;\ntypedef vector<vi> vvi;\ntypedef vector<vii> vvii;\n#define fi first\n\
@@ -77,7 +77,7 @@ data:
     \ >> x >> y;\n      pts[i] = pt(x, y);\n  }\n  cout << fixed << setprecision(6)\
     \ << area(pts) << endl;\n}\n\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_A\"\
-    \n#define ERROR \"-1e6\"\n\n#include \"../../code/geometry/polygon.cc\"\n\nint\
+    \n#define ERROR 0.000001\n\n#include \"../../code/geometry/polygon.cc\"\n\nint\
     \ main() {\n  cin.tie(0);\n  ios_base::sync_with_stdio(0);\n\n  int n;\n  cin\
     \ >> n;\n  vector<pt> pts(n);\n  F0R(i, n) {\n      int x, y;\n      cin >> x\
     \ >> y;\n      pts[i] = pt(x, y);\n  }\n  cout << fixed << setprecision(6) <<\
@@ -90,7 +90,7 @@ data:
   path: tests/aoj/polygon_area.test.cpp
   requiredBy: []
   timestamp: '2020-10-30 09:58:15+01:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/aoj/polygon_area.test.cpp
 layout: document

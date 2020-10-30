@@ -55,13 +55,13 @@ data:
     - icon: ':warning:'
       path: code/geometry/convexHull.cc
       title: code/geometry/convexHull.cc
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: code/geometry/geometry.cc
       title: code/geometry/geometry.cc
     - icon: ':warning:'
       path: code/geometry/picksTheorem.cc
       title: code/geometry/picksTheorem.cc
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: code/geometry/polygon.cc
       title: code/geometry/polygon.cc
   - name: code/graphs
@@ -159,7 +159,7 @@ data:
       title: code/strings/trie.cc
   - name: code
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: code/template.cc
       title: code/template.cc
     - icon: ':warning:'
@@ -203,11 +203,6 @@ data:
     - icon: ':warning:'
       path: code/utils/y_combinator.cc
       title: code/utils/y_combinator.cc
-  - name: tests
-    pages:
-    - icon: ':warning:'
-      path: tests/bigint_stresstest.py
-      title: tests/bigint_stresstest.py
   verificationCategories:
   - name: tests/aoj
     pages:
@@ -271,7 +266,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/aoj/lis.longest_increasing_subsequence.test.cpp
       title: tests/aoj/lis.longest_increasing_subsequence.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: tests/aoj/polygon_area.test.cpp
       title: tests/aoj/polygon_area.test.cpp
     - icon: ':heavy_check_mark:'
@@ -286,6 +281,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/aoj/tsp.test.cpp
       title: tests/aoj/tsp.test.cpp
+  - name: tests
+    pages:
+    - icon: ':x:'
+      path: tests/bigint_stresstest.test.py
+      title: tests/bigint_stresstest.test.py
   - name: tests/hackerrank
     pages:
     - icon: ':heavy_check_mark:'

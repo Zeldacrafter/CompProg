@@ -50,13 +50,13 @@ data:
   - icon: ':warning:'
     path: code/geometry/convexHull.cc
     title: code/geometry/convexHull.cc
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: code/geometry/geometry.cc
     title: code/geometry/geometry.cc
   - icon: ':warning:'
     path: code/geometry/picksTheorem.cc
     title: code/geometry/picksTheorem.cc
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: code/geometry/polygon.cc
     title: code/geometry/polygon.cc
   - icon: ':heavy_check_mark:'
@@ -240,7 +240,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: tests/aoj/lis.longest_increasing_subsequence.test.cpp
     title: tests/aoj/lis.longest_increasing_subsequence.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: tests/aoj/polygon_area.test.cpp
     title: tests/aoj/polygon_area.test.cpp
   - icon: ':heavy_check_mark:'
@@ -310,7 +310,7 @@ data:
     path: tests/yosupo/unionfind.test.cpp
     title: tests/yosupo/unionfind.test.cpp
   _pathExtension: cc
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: '#line 1 "code/template.cc"
@@ -501,7 +501,7 @@ data:
   - code/dynamicProgramming/lis.cc
   - code/dynamicProgramming/lcs.cc
   timestamp: '2020-10-28 19:21:59+01:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/totoid.eulers_phi_function.test.cpp
   - tests/aoj/bellman_ford.single_source_shortest_path_negative_edges.test.cpp
