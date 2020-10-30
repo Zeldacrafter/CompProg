@@ -1,5 +1,5 @@
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_A"
-#define ERROR -1e6
+#define ERROR 0.000001
 
 #include "../../code/geometry/polygon.cc"
 

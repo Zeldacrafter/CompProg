@@ -1,3 +1,4 @@
+# verification-helper: IGNORE
 import random
 import subprocess
 
