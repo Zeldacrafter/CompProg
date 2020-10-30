@@ -63,38 +63,39 @@ data:
     \ is in segment.\n}\n#line 2 \"code/geometry/polygon.cc\"\nbool inTriangle(pt\
     \ a, pt b, pt c, pt p) {\n  return\n    abs(-abs(dir(a, b, c)) + abs(dir(a, b,\
     \ p))\n        + abs(dir(a, p, c)) + abs(dir(p, b, c))) < EPS;\n}\n// poly sorted\
-    \ in clockwise direction.\n// returns true if point is on edge of poly.\nbool\
-    \ inPolygon(const vector<pt>& poly, pt p) {\n  int l = 1, r = SZ(poly) - 2;\n\
-    \  while (l < r) {\n    int mid = (l + r) / 2;\n    if (cw(poly[0], poly[mid],\
-    \ p))\n      l = mid + 1;\n    else\n      r = mid;\n  }\n  return inTriangle(poly[0],\
-    \ poly[l], poly[l - 1], p);\n}\ndouble area(const vector<pt>& p) {\n  double res\
-    \ = 0.0;\n  F0R (i, SZ(p))\n    res += cross(p[i], p[(i + 1) % SZ(p)]);\n  return\
-    \ abs(res) / 2;\n}\nbool isConvex(const vector<pt>& p) {\n  if (SZ(p) < 3) return\
-    \ false;\n  bool isLeft = ccw(p[0], p[1], p[2]) || collinear(p[0], p[1], p[2]),\n\
-    \      convex = true;\n  F0R (i, SZ(p))\n    convex &= isLeft == (ccw(p[i], p[(i\
-    \ + 1) % SZ(p)], p[(i + 2) % SZ(p)])\n                     || collinear(p[i],\
-    \ p[(i + 1) % SZ(p)], p[(i + 2) % SZ(p)]));\n  return convex;\n}\n"
+    \ in clockwise direction.\n// poly[0] = poly[SZ(poly) - 1]\n// returns true if\
+    \ point is on edge of poly.\nbool inPolygon(const vector<pt>& poly, pt p) {\n\
+    \  int l = 1, r = SZ(poly) - 2;\n  while (l < r) {\n    int mid = (l + r) / 2;\n\
+    \    if (cw(poly[0], poly[mid], p))\n      l = mid + 1;\n    else\n      r = mid;\n\
+    \  }\n  return inTriangle(poly[0], poly[l], poly[l - 1], p);\n}\ndouble area(const\
+    \ vector<pt>& p) {\n  double res = 0.0;\n  F0R (i, SZ(p))\n    res += cross(p[i],\
+    \ p[(i + 1) % SZ(p)]);\n  return abs(res) / 2;\n}\nbool isConvex(const vector<pt>&\
+    \ p) {\n  if (SZ(p) < 3) return false;\n  bool isLeft = ccw(p[0], p[1], p[2])\
+    \ || collinear(p[0], p[1], p[2]),\n      convex = true;\n  F0R (i, SZ(p))\n  \
+    \  convex &= isLeft == (ccw(p[i], p[(i + 1) % SZ(p)], p[(i + 2) % SZ(p)])\n  \
+    \                   || collinear(p[i], p[(i + 1) % SZ(p)], p[(i + 2) % SZ(p)]));\n\
+    \  return convex;\n}\n"
   code: "#include \"geometry.cc\"\nbool inTriangle(pt a, pt b, pt c, pt p) {\n  return\n\
     \    abs(-abs(dir(a, b, c)) + abs(dir(a, b, p))\n        + abs(dir(a, p, c)) +\
-    \ abs(dir(p, b, c))) < EPS;\n}\n// poly sorted in clockwise direction.\n// returns\
-    \ true if point is on edge of poly.\nbool inPolygon(const vector<pt>& poly, pt\
-    \ p) {\n  int l = 1, r = SZ(poly) - 2;\n  while (l < r) {\n    int mid = (l +\
-    \ r) / 2;\n    if (cw(poly[0], poly[mid], p))\n      l = mid + 1;\n    else\n\
-    \      r = mid;\n  }\n  return inTriangle(poly[0], poly[l], poly[l - 1], p);\n\
-    }\ndouble area(const vector<pt>& p) {\n  double res = 0.0;\n  F0R (i, SZ(p))\n\
-    \    res += cross(p[i], p[(i + 1) % SZ(p)]);\n  return abs(res) / 2;\n}\nbool\
-    \ isConvex(const vector<pt>& p) {\n  if (SZ(p) < 3) return false;\n  bool isLeft\
-    \ = ccw(p[0], p[1], p[2]) || collinear(p[0], p[1], p[2]),\n      convex = true;\n\
-    \  F0R (i, SZ(p))\n    convex &= isLeft == (ccw(p[i], p[(i + 1) % SZ(p)], p[(i\
-    \ + 2) % SZ(p)])\n                     || collinear(p[i], p[(i + 1) % SZ(p)],\
-    \ p[(i + 2) % SZ(p)]));\n  return convex;\n}\n"
+    \ abs(dir(p, b, c))) < EPS;\n}\n// poly sorted in clockwise direction.\n// poly[0]\
+    \ = poly[SZ(poly) - 1]\n// returns true if point is on edge of poly.\nbool inPolygon(const\
+    \ vector<pt>& poly, pt p) {\n  int l = 1, r = SZ(poly) - 2;\n  while (l < r) {\n\
+    \    int mid = (l + r) / 2;\n    if (cw(poly[0], poly[mid], p))\n      l = mid\
+    \ + 1;\n    else\n      r = mid;\n  }\n  return inTriangle(poly[0], poly[l], poly[l\
+    \ - 1], p);\n}\ndouble area(const vector<pt>& p) {\n  double res = 0.0;\n  F0R\
+    \ (i, SZ(p))\n    res += cross(p[i], p[(i + 1) % SZ(p)]);\n  return abs(res) /\
+    \ 2;\n}\nbool isConvex(const vector<pt>& p) {\n  if (SZ(p) < 3) return false;\n\
+    \  bool isLeft = ccw(p[0], p[1], p[2]) || collinear(p[0], p[1], p[2]),\n     \
+    \ convex = true;\n  F0R (i, SZ(p))\n    convex &= isLeft == (ccw(p[i], p[(i +\
+    \ 1) % SZ(p)], p[(i + 2) % SZ(p)])\n                     || collinear(p[i], p[(i\
+    \ + 1) % SZ(p)], p[(i + 2) % SZ(p)]));\n  return convex;\n}\n"
   dependsOn:
   - code/geometry/geometry.cc
   - code/template.cc
   isVerificationFile: false
   path: code/geometry/polygon.cc
   requiredBy: []
-  timestamp: '2020-10-30 10:23:31+01:00'
+  timestamp: '2020-10-30 10:30:36+01:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - tests/aoj/polygon_convex.test.cpp
