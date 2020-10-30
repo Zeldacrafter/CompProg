@@ -75,23 +75,22 @@ data:
     \ p[(i + 2) % SZ(p)]));\n  return convex;\n}\n#line 4 \"tests/aoj/polygon_contains_point.test.cpp\"\
     \n\nint main() {\n  cin.tie(0);\n  ios_base::sync_with_stdio(0);\n\n  int n;\n\
     \  cin >> n;\n  vector<pt> pts(n);\n  F0R(i, n) {\n      int x, y;\n      cin\
-    \ >> x >> y;\n      pts[i] = pt(x, y);\n  }\n\n  pts.pb(pts[0]);\n  reverse(ALL(pts));\n\
-    \n  int q;\n  cin >> q;\n  while(q--) {\n      int x, y;\n      cin >> x >> y;\n\
-    \      pt p(x, y);\n\n      bool onSegment = false;\n      F0R(i, SZ(pts))\n \
-    \       onSegment |= distToLine(p, pts[i], pts[(i + 1) % SZ(pts)], true) < EPS;\n\
-    \n      if(onSegment)\n        cout << 1 << endl;\n      else if(inPolygon(pts,\
-    \ p))\n        cout << 2 << endl;\n      else \n        cout << 0 << endl;\n \
-    \ }\n}\n\n\n"
+    \ >> x >> y;\n      pts[i] = pt(x, y);\n  }\n\n  reverse(ALL(pts));\n\n  int q;\n\
+    \  cin >> q;\n  while(q--) {\n      int x, y;\n      cin >> x >> y;\n      pt\
+    \ p(x, y);\n\n      bool onSegment = false;\n      F0R(i, SZ(pts))\n        onSegment\
+    \ |= distToLine(p, pts[i], pts[(i + 1) % SZ(pts)], true) < EPS;\n\n      if(onSegment)\n\
+    \        cout << 1 << endl;\n      else if(inPolygon(pts, p))\n        cout <<\
+    \ 2 << endl;\n      else \n        cout << 0 << endl;\n  }\n}\n\n\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_C\"\
     \n\n#include \"../../code/geometry/polygon.cc\"\n\nint main() {\n  cin.tie(0);\n\
     \  ios_base::sync_with_stdio(0);\n\n  int n;\n  cin >> n;\n  vector<pt> pts(n);\n\
     \  F0R(i, n) {\n      int x, y;\n      cin >> x >> y;\n      pts[i] = pt(x, y);\n\
-    \  }\n\n  pts.pb(pts[0]);\n  reverse(ALL(pts));\n\n  int q;\n  cin >> q;\n  while(q--)\
-    \ {\n      int x, y;\n      cin >> x >> y;\n      pt p(x, y);\n\n      bool onSegment\
-    \ = false;\n      F0R(i, SZ(pts))\n        onSegment |= distToLine(p, pts[i],\
-    \ pts[(i + 1) % SZ(pts)], true) < EPS;\n\n      if(onSegment)\n        cout <<\
-    \ 1 << endl;\n      else if(inPolygon(pts, p))\n        cout << 2 << endl;\n \
-    \     else \n        cout << 0 << endl;\n  }\n}\n\n\n"
+    \  }\n\n  reverse(ALL(pts));\n\n  int q;\n  cin >> q;\n  while(q--) {\n      int\
+    \ x, y;\n      cin >> x >> y;\n      pt p(x, y);\n\n      bool onSegment = false;\n\
+    \      F0R(i, SZ(pts))\n        onSegment |= distToLine(p, pts[i], pts[(i + 1)\
+    \ % SZ(pts)], true) < EPS;\n\n      if(onSegment)\n        cout << 1 << endl;\n\
+    \      else if(inPolygon(pts, p))\n        cout << 2 << endl;\n      else \n \
+    \       cout << 0 << endl;\n  }\n}\n\n\n"
   dependsOn:
   - code/geometry/polygon.cc
   - code/geometry/geometry.cc
