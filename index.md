@@ -195,9 +195,6 @@ data:
       path: code/utils/random.cc
       title: code/utils/random.cc
     - icon: ':warning:'
-      path: code/utils/stresstest.py
-      title: code/utils/stresstest.py
-    - icon: ':warning:'
       path: code/utils/stresstestbigint.cc
       title: code/utils/stresstestbigint.cc
     - icon: ':warning:'
@@ -206,6 +203,11 @@ data:
     - icon: ':warning:'
       path: code/utils/y_combinator.cc
       title: code/utils/y_combinator.cc
+  - name: tests
+    pages:
+    - icon: ':warning:'
+      path: tests/bigint_stresstest.py
+      title: tests/bigint_stresstest.py
   verificationCategories:
   - name: tests/aoj
     pages:
