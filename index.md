@@ -55,13 +55,13 @@ data:
     - icon: ':warning:'
       path: code/geometry/convexHull.cc
       title: code/geometry/convexHull.cc
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: code/geometry/geometry.cc
       title: code/geometry/geometry.cc
     - icon: ':warning:'
       path: code/geometry/picksTheorem.cc
       title: code/geometry/picksTheorem.cc
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: code/geometry/polygon.cc
       title: code/geometry/polygon.cc
   - name: code/graphs
@@ -159,7 +159,7 @@ data:
       title: code/strings/trie.cc
   - name: code
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: code/template.cc
       title: code/template.cc
     - icon: ':warning:'
@@ -269,6 +269,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/aoj/polygon_area.test.cpp
       title: tests/aoj/polygon_area.test.cpp
+    - icon: ':x:'
+      path: tests/aoj/polygon_contains_point.test.cpp
+      title: tests/aoj/polygon_contains_point.test.cpp
     - icon: ':heavy_check_mark:'
       path: tests/aoj/polygon_convex.test.cpp
       title: tests/aoj/polygon_convex.test.cpp

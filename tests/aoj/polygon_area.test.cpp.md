@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: code/geometry/geometry.cc
     title: code/geometry/geometry.cc
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: code/geometry/polygon.cc
     title: code/geometry/polygon.cc
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: code/template.cc
     title: code/template.cc
   _extendedRequiredBy: []
@@ -16,13 +16,13 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    ERROR: '0.000001'
+    ERROR: 1e-6
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_A
     links:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_A
   bundledCode: "#line 1 \"tests/aoj/polygon_area.test.cpp\"\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_A\"\
-    \n#define ERROR 0.000001\n\n#line 1 \"code/template.cc\"\n// this line is here\
-    \ for a reason\n#include <bits/stdc++.h>\nusing namespace std;\ntypedef long long\
+    \n#define ERROR 1e-6\n\n#line 1 \"code/template.cc\"\n// this line is here for\
+    \ a reason\n#include <bits/stdc++.h>\nusing namespace std;\ntypedef long long\
     \ ll;\ntypedef pair<int, int> ii;\ntypedef vector<int> vi;\ntypedef vector<ii>\
     \ vii;\ntypedef vector<vi> vvi;\ntypedef vector<vii> vvii;\n#define fi first\n\
     #define se second\n#define eb emplace_back\n#define pb push_back\n#define mp make_pair\n\
@@ -61,10 +61,11 @@ data:
     \ abs(p - b);  // b is closest\n  }\n  return abs(p - a - ab * u);      // closest\
     \ is in segment.\n}\n#line 2 \"code/geometry/polygon.cc\"\nbool inTriangle(pt\
     \ a, pt b, pt c, pt p) {\n  return\n    abs(-abs(dir(a, b, c)) + abs(dir(a, b,\
-    \ p))\n        + abs(dir(a, p, c)) + abs(dir(p, b, c))) < EPS;\n}\nbool inPolygon(const\
-    \ vector<pt>& poly, pt p) {\n  int l = 1, r = SZ(poly) - 2;\n  while (l < r) {\n\
-    \    int mid = (l + r) / 2;\n    if (cw(poly[0], poly[mid], p)) {\n      l = mid\
-    \ + 1;\n    } else {\n      r = mid;\n    }\n  }\n  return inTriangle(poly[0],\
+    \ p))\n        + abs(dir(a, p, c)) + abs(dir(p, b, c))) < EPS;\n}\n// poly sorted\
+    \ in clockwise direction.\n// returns true if point is on edge of poly.\nbool\
+    \ inPolygon(const vector<pt>& poly, pt p) {\n  int l = 1, r = SZ(poly) - 2;\n\
+    \  while (l < r) {\n    int mid = (l + r) / 2;\n    if (cw(poly[0], poly[mid],\
+    \ p))\n      l = mid + 1;\n    else\n      r = mid;\n  }\n  return inTriangle(poly[0],\
     \ poly[l], poly[l - 1], p);\n}\ndouble area(const vector<pt>& p) {\n  double res\
     \ = 0.0;\n  F0R (i, SZ(p))\n    res += cross(p[i], p[(i + 1) % SZ(p)]);\n  return\
     \ abs(res) / 2;\n}\nbool isConvex(const vector<pt>& p) {\n  if (SZ(p) < 3) return\
@@ -77,11 +78,11 @@ data:
     \ >> x >> y;\n      pts[i] = pt(x, y);\n  }\n  cout << fixed << setprecision(6)\
     \ << area(pts) << endl;\n}\n\n"
   code: "#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_A\"\
-    \n#define ERROR 0.000001\n\n#include \"../../code/geometry/polygon.cc\"\n\nint\
-    \ main() {\n  cin.tie(0);\n  ios_base::sync_with_stdio(0);\n\n  int n;\n  cin\
-    \ >> n;\n  vector<pt> pts(n);\n  F0R(i, n) {\n      int x, y;\n      cin >> x\
-    \ >> y;\n      pts[i] = pt(x, y);\n  }\n  cout << fixed << setprecision(6) <<\
-    \ area(pts) << endl;\n}\n\n"
+    \n#define ERROR 1e-6\n\n#include \"../../code/geometry/polygon.cc\"\n\nint main()\
+    \ {\n  cin.tie(0);\n  ios_base::sync_with_stdio(0);\n\n  int n;\n  cin >> n;\n\
+    \  vector<pt> pts(n);\n  F0R(i, n) {\n      int x, y;\n      cin >> x >> y;\n\
+    \      pts[i] = pt(x, y);\n  }\n  cout << fixed << setprecision(6) << area(pts)\
+    \ << endl;\n}\n\n"
   dependsOn:
   - code/geometry/polygon.cc
   - code/geometry/geometry.cc
@@ -89,7 +90,7 @@ data:
   isVerificationFile: true
   path: tests/aoj/polygon_area.test.cpp
   requiredBy: []
-  timestamp: '2020-10-30 09:58:15+01:00'
+  timestamp: '2020-10-30 10:23:31+01:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/aoj/polygon_area.test.cpp
