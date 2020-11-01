@@ -10,8 +10,16 @@
 //   * tuples with any amount of elements 
 //     (Except for 0 elements tuples :'( ) Related: https://xkcd.com/541/
 //   * pairs.
-// * Line seperated and aligned output of 2D vectors.
-// * TODO: pretty printer
+// * PrettyPrinting a object with specified seperators.
+//   Each additional seperator specifies the seperator for one level
+//   further into a nested structure. Pairs, tuples and std-library-container
+//   cause the level to increase.
+//   If no seperator is specified a default of " "(space) is used.
+//   For example a call 
+//      vii a(4, mp(1, 2));
+//      cout << pp(a, " | ", "-");
+//   results in the output (without trailing newline)
+//      1-2 | 1-2 | 1-2 | 1-2
 ///////////////////////////////////////////////////////////////
 
 #include <bits/stdc++.h>
@@ -96,6 +104,12 @@ ostream& operator<<(ostream& o, const tuple<Ts...>& t) {
     return o << ')';
 }
 
+// Special case for 1-tuple to avoid confusing parentheses
+template <typename T>
+ostream& operator<<(ostream& o, const tuple<T>& t) {
+  return o << get<0>(t);
+}
+
 // Output for pairs via above defined tuple output routine.
 template <typename T1, typename T2>
 ostream& operator<<(ostream& o, const pair<T1, T2>& p) {
@@ -170,17 +184,6 @@ operator<<(ostream& o, const PP<T, M>& p) {
   return o;
 }
 
-// Function for PrettyPrinting a object with specified seperators.
-// Each additional seperator specifies the seperator for one level
-// further into a nested structure. Pairs, tuples and std-library-container
-// cause the level to increase.
-// If no seperator is specified a default of " "(space) is used.
-// For example a call 
-//    vector<ii> a(4, mp(1, 2));
-//    cout << pp(a, " | ", "-");
-// results in the output (without trailing newline)
-//    1-2 | 1-2 | 1-2 | 1-2
-//
 // This function is the main way for a user to interface with the PrettyPrinter.
 template <typename T, typename... Ts, size_t N = sizeof...(Ts)>
 PP<T, N> pp(const T& value, Ts... seps) {
