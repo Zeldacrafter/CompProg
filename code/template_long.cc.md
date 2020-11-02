@@ -18,8 +18,13 @@ data:
     // * Output stream that is only active with 'DEBUG'-flag set.\n// * Input and\
     \ output stream operators for...\n//   * any container with 'begin' and 'end'\
     \ iterator.\n//   * tuples with any amount of elements \n//     (Except for 0\
-    \ elements tuples :'( ) Related: https://xkcd.com/541/\n//   * pairs.\n// * Line\
-    \ seperated and aligned output of 2D vectors.\n// * TODO: pretty printer\n///////////////////////////////////////////////////////////////\n\
+    \ elements tuples :'( ) Related: https://xkcd.com/541/\n//   * pairs.\n// * PrettyPrinting\
+    \ a object with specified seperators.\n//   Each additional seperator specifies\
+    \ the seperator for one level\n//   further into a nested structure. Pairs, tuples\
+    \ and std-library-container\n//   cause the level to increase.\n//   If no seperator\
+    \ is specified a default of \" \"(space) is used.\n//   For example a call \n\
+    //      vii a(4, mp(1, 2));\n//      cout << pp(a, \" | \", \"-\");\n//   results\
+    \ in the output (without trailing newline)\n//      1-2 | 1-2 | 1-2 | 1-2\n///////////////////////////////////////////////////////////////\n\
     \n#include <bits/stdc++.h>\nusing namespace std;\ntypedef long long ll;\ntypedef\
     \ pair<int, int> ii;\ntypedef vector<int> vi;\ntypedef vector<ii> vii;\ntypedef\
     \ vector<vi> vvi;\ntypedef vector<vii> vvii;\n#define fi first\n#define se second\n\
@@ -54,13 +59,16 @@ data:
     \ const pair<T1, T2>&);\n\n// Print each tuple element.\ntemplate <typename...\
     \ Ts>\nostream& operator<<(ostream& o, const tuple<Ts...>& t) {\n    o << '(';\n\
     \    for_each(t, [&](auto& x, size_t i) { if(i) o << \", \"; o << x; });\n   \
-    \ return o << ')';\n}\n\n// Output for pairs via above defined tuple output routine.\n\
-    template <typename T1, typename T2>\nostream& operator<<(ostream& o, const pair<T1,\
-    \ T2>& p) {\n  return o << '(' << p.fi << \", \" << p.se << ')';\n}\n\n// Output\
-    \ every element in a container with 'begin' and 'end' iterators.\ntemplate <typename\
-    \ T>\nenable_if_t<IsC<T>::value, ostream&> operator<<(ostream& o, const T& c)\
-    \ {\n  o << '[';\n  for (auto it = c.cbegin(); it != c.cend(); ++it)\n    o <<\
-    \ *it << (next(it) != c.cend() ? \", \" : \"\");\n  return o << ']';\n}\n\n///////////////////////////////////////////////////////////////\n\
+    \ return o << ')';\n}\n\n// Special case for 1-tuple to avoid confusing parentheses\n\
+    template <typename T>\nostream& operator<<(ostream& o, const tuple<T>& t) {\n\
+    \  return o << get<0>(t);\n}\n\n// Output for pairs via above defined tuple output\
+    \ routine.\ntemplate <typename T1, typename T2>\nostream& operator<<(ostream&\
+    \ o, const pair<T1, T2>& p) {\n  return o << '(' << p.fi << \", \" << p.se <<\
+    \ ')';\n}\n\n// Output every element in a container with 'begin' and 'end' iterators.\n\
+    template <typename T>\nenable_if_t<IsC<T>::value, ostream&> operator<<(ostream&\
+    \ o, const T& c) {\n  o << '[';\n  for (auto it = c.cbegin(); it != c.cend();\
+    \ ++it)\n    o << *it << (next(it) != c.cend() ? \", \" : \"\");\n  return o <<\
+    \ ']';\n}\n\n///////////////////////////////////////////////////////////////\n\
     // Pretty output\n///////////////////////////////////////////////////////////////\n\
     \n// PrettyPrint struct that contains a value to be printed and\n// a list of\
     \ seperators which indicate how different dimensions\n// of multidimensional values\
@@ -86,17 +94,11 @@ data:
     \ (or default)\n  const string& sep = p.idx < M ? (*p.se)[p.idx] : \" \";\n  //\
     \ Print every container element\n  for (auto it = p.v.cbegin(); it != p.v.cend();\
     \ ++it)\n    o << PP<typename T::value_type, M>(*it, p.se, p.idx + 1)\n      <<\
-    \ (next(it) != p.v.cend() ? sep : \"\");\n  return o;\n}\n\n// Function for PrettyPrinting\
-    \ a object with specified seperators.\n// Each additional seperator specifies\
-    \ the seperator for one level\n// further into a nested structure. Pairs, tuples\
-    \ and std-library-container\n// cause the level to increase.\n// If no seperator\
-    \ is specified a default of \" \"(space) is used.\n// For example a call \n//\
-    \    vector<ii> a(4, mp(1, 2));\n//    cout << pp(a, \" | \", \"-\");\n// results\
-    \ in the output (without trailing newline)\n//    1-2 | 1-2 | 1-2 | 1-2\n//\n\
-    // This function is the main way for a user to interface with the PrettyPrinter.\n\
-    template <typename T, typename... Ts, size_t N = sizeof...(Ts)>\nPP<T, N> pp(const\
-    \ T& value, Ts... seps) {\n  return PP<T, N>(value, make_shared<array<string,\
-    \ N>>(array<string, N>{seps...}));\n}\n\n///////////////////////////////////////////////////////////////\n\
+    \ (next(it) != p.v.cend() ? sep : \"\");\n  return o;\n}\n\n// This function is\
+    \ the main way for a user to interface with the PrettyPrinter.\ntemplate <typename\
+    \ T, typename... Ts, size_t N = sizeof...(Ts)>\nPP<T, N> pp(const T& value, Ts...\
+    \ seps) {\n  return PP<T, N>(value, make_shared<array<string, N>>(array<string,\
+    \ N>{seps...}));\n}\n\n///////////////////////////////////////////////////////////////\n\
     // Begin Input \n///////////////////////////////////////////////////////////////\n\
     \n// Forward declarations.\ntemplate <typename T>\nenable_if_t<IsC<T>::value,\
     \ istream&> operator>>(istream&, T&);\ntemplate <typename T1, typename T2>\nistream&\
@@ -114,8 +116,13 @@ data:
     \ * Output stream that is only active with 'DEBUG'-flag set.\n// * Input and output\
     \ stream operators for...\n//   * any container with 'begin' and 'end' iterator.\n\
     //   * tuples with any amount of elements \n//     (Except for 0 elements tuples\
-    \ :'( ) Related: https://xkcd.com/541/\n//   * pairs.\n// * Line seperated and\
-    \ aligned output of 2D vectors.\n// * TODO: pretty printer\n///////////////////////////////////////////////////////////////\n\
+    \ :'( ) Related: https://xkcd.com/541/\n//   * pairs.\n// * PrettyPrinting a object\
+    \ with specified seperators.\n//   Each additional seperator specifies the seperator\
+    \ for one level\n//   further into a nested structure. Pairs, tuples and std-library-container\n\
+    //   cause the level to increase.\n//   If no seperator is specified a default\
+    \ of \" \"(space) is used.\n//   For example a call \n//      vii a(4, mp(1, 2));\n\
+    //      cout << pp(a, \" | \", \"-\");\n//   results in the output (without trailing\
+    \ newline)\n//      1-2 | 1-2 | 1-2 | 1-2\n///////////////////////////////////////////////////////////////\n\
     \n#include <bits/stdc++.h>\nusing namespace std;\ntypedef long long ll;\ntypedef\
     \ pair<int, int> ii;\ntypedef vector<int> vi;\ntypedef vector<ii> vii;\ntypedef\
     \ vector<vi> vvi;\ntypedef vector<vii> vvii;\n#define fi first\n#define se second\n\
@@ -150,13 +157,16 @@ data:
     \ const pair<T1, T2>&);\n\n// Print each tuple element.\ntemplate <typename...\
     \ Ts>\nostream& operator<<(ostream& o, const tuple<Ts...>& t) {\n    o << '(';\n\
     \    for_each(t, [&](auto& x, size_t i) { if(i) o << \", \"; o << x; });\n   \
-    \ return o << ')';\n}\n\n// Output for pairs via above defined tuple output routine.\n\
-    template <typename T1, typename T2>\nostream& operator<<(ostream& o, const pair<T1,\
-    \ T2>& p) {\n  return o << '(' << p.fi << \", \" << p.se << ')';\n}\n\n// Output\
-    \ every element in a container with 'begin' and 'end' iterators.\ntemplate <typename\
-    \ T>\nenable_if_t<IsC<T>::value, ostream&> operator<<(ostream& o, const T& c)\
-    \ {\n  o << '[';\n  for (auto it = c.cbegin(); it != c.cend(); ++it)\n    o <<\
-    \ *it << (next(it) != c.cend() ? \", \" : \"\");\n  return o << ']';\n}\n\n///////////////////////////////////////////////////////////////\n\
+    \ return o << ')';\n}\n\n// Special case for 1-tuple to avoid confusing parentheses\n\
+    template <typename T>\nostream& operator<<(ostream& o, const tuple<T>& t) {\n\
+    \  return o << get<0>(t);\n}\n\n// Output for pairs via above defined tuple output\
+    \ routine.\ntemplate <typename T1, typename T2>\nostream& operator<<(ostream&\
+    \ o, const pair<T1, T2>& p) {\n  return o << '(' << p.fi << \", \" << p.se <<\
+    \ ')';\n}\n\n// Output every element in a container with 'begin' and 'end' iterators.\n\
+    template <typename T>\nenable_if_t<IsC<T>::value, ostream&> operator<<(ostream&\
+    \ o, const T& c) {\n  o << '[';\n  for (auto it = c.cbegin(); it != c.cend();\
+    \ ++it)\n    o << *it << (next(it) != c.cend() ? \", \" : \"\");\n  return o <<\
+    \ ']';\n}\n\n///////////////////////////////////////////////////////////////\n\
     // Pretty output\n///////////////////////////////////////////////////////////////\n\
     \n// PrettyPrint struct that contains a value to be printed and\n// a list of\
     \ seperators which indicate how different dimensions\n// of multidimensional values\
@@ -182,17 +192,11 @@ data:
     \ (or default)\n  const string& sep = p.idx < M ? (*p.se)[p.idx] : \" \";\n  //\
     \ Print every container element\n  for (auto it = p.v.cbegin(); it != p.v.cend();\
     \ ++it)\n    o << PP<typename T::value_type, M>(*it, p.se, p.idx + 1)\n      <<\
-    \ (next(it) != p.v.cend() ? sep : \"\");\n  return o;\n}\n\n// Function for PrettyPrinting\
-    \ a object with specified seperators.\n// Each additional seperator specifies\
-    \ the seperator for one level\n// further into a nested structure. Pairs, tuples\
-    \ and std-library-container\n// cause the level to increase.\n// If no seperator\
-    \ is specified a default of \" \"(space) is used.\n// For example a call \n//\
-    \    vector<ii> a(4, mp(1, 2));\n//    cout << pp(a, \" | \", \"-\");\n// results\
-    \ in the output (without trailing newline)\n//    1-2 | 1-2 | 1-2 | 1-2\n//\n\
-    // This function is the main way for a user to interface with the PrettyPrinter.\n\
-    template <typename T, typename... Ts, size_t N = sizeof...(Ts)>\nPP<T, N> pp(const\
-    \ T& value, Ts... seps) {\n  return PP<T, N>(value, make_shared<array<string,\
-    \ N>>(array<string, N>{seps...}));\n}\n\n///////////////////////////////////////////////////////////////\n\
+    \ (next(it) != p.v.cend() ? sep : \"\");\n  return o;\n}\n\n// This function is\
+    \ the main way for a user to interface with the PrettyPrinter.\ntemplate <typename\
+    \ T, typename... Ts, size_t N = sizeof...(Ts)>\nPP<T, N> pp(const T& value, Ts...\
+    \ seps) {\n  return PP<T, N>(value, make_shared<array<string, N>>(array<string,\
+    \ N>{seps...}));\n}\n\n///////////////////////////////////////////////////////////////\n\
     // Begin Input \n///////////////////////////////////////////////////////////////\n\
     \n// Forward declarations.\ntemplate <typename T>\nenable_if_t<IsC<T>::value,\
     \ istream&> operator>>(istream&, T&);\ntemplate <typename T1, typename T2>\nistream&\
@@ -209,7 +213,7 @@ data:
   path: code/template_long.cc
   requiredBy:
   - code/utils/ops.cc
-  timestamp: '2020-10-28 15:12:15+01:00'
+  timestamp: '2020-11-02 00:59:01+01:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: code/template_long.cc
