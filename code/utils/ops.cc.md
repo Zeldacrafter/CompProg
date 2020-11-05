@@ -102,12 +102,12 @@ data:
     \ istream&> operator>>(istream&, T&);\ntemplate <typename T1, typename T2>\nistream&\
     \ operator>>(istream&, pair<T1, T2>&);\n\n// Read a tuple.\ntemplate <typename...\
     \ Ts>\nistream& operator>>(istream& i, tuple<Ts...>& t) {\n  for_each(t, [&](auto&\
-    \ x, int) { cin >> x; });\n  return i;\n}\n\n// Read the contents of a 'pair'\
-    \ object.\ntemplate <typename T1, typename T2>\nistream& operator>>(istream& i,\
-    \ pair<T1, T2>& p) {\n  return i >> p.fi >> p.se;\n}\n\n// Read containers with\
-    \ 'begin' and 'end' iterators.\ntemplate <typename T>\nenable_if_t<IsC<T>::value,\
-    \ istream&> operator>>(istream& i, T& v) {\n  for (auto& x : v) i >> x;\n  return\
-    \ i;\n}\n#line 2 \"code/utils/ops.cc\"\n\n///////////////////////////////////////////////////////////////\n\
+    \ x, int) { i >> x; });\n  return i;\n}\n\n// Read the contents of a 'pair' object.\n\
+    template <typename T1, typename T2>\nistream& operator>>(istream& i, pair<T1,\
+    \ T2>& p) {\n  return i >> p.fi >> p.se;\n}\n\n// Read containers with 'begin'\
+    \ and 'end' iterators.\ntemplate <typename T>\nenable_if_t<IsC<T>::value, istream&>\
+    \ operator>>(istream& i, T& v) {\n  for (auto& x : v) i >> x;\n  return i;\n}\n\
+    #line 2 \"code/utils/ops.cc\"\n\n///////////////////////////////////////////////////////////////\n\
     // Utility functions.\n///////////////////////////////////////////////////////////////\n\
     \nnamespace impl {\n  template <typename T, typename U, typename F, size_t...\
     \ Is>\n  T zipWith(const T& t, const U& u, F f, index_sequence<Is...>) { \n  \
@@ -440,7 +440,7 @@ data:
   isVerificationFile: false
   path: code/utils/ops.cc
   requiredBy: []
-  timestamp: '2020-11-02 00:59:01+01:00'
+  timestamp: '2020-11-05 22:17:23+01:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: code/utils/ops.cc
