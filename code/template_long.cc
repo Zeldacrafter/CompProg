@@ -203,7 +203,7 @@ istream& operator>>(istream&, pair<T1, T2>&);
 // Read a tuple.
 template <typename... Ts>
 istream& operator>>(istream& i, tuple<Ts...>& t) {
-  for_each(t, [&](auto& x, int) { cin >> x; });
+  for_each(t, [&](auto& x, int) { i >> x; });
   return i;
 }
 
