@@ -46,14 +46,20 @@ template <typename T>
 bool ckmin(T& a, const T& b) { return a > b ? a = b, true : false; }
 template <typename T>
 bool ckmax(T& a, const T& b) { return a < b ? a = b, true : false; }
-
 // Output to 'cerr' if 'DEBUG' flag is set. Do nothing otherwise.
 #ifndef DEBUG
 #define DEBUG 0
 #endif
 #define dout if (DEBUG) cerr
 // Output all passed variables with their corresponding name and value.
-#define dvar(...) " \x1b[35m[" << #__VA_ARGS__ ": " << mt(__VA_ARGS__) << "]\x1b[0m "
+#define dvarimpl(...) mkDB(#__VA_ARGS__, __VA_ARGS__) << "\e[0m "
+#define dvar(...) " \e[35m" << dvarimpl(__VA_ARGS__)
+#define dvarr(...) " \e[31m" << dvarimpl(__VA_ARGS__)
+#define dvarb(...) " \e[34m" << dvarimpl(__VA_ARGS__)
+#define dvarg(...) " \e[32m" << dvarimpl(__VA_ARGS__)
+#define dvary(...) " \e[33m" << dvarimpl(__VA_ARGS__)
+#define dvarc(...) " \e[36m" << dvarimpl(__VA_ARGS__)
+#define dvari(...) " \e[7m" << dvarimpl(__VA_ARGS__)
 
 ///////////////////////////////////////////////////////////////
 // Utility functions.
@@ -77,6 +83,7 @@ template <typename... Ts, typename F>
 F for_each(const tuple<Ts...>& t, F f) { 
   return impl::for_each(t, f, make_index_sequence<sizeof...(Ts)>{});
 }
+
 
 // IsC indicates whether a type defines a 'const_iterator'.
 // IsC::value is true if 'const_iterator' exists and false otherwise.
@@ -124,6 +131,32 @@ enable_if_t<IsC<T>::value, ostream&> operator<<(ostream& o, const T& c) {
     o << *it << (next(it) != c.cend() ? ", " : "");
   return o << ']';
 }
+
+///////////////////////////////////////////////////////////////
+// Debug output
+///////////////////////////////////////////////////////////////
+
+template <typename... Ts>
+struct DB {
+  string n;
+  tuple<Ts...> d;
+  DB(const string& ns, Ts... ds) : n{ns}, d{ds...} {}
+  friend ostream& operator<<(ostream& o, const DB& db) {
+    int i = 0;
+    for_each(db.d, [&](const auto& e, int idx) {
+      (idx ? o << " " : o) << "[";
+      while (i < SZ(db.n) and issep(db.n[i])) ++i;
+      while (i < SZ(db.n) and not issep(db.n[i])) o << db.n[i++];
+      o << ": " << e << "]";
+    });
+    return o; 
+  }
+  static inline bool issep(char c) {
+    return set<char>{' ', ','}.count(c);
+  }
+};
+template <typename... Ts>
+DB<Ts...> mkDB(const string& n, Ts... d) { return DB<Ts...>(n, d...); }
 
 ///////////////////////////////////////////////////////////////
 // Pretty output
@@ -219,3 +252,4 @@ enable_if_t<IsC<T>::value, istream&> operator>>(istream& i, T& v) {
   for (auto& x : v) i >> x;
   return i;
 }
+
