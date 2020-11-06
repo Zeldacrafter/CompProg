@@ -32,11 +32,15 @@ data:
     \ b, c) for (auto a = (b); (a) < (c); ++(a))\n#define F0R(a, b) FOR (a, 0, (b))\n\
     template <typename T>\nbool ckmin(T& a, const T& b) { return a > b ? a = b, true\
     \ : false; }\ntemplate <typename T>\nbool ckmax(T& a, const T& b) { return a <\
-    \ b ? a = b, true : false; }\n\n// Output to 'cerr' if 'DEBUG' flag is set. Do\
-    \ nothing otherwise.\n#ifndef DEBUG\n#define DEBUG 0\n#endif\n#define dout if\
-    \ (DEBUG) cerr\n// Output all passed variables with their corresponding name and\
-    \ value.\n#define dvar(...) \" \\x1b[35m[\" << #__VA_ARGS__ \": \" << mt(__VA_ARGS__)\
-    \ << \"]\\x1b[0m \"\n\n///////////////////////////////////////////////////////////////\n\
+    \ b ? a = b, true : false; }\n// Output to 'cerr' if 'DEBUG' flag is set. Do nothing\
+    \ otherwise.\n#ifndef DEBUG\n#define DEBUG 0\n#endif\n#define dout if (DEBUG)\
+    \ cerr\n// Output all passed variables with their corresponding name and value.\n\
+    #define dvarimpl(...) mkDB(#__VA_ARGS__, __VA_ARGS__) << \"\\e[0m \"\n#define\
+    \ dvar(...) \" \\e[35m\" << dvarimpl(__VA_ARGS__)\n#define dvarr(...) \" \\e[31m\"\
+    \ << dvarimpl(__VA_ARGS__)\n#define dvarb(...) \" \\e[34m\" << dvarimpl(__VA_ARGS__)\n\
+    #define dvarg(...) \" \\e[32m\" << dvarimpl(__VA_ARGS__)\n#define dvary(...) \"\
+    \ \\e[33m\" << dvarimpl(__VA_ARGS__)\n#define dvarc(...) \" \\e[36m\" << dvarimpl(__VA_ARGS__)\n\
+    #define dvari(...) \" \\e[7m\" << dvarimpl(__VA_ARGS__)\n\n///////////////////////////////////////////////////////////////\n\
     // Utility functions.\n///////////////////////////////////////////////////////////////\n\
     \nnamespace impl {\n  template <typename T, typename F, size_t... Is>\n  F for_each(T&\
     \ t, F f, index_sequence<Is...>) {\n    auto l = { (f(get<Is>(t), Is), 0)... };\n\
@@ -44,7 +48,7 @@ data:
     F for_each(tuple<Ts...>& t, F f) { \n  return impl::for_each(t, f, make_index_sequence<sizeof...(Ts)>{});\n\
     }\n\ntemplate <typename... Ts, typename F>\nF for_each(const tuple<Ts...>& t,\
     \ F f) { \n  return impl::for_each(t, f, make_index_sequence<sizeof...(Ts)>{});\n\
-    }\n\n// IsC indicates whether a type defines a 'const_iterator'.\n// IsC::value\
+    }\n\n\n// IsC indicates whether a type defines a 'const_iterator'.\n// IsC::value\
     \ is true if 'const_iterator' exists and false otherwise.\ntemplate <typename\
     \ T> true_type const_iterator_check(typename T::const_iterator*);\ntemplate <typename\
     \ T> false_type const_iterator_check(...);\ntemplate <typename T> struct IsC :\
@@ -67,6 +71,16 @@ data:
     \ o, const T& c) {\n  o << '[';\n  for (auto it = c.cbegin(); it != c.cend();\
     \ ++it)\n    o << *it << (next(it) != c.cend() ? \", \" : \"\");\n  return o <<\
     \ ']';\n}\n\n///////////////////////////////////////////////////////////////\n\
+    // Debug output\n///////////////////////////////////////////////////////////////\n\
+    \ntemplate <typename... Ts>\nstruct DB {\n  string n;\n  tuple<Ts...> d;\n  DB(const\
+    \ string& ns, Ts... ds) : n{ns}, d{ds...} {}\n  friend ostream& operator<<(ostream&\
+    \ o, const DB& db) {\n    int i = 0;\n    for_each(db.d, [&](const auto& e, int\
+    \ idx) {\n      (idx ? o << \" \" : o) << \"[\";\n      while (i < SZ(db.n) and\
+    \ issep(db.n[i])) ++i;\n      while (i < SZ(db.n) and not issep(db.n[i])) o <<\
+    \ db.n[i++];\n      o << \": \" << e << \"]\";\n    });\n    return o; \n  }\n\
+    \  static inline bool issep(char c) {\n    return set<char>{' ', ','}.count(c);\n\
+    \  }\n};\ntemplate <typename... Ts>\nDB<Ts...> mkDB(const string& n, Ts... d)\
+    \ { return DB<Ts...>(n, d...); }\n\n///////////////////////////////////////////////////////////////\n\
     // Pretty output\n///////////////////////////////////////////////////////////////\n\
     \n// PrettyPrint struct that contains a value to be printed and\n// a list of\
     \ seperators which indicate how different dimensions\n// of multidimensional values\
@@ -107,7 +121,7 @@ data:
     \ T2>& p) {\n  return i >> p.fi >> p.se;\n}\n\n// Read containers with 'begin'\
     \ and 'end' iterators.\ntemplate <typename T>\nenable_if_t<IsC<T>::value, istream&>\
     \ operator>>(istream& i, T& v) {\n  for (auto& x : v) i >> x;\n  return i;\n}\n\
-    #line 2 \"code/utils/ops.cc\"\n\n///////////////////////////////////////////////////////////////\n\
+    \n#line 2 \"code/utils/ops.cc\"\n\n///////////////////////////////////////////////////////////////\n\
     // Utility functions.\n///////////////////////////////////////////////////////////////\n\
     \nnamespace impl {\n  template <typename T, typename U, typename F, size_t...\
     \ Is>\n  T zipWith(const T& t, const U& u, F f, index_sequence<Is...>) { \n  \
@@ -440,7 +454,7 @@ data:
   isVerificationFile: false
   path: code/utils/ops.cc
   requiredBy: []
-  timestamp: '2020-11-05 22:17:23+01:00'
+  timestamp: '2020-11-06 16:26:53+01:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: code/utils/ops.cc
