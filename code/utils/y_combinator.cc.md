@@ -27,25 +27,25 @@ data:
     \ << \"] \"\n#line 2 \"code/utils/y_combinator.cc\"\n// for c++14 and above; \
     \ explicitly specify the return type of the lambda\n// links:\n//  1. https://stackoverflow.com/a/40873657\n\
     //  2. http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0200r0.html\n\
-    template<typename F>\nstruct y_combinator_result {\n    F f;\n    template<typename\
-    \ T>\n    explicit y_combinator_result(T&& fun): f(forward<T>(fun)) {}\n    template<typename...\
-    \ Args>\n    decltype(auto) operator()(Args&&... args) {\n        return f(ref(*this),\
-    \ forward<Args>(args)...);\n    }\n};\ntemplate<typename F>\ndecltype(auto) y_combinator(F&&\
-    \ f) {\n    return y_combinator_result<decay_t<F>>(forward<F>(f));\n}\n"
+    template<typename F>\nstruct y_combinator_result {\n  F f;\n  template<typename\
+    \ T>\n  explicit y_combinator_result(T&& fun): f(forward<T>(fun)) {}\n  template<typename...\
+    \ Args>\n  decltype(auto) operator()(Args&&... args) {\n    return f(ref(*this),\
+    \ forward<Args>(args)...);\n  }\n};\ntemplate<typename F>\ndecltype(auto) y_combinator(F&&\
+    \ f) {\n  return y_combinator_result<decay_t<F>>(forward<F>(f));\n}\n"
   code: "#include \"../template.hh\"\n// for c++14 and above;  explicitly specify\
     \ the return type of the lambda\n// links:\n//  1. https://stackoverflow.com/a/40873657\n\
     //  2. http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0200r0.html\n\
-    template<typename F>\nstruct y_combinator_result {\n    F f;\n    template<typename\
-    \ T>\n    explicit y_combinator_result(T&& fun): f(forward<T>(fun)) {}\n    template<typename...\
-    \ Args>\n    decltype(auto) operator()(Args&&... args) {\n        return f(ref(*this),\
-    \ forward<Args>(args)...);\n    }\n};\ntemplate<typename F>\ndecltype(auto) y_combinator(F&&\
-    \ f) {\n    return y_combinator_result<decay_t<F>>(forward<F>(f));\n}\n"
+    template<typename F>\nstruct y_combinator_result {\n  F f;\n  template<typename\
+    \ T>\n  explicit y_combinator_result(T&& fun): f(forward<T>(fun)) {}\n  template<typename...\
+    \ Args>\n  decltype(auto) operator()(Args&&... args) {\n    return f(ref(*this),\
+    \ forward<Args>(args)...);\n  }\n};\ntemplate<typename F>\ndecltype(auto) y_combinator(F&&\
+    \ f) {\n  return y_combinator_result<decay_t<F>>(forward<F>(f));\n}\n"
   dependsOn:
   - code/template.cc
   isVerificationFile: false
   path: code/utils/y_combinator.cc
   requiredBy: []
-  timestamp: '2020-10-28 19:21:59+01:00'
+  timestamp: '2020-11-16 16:00:31+01:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: code/utils/y_combinator.cc

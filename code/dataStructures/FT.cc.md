@@ -64,8 +64,8 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/hackerrank/fenwick_tree_2d.cube-summation.test.cpp
-  - tests/yosupo/fenwick_tree.point_add_range_sum.test.cpp
   - tests/yosupo/fenwick_tree.static_range_sum.test.cpp
+  - tests/yosupo/fenwick_tree.point_add_range_sum.test.cpp
 documentation_of: code/dataStructures/FT.cc
 layout: document
 redirect_from:
