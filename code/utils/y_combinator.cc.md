@@ -28,7 +28,7 @@ data:
     \ explicitly specify the return type of the lambda\n// links:\n//  1. https://stackoverflow.com/a/40873657\n\
     //  2. http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0200r0.html\n\
     template<typename F>\nstruct y_combinator_result {\n  F f;\n  template<typename\
-    \ T>\n  explicit y_combinator_result(T&& fun): f(forward<T>(fun)) {}\n  template<typename...\
+    \ T>\n  explicit y_combinator_result(T&& fun) : f(forward<T>(fun)) {}\n  template<typename...\
     \ Args>\n  decltype(auto) operator()(Args&&... args) {\n    return f(ref(*this),\
     \ forward<Args>(args)...);\n  }\n};\ntemplate<typename F>\ndecltype(auto) y_combinator(F&&\
     \ f) {\n  return y_combinator_result<decay_t<F>>(forward<F>(f));\n}\n"
@@ -36,7 +36,7 @@ data:
     \ the return type of the lambda\n// links:\n//  1. https://stackoverflow.com/a/40873657\n\
     //  2. http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0200r0.html\n\
     template<typename F>\nstruct y_combinator_result {\n  F f;\n  template<typename\
-    \ T>\n  explicit y_combinator_result(T&& fun): f(forward<T>(fun)) {}\n  template<typename...\
+    \ T>\n  explicit y_combinator_result(T&& fun) : f(forward<T>(fun)) {}\n  template<typename...\
     \ Args>\n  decltype(auto) operator()(Args&&... args) {\n    return f(ref(*this),\
     \ forward<Args>(args)...);\n  }\n};\ntemplate<typename F>\ndecltype(auto) y_combinator(F&&\
     \ f) {\n  return y_combinator_result<decay_t<F>>(forward<F>(f));\n}\n"
