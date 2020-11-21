@@ -20,3 +20,5 @@
 ### lazy, persistent, pointer-based segment tree
 ### linear sieve
 ### rework .vimrc 
+### biconnected components
+
