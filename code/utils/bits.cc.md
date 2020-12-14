@@ -26,20 +26,22 @@ data:
     \ (int i = 1; i <= 16; i <<= 1) x |= x >> i;\n  return x - (x >> 1);\n}\nint lsb(int\
     \ x) { return x & -x; }\nbool oppositeSign(int x, int y) { return (x ^ y) < 0;\
     \ }\nbool isPowOf2(int x) { return x && !(x & (x - 1)); }\nvoid allSubsets(int\
-    \ m) {\n  for(int i = m; i; --i &= m) { /* */ }\n}\nvoid allSupersets(int m, int\
-    \ nx) {\n  for (int i = m; i < nx; ++i |= m) { /* */ }\n}\n"
+    \ m) {\n  for(int i = m; ; --i &= m) {\n      /* */\n      if(!i) break; // account\
+    \ for empty set\n  }\n}\nvoid allSupersets(int m, int nx) {\n  for (int i = m;\
+    \ i < nx; ++i |= m) { /* */ }\n}\n"
   code: "#include \"../template.hh\"\nint msb(unsigned int x) {\n  for (int i = 1;\
     \ i <= 16; i <<= 1) x |= x >> i;\n  return x - (x >> 1);\n}\nint lsb(int x) {\
     \ return x & -x; }\nbool oppositeSign(int x, int y) { return (x ^ y) < 0; }\n\
     bool isPowOf2(int x) { return x && !(x & (x - 1)); }\nvoid allSubsets(int m) {\n\
-    \  for(int i = m; i; --i &= m) { /* */ }\n}\nvoid allSupersets(int m, int nx)\
-    \ {\n  for (int i = m; i < nx; ++i |= m) { /* */ }\n}\n"
+    \  for(int i = m; ; --i &= m) {\n      /* */\n      if(!i) break; // account for\
+    \ empty set\n  }\n}\nvoid allSupersets(int m, int nx) {\n  for (int i = m; i <\
+    \ nx; ++i |= m) { /* */ }\n}\n"
   dependsOn:
   - code/template.cc
   isVerificationFile: false
   path: code/utils/bits.cc
   requiredBy: []
-  timestamp: '2020-10-28 19:21:59+01:00'
+  timestamp: '2020-12-14 07:28:18+01:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: code/utils/bits.cc

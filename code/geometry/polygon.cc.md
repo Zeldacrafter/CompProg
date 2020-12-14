@@ -108,9 +108,9 @@ data:
   timestamp: '2020-10-30 13:45:04+01:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - tests/aoj/polygon_convex.test.cpp
   - tests/aoj/polygon_contains_point.test.cpp
   - tests/aoj/polygon_area.test.cpp
-  - tests/aoj/polygon_convex.test.cpp
 documentation_of: code/geometry/polygon.cc
 layout: document
 redirect_from:
