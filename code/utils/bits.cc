@@ -7,7 +7,10 @@ int lsb(int x) { return x & -x; }
 bool oppositeSign(int x, int y) { return (x ^ y) < 0; }
 bool isPowOf2(int x) { return x && !(x & (x - 1)); }
 void allSubsets(int m) {
-  for(int i = m; i; --i &= m) { /* */ }
+  for(int i = m; ; --i &= m) {
+      /* */
+      if(!i) break; // account for empty set
+  }
 }
 void allSupersets(int m, int nx) {
   for (int i = m; i < nx; ++i |= m) { /* */ }

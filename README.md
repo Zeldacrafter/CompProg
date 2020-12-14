@@ -12,5 +12,6 @@ For automated testing we use the [Online Judge Verification Helper](https://gith
 with problems from:
  - https://judge.yosupo.jp/
  - https://www.hackerrank.com/
+ - http://judge.u-aizu.ac.jp/onlinejudge/
 
 
