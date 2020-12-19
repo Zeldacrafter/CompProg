@@ -75,10 +75,10 @@ data:
   timestamp: '2020-10-28 19:21:59+01:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - tests/aoj/edmonds_karp.maximum_flow.test.cpp
-  - tests/aoj/dinic.maximum_flow.test.cpp
-  - tests/aoj/push_relabel.maximum_flow.test.cpp
   - tests/yosupo/dinic.bipartitematching.test.cpp
+  - tests/aoj/push_relabel.maximum_flow.test.cpp
+  - tests/aoj/dinic.maximum_flow.test.cpp
+  - tests/aoj/edmonds_karp.maximum_flow.test.cpp
 documentation_of: code/graphs/flowedge.cc
 layout: document
 redirect_from:

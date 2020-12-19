@@ -3,6 +3,9 @@ data:
   libraryCategories:
   - name: code/dataStructures
     pages:
+    - icon: ':warning:'
+      path: code/dataStructures/BV.cc
+      title: code/dataStructures/BV.cc
     - icon: ':heavy_check_mark:'
       path: code/dataStructures/DSU.cc
       title: code/dataStructures/DSU.cc
@@ -24,6 +27,15 @@ data:
     - icon: ':heavy_check_mark:'
       path: code/dataStructures/STIT.cc
       title: code/dataStructures/STIT.cc
+    - icon: ':warning:'
+      path: code/dataStructures/WLM.cc
+      title: code/dataStructures/WLM.cc
+    - icon: ':warning:'
+      path: code/dataStructures/WLT.cc
+      title: code/dataStructures/WLT.cc
+    - icon: ':warning:'
+      path: code/dataStructures/WLTsmall.cc
+      title: code/dataStructures/WLTsmall.cc
     - icon: ':warning:'
       path: code/dataStructures/XorBase.cc
       title: code/dataStructures/XorBase.cc

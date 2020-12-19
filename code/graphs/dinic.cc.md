@@ -80,8 +80,8 @@ data:
   timestamp: '2020-10-28 19:21:59+01:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - tests/aoj/dinic.maximum_flow.test.cpp
   - tests/yosupo/dinic.bipartitematching.test.cpp
+  - tests/aoj/dinic.maximum_flow.test.cpp
 documentation_of: code/graphs/dinic.cc
 layout: document
 redirect_from:
