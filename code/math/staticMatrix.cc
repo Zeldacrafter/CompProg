@@ -20,10 +20,10 @@ struct matrix : public array<array<T, sz>, sz> {
     F0R (r, sz) F0R (c, sz) (*this)[r][c] *= v;
     return *this;
   }
-  friend matrix operator+(const matrix a, const matrix& b) {
+  friend matrix operator+(matrix a, const matrix& b) {
     return a += b;
   }
-  friend matrix operator-(const matrix a, const matrix& b) {
+  friend matrix operator-(matrix a, const matrix& b) {
     return a -= b;
   }
   friend matrix operator*(const matrix& a, const matrix& b) {
