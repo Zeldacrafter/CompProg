@@ -141,6 +141,9 @@ data:
       path: code/math/extendedEuclid.cc
       title: code/math/extendedEuclid.cc
     - icon: ':warning:'
+      path: code/math/linear.cc
+      title: code/math/linear.cc
+    - icon: ':warning:'
       path: code/math/modpow.cc
       title: code/math/modpow.cc
     - icon: ':warning:'
@@ -191,6 +194,9 @@ data:
     - icon: ':warning:'
       path: code/utils/buildin.cpp
       title: code/utils/buildin.cpp
+    - icon: ':warning:'
+      path: code/utils/dynmod.cc
+      title: code/utils/dynmod.cc
     - icon: ':warning:'
       path: code/utils/fastio.cc
       title: code/utils/fastio.cc

@@ -132,6 +132,9 @@ data:
     path: code/math/extendedEuclid.cc
     title: code/math/extendedEuclid.cc
   - icon: ':warning:'
+    path: code/math/linear.cc
+    title: code/math/linear.cc
+  - icon: ':warning:'
     path: code/math/modpow.cc
     title: code/math/modpow.cc
   - icon: ':warning:'
@@ -170,6 +173,9 @@ data:
   - icon: ':warning:'
     path: code/utils/buildin.cpp
     title: code/utils/buildin.cpp
+  - icon: ':warning:'
+    path: code/utils/dynmod.cc
+    title: code/utils/dynmod.cc
   - icon: ':warning:'
     path: code/utils/fastio.cc
     title: code/utils/fastio.cc
@@ -462,6 +468,7 @@ data:
   - code/utils/mod.cc
   - code/utils/bigint.cc
   - code/utils/stresstestbigint.cc
+  - code/utils/dynmod.cc
   - code/utils/random.cc
   - code/utils/bits.cc
   - code/utils/buildin.cpp
@@ -482,6 +489,7 @@ data:
   - code/math/totoid.cc
   - code/math/dynamicMatrix.cc
   - code/math/staticMatrix.cc
+  - code/math/linear.cc
   - code/math/combinatorics.cc
   - code/dynamicProgramming/editDistance.cc
   - code/dynamicProgramming/lcs.cc

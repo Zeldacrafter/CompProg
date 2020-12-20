@@ -31,13 +31,12 @@ data:
     \ -= o[r][c];\n    return *this;\n  }\n  matrix& operator*=(const matrix& o) {\n\
     \    return *this = *this * o;\n  }\n  matrix& operator*=(T v) {\n    F0R (r,\
     \ sz) F0R (c, sz) (*this)[r][c] *= v;\n    return *this;\n  }\n  friend matrix\
-    \ operator+(const matrix a, const matrix& b) {\n    return a += b;\n  }\n  friend\
-    \ matrix operator-(const matrix a, const matrix& b) {\n    return a -= b;\n  }\n\
-    \  friend matrix operator*(const matrix& a, const matrix& b) {\n    matrix res{};\n\
-    \    F0R (r, sz) F0R (c, sz) F0R (k, sz) res[r][c] += a[r][k] * b[k][c];\n   \
-    \ return res;\n  }\n  friend matrix operator*(matrix a, T v) {\n    return a *=\
-    \ v;\n  }\n  friend matrix operator*(T v, matrix a) {\n    return a *= v;\n  }\n\
-    };\n"
+    \ operator+(matrix a, const matrix& b) {\n    return a += b;\n  }\n  friend matrix\
+    \ operator-(matrix a, const matrix& b) {\n    return a -= b;\n  }\n  friend matrix\
+    \ operator*(const matrix& a, const matrix& b) {\n    matrix res{};\n    F0R (r,\
+    \ sz) F0R (c, sz) F0R (k, sz) res[r][c] += a[r][k] * b[k][c];\n    return res;\n\
+    \  }\n  friend matrix operator*(matrix a, T v) {\n    return a *= v;\n  }\n  friend\
+    \ matrix operator*(T v, matrix a) {\n    return a *= v;\n  }\n};\n"
   code: "#include \"../template.hh\"\ntemplate<int sz, typename T>\nstruct matrix\
     \ : public array<array<T, sz>, sz> {\n  matrix() : array<array<T, sz>, sz>{} {}\n\
     \  matrix(const T& val) : array<array<T, sz>, sz>{} {\n    F0R (i, sz) (*this)[i][i]\
@@ -46,19 +45,19 @@ data:
     \ matrix& o) {\n    F0R (r, sz) F0R (c, sz) (*this)[r][c] -= o[r][c];\n    return\
     \ *this;\n  }\n  matrix& operator*=(const matrix& o) {\n    return *this = *this\
     \ * o;\n  }\n  matrix& operator*=(T v) {\n    F0R (r, sz) F0R (c, sz) (*this)[r][c]\
-    \ *= v;\n    return *this;\n  }\n  friend matrix operator+(const matrix a, const\
-    \ matrix& b) {\n    return a += b;\n  }\n  friend matrix operator-(const matrix\
-    \ a, const matrix& b) {\n    return a -= b;\n  }\n  friend matrix operator*(const\
-    \ matrix& a, const matrix& b) {\n    matrix res{};\n    F0R (r, sz) F0R (c, sz)\
-    \ F0R (k, sz) res[r][c] += a[r][k] * b[k][c];\n    return res;\n  }\n  friend\
-    \ matrix operator*(matrix a, T v) {\n    return a *= v;\n  }\n  friend matrix\
-    \ operator*(T v, matrix a) {\n    return a *= v;\n  }\n};\n"
+    \ *= v;\n    return *this;\n  }\n  friend matrix operator+(matrix a, const matrix&\
+    \ b) {\n    return a += b;\n  }\n  friend matrix operator-(matrix a, const matrix&\
+    \ b) {\n    return a -= b;\n  }\n  friend matrix operator*(const matrix& a, const\
+    \ matrix& b) {\n    matrix res{};\n    F0R (r, sz) F0R (c, sz) F0R (k, sz) res[r][c]\
+    \ += a[r][k] * b[k][c];\n    return res;\n  }\n  friend matrix operator*(matrix\
+    \ a, T v) {\n    return a *= v;\n  }\n  friend matrix operator*(T v, matrix a)\
+    \ {\n    return a *= v;\n  }\n};\n"
   dependsOn:
   - code/template.cc
   isVerificationFile: false
   path: code/math/staticMatrix.cc
   requiredBy: []
-  timestamp: '2020-10-28 19:21:59+01:00'
+  timestamp: '2020-12-20 22:09:43+01:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: code/math/staticMatrix.cc
