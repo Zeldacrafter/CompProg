@@ -189,6 +189,9 @@ data:
     path: code/utils/random.cc
     title: code/utils/random.cc
   - icon: ':warning:'
+    path: code/utils/setops.cc
+    title: code/utils/setops.cc
+  - icon: ':warning:'
     path: code/utils/stresstestbigint.cc
     title: code/utils/stresstestbigint.cc
   - icon: ':warning:'
@@ -468,6 +471,7 @@ data:
   - code/utils/mod.cc
   - code/utils/bigint.cc
   - code/utils/stresstestbigint.cc
+  - code/utils/setops.cc
   - code/utils/dynmod.cc
   - code/utils/random.cc
   - code/utils/bits.cc
