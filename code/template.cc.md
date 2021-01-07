@@ -123,6 +123,12 @@ data:
     path: code/graphs/topoSort.cc
     title: code/graphs/topoSort.cc
   - icon: ':warning:'
+    path: code/math/SV.cc
+    title: code/math/SV.cc
+  - icon: ':warning:'
+    path: code/math/SVL.cc
+    title: code/math/SVL.cc
+  - icon: ':warning:'
     path: code/math/combinatorics.cc
     title: code/math/combinatorics.cc
   - icon: ':warning:'
@@ -490,10 +496,12 @@ data:
   - code/geometry/picksTheorem.cc
   - code/math/modpow.cc
   - code/math/extendedEuclid.cc
+  - code/math/SV.cc
   - code/math/totoid.cc
   - code/math/dynamicMatrix.cc
   - code/math/staticMatrix.cc
   - code/math/linear.cc
+  - code/math/SVL.cc
   - code/math/combinatorics.cc
   - code/dynamicProgramming/editDistance.cc
   - code/dynamicProgramming/lcs.cc

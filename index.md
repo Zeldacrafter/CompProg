@@ -132,6 +132,12 @@ data:
   - name: code/math
     pages:
     - icon: ':warning:'
+      path: code/math/SV.cc
+      title: code/math/SV.cc
+    - icon: ':warning:'
+      path: code/math/SVL.cc
+      title: code/math/SVL.cc
+    - icon: ':warning:'
       path: code/math/combinatorics.cc
       title: code/math/combinatorics.cc
     - icon: ':warning:'

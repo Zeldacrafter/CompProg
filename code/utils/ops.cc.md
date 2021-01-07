@@ -121,7 +121,16 @@ data:
     \ T2>& p) {\n  return i >> p.fi >> p.se;\n}\n\n// Read containers with 'begin'\
     \ and 'end' iterators.\ntemplate <typename T>\nenable_if_t<IsC<T>::value, istream&>\
     \ operator>>(istream& i, T& v) {\n  for (auto& x : v) i >> x;\n  return i;\n}\n\
-    \n#line 2 \"code/utils/ops.cc\"\n\n///////////////////////////////////////////////////////////////\n\
+    template<typename T>\nset<T>& operator+=(set<T>& s, const T& e) {\n  return s.insert(e),\
+    \ s;\n}\ntemplate<typename T>\nset<T>& operator-=(set<T>& s, const T& e) {\n \
+    \ return s.erase(e), s;\n}\ntemplate<typename T>\nset<T>& operator&=(set<T>& a,\
+    \ const set<T>& b) {\n  set<T> o;\n  set_intersection(ALL(a), ALL(b), inserter(o,\
+    \ o.begin()));\n  return a.swap(o), a;\n}\ntemplate<typename T>\nset<T>& operator|=(set<T>&\
+    \ a, const set<T>& b) {\n  return a.insert(ALL(b)), a;\n}\ntemplate<typename T>\n\
+    set<T> operator&(set<T> a, const set<T>& b) {\n  return a &= b;\n}\ntemplate<typename\
+    \ T>\nset<T> operator|(set<T> a, const set<T>& b) {\n  return a |= b;\n}\ntemplate<typename\
+    \ T>\nbool operator<(const set<T>& s, const T& e) {\n  return static_cast<bool>(s.count(e));\n\
+    }\n\n#line 2 \"code/utils/ops.cc\"\n\n///////////////////////////////////////////////////////////////\n\
     // Utility functions.\n///////////////////////////////////////////////////////////////\n\
     \nnamespace impl {\n  template <typename T, typename U, typename F, size_t...\
     \ Is>\n  T zipWith(const T& t, const U& u, F f, index_sequence<Is...>) { \n  \
@@ -454,7 +463,7 @@ data:
   isVerificationFile: false
   path: code/utils/ops.cc
   requiredBy: []
-  timestamp: '2020-11-06 16:26:53+01:00'
+  timestamp: '2021-01-07 02:00:00+01:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: code/utils/ops.cc

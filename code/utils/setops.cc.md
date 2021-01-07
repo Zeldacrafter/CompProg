@@ -30,7 +30,8 @@ data:
     \ T>\nset<T>& operator|=(set<T>& a, const set<T>& b) {\n  return a.insert(ALL(b)),\
     \ a;\n}\ntemplate<typename T>\nset<T> operator&(set<T> a, const set<T>& b) {\n\
     \  return a &= b;\n}\ntemplate<typename T>\nset<T> operator|(set<T> a, const set<T>&\
-    \ b) {\n  return a |= b;\n}\n"
+    \ b) {\n  return a |= b;\n}\ntemplate<typename T>\nbool operator<(const set<T>&\
+    \ s, const T& e) {\n  return static_cast<bool>(s.count(e));\n}\n"
   code: "#include \"../template.hh\"\ntemplate<typename T>\nset<T>& operator+=(set<T>&\
     \ s, const T& e) {\n  return s.insert(e), s;\n}\ntemplate<typename T>\nset<T>&\
     \ operator-=(set<T>& s, const T& e) {\n  return s.erase(e), s;\n}\ntemplate<typename\
@@ -39,13 +40,14 @@ data:
     \ T>\nset<T>& operator|=(set<T>& a, const set<T>& b) {\n  return a.insert(ALL(b)),\
     \ a;\n}\ntemplate<typename T>\nset<T> operator&(set<T> a, const set<T>& b) {\n\
     \  return a &= b;\n}\ntemplate<typename T>\nset<T> operator|(set<T> a, const set<T>&\
-    \ b) {\n  return a |= b;\n}\n"
+    \ b) {\n  return a |= b;\n}\ntemplate<typename T>\nbool operator<(const set<T>&\
+    \ s, const T& e) {\n  return static_cast<bool>(s.count(e));\n}\n"
   dependsOn:
   - code/template.cc
   isVerificationFile: false
   path: code/utils/setops.cc
   requiredBy: []
-  timestamp: '2020-12-21 13:08:28+01:00'
+  timestamp: '2021-01-07 02:00:00+01:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: code/utils/setops.cc
