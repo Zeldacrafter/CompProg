@@ -25,3 +25,7 @@ template<typename T>
 set<T> operator|(set<T> a, const set<T>& b) {
   return a |= b;
 }
+template<typename T>
+bool operator<(const set<T>& s, const T& e) {
+  return static_cast<bool>(s.count(e));
+}
