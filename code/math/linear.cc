@@ -50,22 +50,22 @@ struct linear {
   using M = sqmat<T, N>; M m;
   using V = vec<T, N>; V v;
   linear() : m(1), v() {}
-  linear(M _m) : m{_m}, v() {}
-  linear(V _v) : m(1), v{_v} {}
-  linear(M _m, V _v) : m{_m}, v{_v} {}
+  linear(const M& _m) : m{_m}, v() {}
+  linear(const V& _v) : m(1), v{_v} {}
+  linear(const M& _m, const V& _v) : m{_m}, v{_v} {}
+  V operator()(const V& x) { return calc(x); }
   V calc(const V& x) { return m * x + v; }
-  linear& combine(const linear& o) { // o(this(x))
-    v = o.m * v + o.v;
-    m = o.m * m;
-    return *this;
+  linear combine(const linear& o) { // o(this(x))
+    return linear(o.m * m, o.m * v + o.v);
   }
-  linear& combine(const M o) {
-    v = o * v;
-    m = o * m;
-    return *this;
+  linear combine(const M& o) {
+    return linear(o * m, o * v);
   }
-  linear& combine(const V o) {
-    v += o;
-    return *this;
+  linear combine(const V& o) {
+    return linear(m, v + o);
+  }
+  linear combine(const M& om, const V& ov) {
+    return combine(linear(om, ov));
   }
 };
+using L = linear<ll, 2>;
