@@ -9,6 +9,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: tests/hackerrank/aho_corasick.two_two.test.cpp
     title: tests/hackerrank/aho_corasick.two_two.test.cpp
+  _isVerificationFailed: false
   _pathExtension: cc
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:

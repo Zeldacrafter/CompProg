@@ -12,6 +12,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: tests/hackerrank/fenwick_tree_2d.cube-summation.test.cpp
     title: tests/hackerrank/fenwick_tree_2d.cube-summation.test.cpp
+  _isVerificationFailed: false
   _pathExtension: cc
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:

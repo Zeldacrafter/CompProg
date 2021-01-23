@@ -21,6 +21,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: tests/yosupo/segment_tree.static_rmq.test.cpp
     title: tests/yosupo/segment_tree.static_rmq.test.cpp
+  _isVerificationFailed: false
   _pathExtension: cc
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:

@@ -6,6 +6,7 @@ data:
     title: code/template.cc
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: cc
   _verificationStatusIcon: ':warning:'
   attributes:
@@ -45,12 +46,14 @@ data:
     \ T, int N>\nusing sqmat = matrix<T, N, N>;\ntemplate<typename T, int N>\nusing\
     \ vec = matrix<T, N, 1>;\ntemplate<typename T, int N>\nstruct linear {\n  using\
     \ M = sqmat<T, N>; M m;\n  using V = vec<T, N>; V v;\n  linear() : m(1), v() {}\n\
-    \  linear(M _m) : m{_m}, v() {}\n  linear(V _v) : m(1), v{_v} {}\n  linear(M _m,\
-    \ V _v) : m{_m}, v{_v} {}\n  V calc(const V& x) { return m * x + v; }\n  linear&\
-    \ combine(const linear& o) { // o(this(x))\n    v = o.m * v + o.v;\n    m = o.m\
-    \ * m;\n    return *this;\n  }\n  linear& combine(const M o) {\n    v = o * v;\n\
-    \    m = o * m;\n    return *this;\n  }\n  linear& combine(const V o) {\n    v\
-    \ += o;\n    return *this;\n  }\n};\n"
+    \  linear(const M& _m) : m{_m}, v() {}\n  linear(const V& _v) : m(1), v{_v} {}\n\
+    \  linear(const M& _m, const V& _v) : m{_m}, v{_v} {}\n  V operator()(const V&\
+    \ x) { return calc(x); }\n  V calc(const V& x) { return m * x + v; }\n  linear\
+    \ combine(const linear& o) { // o(this(x))\n    return linear(o.m * m, o.m * v\
+    \ + o.v);\n  }\n  linear combine(const M& o) {\n    return linear(o * m, o * v);\n\
+    \  }\n  linear combine(const V& o) {\n    return linear(m, v + o);\n  }\n  linear\
+    \ combine(const M& om, const V& ov) {\n    return combine(linear(om, ov));\n \
+    \ }\n};\nusing L = linear<ll, 2>;\n"
   code: "#include \"../template.hh\"\ntemplate<typename T, int R, int C>\nstruct matrix\
     \ : public array<array<T, C>, R> {\n  matrix() : array<array<T, C>, R>{} {}\n\
     \  matrix(const T& val) : array<array<T, C>, R>{} {\n    F0R (i, min(R, C)) (*this)[i][i]\
@@ -74,18 +77,20 @@ data:
     \ T, int N>\nusing sqmat = matrix<T, N, N>;\ntemplate<typename T, int N>\nusing\
     \ vec = matrix<T, N, 1>;\ntemplate<typename T, int N>\nstruct linear {\n  using\
     \ M = sqmat<T, N>; M m;\n  using V = vec<T, N>; V v;\n  linear() : m(1), v() {}\n\
-    \  linear(M _m) : m{_m}, v() {}\n  linear(V _v) : m(1), v{_v} {}\n  linear(M _m,\
-    \ V _v) : m{_m}, v{_v} {}\n  V calc(const V& x) { return m * x + v; }\n  linear&\
-    \ combine(const linear& o) { // o(this(x))\n    v = o.m * v + o.v;\n    m = o.m\
-    \ * m;\n    return *this;\n  }\n  linear& combine(const M o) {\n    v = o * v;\n\
-    \    m = o * m;\n    return *this;\n  }\n  linear& combine(const V o) {\n    v\
-    \ += o;\n    return *this;\n  }\n};\n"
+    \  linear(const M& _m) : m{_m}, v() {}\n  linear(const V& _v) : m(1), v{_v} {}\n\
+    \  linear(const M& _m, const V& _v) : m{_m}, v{_v} {}\n  V operator()(const V&\
+    \ x) { return calc(x); }\n  V calc(const V& x) { return m * x + v; }\n  linear\
+    \ combine(const linear& o) { // o(this(x))\n    return linear(o.m * m, o.m * v\
+    \ + o.v);\n  }\n  linear combine(const M& o) {\n    return linear(o * m, o * v);\n\
+    \  }\n  linear combine(const V& o) {\n    return linear(m, v + o);\n  }\n  linear\
+    \ combine(const M& om, const V& ov) {\n    return combine(linear(om, ov));\n \
+    \ }\n};\nusing L = linear<ll, 2>;\n"
   dependsOn:
   - code/template.cc
   isVerificationFile: false
   path: code/math/linear.cc
   requiredBy: []
-  timestamp: '2020-12-20 22:09:43+01:00'
+  timestamp: '2021-01-23 14:30:21+01:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: code/math/linear.cc

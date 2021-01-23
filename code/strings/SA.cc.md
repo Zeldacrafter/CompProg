@@ -9,6 +9,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: tests/yosupo/suffix_array.suffix_array.test.cpp
     title: tests/yosupo/suffix_array.suffix_array.test.cpp
+  _isVerificationFailed: false
   _pathExtension: cc
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:

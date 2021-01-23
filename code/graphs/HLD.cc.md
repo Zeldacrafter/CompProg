@@ -12,6 +12,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: tests/aoj/hld.range_query_on_tree.test.cpp
     title: tests/aoj/hld.range_query_on_tree.test.cpp
+  _isVerificationFailed: false
   _pathExtension: cc
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
@@ -40,7 +41,7 @@ data:
     \ 1)\n      data[i >> 1] = merge(data[i & ~1], data[i | 1]);\n  }\n};\n#line 2\
     \ \"code/graphs/HLD.cc\"\ntemplate<typename T, typename F>\nstruct HLD {\n  int\
     \ n;\n  vi par, sz, height, in, pos;\n  vvi paths;\n  ST<T, F> st;\n  HLD(vvi&\
-    \ adj, const vector<T>& val,\n      T unit, F merge, int root = 0)\n    : n{SZ(adj)},\
+    \ adj, const vector<T>& val, T unit, F merge, int root = 0)\n    : n{SZ(adj)},\
     \ par(n), sz(n, 1), height(n), in(n), pos(n),\n      st{n, unit, merge} {\n  \
     \  dfssz(adj, root);\n    vi order;\n    dfsbuild(adj, root, order);\n    int\
     \ j = 0;\n    for (auto it = order.crbegin(); it != order.crend(); ++it)\n   \
@@ -61,13 +62,13 @@ data:
     \ querySubtree(int v) {\n    return st.query(pos[v], pos[v] + sz[v]);\n  }\n};\n"
   code: "#include \"../dataStructures/STIT.cc\"\ntemplate<typename T, typename F>\n\
     struct HLD {\n  int n;\n  vi par, sz, height, in, pos;\n  vvi paths;\n  ST<T,\
-    \ F> st;\n  HLD(vvi& adj, const vector<T>& val,\n      T unit, F merge, int root\
-    \ = 0)\n    : n{SZ(adj)}, par(n), sz(n, 1), height(n), in(n), pos(n),\n      st{n,\
-    \ unit, merge} {\n    dfssz(adj, root);\n    vi order;\n    dfsbuild(adj, root,\
-    \ order);\n    int j = 0;\n    for (auto it = order.crbegin(); it != order.crend();\
-    \ ++it)\n      for (int v : paths[*it]) st.data[st.n + (pos[v] = j++)] = val[v];\n\
-    \    st.build();\n  }\n  int dfssz(vvi& adj, int v, int h = 0, int p = -1) {\n\
-    \    par[v] = p; height[v] = h;\n    for (int u : adj[v])\n      if (p != u) sz[v]\
+    \ F> st;\n  HLD(vvi& adj, const vector<T>& val, T unit, F merge, int root = 0)\n\
+    \    : n{SZ(adj)}, par(n), sz(n, 1), height(n), in(n), pos(n),\n      st{n, unit,\
+    \ merge} {\n    dfssz(adj, root);\n    vi order;\n    dfsbuild(adj, root, order);\n\
+    \    int j = 0;\n    for (auto it = order.crbegin(); it != order.crend(); ++it)\n\
+    \      for (int v : paths[*it]) st.data[st.n + (pos[v] = j++)] = val[v];\n   \
+    \ st.build();\n  }\n  int dfssz(vvi& adj, int v, int h = 0, int p = -1) {\n  \
+    \  par[v] = p; height[v] = h;\n    for (int u : adj[v])\n      if (p != u) sz[v]\
     \ += dfssz(adj, u, h + 1, v);\n    return sz[v];\n  }\n  void dfsbuild(vvi& adj,\
     \ int v, vi& order, int p = -1, bool hvy = false) {\n    if (hvy) paths[in[v]\
     \ = in[p]].pb(v); \n    else {\n      in[v] = SZ(paths);\n      paths.pb({v});\n\
@@ -87,7 +88,7 @@ data:
   isVerificationFile: false
   path: code/graphs/HLD.cc
   requiredBy: []
-  timestamp: '2020-10-29 21:29:28+01:00'
+  timestamp: '2021-01-23 14:30:21+01:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/hld.range_query_on_tree.test.cpp

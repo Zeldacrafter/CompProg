@@ -6,6 +6,7 @@ data:
     path: code/utils/ops.cc
     title: code/utils/ops.cc
   _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: cc
   _verificationStatusIcon: ':warning:'
   attributes:

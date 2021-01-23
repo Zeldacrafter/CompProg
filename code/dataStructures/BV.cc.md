@@ -9,6 +9,7 @@ data:
     path: code/dataStructures/WLM.cc
     title: code/dataStructures/WLM.cc
   _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: cc
   _verificationStatusIcon: ':warning:'
   attributes:

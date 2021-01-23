@@ -12,6 +12,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: tests/aoj/edmonds_karp.maximum_flow.test.cpp
     title: tests/aoj/edmonds_karp.maximum_flow.test.cpp
+  _isVerificationFailed: false
   _pathExtension: cc
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:

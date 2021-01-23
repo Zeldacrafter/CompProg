@@ -6,6 +6,7 @@ data:
     title: code/template_long.cc
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: cc
   _verificationStatusIcon: ':warning:'
   attributes:

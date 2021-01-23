@@ -9,6 +9,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: tests/yosupo/binary_lifting.lca.test.cpp
     title: tests/yosupo/binary_lifting.lca.test.cpp
+  _isVerificationFailed: false
   _pathExtension: cc
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:

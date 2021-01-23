@@ -9,6 +9,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: tests/aoj/dijkstra.single_source_shortest_path.test.cpp
     title: tests/aoj/dijkstra.single_source_shortest_path.test.cpp
+  _isVerificationFailed: false
   _pathExtension: cc
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:

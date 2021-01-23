@@ -9,6 +9,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: tests/aoj/totoid.eulers_phi_function.test.cpp
     title: tests/aoj/totoid.eulers_phi_function.test.cpp
+  _isVerificationFailed: false
   _pathExtension: cc
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
