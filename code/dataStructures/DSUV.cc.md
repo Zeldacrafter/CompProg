@@ -25,7 +25,7 @@ data:
     \ dout if (DEBUG) cerr\n#define dvar(...) \" [\" << #__VA_ARGS__ \": \" << (__VA_ARGS__)\
     \ << \"] \"\n#line 2 \"code/dataStructures/DSUV.cc\"\ntemplate<typename V, typename\
     \ F>\nstruct DSU {\n  int sz;\n  vi p;\n  vector<V> v;\n  F f;\n  DSU(int size,\
-    \ const V& v, F _f) :\n    sz{size}, p(size, -1), v(size, v), f{_f} {}\n  bool\
+    \ const V& _v, F _f) :\n    sz{size}, p(size, -1), v(size, _v), f{_f} {}\n  bool\
     \ sameSet(int a, int b) { return find(a) == find(b); }\n  int find(int x) { return\
     \ p[x] < 0 ? x : p[x] = find(p[x]); }\n  bool join(int a, int b) {\n    a = find(a),\
     \ b = find(b);\n    if (a == b) return false;\n    if (p[a] > p[b]) swap(a, b);\n\
@@ -33,11 +33,11 @@ data:
     \  }\n  int size() { return sz; }\n  int size(int a) { return -p[find(a)]; }\n\
     };\n"
   code: "#include \"../template.hh\"\ntemplate<typename V, typename F>\nstruct DSU\
-    \ {\n  int sz;\n  vi p;\n  vector<V> v;\n  F f;\n  DSU(int size, const V& v, F\
-    \ _f) :\n    sz{size}, p(size, -1), v(size, v), f{_f} {}\n  bool sameSet(int a,\
-    \ int b) { return find(a) == find(b); }\n  int find(int x) { return p[x] < 0 ?\
-    \ x : p[x] = find(p[x]); }\n  bool join(int a, int b) {\n    a = find(a), b =\
-    \ find(b);\n    if (a == b) return false;\n    if (p[a] > p[b]) swap(a, b);\n\
+    \ {\n  int sz;\n  vi p;\n  vector<V> v;\n  F f;\n  DSU(int size, const V& _v,\
+    \ F _f) :\n    sz{size}, p(size, -1), v(size, _v), f{_f} {}\n  bool sameSet(int\
+    \ a, int b) { return find(a) == find(b); }\n  int find(int x) { return p[x] <\
+    \ 0 ? x : p[x] = find(p[x]); }\n  bool join(int a, int b) {\n    a = find(a),\
+    \ b = find(b);\n    if (a == b) return false;\n    if (p[a] > p[b]) swap(a, b);\n\
     \    p[a] += p[b], p[b] = a;\n    v[a] = f(v[a], v[b]);\n    return --sz, true;\n\
     \  }\n  int size() { return sz; }\n  int size(int a) { return -p[find(a)]; }\n\
     };\n"
@@ -46,7 +46,7 @@ data:
   isVerificationFile: false
   path: code/dataStructures/DSUV.cc
   requiredBy: []
-  timestamp: '2021-02-09 05:05:28+01:00'
+  timestamp: '2021-02-09 15:27:32+01:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: code/dataStructures/DSUV.cc
