@@ -221,10 +221,10 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/hackerrank/aho_corasick.two_two.test.cpp
+  - tests/aoj/bigint.multiplication_bigint_2.test.cpp
+  - tests/aoj/bigint.subtraction_bigint.test.cpp
   - tests/aoj/bigint.multiplication_bigint_1.test.cpp
   - tests/aoj/bigint.addition_bigint.test.cpp
-  - tests/aoj/bigint.subtraction_bigint.test.cpp
-  - tests/aoj/bigint.multiplication_bigint_2.test.cpp
 documentation_of: code/utils/bigint.cc
 layout: document
 redirect_from:

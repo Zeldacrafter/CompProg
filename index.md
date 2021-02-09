@@ -9,6 +9,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: code/dataStructures/DSU.cc
       title: code/dataStructures/DSU.cc
+    - icon: ':warning:'
+      path: code/dataStructures/DSUV.cc
+      title: code/dataStructures/DSUV.cc
     - icon: ':heavy_check_mark:'
       path: code/dataStructures/FT.cc
       title: code/dataStructures/FT.cc

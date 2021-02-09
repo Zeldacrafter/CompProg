@@ -79,11 +79,18 @@ data:
     \ string& ns, Ts... ds) : n{ns}, d{ds...} {}\n  friend ostream& operator<<(ostream&\
     \ o, const DB& db) {\n    int i = 0;\n    for_each(db.d, [&](const auto& e, int\
     \ idx) {\n      (idx ? o << \" \" : o) << \"[\";\n      while (i < SZ(db.n) and\
-    \ issep(db.n[i])) ++i;\n      while (i < SZ(db.n) and not issep(db.n[i])) o <<\
-    \ db.n[i++];\n      o << \": \" << e << \"]\";\n    });\n    return o; \n  }\n\
-    \  static inline bool issep(char c) {\n    return set<char>{' ', ','}.count(c);\n\
-    \  }\n};\ntemplate <typename... Ts>\nDB<Ts...> mkDB(const string& n, Ts... d)\
-    \ { return DB<Ts...>(n, d...); }\n\n///////////////////////////////////////////////////////////////\n\
+    \ isspace(db.n[i])) ++i;\n      int br = 0, str = 0, chr = 0, esc = 0;\n     \
+    \ while (i < SZ(db.n)) {\n        if (db.n[i] == '\\\\') esc = not esc;\n    \
+    \    if (not chr and not esc and db.n[i] == '\\\"') str = not str;\n        if\
+    \ (not str and not esc and db.n[i] == '\\'') chr = not chr;\n        if (not str\
+    \ and not chr) {\n          br += brt(db.n[i]);\n          if (db.n[i] == ','\
+    \ and br == 0) {\n            ++i;\n            break;\n          }\n        }\n\
+    \        if (db.n[i] != '\\\\') esc = false;\n        o << db.n[i++]; \n     \
+    \ }\n      o << \": \" << e << \"]\";\n    });\n    return o; \n  }\n  static\
+    \ inline int brt(char c) {\n    switch (c) {\n    case '(': case '[': case '{':\
+    \ return 1;\n    case ')': case ']': case '}': return -1;\n    default: return\
+    \ 0;\n    }\n  }\n};\ntemplate <typename... Ts>\nDB<Ts...> mkDB(const string&\
+    \ n, Ts... d) { return DB<Ts...>(n, d...); }\n\n///////////////////////////////////////////////////////////////\n\
     // Pretty output\n///////////////////////////////////////////////////////////////\n\
     \n// PrettyPrint struct that contains a value to be printed and\n// a list of\
     \ seperators which indicate how different dimensions\n// of multidimensional values\
@@ -200,11 +207,18 @@ data:
     \ string& ns, Ts... ds) : n{ns}, d{ds...} {}\n  friend ostream& operator<<(ostream&\
     \ o, const DB& db) {\n    int i = 0;\n    for_each(db.d, [&](const auto& e, int\
     \ idx) {\n      (idx ? o << \" \" : o) << \"[\";\n      while (i < SZ(db.n) and\
-    \ issep(db.n[i])) ++i;\n      while (i < SZ(db.n) and not issep(db.n[i])) o <<\
-    \ db.n[i++];\n      o << \": \" << e << \"]\";\n    });\n    return o; \n  }\n\
-    \  static inline bool issep(char c) {\n    return set<char>{' ', ','}.count(c);\n\
-    \  }\n};\ntemplate <typename... Ts>\nDB<Ts...> mkDB(const string& n, Ts... d)\
-    \ { return DB<Ts...>(n, d...); }\n\n///////////////////////////////////////////////////////////////\n\
+    \ isspace(db.n[i])) ++i;\n      int br = 0, str = 0, chr = 0, esc = 0;\n     \
+    \ while (i < SZ(db.n)) {\n        if (db.n[i] == '\\\\') esc = not esc;\n    \
+    \    if (not chr and not esc and db.n[i] == '\\\"') str = not str;\n        if\
+    \ (not str and not esc and db.n[i] == '\\'') chr = not chr;\n        if (not str\
+    \ and not chr) {\n          br += brt(db.n[i]);\n          if (db.n[i] == ','\
+    \ and br == 0) {\n            ++i;\n            break;\n          }\n        }\n\
+    \        if (db.n[i] != '\\\\') esc = false;\n        o << db.n[i++]; \n     \
+    \ }\n      o << \": \" << e << \"]\";\n    });\n    return o; \n  }\n  static\
+    \ inline int brt(char c) {\n    switch (c) {\n    case '(': case '[': case '{':\
+    \ return 1;\n    case ')': case ']': case '}': return -1;\n    default: return\
+    \ 0;\n    }\n  }\n};\ntemplate <typename... Ts>\nDB<Ts...> mkDB(const string&\
+    \ n, Ts... d) { return DB<Ts...>(n, d...); }\n\n///////////////////////////////////////////////////////////////\n\
     // Pretty output\n///////////////////////////////////////////////////////////////\n\
     \n// PrettyPrint struct that contains a value to be printed and\n// a list of\
     \ seperators which indicate how different dimensions\n// of multidimensional values\
@@ -260,7 +274,7 @@ data:
   path: code/template_long.cc
   requiredBy:
   - code/utils/ops.cc
-  timestamp: '2021-01-07 02:00:00+01:00'
+  timestamp: '2021-02-09 05:05:28+01:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: code/template_long.cc
