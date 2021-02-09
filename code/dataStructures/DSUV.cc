@@ -5,8 +5,8 @@ struct DSU {
   vi p;
   vector<V> v;
   F f;
-  DSU(int size, const V& v, F _f) :
-    sz{size}, p(size, -1), v(size, v), f{_f} {}
+  DSU(int size, const V& _v, F _f) :
+    sz{size}, p(size, -1), v(size, _v), f{_f} {}
   bool sameSet(int a, int b) { return find(a) == find(b); }
   int find(int x) { return p[x] < 0 ? x : p[x] = find(p[x]); }
   bool join(int a, int b) {
