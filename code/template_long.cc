@@ -145,14 +145,32 @@ struct DB {
     int i = 0;
     for_each(db.d, [&](const auto& e, int idx) {
       (idx ? o << " " : o) << "[";
-      while (i < SZ(db.n) and issep(db.n[i])) ++i;
-      while (i < SZ(db.n) and not issep(db.n[i])) o << db.n[i++];
+      while (i < SZ(db.n) and isspace(db.n[i])) ++i;
+      int br = 0, str = 0, chr = 0, esc = 0;
+      while (i < SZ(db.n)) {
+        if (db.n[i] == '\\') esc = not esc;
+        if (not chr and not esc and db.n[i] == '\"') str = not str;
+        if (not str and not esc and db.n[i] == '\'') chr = not chr;
+        if (not str and not chr) {
+          br += brt(db.n[i]);
+          if (db.n[i] == ',' and br == 0) {
+            ++i;
+            break;
+          }
+        }
+        if (db.n[i] != '\\') esc = false;
+        o << db.n[i++]; 
+      }
       o << ": " << e << "]";
     });
     return o; 
   }
-  static inline bool issep(char c) {
-    return set<char>{' ', ','}.count(c);
+  static inline int brt(char c) {
+    switch (c) {
+    case '(': case '[': case '{': return 1;
+    case ')': case ']': case '}': return -1;
+    default: return 0;
+    }
   }
 };
 template <typename... Ts>
