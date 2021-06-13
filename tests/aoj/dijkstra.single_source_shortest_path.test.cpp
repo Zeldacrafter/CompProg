@@ -9,7 +9,7 @@ int main() {
   int V, E, r;
   cin >> V >> E >> r;
 
-  adj.resize(V);
+  vvii adj(V);
 
   F0R(i, E) {
       int u, v, d;
@@ -17,7 +17,8 @@ int main() {
       adj[u].eb(v, d);
   }
 
-  vi res = dijkstra(r);
+  const int inf = 1e9;
+  vi res = dijkstra(r, adj);
   for(int d : res) {
       if(d == inf)
           cout << "INF\n";

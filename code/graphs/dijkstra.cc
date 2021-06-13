@@ -1,9 +1,8 @@
 #include "../template.hh"
-const int inf = 1e9;
-vvii adj;
-vi dijkstra(int start) {
-  vi dist(SZ(adj), inf);
-  set<ii> q;
+template <typename D = int>
+vector<D> dijkstra(int start, const vector<vector<pair<int, D>>>& adj, const D INF = 1e9) {
+  vector<D> dist(SZ(adj), INF);
+  set<pair<D, int>> q;
   q.emplace(0, start);
   dist[start] = 0;
   while (!q.empty()) {

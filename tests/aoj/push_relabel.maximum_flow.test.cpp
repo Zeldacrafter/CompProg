@@ -9,15 +9,15 @@ int main() {
   int V, E;
   cin >> V >> E;
 
-  adj.resize(V);
+  PR pr(V, 0, V - 1);
 
   F0R(i, E) {
       int u, v, c;
       cin >> u >> v >> c;
-      addEdge(u, v, c);
+      pr.add(u, v, c);
   }
 
-  cout << maxflow(0, V - 1) << endl;
+  cout << pr.maxflow(0, V - 1) << endl;
 }
 
 

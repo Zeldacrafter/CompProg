@@ -6,8 +6,9 @@ int main() {
   cin.tie(0);
   ios_base::sync_with_stdio(0);
 
-  int E;
+  int V, E;
   cin >> V >> E;
+  vector<tuple<double, int, int>> edges;
 
   F0R(i, E) {
       int u, v;
@@ -16,6 +17,6 @@ int main() {
       edges.eb(w, u, v);
   }
 
-  cout << (ll)get<1>(kruskal()) << endl;
+  cout << (ll)get<1>(kruskal(V, edges)) << endl;
 }
 

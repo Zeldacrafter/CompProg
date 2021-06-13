@@ -9,21 +9,18 @@ int main() {
   int l, r, m;
   cin >> l >> r >> m;
 
-  int source = l + r, target = l + r + 1;
-  adj.resize(l + r + 2);
-
-  F0R(i, l) addEdge(source, i, 1);
-  F0R(i, r) addEdge(l + i, target, 1);
+  BM bm(l, r);
 
   F0R(i, m) {
       int u, v;
       cin >> u >> v;
-      addEdge(u, l + v, 1);
+      bm.match(u, v);
   }
 
-  cout << maxflow(source, target) << endl;
-  for(edge& e : edges)
-    if(e.mfrom != source && e.mto != target && e.mflow == 1)
-        cout << e.mfrom << ' ' << e.mto - l << endl;
+  vii matching = bm.matching();
+  cout << SZ(matching) << endl;
+  for (auto [u, v] : matching) {
+    cout << u << ' ' << v << endl;
+  }
 }
 

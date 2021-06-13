@@ -9,15 +9,15 @@ int main() {
   int V, E;
   cin >> V >> E;
 
-  adj.resize(V);
+  EK ek(V, 0, V - 1);
 
   F0R(i, E) {
       int u, v, c;
       cin >> u >> v >> c;
-      addEdge(u, v, c);
+      ek.add(u, v, c);
   }
 
-  cout << maxflow(0, V - 1) << endl;
+  cout << ek.maxflow() << endl;
 }
 
 
