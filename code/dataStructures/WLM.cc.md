@@ -4,7 +4,7 @@ data:
   - icon: ':warning:'
     path: code/dataStructures/BV.cc
     title: code/dataStructures/BV.cc
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: code/template.cc
     title: code/template.cc
   _extendedRequiredBy: []

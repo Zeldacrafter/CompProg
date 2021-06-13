@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: code/graphs/flowedge.cc
     title: code/graphs/flowedge.cc
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: code/graphs/pushRelabel.cc
     title: code/graphs/pushRelabel.cc
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: code/template.cc
     title: code/template.cc
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A
@@ -43,10 +43,10 @@ data:
     \    mflow += v == mfrom ? amount : -amount;\n  }\n};\ntemplate <typename F>\n\
     ostream& operator<<(ostream& o, const edge<F>& e) {\n  return o << e.mfrom <<\
     \ \"-- \" << e.mflow << '/'\n           << e.mcapacity << \" -->\" << e.mto;\n\
-    }\n#line 3 \"code/graphs/pushRelabel.cc\"\ntemplate <typename F>\nstruct PR {\n\
-    \  vi label, currentEdge;\n  vector<F> excess;\n  queue<int> active;\n  vvi adj;\n\
-    \  vector<edge<F>> edges;\n  int S, T;\n  PR(int n, int s = -1, int t = -1) {\
-    \ reset(n, s, t); }\n  int add(int from, int to, F c = numeric_limits<F>::max(),\
+    }\n#line 3 \"code/graphs/pushRelabel.cc\"\ntemplate <typename F = ll>\nstruct\
+    \ PR {\n  vi label, currentEdge;\n  vector<F> excess;\n  queue<int> active;\n\
+    \  vvi adj;\n  vector<edge<F>> edges;\n  int S, T;\n  PR(int n, int s = -1, int\
+    \ t = -1) { reset(n, s, t); }\n  int add(int from, int to, F c = numeric_limits<F>::max(),\
     \ F f = 0) {\n    edges.eb(from, to, c, f);\n    adj[from].pb(SZ(edges) - 1);\n\
     \    adj[to].pb(SZ(edges) - 1);\n    return SZ(edges) - 1;\n  }\n  void clear()\
     \ { edges.clear(); adj.clear(); }\n  void reset(int n, int s = -1, int t = -1)\
@@ -86,8 +86,8 @@ data:
   isVerificationFile: true
   path: tests/aoj/push_relabel.maximum_flow.test.cpp
   requiredBy: []
-  timestamp: '2021-06-13 17:53:40+02:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2021-06-13 18:08:42+02:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/aoj/push_relabel.maximum_flow.test.cpp
 layout: document

@@ -101,13 +101,13 @@ data:
   - icon: ':heavy_check_mark:'
     path: code/graphs/dijkstra.cc
     title: code/graphs/dijkstra.cc
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: code/graphs/dinic.cc
     title: code/graphs/dinic.cc
   - icon: ':heavy_check_mark:'
     path: code/graphs/edmondsKarp.cc
     title: code/graphs/edmondsKarp.cc
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: code/graphs/flowedge.cc
     title: code/graphs/flowedge.cc
   - icon: ':heavy_check_mark:'
@@ -116,7 +116,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: code/graphs/kruskal.cc
     title: code/graphs/kruskal.cc
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: code/graphs/pushRelabel.cc
     title: code/graphs/pushRelabel.cc
   - icon: ':heavy_check_mark:'
@@ -279,7 +279,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: tests/aoj/polygon_convex.test.cpp
     title: tests/aoj/polygon_convex.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: tests/aoj/push_relabel.maximum_flow.test.cpp
     title: tests/aoj/push_relabel.maximum_flow.test.cpp
   - icon: ':heavy_check_mark:'
@@ -303,7 +303,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: tests/yosupo/binary_lifting.lca.test.cpp
     title: tests/yosupo/binary_lifting.lca.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: tests/yosupo/dinic.bipartitematching.test.cpp
     title: tests/yosupo/dinic.bipartitematching.test.cpp
   - icon: ':heavy_check_mark:'
@@ -342,9 +342,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: tests/yosupo/unionfind.test.cpp
     title: tests/yosupo/unionfind.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cc
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: '#line 1 "code/template.cc"
@@ -545,7 +545,7 @@ data:
   - code/geometry/picksTheorem.cc
   - code/geometry/convexHull.cc
   timestamp: '2020-10-28 19:21:59+01:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/yosupo/scc.scc.test.cpp
   - tests/yosupo/suffix_array.suffix_array.test.cpp

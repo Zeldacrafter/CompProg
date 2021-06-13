@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: code/strings/SA.cc
     title: code/strings/SA.cc
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: code/template.cc
     title: code/template.cc
   _extendedRequiredBy: []

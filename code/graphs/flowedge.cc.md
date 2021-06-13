@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: code/template.cc
     title: code/template.cc
   _extendedRequiredBy:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: code/graphs/dinic.cc
     title: code/graphs/dinic.cc
   - icon: ':heavy_check_mark:'
     path: code/graphs/edmondsKarp.cc
     title: code/graphs/edmondsKarp.cc
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: code/graphs/pushRelabel.cc
     title: code/graphs/pushRelabel.cc
   _extendedVerifiedWith:
@@ -21,15 +21,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: tests/aoj/edmonds_karp.maximum_flow.test.cpp
     title: tests/aoj/edmonds_karp.maximum_flow.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: tests/aoj/push_relabel.maximum_flow.test.cpp
     title: tests/aoj/push_relabel.maximum_flow.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: tests/yosupo/dinic.bipartitematching.test.cpp
     title: tests/yosupo/dinic.bipartitematching.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cc
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"code/template.cc\"\n// this line is here for a reason\n\
@@ -71,7 +71,7 @@ data:
   - code/graphs/dinic.cc
   - code/graphs/pushRelabel.cc
   timestamp: '2021-06-13 17:53:40+02:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/yosupo/dinic.bipartitematching.test.cpp
   - tests/aoj/dinic.maximum_flow.test.cpp

@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: code/geometry/polygon.cc
     title: code/geometry/polygon.cc
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: code/template.cc
     title: code/template.cc
   _extendedRequiredBy: []

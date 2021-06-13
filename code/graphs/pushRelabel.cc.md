@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: code/graphs/flowedge.cc
     title: code/graphs/flowedge.cc
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: code/template.cc
     title: code/template.cc
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: tests/aoj/push_relabel.maximum_flow.test.cpp
     title: tests/aoj/push_relabel.maximum_flow.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cc
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"code/graphs/pushRelabel.cc\"\n\n#line 1 \"code/template.cc\"\
@@ -38,8 +38,34 @@ data:
     \    mflow += v == mfrom ? amount : -amount;\n  }\n};\ntemplate <typename F>\n\
     ostream& operator<<(ostream& o, const edge<F>& e) {\n  return o << e.mfrom <<\
     \ \"-- \" << e.mflow << '/'\n           << e.mcapacity << \" -->\" << e.mto;\n\
-    }\n#line 3 \"code/graphs/pushRelabel.cc\"\ntemplate <typename F>\nstruct PR {\n\
-    \  vi label, currentEdge;\n  vector<F> excess;\n  queue<int> active;\n  vvi adj;\n\
+    }\n#line 3 \"code/graphs/pushRelabel.cc\"\ntemplate <typename F = ll>\nstruct\
+    \ PR {\n  vi label, currentEdge;\n  vector<F> excess;\n  queue<int> active;\n\
+    \  vvi adj;\n  vector<edge<F>> edges;\n  int S, T;\n  PR(int n, int s = -1, int\
+    \ t = -1) { reset(n, s, t); }\n  int add(int from, int to, F c = numeric_limits<F>::max(),\
+    \ F f = 0) {\n    edges.eb(from, to, c, f);\n    adj[from].pb(SZ(edges) - 1);\n\
+    \    adj[to].pb(SZ(edges) - 1);\n    return SZ(edges) - 1;\n  }\n  void clear()\
+    \ { edges.clear(); adj.clear(); }\n  void reset(int n, int s = -1, int t = -1)\
+    \ {\n    clear();\n    adj.resize(n + (s == -1) + (t == -1));\n    S = s == -1\
+    \ ? n : s;\n    T = t == -1 ? n + (s == -1) : t;\n  }\n  void push(int v, edge<F>&\
+    \ e) {\n    F more = min(excess[v], e.capacity(v) - e.flow(v));\n    excess[e.other(v)]\
+    \ += more;\n    excess[v] -= more;\n    e.adjust(v, more);\n    if (more && excess[e.other(v)]\
+    \ == more) active.push(e.other(v));\n  }\n  void relabel(int v) {\n    int m =\
+    \ numeric_limits<int>::max();\n    for (int i : adj[v]) {\n      auto& e = edges[i];\n\
+    \      if (e.flow(v) < e.capacity(v)) ckmin(m, label[edges[i].other(v)]);\n  \
+    \  }\n    if (m < numeric_limits<int>::max()) label[v] = m + 1;\n  }\n  void discharge(int\
+    \ v) {\n    while (excess[v]) {\n      auto& e = edges[adj[v][currentEdge[v]]];\n\
+    \      if (label[v] - 1 == label[e.other(v)] &&\n          e.flow(v) < e.capacity(v))\n\
+    \        push(v, e);\n      else if (SZ(adj[v]) == ++currentEdge[v]) {\n     \
+    \   currentEdge[v] = 0;\n        relabel(v);\n      }\n    }\n  }\n  F maxflow(int\
+    \ s, int t) {\n    currentEdge.assign(SZ(adj), 0);\n    label.assign(SZ(adj),\
+    \ 0);\n    excess.assign(SZ(adj), 0);\n    excess[s] = numeric_limits<F>::max();\n\
+    \    label[s] = SZ(adj);\n    for (int i : adj[s]) push(s, edges[i]);\n    while\
+    \ (!active.empty()) {\n      if (active.front() != s && active.front() != t)\n\
+    \        discharge(active.front());\n      active.pop();\n    }\n    F maxflow\
+    \ = 0;\n    for (int i : adj[s]) maxflow += edges[i].flow(s);\n    return maxflow;\n\
+    \  }\n};\n"
+  code: "\n#include \"flowedge.cc\"\ntemplate <typename F = ll>\nstruct PR {\n  vi\
+    \ label, currentEdge;\n  vector<F> excess;\n  queue<int> active;\n  vvi adj;\n\
     \  vector<edge<F>> edges;\n  int S, T;\n  PR(int n, int s = -1, int t = -1) {\
     \ reset(n, s, t); }\n  int add(int from, int to, F c = numeric_limits<F>::max(),\
     \ F f = 0) {\n    edges.eb(from, to, c, f);\n    adj[from].pb(SZ(edges) - 1);\n\
@@ -64,39 +90,14 @@ data:
     \        discharge(active.front());\n      active.pop();\n    }\n    F maxflow\
     \ = 0;\n    for (int i : adj[s]) maxflow += edges[i].flow(s);\n    return maxflow;\n\
     \  }\n};\n"
-  code: "\n#include \"flowedge.cc\"\ntemplate <typename F>\nstruct PR {\n  vi label,\
-    \ currentEdge;\n  vector<F> excess;\n  queue<int> active;\n  vvi adj;\n  vector<edge<F>>\
-    \ edges;\n  int S, T;\n  PR(int n, int s = -1, int t = -1) { reset(n, s, t); }\n\
-    \  int add(int from, int to, F c = numeric_limits<F>::max(), F f = 0) {\n    edges.eb(from,\
-    \ to, c, f);\n    adj[from].pb(SZ(edges) - 1);\n    adj[to].pb(SZ(edges) - 1);\n\
-    \    return SZ(edges) - 1;\n  }\n  void clear() { edges.clear(); adj.clear();\
-    \ }\n  void reset(int n, int s = -1, int t = -1) {\n    clear();\n    adj.resize(n\
-    \ + (s == -1) + (t == -1));\n    S = s == -1 ? n : s;\n    T = t == -1 ? n + (s\
-    \ == -1) : t;\n  }\n  void push(int v, edge<F>& e) {\n    F more = min(excess[v],\
-    \ e.capacity(v) - e.flow(v));\n    excess[e.other(v)] += more;\n    excess[v]\
-    \ -= more;\n    e.adjust(v, more);\n    if (more && excess[e.other(v)] == more)\
-    \ active.push(e.other(v));\n  }\n  void relabel(int v) {\n    int m = numeric_limits<int>::max();\n\
-    \    for (int i : adj[v]) {\n      auto& e = edges[i];\n      if (e.flow(v) <\
-    \ e.capacity(v)) ckmin(m, label[edges[i].other(v)]);\n    }\n    if (m < numeric_limits<int>::max())\
-    \ label[v] = m + 1;\n  }\n  void discharge(int v) {\n    while (excess[v]) {\n\
-    \      auto& e = edges[adj[v][currentEdge[v]]];\n      if (label[v] - 1 == label[e.other(v)]\
-    \ &&\n          e.flow(v) < e.capacity(v))\n        push(v, e);\n      else if\
-    \ (SZ(adj[v]) == ++currentEdge[v]) {\n        currentEdge[v] = 0;\n        relabel(v);\n\
-    \      }\n    }\n  }\n  F maxflow(int s, int t) {\n    currentEdge.assign(SZ(adj),\
-    \ 0);\n    label.assign(SZ(adj), 0);\n    excess.assign(SZ(adj), 0);\n    excess[s]\
-    \ = numeric_limits<F>::max();\n    label[s] = SZ(adj);\n    for (int i : adj[s])\
-    \ push(s, edges[i]);\n    while (!active.empty()) {\n      if (active.front()\
-    \ != s && active.front() != t)\n        discharge(active.front());\n      active.pop();\n\
-    \    }\n    F maxflow = 0;\n    for (int i : adj[s]) maxflow += edges[i].flow(s);\n\
-    \    return maxflow;\n  }\n};\n"
   dependsOn:
   - code/graphs/flowedge.cc
   - code/template.cc
   isVerificationFile: false
   path: code/graphs/pushRelabel.cc
   requiredBy: []
-  timestamp: '2021-06-13 17:53:40+02:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2021-06-13 18:08:42+02:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/push_relabel.maximum_flow.test.cpp
 documentation_of: code/graphs/pushRelabel.cc
