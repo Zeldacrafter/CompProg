@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: code/template.cc
     title: code/template.cc
   _extendedRequiredBy: []
@@ -26,15 +26,17 @@ data:
     \ : false; }\ntemplate <typename T>\nbool ckmax(T& a, const T& b) { return a <\
     \ b ? a = b, true : false; }\n#ifndef DEBUG\n#define DEBUG 0\n#endif\n#define\
     \ dout if (DEBUG) cerr\n#define dvar(...) \" [\" << #__VA_ARGS__ \": \" << (__VA_ARGS__)\
-    \ << \"] \"\n#line 2 \"code/graphs/dijkstra.cc\"\nconst int inf = 1e9;\nvvii adj;\n\
-    vi dijkstra(int start) {\n  vi dist(SZ(adj), inf);\n  set<ii> q;\n  q.emplace(0,\
+    \ << \"] \"\n#line 2 \"code/graphs/dijkstra.cc\"\ntemplate <typename D = int>\n\
+    vector<D> dijkstra(int start, const vector<vector<pair<int, D>>>& adj, const D\
+    \ INF = 1e9) {\n  vector<D> dist(SZ(adj), INF);\n  set<pair<D, int>> q;\n  q.emplace(0,\
     \ start);\n  dist[start] = 0;\n  while (!q.empty()) {\n    auto [d, v] = *q.begin();\
     \ q.erase(q.begin());\n    if (dist[v] < d) continue;\n    for (auto [u, du] :\
     \ adj[v])\n      if (ckmin(dist[u], d + du)) q.emplace(d + du, u);\n  }\n  return\
     \ dist;\n}\n"
-  code: "#include \"../template.hh\"\nconst int inf = 1e9;\nvvii adj;\nvi dijkstra(int\
-    \ start) {\n  vi dist(SZ(adj), inf);\n  set<ii> q;\n  q.emplace(0, start);\n \
-    \ dist[start] = 0;\n  while (!q.empty()) {\n    auto [d, v] = *q.begin(); q.erase(q.begin());\n\
+  code: "#include \"../template.hh\"\ntemplate <typename D = int>\nvector<D> dijkstra(int\
+    \ start, const vector<vector<pair<int, D>>>& adj, const D INF = 1e9) {\n  vector<D>\
+    \ dist(SZ(adj), INF);\n  set<pair<D, int>> q;\n  q.emplace(0, start);\n  dist[start]\
+    \ = 0;\n  while (!q.empty()) {\n    auto [d, v] = *q.begin(); q.erase(q.begin());\n\
     \    if (dist[v] < d) continue;\n    for (auto [u, du] : adj[v])\n      if (ckmin(dist[u],\
     \ d + du)) q.emplace(d + du, u);\n  }\n  return dist;\n}\n"
   dependsOn:
@@ -42,7 +44,7 @@ data:
   isVerificationFile: false
   path: code/graphs/dijkstra.cc
   requiredBy: []
-  timestamp: '2020-10-28 19:21:59+01:00'
+  timestamp: '2021-06-13 17:53:40+02:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/dijkstra.single_source_shortest_path.test.cpp

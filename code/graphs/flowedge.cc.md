@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: code/template.cc
     title: code/template.cc
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: code/graphs/dinic.cc
     title: code/graphs/dinic.cc
   - icon: ':heavy_check_mark:'
     path: code/graphs/edmondsKarp.cc
     title: code/graphs/edmondsKarp.cc
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: code/graphs/pushRelabel.cc
     title: code/graphs/pushRelabel.cc
   _extendedVerifiedWith:
@@ -21,15 +21,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: tests/aoj/edmonds_karp.maximum_flow.test.cpp
     title: tests/aoj/edmonds_karp.maximum_flow.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: tests/aoj/push_relabel.maximum_flow.test.cpp
     title: tests/aoj/push_relabel.maximum_flow.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: tests/yosupo/dinic.bipartitematching.test.cpp
     title: tests/yosupo/dinic.bipartitematching.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cc
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"code/template.cc\"\n// this line is here for a reason\n\
@@ -44,37 +44,34 @@ data:
     \ : false; }\ntemplate <typename T>\nbool ckmax(T& a, const T& b) { return a <\
     \ b ? a = b, true : false; }\n#ifndef DEBUG\n#define DEBUG 0\n#endif\n#define\
     \ dout if (DEBUG) cerr\n#define dvar(...) \" [\" << #__VA_ARGS__ \": \" << (__VA_ARGS__)\
-    \ << \"] \"\n#line 2 \"code/graphs/flowedge.cc\"\nstruct edge {\n  edge(int from,\
-    \ int to, ll capacity, ll flow = 0)\n      : mfrom(from), mto(to), mcapacity(capacity),\
-    \ mflow(flow) {}\n  int mfrom, mto;\n  ll mcapacity, mflow;\n  int other(int v)\
-    \ { return v == mfrom ? mto : mfrom; }\n  ll capacity(int v) { return v == mfrom\
-    \ ? mcapacity : 0; }\n  ll flow(int v) { return v == mfrom ? mflow : -mflow; }\n\
-    \  void adjust(int v, ll amount) {\n    mflow += v == mfrom ? amount : -amount;\n\
-    \  }\n};\nvector<edge> edges;\nvvi adj;\nvoid addEdge(int from, int to, ll c,\
-    \ ll f = 0) {\n  edges.eb(from, to, c, f);\n  adj[from].pb(SZ(edges) - 1);\n \
-    \ adj[to].pb(SZ(edges) - 1);\n}\nostream& operator<<(ostream& o, const edge& e)\
-    \ {\n  return o << e.mfrom << \"-- \" << e.mflow << '/'\n           << e.mcapacity\
+    \ << \"] \"\n#line 2 \"code/graphs/flowedge.cc\"\ntemplate <typename F>\nstruct\
+    \ edge {\n  edge(int from, int to, F capacity, F flow = 0)\n      : mfrom(from),\
+    \ mto(to), mcapacity(capacity), mflow(flow) {}\n  int mfrom, mto;\n  F mcapacity,\
+    \ mflow;\n  int other(int v) { return v == mfrom ? mto : mfrom; }\n  F capacity(int\
+    \ v) { return v == mfrom ? mcapacity : 0; }\n  F flow(int v) { return v == mfrom\
+    \ ? mflow : -mflow; }\n  void adjust(int v, F amount) {\n    mflow += v == mfrom\
+    \ ? amount : -amount;\n  }\n};\ntemplate <typename F>\nostream& operator<<(ostream&\
+    \ o, const edge<F>& e) {\n  return o << e.mfrom << \"-- \" << e.mflow << '/'\n\
+    \           << e.mcapacity << \" -->\" << e.mto;\n}\n"
+  code: "#include \"../template.hh\"\ntemplate <typename F>\nstruct edge {\n  edge(int\
+    \ from, int to, F capacity, F flow = 0)\n      : mfrom(from), mto(to), mcapacity(capacity),\
+    \ mflow(flow) {}\n  int mfrom, mto;\n  F mcapacity, mflow;\n  int other(int v)\
+    \ { return v == mfrom ? mto : mfrom; }\n  F capacity(int v) { return v == mfrom\
+    \ ? mcapacity : 0; }\n  F flow(int v) { return v == mfrom ? mflow : -mflow; }\n\
+    \  void adjust(int v, F amount) {\n    mflow += v == mfrom ? amount : -amount;\n\
+    \  }\n};\ntemplate <typename F>\nostream& operator<<(ostream& o, const edge<F>&\
+    \ e) {\n  return o << e.mfrom << \"-- \" << e.mflow << '/'\n           << e.mcapacity\
     \ << \" -->\" << e.mto;\n}\n"
-  code: "#include \"../template.hh\"\nstruct edge {\n  edge(int from, int to, ll capacity,\
-    \ ll flow = 0)\n      : mfrom(from), mto(to), mcapacity(capacity), mflow(flow)\
-    \ {}\n  int mfrom, mto;\n  ll mcapacity, mflow;\n  int other(int v) { return v\
-    \ == mfrom ? mto : mfrom; }\n  ll capacity(int v) { return v == mfrom ? mcapacity\
-    \ : 0; }\n  ll flow(int v) { return v == mfrom ? mflow : -mflow; }\n  void adjust(int\
-    \ v, ll amount) {\n    mflow += v == mfrom ? amount : -amount;\n  }\n};\nvector<edge>\
-    \ edges;\nvvi adj;\nvoid addEdge(int from, int to, ll c, ll f = 0) {\n  edges.eb(from,\
-    \ to, c, f);\n  adj[from].pb(SZ(edges) - 1);\n  adj[to].pb(SZ(edges) - 1);\n}\n\
-    ostream& operator<<(ostream& o, const edge& e) {\n  return o << e.mfrom << \"\
-    -- \" << e.mflow << '/'\n           << e.mcapacity << \" -->\" << e.mto;\n}\n"
   dependsOn:
   - code/template.cc
   isVerificationFile: false
   path: code/graphs/flowedge.cc
   requiredBy:
   - code/graphs/edmondsKarp.cc
-  - code/graphs/pushRelabel.cc
   - code/graphs/dinic.cc
-  timestamp: '2020-10-28 19:21:59+01:00'
-  verificationStatus: LIBRARY_ALL_AC
+  - code/graphs/pushRelabel.cc
+  timestamp: '2021-06-13 17:53:40+02:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - tests/yosupo/dinic.bipartitematching.test.cpp
   - tests/aoj/dinic.maximum_flow.test.cpp

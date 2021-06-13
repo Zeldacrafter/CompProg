@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: code/dataStructures/DSU.cc
     title: code/dataStructures/DSU.cc
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: code/template.cc
     title: code/template.cc
   _extendedRequiredBy: []
@@ -36,25 +36,25 @@ data:
     \ b) return false;\n    if (data[a] > data[b]) swap(a, b);\n    data[a] += data[b],\
     \ data[b] = a;\n    return --msize, true;\n  }\n  int size() { return msize; }\n\
     \  int size(int a) { return -data[find(a)]; }\n  int msize;\n  vi data;\n};\n\
-    #line 2 \"code/graphs/kruskal.cc\"\nvector<tuple<double, int, int>> edges;\nint\
-    \ V; // bool indicates if MST could be found / graph is connected\ntuple<bool,\
-    \ double, vi> kruskal() {\n  sort(ALL(edges)); DSU dsu(V); vi mst;\n  double weigth\
-    \ = 0;\n  for (int i = 0; SZ(dsu) > 1 && i < SZ(edges); ++i) {\n    auto [d, a,\
-    \ b] = edges[i];\n    if (dsu.join(a, b)) mst.pb(i), weigth += d;\n  }\n  return\
-    \ mt(SZ(dsu) == 1, weigth, mst);\n}\n"
-  code: "#include \"../dataStructures/DSU.cc\"\nvector<tuple<double, int, int>> edges;\n\
-    int V; // bool indicates if MST could be found / graph is connected\ntuple<bool,\
-    \ double, vi> kruskal() {\n  sort(ALL(edges)); DSU dsu(V); vi mst;\n  double weigth\
-    \ = 0;\n  for (int i = 0; SZ(dsu) > 1 && i < SZ(edges); ++i) {\n    auto [d, a,\
-    \ b] = edges[i];\n    if (dsu.join(a, b)) mst.pb(i), weigth += d;\n  }\n  return\
-    \ mt(SZ(dsu) == 1, weigth, mst);\n}\n"
+    #line 2 \"code/graphs/kruskal.cc\"\ntemplate <typename W, typename C = less<tuple<W,\
+    \ int, int>>>\ntuple<bool, W, vi> kruskal(int V, vector<tuple<W, int, int>>& edges,\
+    \ C cmp = C()) {\n  sort(ALL(edges), cmp); DSU dsu(V); vi mst;\n  W w = 0;\n \
+    \ for (int i = 0; SZ(dsu) > 1 && i < SZ(edges); ++i) {\n    auto [d, a, b] = edges[i];\n\
+    \    if (dsu.join(a, b)) mst.pb(i), w += d;\n  }\n  return mt(SZ(dsu) == 1, w,\
+    \ mst);\n}\n"
+  code: "#include \"../dataStructures/DSU.cc\"\ntemplate <typename W, typename C =\
+    \ less<tuple<W, int, int>>>\ntuple<bool, W, vi> kruskal(int V, vector<tuple<W,\
+    \ int, int>>& edges, C cmp = C()) {\n  sort(ALL(edges), cmp); DSU dsu(V); vi mst;\n\
+    \  W w = 0;\n  for (int i = 0; SZ(dsu) > 1 && i < SZ(edges); ++i) {\n    auto\
+    \ [d, a, b] = edges[i];\n    if (dsu.join(a, b)) mst.pb(i), w += d;\n  }\n  return\
+    \ mt(SZ(dsu) == 1, w, mst);\n}\n"
   dependsOn:
   - code/dataStructures/DSU.cc
   - code/template.cc
   isVerificationFile: false
   path: code/graphs/kruskal.cc
   requiredBy: []
-  timestamp: '2020-10-28 19:21:59+01:00'
+  timestamp: '2021-06-13 17:53:40+02:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/kruskal.minimum_spanning_tree.test.cc

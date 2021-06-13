@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: code/template.cc
     title: code/template.cc
   _extendedRequiredBy:
@@ -100,8 +100,8 @@ data:
   isVerificationFile: false
   path: code/geometry/geometry.cc
   requiredBy:
-  - code/geometry/convexHull.cc
   - code/geometry/polygon.cc
+  - code/geometry/convexHull.cc
   timestamp: '2020-10-28 19:21:59+01:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

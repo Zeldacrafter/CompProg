@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: code/template.cc
     title: code/template.cc
   _extendedRequiredBy:
@@ -222,8 +222,8 @@ data:
   verifiedWith:
   - tests/hackerrank/aho_corasick.two_two.test.cpp
   - tests/aoj/bigint.multiplication_bigint_2.test.cpp
-  - tests/aoj/bigint.subtraction_bigint.test.cpp
   - tests/aoj/bigint.multiplication_bigint_1.test.cpp
+  - tests/aoj/bigint.subtraction_bigint.test.cpp
   - tests/aoj/bigint.addition_bigint.test.cpp
 documentation_of: code/utils/bigint.cc
 layout: document

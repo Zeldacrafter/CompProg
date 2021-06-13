@@ -108,13 +108,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: code/graphs/dijkstra.cc
       title: code/graphs/dijkstra.cc
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: code/graphs/dinic.cc
       title: code/graphs/dinic.cc
     - icon: ':heavy_check_mark:'
       path: code/graphs/edmondsKarp.cc
       title: code/graphs/edmondsKarp.cc
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: code/graphs/flowedge.cc
       title: code/graphs/flowedge.cc
     - icon: ':heavy_check_mark:'
@@ -123,7 +123,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: code/graphs/kruskal.cc
       title: code/graphs/kruskal.cc
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: code/graphs/pushRelabel.cc
       title: code/graphs/pushRelabel.cc
     - icon: ':heavy_check_mark:'
@@ -183,7 +183,7 @@ data:
       title: code/strings/trie.cc
   - name: code
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: code/template.cc
       title: code/template.cc
     - icon: ':warning:'
@@ -305,7 +305,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/aoj/polygon_convex.test.cpp
       title: tests/aoj/polygon_convex.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: tests/aoj/push_relabel.maximum_flow.test.cpp
       title: tests/aoj/push_relabel.maximum_flow.test.cpp
     - icon: ':heavy_check_mark:'
@@ -338,7 +338,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/yosupo/binary_lifting.lca.test.cpp
       title: tests/yosupo/binary_lifting.lca.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: tests/yosupo/dinic.bipartitematching.test.cpp
       title: tests/yosupo/dinic.bipartitematching.test.cpp
     - icon: ':heavy_check_mark:'
