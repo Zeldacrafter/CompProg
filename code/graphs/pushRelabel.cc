@@ -1,6 +1,6 @@
 
 #include "flowedge.cc"
-template <typename F>
+template <typename F = ll>
 struct PR {
   vi label, currentEdge;
   vector<F> excess;

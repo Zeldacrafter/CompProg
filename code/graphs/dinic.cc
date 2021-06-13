@@ -24,7 +24,7 @@ struct DC {
     vii res; res.reserve(maxflow());
     for (const auto& e : edges)
       if (e.mflow == 1 and e.mfrom != S and e.mto != T)
-        res.eb(e.mfrom, e.mto);
+        res.eb(e.mfrom, e.mto - N);
     return res;
   }
   void clear() { edges.clear(); adj.clear(); }
