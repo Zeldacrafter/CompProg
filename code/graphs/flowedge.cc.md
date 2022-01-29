@@ -67,16 +67,16 @@ data:
   isVerificationFile: false
   path: code/graphs/flowedge.cc
   requiredBy:
+  - code/graphs/pushRelabel.cc
   - code/graphs/edmondsKarp.cc
   - code/graphs/dinic.cc
-  - code/graphs/pushRelabel.cc
   timestamp: '2021-06-13 17:53:40+02:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - tests/yosupo/dinic.bipartitematching.test.cpp
-  - tests/aoj/dinic.maximum_flow.test.cpp
-  - tests/aoj/push_relabel.maximum_flow.test.cpp
   - tests/aoj/edmonds_karp.maximum_flow.test.cpp
+  - tests/aoj/push_relabel.maximum_flow.test.cpp
+  - tests/aoj/dinic.maximum_flow.test.cpp
+  - tests/yosupo/dinic.bipartitematching.test.cpp
 documentation_of: code/graphs/flowedge.cc
 layout: document
 redirect_from:

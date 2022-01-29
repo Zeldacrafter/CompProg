@@ -18,13 +18,13 @@ data:
     \ list:\n// * C++14 compatibility.\n// * Various 'define'-shorthands and typedefs.\n\
     // * Output stream that is only active with 'DEBUG'-flag set.\n// * Input and\
     \ output stream operators for...\n//   * any container with 'begin' and 'end'\
-    \ iterator.\n//   * tuples with any amount of elements \n//     (Except for 0\
-    \ elements tuples :'( ) Related: https://xkcd.com/541/\n//   * pairs.\n// * PrettyPrinting\
+    \ iterator.\n//   * tuples with any amount of elements\n//     (Except for 0 elements\
+    \ tuples :'( ) Related: https://xkcd.com/541/\n//   * pairs.\n// * PrettyPrinting\
     \ a object with specified seperators.\n//   Each additional seperator specifies\
     \ the seperator for one level\n//   further into a nested structure. Pairs, tuples\
     \ and std-library-container\n//   cause the level to increase.\n//   If no seperator\
-    \ is specified a default of \" \"(space) is used.\n//   For example a call \n\
-    //      vii a(4, mp(1, 2));\n//      cout << pp(a, \" | \", \"-\");\n//   results\
+    \ is specified a default of \" \"(space) is used.\n//   For example a call\n//\
+    \      vii a(4, mp(1, 2));\n//      cout << pp(a, \" | \", \"-\");\n//   results\
     \ in the output (without trailing newline)\n//      1-2 | 1-2 | 1-2 | 1-2\n///////////////////////////////////////////////////////////////\n\
     \n#include <bits/stdc++.h>\nusing namespace std;\ntypedef long long ll;\ntypedef\
     \ pair<int, int> ii;\ntypedef vector<int> vi;\ntypedef vector<ii> vii;\ntypedef\
@@ -48,17 +48,17 @@ data:
     \nnamespace impl {\n  template <typename T, typename F, size_t... Is>\n  F for_each(T&\
     \ t, F f, index_sequence<Is...>) {\n    auto l = { (f(get<Is>(t), Is), 0)... };\n\
     \    (void) l;\n    return f;\n  }\n}\n\ntemplate <typename... Ts, typename F>\n\
-    F for_each(tuple<Ts...>& t, F f) { \n  return impl::for_each(t, f, make_index_sequence<sizeof...(Ts)>{});\n\
+    F for_each(tuple<Ts...>& t, F f) {\n  return impl::for_each(t, f, make_index_sequence<sizeof...(Ts)>{});\n\
     }\n\ntemplate <typename... Ts, typename F>\nF for_each(const tuple<Ts...>& t,\
-    \ F f) { \n  return impl::for_each(t, f, make_index_sequence<sizeof...(Ts)>{});\n\
+    \ F f) {\n  return impl::for_each(t, f, make_index_sequence<sizeof...(Ts)>{});\n\
     }\n\n\n// IsC indicates whether a type defines a 'const_iterator'.\n// IsC::value\
     \ is true if 'const_iterator' exists and false otherwise.\ntemplate <typename\
     \ T> true_type const_iterator_check(typename T::const_iterator*);\ntemplate <typename\
     \ T> false_type const_iterator_check(...);\ntemplate <typename T> struct IsC :\
     \ decltype(const_iterator_check<T>(nullptr)) {};\n// No new input/output for string\
     \ as those already exist.\ntemplate <> struct IsC<string> : false_type {};\n\n\
-    ///////////////////////////////////////////////////////////////\n// Begin Output\
-    \ \n///////////////////////////////////////////////////////////////\n\n// Forward\
+    ///////////////////////////////////////////////////////////////\n// Begin Output\n\
+    ///////////////////////////////////////////////////////////////\n\n// Forward\
     \ declarations.\ntemplate <typename T>\nenable_if_t<IsC<T>::value, ostream&> operator<<(ostream&,\
     \ const T&);\ntemplate <typename T1, typename T2>\nostream& operator<<(ostream&,\
     \ const pair<T1, T2>&);\n\n// Print each tuple element.\ntemplate <typename...\
@@ -85,27 +85,27 @@ data:
     \ (not str and not esc and db.n[i] == '\\'') chr = not chr;\n        if (not str\
     \ and not chr) {\n          br += brt(db.n[i]);\n          if (db.n[i] == ','\
     \ and br == 0) {\n            ++i;\n            break;\n          }\n        }\n\
-    \        if (db.n[i] != '\\\\') esc = false;\n        o << db.n[i++]; \n     \
-    \ }\n      o << \": \" << e << \"]\";\n    });\n    return o; \n  }\n  static\
-    \ inline int brt(char c) {\n    switch (c) {\n    case '(': case '[': case '{':\
-    \ return 1;\n    case ')': case ']': case '}': return -1;\n    default: return\
-    \ 0;\n    }\n  }\n};\ntemplate <typename... Ts>\nDB<Ts...> mkDB(const string&\
-    \ n, Ts... d) { return DB<Ts...>(n, d...); }\n\n///////////////////////////////////////////////////////////////\n\
+    \        if (db.n[i] != '\\\\') esc = false;\n        o << db.n[i++];\n      }\n\
+    \      o << \": \" << e << \"]\";\n    });\n    return o;\n  }\n  static inline\
+    \ int brt(char c) {\n    switch (c) {\n    case '(': case '[': case '{': return\
+    \ 1;\n    case ')': case ']': case '}': return -1;\n    default: return 0;\n \
+    \   }\n  }\n};\ntemplate <typename... Ts>\nDB<Ts...> mkDB(const string& n, Ts...\
+    \ d) { return DB<Ts...>(n, d...); }\n\n///////////////////////////////////////////////////////////////\n\
     // Pretty output\n///////////////////////////////////////////////////////////////\n\
     \n// PrettyPrint struct that contains a value to be printed and\n// a list of\
     \ seperators which indicate how different dimensions\n// of multidimensional values\
     \ should be seperated.\ntemplate <typename T, size_t N>\nstruct PP {\n  // Value\
-    \ to print.\n  const T& v; \n  // Pointer to seperator list.\n  shared_ptr<array<string,\
+    \ to print.\n  const T& v;\n  // Pointer to seperator list.\n  shared_ptr<array<string,\
     \ N>> se;\n  // Index of next seperator.\n  size_t idx;\n  PP(const T& value,\
-    \ shared_ptr<array<string, N>> p, size_t i = 0) \n      : v{value}, se{p}, idx{i}\
+    \ shared_ptr<array<string, N>> p, size_t i = 0)\n      : v{value}, se{p}, idx{i}\
     \ {}\n};\n\n// If a value is not a pair, tuple or std-library-continer just print\
     \ it.\n// Pairs and tuples are implemented via template specialization further\
     \ down.\ntemplate <typename T, size_t M>\nenable_if_t<not IsC<T>::value, ostream&>\n\
     operator<<(ostream& o, const PP<T, M>& p) {\n  return o << p.v;\n}\n\n// Prints\
     \ every tuple element.\ntemplate <size_t M, typename... Ts>\nostream& operator<<(ostream&\
     \ o, const PP<tuple<Ts...>, M>& p) {\n  const string& sep = p.idx < M ? (*p.se)[p.idx]\
-    \ : \" \";\n  for_each(p.v, [&](auto& x, size_t i) { \n    if(i) o << sep; \n\
-    \    o << PP<decay_t<decltype(x)>, M>(x, p.se, p.idx + 1);\n  });\n  return o;\n\
+    \ : \" \";\n  for_each(p.v, [&](auto& x, size_t i) {\n    if(i) o << sep;\n  \
+    \  o << PP<decay_t<decltype(x)>, M>(x, p.se, p.idx + 1);\n  });\n  return o;\n\
     }\n\n// Print pairs with the specified seperator for that level.\ntemplate <typename\
     \ T1, typename T2, size_t M>\nostream& operator<<(ostream& o, const PP<pair<T1,\
     \ T2>, M>& p) {\n  const string& sep = p.idx < M ? (*p.se)[p.idx] : \" \";\n \
@@ -121,7 +121,7 @@ data:
     \ T, typename... Ts, size_t N = sizeof...(Ts)>\nPP<T, N> pp(const T& value, Ts...\
     \ seps) {\n  return PP<T, N>(value, make_shared<array<string, N>>(array<string,\
     \ N>{seps...}));\n}\n\n///////////////////////////////////////////////////////////////\n\
-    // Begin Input \n///////////////////////////////////////////////////////////////\n\
+    // Begin Input\n///////////////////////////////////////////////////////////////\n\
     \n// Forward declarations.\ntemplate <typename T>\nenable_if_t<IsC<T>::value,\
     \ istream&> operator>>(istream&, T&);\ntemplate <typename T1, typename T2>\nistream&\
     \ operator>>(istream&, pair<T1, T2>&);\n\n// Read a tuple.\ntemplate <typename...\
@@ -140,18 +140,18 @@ data:
     set<T> operator&(set<T> a, const set<T>& b) {\n  return a &= b;\n}\ntemplate<typename\
     \ T>\nset<T> operator|(set<T> a, const set<T>& b) {\n  return a |= b;\n}\ntemplate<typename\
     \ T>\nbool operator<(const set<T>& s, const T& e) {\n  return static_cast<bool>(s.count(e));\n\
-    }\n\n"
+    }\n"
   code: "///////////////////////////////////////////////////////////////\n// Long\
     \ template from: https://github.com/Zeldacrafter/CompProg\n//\n// Feature list:\n\
     // * C++14 compatibility.\n// * Various 'define'-shorthands and typedefs.\n//\
     \ * Output stream that is only active with 'DEBUG'-flag set.\n// * Input and output\
     \ stream operators for...\n//   * any container with 'begin' and 'end' iterator.\n\
-    //   * tuples with any amount of elements \n//     (Except for 0 elements tuples\
+    //   * tuples with any amount of elements\n//     (Except for 0 elements tuples\
     \ :'( ) Related: https://xkcd.com/541/\n//   * pairs.\n// * PrettyPrinting a object\
     \ with specified seperators.\n//   Each additional seperator specifies the seperator\
     \ for one level\n//   further into a nested structure. Pairs, tuples and std-library-container\n\
     //   cause the level to increase.\n//   If no seperator is specified a default\
-    \ of \" \"(space) is used.\n//   For example a call \n//      vii a(4, mp(1, 2));\n\
+    \ of \" \"(space) is used.\n//   For example a call\n//      vii a(4, mp(1, 2));\n\
     //      cout << pp(a, \" | \", \"-\");\n//   results in the output (without trailing\
     \ newline)\n//      1-2 | 1-2 | 1-2 | 1-2\n///////////////////////////////////////////////////////////////\n\
     \n#include <bits/stdc++.h>\nusing namespace std;\ntypedef long long ll;\ntypedef\
@@ -176,17 +176,17 @@ data:
     \nnamespace impl {\n  template <typename T, typename F, size_t... Is>\n  F for_each(T&\
     \ t, F f, index_sequence<Is...>) {\n    auto l = { (f(get<Is>(t), Is), 0)... };\n\
     \    (void) l;\n    return f;\n  }\n}\n\ntemplate <typename... Ts, typename F>\n\
-    F for_each(tuple<Ts...>& t, F f) { \n  return impl::for_each(t, f, make_index_sequence<sizeof...(Ts)>{});\n\
+    F for_each(tuple<Ts...>& t, F f) {\n  return impl::for_each(t, f, make_index_sequence<sizeof...(Ts)>{});\n\
     }\n\ntemplate <typename... Ts, typename F>\nF for_each(const tuple<Ts...>& t,\
-    \ F f) { \n  return impl::for_each(t, f, make_index_sequence<sizeof...(Ts)>{});\n\
+    \ F f) {\n  return impl::for_each(t, f, make_index_sequence<sizeof...(Ts)>{});\n\
     }\n\n\n// IsC indicates whether a type defines a 'const_iterator'.\n// IsC::value\
     \ is true if 'const_iterator' exists and false otherwise.\ntemplate <typename\
     \ T> true_type const_iterator_check(typename T::const_iterator*);\ntemplate <typename\
     \ T> false_type const_iterator_check(...);\ntemplate <typename T> struct IsC :\
     \ decltype(const_iterator_check<T>(nullptr)) {};\n// No new input/output for string\
     \ as those already exist.\ntemplate <> struct IsC<string> : false_type {};\n\n\
-    ///////////////////////////////////////////////////////////////\n// Begin Output\
-    \ \n///////////////////////////////////////////////////////////////\n\n// Forward\
+    ///////////////////////////////////////////////////////////////\n// Begin Output\n\
+    ///////////////////////////////////////////////////////////////\n\n// Forward\
     \ declarations.\ntemplate <typename T>\nenable_if_t<IsC<T>::value, ostream&> operator<<(ostream&,\
     \ const T&);\ntemplate <typename T1, typename T2>\nostream& operator<<(ostream&,\
     \ const pair<T1, T2>&);\n\n// Print each tuple element.\ntemplate <typename...\
@@ -213,27 +213,27 @@ data:
     \ (not str and not esc and db.n[i] == '\\'') chr = not chr;\n        if (not str\
     \ and not chr) {\n          br += brt(db.n[i]);\n          if (db.n[i] == ','\
     \ and br == 0) {\n            ++i;\n            break;\n          }\n        }\n\
-    \        if (db.n[i] != '\\\\') esc = false;\n        o << db.n[i++]; \n     \
-    \ }\n      o << \": \" << e << \"]\";\n    });\n    return o; \n  }\n  static\
-    \ inline int brt(char c) {\n    switch (c) {\n    case '(': case '[': case '{':\
-    \ return 1;\n    case ')': case ']': case '}': return -1;\n    default: return\
-    \ 0;\n    }\n  }\n};\ntemplate <typename... Ts>\nDB<Ts...> mkDB(const string&\
-    \ n, Ts... d) { return DB<Ts...>(n, d...); }\n\n///////////////////////////////////////////////////////////////\n\
+    \        if (db.n[i] != '\\\\') esc = false;\n        o << db.n[i++];\n      }\n\
+    \      o << \": \" << e << \"]\";\n    });\n    return o;\n  }\n  static inline\
+    \ int brt(char c) {\n    switch (c) {\n    case '(': case '[': case '{': return\
+    \ 1;\n    case ')': case ']': case '}': return -1;\n    default: return 0;\n \
+    \   }\n  }\n};\ntemplate <typename... Ts>\nDB<Ts...> mkDB(const string& n, Ts...\
+    \ d) { return DB<Ts...>(n, d...); }\n\n///////////////////////////////////////////////////////////////\n\
     // Pretty output\n///////////////////////////////////////////////////////////////\n\
     \n// PrettyPrint struct that contains a value to be printed and\n// a list of\
     \ seperators which indicate how different dimensions\n// of multidimensional values\
     \ should be seperated.\ntemplate <typename T, size_t N>\nstruct PP {\n  // Value\
-    \ to print.\n  const T& v; \n  // Pointer to seperator list.\n  shared_ptr<array<string,\
+    \ to print.\n  const T& v;\n  // Pointer to seperator list.\n  shared_ptr<array<string,\
     \ N>> se;\n  // Index of next seperator.\n  size_t idx;\n  PP(const T& value,\
-    \ shared_ptr<array<string, N>> p, size_t i = 0) \n      : v{value}, se{p}, idx{i}\
+    \ shared_ptr<array<string, N>> p, size_t i = 0)\n      : v{value}, se{p}, idx{i}\
     \ {}\n};\n\n// If a value is not a pair, tuple or std-library-continer just print\
     \ it.\n// Pairs and tuples are implemented via template specialization further\
     \ down.\ntemplate <typename T, size_t M>\nenable_if_t<not IsC<T>::value, ostream&>\n\
     operator<<(ostream& o, const PP<T, M>& p) {\n  return o << p.v;\n}\n\n// Prints\
     \ every tuple element.\ntemplate <size_t M, typename... Ts>\nostream& operator<<(ostream&\
     \ o, const PP<tuple<Ts...>, M>& p) {\n  const string& sep = p.idx < M ? (*p.se)[p.idx]\
-    \ : \" \";\n  for_each(p.v, [&](auto& x, size_t i) { \n    if(i) o << sep; \n\
-    \    o << PP<decay_t<decltype(x)>, M>(x, p.se, p.idx + 1);\n  });\n  return o;\n\
+    \ : \" \";\n  for_each(p.v, [&](auto& x, size_t i) {\n    if(i) o << sep;\n  \
+    \  o << PP<decay_t<decltype(x)>, M>(x, p.se, p.idx + 1);\n  });\n  return o;\n\
     }\n\n// Print pairs with the specified seperator for that level.\ntemplate <typename\
     \ T1, typename T2, size_t M>\nostream& operator<<(ostream& o, const PP<pair<T1,\
     \ T2>, M>& p) {\n  const string& sep = p.idx < M ? (*p.se)[p.idx] : \" \";\n \
@@ -249,7 +249,7 @@ data:
     \ T, typename... Ts, size_t N = sizeof...(Ts)>\nPP<T, N> pp(const T& value, Ts...\
     \ seps) {\n  return PP<T, N>(value, make_shared<array<string, N>>(array<string,\
     \ N>{seps...}));\n}\n\n///////////////////////////////////////////////////////////////\n\
-    // Begin Input \n///////////////////////////////////////////////////////////////\n\
+    // Begin Input\n///////////////////////////////////////////////////////////////\n\
     \n// Forward declarations.\ntemplate <typename T>\nenable_if_t<IsC<T>::value,\
     \ istream&> operator>>(istream&, T&);\ntemplate <typename T1, typename T2>\nistream&\
     \ operator>>(istream&, pair<T1, T2>&);\n\n// Read a tuple.\ntemplate <typename...\
@@ -268,13 +268,13 @@ data:
     set<T> operator&(set<T> a, const set<T>& b) {\n  return a &= b;\n}\ntemplate<typename\
     \ T>\nset<T> operator|(set<T> a, const set<T>& b) {\n  return a |= b;\n}\ntemplate<typename\
     \ T>\nbool operator<(const set<T>& s, const T& e) {\n  return static_cast<bool>(s.count(e));\n\
-    }\n\n"
+    }\n"
   dependsOn: []
   isVerificationFile: false
   path: code/template_long.cc
   requiredBy:
   - code/utils/ops.cc
-  timestamp: '2021-02-09 05:05:28+01:00'
+  timestamp: '2022-01-29 10:46:03+01:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: code/template_long.cc

@@ -58,8 +58,8 @@ data:
   timestamp: '2020-10-28 23:01:50+01:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - tests/yosupo/sparse_table.static_rmq.test.cpp
   - tests/yosupo/sparse_table.lca.test.cpp
+  - tests/yosupo/sparse_table.static_rmq.test.cpp
 documentation_of: code/dataStructures/SPT.cc
 layout: document
 redirect_from:

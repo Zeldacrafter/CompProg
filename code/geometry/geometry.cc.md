@@ -106,9 +106,9 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/polygon_contains_point.test.cpp
+  - tests/aoj/polygon_convex.test.cpp
   - tests/aoj/ccw.counter_clockwise.test.cpp
   - tests/aoj/polygon_area.test.cpp
-  - tests/aoj/polygon_convex.test.cpp
 documentation_of: code/geometry/geometry.cc
 layout: document
 redirect_from:
