@@ -7,7 +7,7 @@
 // * Output stream that is only active with 'DEBUG'-flag set.
 // * Input and output stream operators for...
 //   * any container with 'begin' and 'end' iterator.
-//   * tuples with any amount of elements 
+//   * tuples with any amount of elements
 //     (Except for 0 elements tuples :'( ) Related: https://xkcd.com/541/
 //   * pairs.
 // * PrettyPrinting a object with specified seperators.
@@ -15,7 +15,7 @@
 //   further into a nested structure. Pairs, tuples and std-library-container
 //   cause the level to increase.
 //   If no seperator is specified a default of " "(space) is used.
-//   For example a call 
+//   For example a call
 //      vii a(4, mp(1, 2));
 //      cout << pp(a, " | ", "-");
 //   results in the output (without trailing newline)
@@ -75,12 +75,12 @@ namespace impl {
 }
 
 template <typename... Ts, typename F>
-F for_each(tuple<Ts...>& t, F f) { 
+F for_each(tuple<Ts...>& t, F f) {
   return impl::for_each(t, f, make_index_sequence<sizeof...(Ts)>{});
 }
 
 template <typename... Ts, typename F>
-F for_each(const tuple<Ts...>& t, F f) { 
+F for_each(const tuple<Ts...>& t, F f) {
   return impl::for_each(t, f, make_index_sequence<sizeof...(Ts)>{});
 }
 
@@ -94,7 +94,7 @@ template <typename T> struct IsC : decltype(const_iterator_check<T>(nullptr)) {}
 template <> struct IsC<string> : false_type {};
 
 ///////////////////////////////////////////////////////////////
-// Begin Output 
+// Begin Output
 ///////////////////////////////////////////////////////////////
 
 // Forward declarations.
@@ -159,11 +159,11 @@ struct DB {
           }
         }
         if (db.n[i] != '\\') esc = false;
-        o << db.n[i++]; 
+        o << db.n[i++];
       }
       o << ": " << e << "]";
     });
-    return o; 
+    return o;
   }
   static inline int brt(char c) {
     switch (c) {
@@ -186,12 +186,12 @@ DB<Ts...> mkDB(const string& n, Ts... d) { return DB<Ts...>(n, d...); }
 template <typename T, size_t N>
 struct PP {
   // Value to print.
-  const T& v; 
+  const T& v;
   // Pointer to seperator list.
   shared_ptr<array<string, N>> se;
   // Index of next seperator.
   size_t idx;
-  PP(const T& value, shared_ptr<array<string, N>> p, size_t i = 0) 
+  PP(const T& value, shared_ptr<array<string, N>> p, size_t i = 0)
       : v{value}, se{p}, idx{i} {}
 };
 
@@ -207,8 +207,8 @@ operator<<(ostream& o, const PP<T, M>& p) {
 template <size_t M, typename... Ts>
 ostream& operator<<(ostream& o, const PP<tuple<Ts...>, M>& p) {
   const string& sep = p.idx < M ? (*p.se)[p.idx] : " ";
-  for_each(p.v, [&](auto& x, size_t i) { 
-    if(i) o << sep; 
+  for_each(p.v, [&](auto& x, size_t i) {
+    if(i) o << sep;
     o << PP<decay_t<decltype(x)>, M>(x, p.se, p.idx + 1);
   });
   return o;
@@ -242,7 +242,7 @@ PP<T, N> pp(const T& value, Ts... seps) {
 }
 
 ///////////////////////////////////////////////////////////////
-// Begin Input 
+// Begin Input
 ///////////////////////////////////////////////////////////////
 
 // Forward declarations.
@@ -300,4 +300,3 @@ template<typename T>
 bool operator<(const set<T>& s, const T& e) {
   return static_cast<bool>(s.count(e));
 }
-
