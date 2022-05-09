@@ -49,7 +49,7 @@ data:
     \  }\n  int dfssz(vvi& adj, int v, int h = 0, int p = -1) {\n    par[v] = p; height[v]\
     \ = h;\n    for (int u : adj[v])\n      if (p != u) sz[v] += dfssz(adj, u, h +\
     \ 1, v);\n    return sz[v];\n  }\n  void dfsbuild(vvi& adj, int v, vi& order,\
-    \ int p = -1, bool hvy = false) {\n    if (hvy) paths[in[v] = in[p]].pb(v); \n\
+    \ int p = -1, bool hvy = false) {\n    if (hvy) paths[in[v] = in[p]].pb(v);\n\
     \    else {\n      in[v] = SZ(paths);\n      paths.pb({v});\n    }\n    int h\
     \ = -1;\n    for (int u : adj[v])\n      if (p != u) {\n        if (sz[u] > sz[v]\
     \ / 2) h = u;\n        else dfsbuild(adj, u, order, v);\n      }\n    if (~h)\
@@ -71,7 +71,7 @@ data:
     \  par[v] = p; height[v] = h;\n    for (int u : adj[v])\n      if (p != u) sz[v]\
     \ += dfssz(adj, u, h + 1, v);\n    return sz[v];\n  }\n  void dfsbuild(vvi& adj,\
     \ int v, vi& order, int p = -1, bool hvy = false) {\n    if (hvy) paths[in[v]\
-    \ = in[p]].pb(v); \n    else {\n      in[v] = SZ(paths);\n      paths.pb({v});\n\
+    \ = in[p]].pb(v);\n    else {\n      in[v] = SZ(paths);\n      paths.pb({v});\n\
     \    }\n    int h = -1;\n    for (int u : adj[v])\n      if (p != u) {\n     \
     \   if (sz[u] > sz[v] / 2) h = u;\n        else dfsbuild(adj, u, order, v);\n\
     \      }\n    if (~h) dfsbuild(adj, h, order, v, true);\n    if (paths[in[v]][0]\
@@ -88,7 +88,7 @@ data:
   isVerificationFile: false
   path: code/graphs/HLD.cc
   requiredBy: []
-  timestamp: '2021-01-23 14:30:21+01:00'
+  timestamp: '2022-05-09 15:34:21+02:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/hld.range_query_on_tree.test.cpp

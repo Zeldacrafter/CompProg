@@ -51,8 +51,8 @@ data:
     \ + 1) % N] + (i + 1) / N] : prefRank[i];\n    });\n    vi tmp(arr.begin(), arr.begin()\
     \ + offset);\n    int o = 0, m = offset, i = 0;\n    while (o < offset && m <\
     \ n) {\n      int c = 0;\n      for (int k = 0; !c; ++k) {\n        int a = tmp[o]\
-    \ + k, b = arr[m] + k;\n        c = (a % N && b % N) \n          ? cmp(ra[offs[a\
-    \ % N] + a / N], ra[offs[b % N] + b / N]) \n            : cmp(prefRank[a], prefRank[b]);\n\
+    \ + k, b = arr[m] + k;\n        c = (a % N && b % N)\n          ? cmp(ra[offs[a\
+    \ % N] + a / N], ra[offs[b % N] + b / N])\n            : cmp(prefRank[a], prefRank[b]);\n\
     \      }\n      arr[i++] = c < 0 ? tmp[o++] : arr[m++];\n    }\n    while (o <\
     \ offset) arr[i++] = tmp[o++];\n    return arr;\n  }\n  static inline int cmp(int\
     \ a, int b) { return (a > b) - (a < b); }\n  template<typename F>\n  static void\
@@ -88,8 +88,8 @@ data:
     \ + 1) % N] + (i + 1) / N] : prefRank[i];\n    });\n    vi tmp(arr.begin(), arr.begin()\
     \ + offset);\n    int o = 0, m = offset, i = 0;\n    while (o < offset && m <\
     \ n) {\n      int c = 0;\n      for (int k = 0; !c; ++k) {\n        int a = tmp[o]\
-    \ + k, b = arr[m] + k;\n        c = (a % N && b % N) \n          ? cmp(ra[offs[a\
-    \ % N] + a / N], ra[offs[b % N] + b / N]) \n            : cmp(prefRank[a], prefRank[b]);\n\
+    \ + k, b = arr[m] + k;\n        c = (a % N && b % N)\n          ? cmp(ra[offs[a\
+    \ % N] + a / N], ra[offs[b % N] + b / N])\n            : cmp(prefRank[a], prefRank[b]);\n\
     \      }\n      arr[i++] = c < 0 ? tmp[o++] : arr[m++];\n    }\n    while (o <\
     \ offset) arr[i++] = tmp[o++];\n    return arr;\n  }\n  static inline int cmp(int\
     \ a, int b) { return (a > b) - (a < b); }\n  template<typename F>\n  static void\
@@ -105,7 +105,7 @@ data:
   isVerificationFile: false
   path: code/strings/SA.cc
   requiredBy: []
-  timestamp: '2020-10-28 19:21:59+01:00'
+  timestamp: '2022-05-09 15:34:21+02:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/yosupo/suffix_array.suffix_array.test.cpp

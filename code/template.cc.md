@@ -63,6 +63,9 @@ data:
     path: code/dynamicProgramming/tsp.cc
     title: code/dynamicProgramming/tsp.cc
   - icon: ':warning:'
+    path: code/extra_output.cc
+    title: code/extra_output.cc
+  - icon: ':warning:'
     path: code/geometry/convexHull.cc
     title: code/geometry/convexHull.cc
   - icon: ':heavy_check_mark:'
@@ -125,6 +128,9 @@ data:
   - icon: ':warning:'
     path: code/graphs/topoSort.cc
     title: code/graphs/topoSort.cc
+  - icon: ':warning:'
+    path: code/math/2vareqs.cc
+    title: code/math/2vareqs.cc
   - icon: ':warning:'
     path: code/math/SV.cc
     title: code/math/SV.cc
@@ -475,120 +481,122 @@ data:
   isVerificationFile: false
   path: code/template.cc
   requiredBy:
-  - code/utils/bigint.cc
-  - code/utils/setops.cc
-  - code/utils/fastio.cc
-  - code/utils/bits.cc
-  - code/utils/stresstestbigint.cc
-  - code/utils/buildin.cpp
-  - code/utils/ternarySearch.cc
-  - code/utils/y_combinator.cc
-  - code/utils/dynmod.cc
-  - code/utils/128BitInt.cc
-  - code/utils/mod.cc
-  - code/utils/random.cc
-  - code/utils/ordered_set.cc
-  - code/graphs/bellmanFordQueue.cc
   - code/graphs/bridges.cc
-  - code/graphs/dijkstra.cc
-  - code/graphs/kruskal.cc
-  - code/graphs/floydWarshall.cc
-  - code/graphs/LCABL.cc
-  - code/graphs/pushRelabel.cc
-  - code/graphs/flowedge.cc
-  - code/graphs/LCABLW.cc
-  - code/graphs/HLD.cc
-  - code/graphs/LCA.cc
   - code/graphs/edmondsKarp.cc
-  - code/graphs/bellmanFord.cc
-  - code/graphs/topoSort.cc
+  - code/graphs/LCA.cc
   - code/graphs/articulationPoints.cc
+  - code/graphs/LCABL.cc
+  - code/graphs/kruskal.cc
+  - code/graphs/bellmanFordQueue.cc
+  - code/graphs/topoSort.cc
+  - code/graphs/LCABLW.cc
   - code/graphs/dinic.cc
+  - code/graphs/bellmanFord.cc
+  - code/graphs/dijkstra.cc
+  - code/graphs/flowedge.cc
+  - code/graphs/pushRelabel.cc
+  - code/graphs/floydWarshall.cc
   - code/graphs/scc.cc
-  - code/dataStructures/SPTI.cc
-  - code/dataStructures/FT2D.cc
-  - code/dataStructures/WLTsmall.cc
-  - code/dataStructures/BV.cc
-  - code/dataStructures/FT.cc
-  - code/dataStructures/SPT2D.cc
-  - code/dataStructures/SPT.cc
-  - code/dataStructures/WLM.cc
+  - code/graphs/HLD.cc
+  - code/extra_output.cc
   - code/dataStructures/XorBaseN.cc
-  - code/dataStructures/DSUV.cc
-  - code/dataStructures/DSU.cc
   - code/dataStructures/XorBase.cc
+  - code/dataStructures/DSUV.cc
+  - code/dataStructures/SPT.cc
+  - code/dataStructures/SPTI.cc
+  - code/dataStructures/WLM.cc
   - code/dataStructures/WLT.cc
+  - code/dataStructures/SPT2D.cc
+  - code/dataStructures/FT2D.cc
+  - code/dataStructures/BV.cc
   - code/dataStructures/STIT.cc
-  - code/strings/trie.cc
-  - code/strings/AHC.cc
-  - code/strings/manachers.cc
-  - code/strings/prefixFunction.cc
-  - code/strings/kmp.cc
-  - code/strings/SA.cc
-  - code/geometry/geometry.cc
+  - code/dataStructures/WLTsmall.cc
+  - code/dataStructures/DSU.cc
+  - code/dataStructures/FT.cc
+  - code/geometry/convexHull.cc
   - code/geometry/polygon.cc
   - code/geometry/picksTheorem.cc
-  - code/geometry/convexHull.cc
+  - code/geometry/geometry.cc
+  - code/utils/128BitInt.cc
+  - code/utils/setops.cc
+  - code/utils/bigint.cc
+  - code/utils/ordered_set.cc
+  - code/utils/buildin.cpp
+  - code/utils/mod.cc
+  - code/utils/bits.cc
+  - code/utils/dynmod.cc
+  - code/utils/stresstestbigint.cc
+  - code/utils/random.cc
+  - code/utils/ternarySearch.cc
+  - code/utils/fastio.cc
+  - code/utils/y_combinator.cc
+  - code/math/linear.cc
+  - code/math/combinatorics.cc
+  - code/math/dynamicMatrix.cc
+  - code/math/2vareqs.cc
+  - code/math/SVL.cc
+  - code/math/staticMatrix.cc
+  - code/math/totoid.cc
+  - code/math/SV.cc
+  - code/math/extendedEuclid.cc
+  - code/math/modpow.cc
+  - code/strings/manachers.cc
+  - code/strings/prefixFunction.cc
+  - code/strings/AHC.cc
+  - code/strings/SA.cc
+  - code/strings/kmp.cc
+  - code/strings/trie.cc
   - code/dynamicProgramming/knapsack.cc
-  - code/dynamicProgramming/subSetSum.cc
   - code/dynamicProgramming/lis.cc
-  - code/dynamicProgramming/tsp.cc
   - code/dynamicProgramming/lcs.cc
   - code/dynamicProgramming/editDistance.cc
-  - code/math/SVL.cc
-  - code/math/modpow.cc
-  - code/math/combinatorics.cc
-  - code/math/staticMatrix.cc
-  - code/math/linear.cc
-  - code/math/totoid.cc
-  - code/math/extendedEuclid.cc
-  - code/math/dynamicMatrix.cc
-  - code/math/SV.cc
+  - code/dynamicProgramming/subSetSum.cc
+  - code/dynamicProgramming/tsp.cc
   timestamp: '2020-10-28 19:21:59+01:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - tests/aoj/polygon_contains_point.test.cpp
-  - tests/aoj/bigint.multiplication_bigint_2.test.cpp
-  - tests/aoj/bigint.subtraction_bigint.test.cpp
-  - tests/aoj/polygon_convex.test.cpp
-  - tests/aoj/hld.range_query_on_tree.test.cpp
-  - tests/aoj/dijkstra.single_source_shortest_path.test.cpp
-  - tests/aoj/ccw.counter_clockwise.test.cpp
-  - tests/aoj/totoid.eulers_phi_function.test.cpp
-  - tests/aoj/bellman_ford_queue.single_source_shortest_path_negative_edges.test.cpp
-  - tests/aoj/polygon_area.test.cpp
-  - tests/aoj/articulation_points.articulation_points.test.cpp
-  - tests/aoj/edmonds_karp.maximum_flow.test.cpp
-  - tests/aoj/kmp.string_matches.test.cpp
-  - tests/aoj/bigint.multiplication_bigint_1.test.cpp
-  - tests/aoj/bigint.addition_bigint.test.cpp
   - tests/aoj/tsp.test.cpp
-  - tests/aoj/lcs.longest_common_subsequence.test.cpp
-  - tests/aoj/kruskal.minimum_spanning_tree.test.cc
-  - tests/aoj/floyd_warshall.all_pairs_shortest_path.test.cpp
-  - tests/aoj/brides.brides.test.cpp
-  - tests/aoj/push_relabel.maximum_flow.test.cpp
-  - tests/aoj/dinic.maximum_flow.test.cpp
+  - tests/aoj/bigint.subtraction_bigint.test.cpp
   - tests/aoj/lis.longest_increasing_subsequence.test.cpp
+  - tests/aoj/kmp.string_matches.test.cpp
+  - tests/aoj/push_relabel.maximum_flow.test.cpp
+  - tests/aoj/polygon_area.test.cpp
   - tests/aoj/edit_distance.test.cpp
+  - tests/aoj/edmonds_karp.maximum_flow.test.cpp
+  - tests/aoj/brides.brides.test.cpp
+  - tests/aoj/polygon_convex.test.cpp
+  - tests/aoj/dinic.maximum_flow.test.cpp
   - tests/aoj/extended_euclid.test.cpp
+  - tests/aoj/bigint.multiplication_bigint_1.test.cpp
+  - tests/aoj/totoid.eulers_phi_function.test.cpp
   - tests/aoj/bellman_ford.single_source_shortest_path_negative_edges.test.cpp
-  - tests/yosupo/many_aplusb.test.cpp
-  - tests/yosupo/sparse_table.lca.test.cpp
-  - tests/yosupo/fenwick_tree.point_add_range_sum.test.cpp
-  - tests/yosupo/sparse_tableI.static_rmq.test.cpp
-  - tests/yosupo/fenwick_tree.static_range_sum.test.cpp
-  - tests/yosupo/binary_lifting.lca.test.cpp
-  - tests/yosupo/dinic.bipartitematching.test.cpp
-  - tests/yosupo/segment_tree.static_range_sum.test.cpp
-  - tests/yosupo/aplusb.test.cpp
+  - tests/aoj/hld.range_query_on_tree.test.cpp
+  - tests/aoj/floyd_warshall.all_pairs_shortest_path.test.cpp
+  - tests/aoj/bigint.addition_bigint.test.cpp
+  - tests/aoj/ccw.counter_clockwise.test.cpp
+  - tests/aoj/bigint.multiplication_bigint_2.test.cpp
+  - tests/aoj/articulation_points.articulation_points.test.cpp
+  - tests/aoj/kruskal.minimum_spanning_tree.test.cc
+  - tests/aoj/lcs.longest_common_subsequence.test.cpp
+  - tests/aoj/polygon_contains_point.test.cpp
+  - tests/aoj/bellman_ford_queue.single_source_shortest_path_negative_edges.test.cpp
+  - tests/aoj/dijkstra.single_source_shortest_path.test.cpp
   - tests/yosupo/suffix_array.suffix_array.test.cpp
-  - tests/yosupo/associative_array.test.cpp
-  - tests/yosupo/unionfind.test.cpp
-  - tests/yosupo/segment_tree.point_add_range_sum.test.cpp
-  - tests/yosupo/scc.scc.test.cpp
+  - tests/yosupo/sparse_tableI.static_rmq.test.cpp
   - tests/yosupo/segment_tree.static_rmq.test.cpp
   - tests/yosupo/sparse_table.static_rmq.test.cpp
+  - tests/yosupo/dinic.bipartitematching.test.cpp
+  - tests/yosupo/segment_tree.point_add_range_sum.test.cpp
+  - tests/yosupo/scc.scc.test.cpp
+  - tests/yosupo/sparse_table.lca.test.cpp
+  - tests/yosupo/unionfind.test.cpp
+  - tests/yosupo/segment_tree.static_range_sum.test.cpp
+  - tests/yosupo/fenwick_tree.point_add_range_sum.test.cpp
+  - tests/yosupo/binary_lifting.lca.test.cpp
+  - tests/yosupo/fenwick_tree.static_range_sum.test.cpp
+  - tests/yosupo/many_aplusb.test.cpp
+  - tests/yosupo/aplusb.test.cpp
+  - tests/yosupo/associative_array.test.cpp
   - tests/hackerrank/aho_corasick.two_two.test.cpp
   - tests/hackerrank/fenwick_tree_2d.cube-summation.test.cpp
 documentation_of: code/template.cc

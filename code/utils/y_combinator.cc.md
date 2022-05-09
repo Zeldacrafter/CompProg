@@ -4,7 +4,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: code/template.cc
     title: code/template.cc
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':warning:'
+    path: code/math/2vareqs.cc
+    title: code/math/2vareqs.cc
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cc
@@ -45,7 +48,8 @@ data:
   - code/template.cc
   isVerificationFile: false
   path: code/utils/y_combinator.cc
-  requiredBy: []
+  requiredBy:
+  - code/math/2vareqs.cc
   timestamp: '2020-11-16 16:00:31+01:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
