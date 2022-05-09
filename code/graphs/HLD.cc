@@ -23,7 +23,7 @@ struct HLD {
     return sz[v];
   }
   void dfsbuild(vvi& adj, int v, vi& order, int p = -1, bool hvy = false) {
-    if (hvy) paths[in[v] = in[p]].pb(v); 
+    if (hvy) paths[in[v] = in[p]].pb(v);
     else {
       in[v] = SZ(paths);
       paths.pb({v});

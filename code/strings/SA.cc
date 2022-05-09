@@ -64,8 +64,8 @@ struct SA {
       int c = 0;
       for (int k = 0; !c; ++k) {
         int a = tmp[o] + k, b = arr[m] + k;
-        c = (a % N && b % N) 
-          ? cmp(ra[offs[a % N] + a / N], ra[offs[b % N] + b / N]) 
+        c = (a % N && b % N)
+          ? cmp(ra[offs[a % N] + a / N], ra[offs[b % N] + b / N])
             : cmp(prefRank[a], prefRank[b]);
       }
       arr[i++] = c < 0 ? tmp[o++] : arr[m++];
