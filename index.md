@@ -65,17 +65,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: code/dynamicProgramming/tsp.cc
       title: code/dynamicProgramming/tsp.cc
-  - name: code
-    pages:
-    - icon: ':warning:'
-      path: code/extra_output.cc
-      title: code/extra_output.cc
-    - icon: ':heavy_check_mark:'
-      path: code/template.cc
-      title: code/template.cc
-    - icon: ':warning:'
-      path: code/template_long.cc
-      title: code/template_long.cc
   - name: code/geometry
     pages:
     - icon: ':warning:'
@@ -195,6 +184,14 @@ data:
     - icon: ':warning:'
       path: code/strings/trie.cc
       title: code/strings/trie.cc
+  - name: code
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: code/template.cc
+      title: code/template.cc
+    - icon: ':warning:'
+      path: code/template_long.cc
+      title: code/template_long.cc
   - name: code/utils
     pages:
     - icon: ':warning:'

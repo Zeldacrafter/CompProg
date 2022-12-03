@@ -63,9 +63,6 @@ data:
     path: code/dynamicProgramming/tsp.cc
     title: code/dynamicProgramming/tsp.cc
   - icon: ':warning:'
-    path: code/extra_output.cc
-    title: code/extra_output.cc
-  - icon: ':warning:'
     path: code/geometry/convexHull.cc
     title: code/geometry/convexHull.cc
   - icon: ':heavy_check_mark:'
@@ -514,7 +511,6 @@ data:
   - code/graphs/edmondsKarp.cc
   - code/graphs/HLD.cc
   - code/graphs/bridges.cc
-  - code/extra_output.cc
   - code/dataStructures/WLM.cc
   - code/dataStructures/XorBaseN.cc
   - code/dataStructures/WLTsmall.cc
