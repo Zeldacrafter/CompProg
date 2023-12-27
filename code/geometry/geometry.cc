@@ -27,7 +27,7 @@ Line ptToLine(pt p1, pt p2) {
     return {1.0, 0.0, -real(p1)};
   } else {
     double a = -(imag(p1) - imag(p2)) / (real(p1) - real(p2)),
-           c = -(a * real(p1)) - imag(p2);
+           c = -(a * real(p1)) - imag(p1);
     return {a, 1.0, c};
   }
 }
