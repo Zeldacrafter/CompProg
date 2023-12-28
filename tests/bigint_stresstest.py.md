@@ -3,11 +3,10 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: py
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':warning:'
   attributes:
-    IGNORE: ''
     links: []
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
@@ -15,11 +14,10 @@ data:
     \         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\
     \  File \"/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/python.py\"\
     , line 96, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
-  code: "# verification-helper: IGNORE\nimport random\nimport subprocess\n\niterations\
-    \ = 1000000;\nmaxbits = 50000\nminbits = 1\n\np = subprocess.Popen([\"./a.out\"\
-    ], stdout=subprocess.PIPE,\n                     stdin=subprocess.PIPE,\n    \
-    \                 stderr=subprocess.PIPE)\ni = 1\nwhile 1:\n    if (i % 1000 ==\
-    \ 0):\n        print(i)\n    a = random.getrandbits(random.randrange(minbits,\
+  code: "import random\nimport subprocess\n\niterations = 1000000;\nmaxbits = 50000\n\
+    minbits = 1\n\np = subprocess.Popen([\"./a.out\"], stdout=subprocess.PIPE,\n \
+    \                    stdin=subprocess.PIPE,\n                     stderr=subprocess.PIPE)\n\
+    i = 1\nwhile 1:\n    if (i % 1000 == 0):\n        print(i)\n    a = random.getrandbits(random.randrange(minbits,\
     \ maxbits + 1))\n    b = random.getrandbits(random.randrange(minbits, maxbits\
     \ + 1))\n    if bool(random.getrandbits(1)):\n        a *= -1\n    if bool(random.getrandbits(1)):\n\
     \        b *= -1\n    op = random.choice(['+', '-', '*'])\n    erg = 0\n    if\
@@ -33,16 +31,16 @@ data:
     \ + '\\n')\n        f.close()\n    i += 1\n\np.stdin.write('q'.encode())\np.stdin.flush()\n\
     p.wait();\n\nprint(\"100/100\")\n"
   dependsOn: []
-  isVerificationFile: true
-  path: tests/bigint_stresstest.test.py
+  isVerificationFile: false
+  path: tests/bigint_stresstest.py
   requiredBy: []
   timestamp: '1970-01-01 00:00:00+00:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: tests/bigint_stresstest.test.py
+documentation_of: tests/bigint_stresstest.py
 layout: document
 redirect_from:
-- /verify/tests/bigint_stresstest.test.py
-- /verify/tests/bigint_stresstest.test.py.html
-title: tests/bigint_stresstest.test.py
+- /library/tests/bigint_stresstest.py
+- /library/tests/bigint_stresstest.py.html
+title: tests/bigint_stresstest.py
 ---

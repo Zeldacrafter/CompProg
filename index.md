@@ -236,6 +236,11 @@ data:
     - icon: ':warning:'
       path: code/utils/y_combinator.cc
       title: code/utils/y_combinator.cc
+  - name: tests
+    pages:
+    - icon: ':warning:'
+      path: tests/bigint_stresstest.py
+      title: tests/bigint_stresstest.py
   verificationCategories:
   - name: tests/aoj
     pages:
@@ -317,11 +322,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/aoj/tsp.test.cpp
       title: tests/aoj/tsp.test.cpp
-  - name: tests
-    pages:
-    - icon: ':x:'
-      path: tests/bigint_stresstest.test.py
-      title: tests/bigint_stresstest.test.py
   - name: tests/hackerrank
     pages:
     - icon: ':heavy_check_mark:'
