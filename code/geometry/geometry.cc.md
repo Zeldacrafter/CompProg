@@ -55,7 +55,7 @@ data:
     \ - o); }\n// Theta in radiens\npt rotate(pt a, double theta) { return a * polar(1.0,\
     \ theta); }\nLine ptToLine(pt p1, pt p2) {\n  if (abs(real(p1) - real(p2)) < EPS)\
     \ {\n    return {1.0, 0.0, -real(p1)};\n  } else {\n    double a = -(imag(p1)\
-    \ - imag(p2)) / (real(p1) - real(p2)),\n           c = -(a * real(p1)) - imag(p2);\n\
+    \ - imag(p2)) / (real(p1) - real(p2)),\n           c = -(a * real(p1)) - imag(p1);\n\
     \    return {a, 1.0, c};\n  }\n}\nbool areParallel(Line l1, Line l2) {\n  return\
     \ abs(l1.a - l2.a) < EPS && abs(l1.b - l2.b) < EPS;\n}\nbool areSame(Line l1,\
     \ Line l2) {\n  return areParallel(l1, l2) && abs(l1.c - l2.c) < EPS;\n}\npt intersectPt(Line\
@@ -82,7 +82,7 @@ data:
     \ radiens\npt rotate(pt a, double theta) { return a * polar(1.0, theta); }\nLine\
     \ ptToLine(pt p1, pt p2) {\n  if (abs(real(p1) - real(p2)) < EPS) {\n    return\
     \ {1.0, 0.0, -real(p1)};\n  } else {\n    double a = -(imag(p1) - imag(p2)) /\
-    \ (real(p1) - real(p2)),\n           c = -(a * real(p1)) - imag(p2);\n    return\
+    \ (real(p1) - real(p2)),\n           c = -(a * real(p1)) - imag(p1);\n    return\
     \ {a, 1.0, c};\n  }\n}\nbool areParallel(Line l1, Line l2) {\n  return abs(l1.a\
     \ - l2.a) < EPS && abs(l1.b - l2.b) < EPS;\n}\nbool areSame(Line l1, Line l2)\
     \ {\n  return areParallel(l1, l2) && abs(l1.c - l2.c) < EPS;\n}\npt intersectPt(Line\
@@ -100,15 +100,15 @@ data:
   isVerificationFile: false
   path: code/geometry/geometry.cc
   requiredBy:
-  - code/geometry/convexHull.cc
   - code/geometry/polygon.cc
-  timestamp: '2020-10-28 19:21:59+01:00'
+  - code/geometry/convexHull.cc
+  timestamp: '2023-12-28 00:27:15+01:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/polygon_area.test.cpp
   - tests/aoj/ccw.counter_clockwise.test.cpp
-  - tests/aoj/polygon_convex.test.cpp
   - tests/aoj/polygon_contains_point.test.cpp
+  - tests/aoj/polygon_convex.test.cpp
 documentation_of: code/geometry/geometry.cc
 layout: document
 redirect_from:

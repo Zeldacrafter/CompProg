@@ -48,7 +48,7 @@ data:
     \ - o); }\n// Theta in radiens\npt rotate(pt a, double theta) { return a * polar(1.0,\
     \ theta); }\nLine ptToLine(pt p1, pt p2) {\n  if (abs(real(p1) - real(p2)) < EPS)\
     \ {\n    return {1.0, 0.0, -real(p1)};\n  } else {\n    double a = -(imag(p1)\
-    \ - imag(p2)) / (real(p1) - real(p2)),\n           c = -(a * real(p1)) - imag(p2);\n\
+    \ - imag(p2)) / (real(p1) - real(p2)),\n           c = -(a * real(p1)) - imag(p1);\n\
     \    return {a, 1.0, c};\n  }\n}\nbool areParallel(Line l1, Line l2) {\n  return\
     \ abs(l1.a - l2.a) < EPS && abs(l1.b - l2.b) < EPS;\n}\nbool areSame(Line l1,\
     \ Line l2) {\n  return areParallel(l1, l2) && abs(l1.c - l2.c) < EPS;\n}\npt intersectPt(Line\
@@ -97,7 +97,7 @@ data:
   isVerificationFile: true
   path: tests/aoj/polygon_area.test.cpp
   requiredBy: []
-  timestamp: '2020-10-30 13:45:04+01:00'
+  timestamp: '2023-12-28 00:27:15+01:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/aoj/polygon_area.test.cpp

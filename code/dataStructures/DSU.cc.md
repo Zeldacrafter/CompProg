@@ -55,8 +55,8 @@ data:
   timestamp: '2020-10-28 19:21:59+01:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - tests/yosupo/unionfind.test.cpp
   - tests/aoj/kruskal.minimum_spanning_tree.test.cc
+  - tests/yosupo/unionfind.test.cpp
 documentation_of: code/dataStructures/DSU.cc
 layout: document
 redirect_from:

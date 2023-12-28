@@ -67,10 +67,10 @@ data:
   timestamp: '2020-10-28 19:21:59+01:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - tests/yosupo/segment_tree.static_range_sum.test.cpp
+  - tests/aoj/hld.range_query_on_tree.test.cpp
   - tests/yosupo/segment_tree.static_rmq.test.cpp
   - tests/yosupo/segment_tree.point_add_range_sum.test.cpp
-  - tests/aoj/hld.range_query_on_tree.test.cpp
+  - tests/yosupo/segment_tree.static_range_sum.test.cpp
 documentation_of: code/dataStructures/STIT.cc
 layout: document
 redirect_from:

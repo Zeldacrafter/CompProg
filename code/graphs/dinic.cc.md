@@ -109,8 +109,8 @@ data:
   timestamp: '2021-06-13 18:08:42+02:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - tests/yosupo/dinic.bipartitematching.test.cpp
   - tests/aoj/dinic.maximum_flow.test.cpp
+  - tests/yosupo/dinic.bipartitematching.test.cpp
 documentation_of: code/graphs/dinic.cc
 layout: document
 redirect_from:
