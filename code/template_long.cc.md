@@ -146,7 +146,9 @@ data:
     \ b) {\n  return a ^= b;\n}\ntemplate<typename T>\nset<T> operator/(set<T> a,\
     \ const set<T>& b) {\n  return a /= b;\n}\ntemplate<typename T>\nset<T> operator|(set<T>\
     \ a, const set<T>& b) {\n  return a |= b;\n}\ntemplate<typename T>\nbool operator<(const\
-    \ set<T>& s, const T& e) {\n  return static_cast<bool>(s.count(e));\n}\n"
+    \ set<T>& s, const T& e) {\n  return static_cast<bool>(s.count(e));\n}\ntemplate<typename\
+    \ T>\nbool operator<(const T& e, const set<T>& s) {\n  return static_cast<bool>(s.count(e));\n\
+    }\n"
   code: "///////////////////////////////////////////////////////////////\n// Long\
     \ template from: https://github.com/Zeldacrafter/CompProg\n//\n// Feature list:\n\
     // * C++14 compatibility.\n// * Various 'define'-shorthands and typedefs.\n//\
@@ -280,13 +282,15 @@ data:
     \ b) {\n  return a ^= b;\n}\ntemplate<typename T>\nset<T> operator/(set<T> a,\
     \ const set<T>& b) {\n  return a /= b;\n}\ntemplate<typename T>\nset<T> operator|(set<T>\
     \ a, const set<T>& b) {\n  return a |= b;\n}\ntemplate<typename T>\nbool operator<(const\
-    \ set<T>& s, const T& e) {\n  return static_cast<bool>(s.count(e));\n}\n"
+    \ set<T>& s, const T& e) {\n  return static_cast<bool>(s.count(e));\n}\ntemplate<typename\
+    \ T>\nbool operator<(const T& e, const set<T>& s) {\n  return static_cast<bool>(s.count(e));\n\
+    }\n"
   dependsOn: []
   isVerificationFile: false
   path: code/template_long.cc
   requiredBy:
   - code/utils/ops.cc
-  timestamp: '2022-12-03 23:51:40+01:00'
+  timestamp: '2024-04-19 13:55:53+02:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: code/template_long.cc

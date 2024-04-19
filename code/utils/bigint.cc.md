@@ -220,10 +220,10 @@ data:
   timestamp: '2020-10-29 21:53:40+01:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - tests/aoj/bigint.multiplication_bigint_2.test.cpp
+  - tests/aoj/bigint.multiplication_bigint_1.test.cpp
   - tests/aoj/bigint.addition_bigint.test.cpp
   - tests/aoj/bigint.subtraction_bigint.test.cpp
-  - tests/aoj/bigint.multiplication_bigint_1.test.cpp
+  - tests/aoj/bigint.multiplication_bigint_2.test.cpp
   - tests/hackerrank/aho_corasick.two_two.test.cpp
 documentation_of: code/utils/bigint.cc
 layout: document

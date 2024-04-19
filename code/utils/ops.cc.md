@@ -144,8 +144,9 @@ data:
     \ b) {\n  return a ^= b;\n}\ntemplate<typename T>\nset<T> operator/(set<T> a,\
     \ const set<T>& b) {\n  return a /= b;\n}\ntemplate<typename T>\nset<T> operator|(set<T>\
     \ a, const set<T>& b) {\n  return a |= b;\n}\ntemplate<typename T>\nbool operator<(const\
-    \ set<T>& s, const T& e) {\n  return static_cast<bool>(s.count(e));\n}\n#line\
-    \ 2 \"code/utils/ops.cc\"\n\n///////////////////////////////////////////////////////////////\n\
+    \ set<T>& s, const T& e) {\n  return static_cast<bool>(s.count(e));\n}\ntemplate<typename\
+    \ T>\nbool operator<(const T& e, const set<T>& s) {\n  return static_cast<bool>(s.count(e));\n\
+    }\n#line 2 \"code/utils/ops.cc\"\n\n///////////////////////////////////////////////////////////////\n\
     // Utility functions.\n///////////////////////////////////////////////////////////////\n\
     \nnamespace impl {\n  template <typename T, typename U, typename F, size_t...\
     \ Is>\n  T zipWith(const T& t, const U& u, F f, index_sequence<Is...>) { \n  \
@@ -478,7 +479,7 @@ data:
   isVerificationFile: false
   path: code/utils/ops.cc
   requiredBy: []
-  timestamp: '2022-12-03 23:51:40+01:00'
+  timestamp: '2024-04-19 13:55:53+02:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: code/utils/ops.cc

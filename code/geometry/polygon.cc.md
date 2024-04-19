@@ -110,8 +110,8 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/aoj/polygon_area.test.cpp
-  - tests/aoj/polygon_contains_point.test.cpp
   - tests/aoj/polygon_convex.test.cpp
+  - tests/aoj/polygon_contains_point.test.cpp
 documentation_of: code/geometry/polygon.cc
 layout: document
 redirect_from:
