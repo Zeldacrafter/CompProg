@@ -320,3 +320,7 @@ template<typename T>
 bool operator<(const set<T>& s, const T& e) {
   return static_cast<bool>(s.count(e));
 }
+template<typename T>
+bool operator<(const T& e, const set<T>& s) {
+  return static_cast<bool>(s.count(e));
+}
