@@ -1,7 +1,10 @@
 name: Documents
-on: 
+on:
   push:
     branches: master
+    paths:
+    - 'document/**'
+    - '.github/workflows/document.yml'
 
 
 jobs:
