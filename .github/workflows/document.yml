@@ -1,42 +1,30 @@
-name: Document
+name: Documents
+on: 
+  push:
+    branches: master
 
-on: push
 
 jobs:
-  document:
-    runs-on: ubuntu-20.04
-
+  build_latex:
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Build Document
-        run: docker run -v "${PWD}:/src" -w /src/document thomasweise/docker-texlive-full latexmk -pdf -latexoption="-shell-escape" main.tex
-
-      # Delete old release
-
-      - name: Delete old Release
-        # uses: ame-yu/action-delete-latest-release@v2
-        # with:
-        #   github_token: ${{ secrets.GITHUB_TOKEN }}
-
-        uses: dev-drprasad/delete-tag-and-release@v1.0.1
+      - name: Set up Git repository
+        uses: actions/checkout@v3
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v2
         with:
-          delete_release: true
-          tag_name: release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          latexmk_use_lualatex: true
+          work_in_root_file_dir: true
+          root_file: document/main.tex
+      - name: Copy PDFs
+        run: |
+          mkdir public
+          cp ./document/*.pdf ./public
+      - name: Upload PDF files
+        uses: actions/upload-artifact@v4
         with:
-          tag_name: release
-          release_name: Release
-          draft: false
-          prerelease: false
-
+          name: Documents
+          path: public/*.pdf
       - name: Upload Release Asset
         id: upload-release-asset 
         uses: actions/upload-release-asset@v1
@@ -44,6 +32,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} 
-          asset_path: ./document/main.pdf
+          asset_path: public/main.pdf
           asset_name: main.pdf
           asset_content_type: pdf
