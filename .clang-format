@@ -1,4 +1,0 @@
-BasedOnStyle: Google
-IndentWidth: 2
-ColumnLimit: 70
-ForEachMacros: ['FOR', 'F0R']
