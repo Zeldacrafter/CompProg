@@ -100,14 +100,14 @@ data:
   isVerificationFile: false
   path: code/geometry/geometry.cc
   requiredBy:
-  - code/geometry/convexHull.cc
   - code/geometry/polygon.cc
+  - code/geometry/convexHull.cc
   timestamp: '2023-12-28 00:27:15+01:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - tests/aoj/ccw.counter_clockwise.test.cpp
-  - tests/aoj/polygon_area.test.cpp
   - tests/aoj/polygon_convex.test.cpp
+  - tests/aoj/polygon_area.test.cpp
+  - tests/aoj/ccw.counter_clockwise.test.cpp
   - tests/aoj/polygon_contains_point.test.cpp
 documentation_of: code/geometry/geometry.cc
 layout: document

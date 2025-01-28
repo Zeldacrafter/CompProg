@@ -64,8 +64,8 @@ data:
   timestamp: '2020-10-28 19:21:59+01:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - tests/yosupo/fenwick_tree.static_range_sum.test.cpp
   - tests/yosupo/fenwick_tree.point_add_range_sum.test.cpp
+  - tests/yosupo/fenwick_tree.static_range_sum.test.cpp
   - tests/hackerrank/fenwick_tree_2d.cube-summation.test.cpp
 documentation_of: code/dataStructures/FT.cc
 layout: document

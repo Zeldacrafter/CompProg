@@ -68,8 +68,8 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/yosupo/segment_tree.static_rmq.test.cpp
-  - tests/yosupo/segment_tree.point_add_range_sum.test.cpp
   - tests/yosupo/segment_tree.static_range_sum.test.cpp
+  - tests/yosupo/segment_tree.point_add_range_sum.test.cpp
   - tests/aoj/hld.range_query_on_tree.test.cpp
 documentation_of: code/dataStructures/STIT.cc
 layout: document
