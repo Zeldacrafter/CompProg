@@ -5,6 +5,7 @@ on:
     branches: master
     paths:
     - 'code/**'
+    - '.github/workflows/build.yml'
 
 jobs:
   build:
