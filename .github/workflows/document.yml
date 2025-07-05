@@ -1,4 +1,4 @@
-name: Compiler and Upload Document
+name: Compile and Upload Document
 on:
   push:
     branches: master
