@@ -4,6 +4,7 @@ on:
     branches: master
     paths:
     - 'document/**'
+    - 'code/**'
     - '.github/workflows/document.yml'
 
 
